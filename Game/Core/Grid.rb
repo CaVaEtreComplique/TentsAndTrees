@@ -17,7 +17,6 @@ class Grid
 				end
 			}
 		}
-
 		@cols = @rows.transpose
 	end
 
@@ -28,7 +27,6 @@ class Grid
 				newCell.frozenOf(oldCell)
 			}
 		}
-
 		return newG
 	end
 

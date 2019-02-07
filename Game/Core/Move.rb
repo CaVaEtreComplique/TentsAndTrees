@@ -18,7 +18,7 @@ end
 class CellMove < Move
 	@cellsPos     # position of each
 	@firstState   # the state of the first cell
-	@type         # :primary :secondary
+	@type         # :primary
 
 	def initialize
 
