@@ -11,7 +11,7 @@ class ClueUi
 
 		gtkBox = Gtk::Box.new(orientation)
 		@gtkLabels = Gtk::Label.new(blocks.to_s)
-			gtkBox.pack_end(@gtkLabels, expand:false, fill:false, padding:3)
+			gtkBox.pack_end(@gtkLabels, expand:true, fill:true, padding:3)
 			@gtkObject = Gtk::Button.new
 		@gtkObject.add(gtkBox)
 	end

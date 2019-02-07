@@ -1,7 +1,7 @@
 require "gtk3"
 require File.dirname(__FILE__) + "/CellUi"
 require File.dirname(__FILE__) + "/SelectionUi"
-require File.dirname(__FILE__) + "/ClueUi"
+require File.dirname(__FILE__) + "/Buttons/ClueUi"
 require File.dirname(__FILE__) + "/Constants"
 require File.dirname(__FILE__) + "/Click"
 
@@ -69,10 +69,10 @@ class GridUi
 			}
 		}
 		@rowClues.each_with_index {|clue, i|
-			realGrid.attach(clue.gtkObject, 0, i+1, 1, 1)
+			realGrid.attach(clue.gtkObject, i+1, 0, 1, 1)
 		}
 		@colClues.each_with_index {|clue, i|
-			realGrid.attach(clue.gtkObject, i+1, 0, 1, 1)
+			realGrid.attach(clue.gtkObject, 0, i+1, 1, 1)
 		}
 		@gtkObject = Gtk::EventBox.new
 		@gtkObject.add(realGrid)

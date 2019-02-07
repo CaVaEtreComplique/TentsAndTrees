@@ -17,9 +17,9 @@ class GridGenerator
 
     case mode
     when "easy"
-      line=Random.new.rand(0...400)
+      line=Random.new.rand(0...100)
     when "medium"
-      line=Random.new.rand(401...700)
+      line=Random.new.rand(101...700)
     when "hard"
       line=Random.new.rand(701...1100)
     else

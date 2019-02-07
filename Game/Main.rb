@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
 require "gtk3"
-require "./Core/GridGenerator"
-require "./Ui/AssetsLoaderClass/CellAssets"
-require "./Core/GameMode"
-require "./Core/Game"
-require "./Ui/Screens/LoadingScreen"
-require "./Ui/Screens/GameScreen"
+require File.dirname(__FILE__) + "/Core/GridGenerator"
+require File.dirname(__FILE__) + "/Ui/AssetsLoaderClass/CellAssets"
+require File.dirname(__FILE__) + "/Core/GameMode"
+require File.dirname(__FILE__) + "/Core/Game"
+require File.dirname(__FILE__) + "/Ui/Screens/LoadingScreen"
+require File.dirname(__FILE__) + "/Ui/Screens/GameScreen"
 
 # ----------------------------------
 # => Generation de la fenetre de jeu
@@ -28,7 +28,7 @@ loadScreen.run
 Thread.new {
 	# Generation de la grille
 	loadScreen.text("Generation de la grille")
-	generatedGrid=GridGenerator.new("random")
+	generatedGrid=GridGenerator.new("easy")
 	# Generation de la partie
 	loadScreen.text("Generation de la partie")
 	game=Game.new(generatedGrid,nil)
