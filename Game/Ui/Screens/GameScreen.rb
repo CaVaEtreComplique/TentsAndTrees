@@ -18,7 +18,7 @@ class GameScreen < Screen
 		button1.add(gtkBox1)
 
     gtkBox2 = Gtk::Box.new(:vertical)
-		gtkLabels2 = Gtk::Label.new("Refuter Hypothèse")
+		gtkLabels2 = Gtk::Label.new("Réfuter Hypothèse")
 		gtkBox2.pack_end(gtkLabels2, expand:true, fill:false, padding:1)
 		button2 = Gtk::Button.new
 		button2.add(gtkBox2)
@@ -43,14 +43,11 @@ class GameScreen < Screen
         }
       }
 		}
-
     @gtkObject.attach(buttonsBox,2,3,1,2)
 # => DOWN UNTIL THERE
 
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-
-
   end
 
 end
