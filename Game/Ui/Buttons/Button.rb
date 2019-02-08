@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + "/../Click"
+
 class Button
   @blocks
 	@index
