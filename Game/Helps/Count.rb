@@ -24,7 +24,7 @@ class Count
   def Count.findFirst(game, state, vertHor, rank)
     if(vertHor==0)
     {#Vertical
-      0.upto(game.nRow){ |i|
+      (0..game.nRow).each{ |i|
         if(game.cellAt(i, 0).state == state){
           return game.cellAt(i, 0)
         }
@@ -32,7 +32,7 @@ class Count
     }
     elsif (vertHor ==1)
     {#Horizontal
-      0.upto(game.nRow){ |i|
+      (0..game.nRow).each{ |i|
         if(game.cellAt(0, i).state == state){
           return game.cellAt(i, 0)
         }
