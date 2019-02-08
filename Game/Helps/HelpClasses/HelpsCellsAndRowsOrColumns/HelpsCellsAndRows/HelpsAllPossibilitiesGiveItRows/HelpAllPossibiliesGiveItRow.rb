@@ -1,8 +1,8 @@
-require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
+require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
 #Help for when all the possibilities of the row give a cell with a state
 
-class HelpAllPossibilitiesGiveIt < HelpCellsAndRowsOrColumns
+class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   def initialize(cell, row, state)
     super(cell, row)
     @state = state
