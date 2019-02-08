@@ -11,4 +11,8 @@ class Help
   end
 
   attr_reader :row, :column, :cell, :text
+
+  def to_s
+    return text
+  end
 end
