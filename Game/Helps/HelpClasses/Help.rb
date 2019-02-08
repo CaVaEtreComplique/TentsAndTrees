@@ -15,4 +15,8 @@ class Help
   def to_s
     return text
   end
+
+  def helpFound?()
+    return true
+  end
 end
