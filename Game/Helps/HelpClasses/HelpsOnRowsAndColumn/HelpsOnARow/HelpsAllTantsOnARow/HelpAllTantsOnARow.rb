@@ -7,4 +7,5 @@ class HelpAllTantsOnARow
 
   def getText
     @helpText = "All tents needed are placed, so all the empty cells of the row " + @row + " are grass"
+  end
 end

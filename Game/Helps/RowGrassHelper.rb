@@ -10,7 +10,7 @@ class RowGrassHelper
       {#if there are much tents that we need for the column / the row
         if( cell = Count.findFirst(game, state: :white ,0,i).class == Cell)
         {#if there is an empty cell
-          return HelpAllTantsOnARow.new(i) #You help player by saying that the row is full of tents
+          return HelpAllTantsOnAColumn.new(i) #You help player by saying that the row is full of tents
         }
       }
     }
