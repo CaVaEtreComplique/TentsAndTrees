@@ -11,7 +11,7 @@ class Game
 
 	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess
 
-	def initialize(oGrid,gameMode)
+	def initialize(oGrid,gameMode,save=nil)
 		@rowClues = oGrid.rows
 		@colClues = oGrid.cols
 		@nCol = oGrid.nCols
@@ -35,4 +35,18 @@ class Game
 	def cellAt(row, col)
 		@currentGuess.cellAt(row, col)
 	end
+
+
+	def undo
+		@currentGuess.undo
+	end
+
+	def redo
+		@currentGuess.redo
+	end
+
+	def addmove(cellState)
+		@currentGuess.addmove(cellState)
+	end
+
 end

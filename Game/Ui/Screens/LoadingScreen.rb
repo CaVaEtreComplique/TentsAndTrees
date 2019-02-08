@@ -5,8 +5,8 @@ class LoadingScreen < Screen
 
   attr_reader :progressCount
 
-  def initialize()
-    super()
+  def initialize(parent)
+    super(parent)
     @progressBar = Gtk::ProgressBar.new
     @progressBar.pulse_step=0.3
     text

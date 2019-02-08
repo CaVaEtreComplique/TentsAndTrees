@@ -28,10 +28,12 @@ loadScreen.run
 Thread.new {
 	# Generation de la grille
 	loadScreen.text("Generation de la grille")
-	generatedGrid=GridGenerator.new("easy")
+	generatedGrid=GridGenerator.new("random")
 	# Generation de la partie
+	loadScreen.text("Génération de la sauvegarde")
+	# save=Save.new
 	loadScreen.text("Generation de la partie")
-	game=Game.new(generatedGrid,nil)
+	game=Game.new(generatedGrid,nil,nil)
 	# Generation des textures
 	loadScreen.text("Generation des textures")
 	assets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)

@@ -52,7 +52,6 @@ class GridUi
 				case event.button
 				when Click::LEFT
 					leftClickedDraged()
-					puts "coucou"
 				end
 			end
 			endDrag()
@@ -61,7 +60,6 @@ class GridUi
 		@gtkObject.signal_connect("leave_notify_event") { |widget, event|
 			if event.detail.nick != "inferior"
 				endDrag()
-				# self.refresh
 			end
 		}
 		@currentSelection = SelectionUi.new
@@ -102,8 +100,9 @@ class GridUi
 
 	def hover(cell)
 		return unless tracerActive?
-		row = @cells   [cell.row][0..(cell.col == 0 ? 0 : cell.col)]
-		col = @cellsTrans[cell.col][0..(cell.row == 0 ? 0 : cell.row)]
+		mode=0
+		row = @cells   [cell.row][0..(cell.col == 0 ? mode : cell.col)]
+		col = @cellsTrans[cell.col][0..(cell.row == 0 ? mode : cell.row)]
 		@currentSelection.update(row + col)
 		@currentSelection.show
 	end
@@ -131,12 +130,24 @@ class GridUi
 		case sameState.length
 			when 1
 				@first.leftClicked
+				cell=@first
+				@game.addmove(Proc.new{cell.leftClicked
+					 cell.leftClicked unless cell.coreCell.biRotative? 	})
 			else
 				sameState.each { |cell|
-					@first = cell
-					@first.dragLeftClicked
+					cell.dragLeftClicked
 				}
+				@game.addmove(Proc.new{sameState.each { |cell|
+					cell.dragLeftClicked	}})
 		end
+	end
+
+	def undo
+		@game.undo.call
+	end
+
+	def redo
+		@game.redo.call
 	end
 
 	def beginDrag(cell, click)

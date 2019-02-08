@@ -46,4 +46,8 @@ class Cell
 		return true
 	end
 
+	def biRotative?
+		@state == :lockedTree || :tree
+	end
+
 end

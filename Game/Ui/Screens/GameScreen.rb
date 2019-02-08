@@ -5,8 +5,8 @@ require File.dirname(__FILE__) + "/../Buttons/GuessUi"
 
 class GameScreen < Screen
 
-  def initialize(game,assets)
-    super()
+  def initialize(parent,game,assets)
+    super(parent)
     gridUi=GridUi.new(game, assets)
     @gtkObject = Gtk::Table.new(3,4)
 
@@ -35,11 +35,11 @@ class GameScreen < Screen
     }
     undoButton=Button.new(:vertical,"Annuler")
     undoButton.onClick(){
-      game.undo
+      gridUi.undo
     }
     redoButton=Button.new(:vertical,"Rétablir")
     redoButton.onClick(){
-      game.redo
+      gridUi.redo
     }
 
     undoRedoBox = Gtk::Box.new(:horizontal)
@@ -54,10 +54,6 @@ class GameScreen < Screen
     globalBox = Gtk::Box.new(:vertical)
     globalBox.add(leftBox).add(rightBox)
 
-    # @gtkObject.attach(Button.new(:vertical,"button1").gtkObject,0,1,0,3)
-    # @gtkObject.attach(Button.new(:vertical,"button2").gtkObject,2,3,0,3)
-    # @gtkObject.attach(Button.new(:horizontal,"button3").gtkObject,1,2,0,1)
-    # @gtkObject.attach(Button.new(:horizontal,"button4").gtkObject,1,2,2,3)
     @gtkObject.attach(globalBox,3,4,1,2)
     @gtkObject.attach(gridUi.gtkObject, 1, 2, 1, 2)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,3)

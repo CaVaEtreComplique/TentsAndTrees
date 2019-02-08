@@ -30,5 +30,22 @@ class Guess
 		@grid.cellAt(row, col)
 	end
 
+	##
+	# Undo the last Move did in this Guess
+	def undo
+		@moves.undo
+	end
+
+	##
+	# Redo the last Move did in this Guess
+	def redo
+		@moves.redo
+	end
+
+	def addmove(cellState)
+		@moves.add(cellState)
+	end
+
+
 
 end
