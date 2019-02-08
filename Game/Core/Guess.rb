@@ -42,8 +42,8 @@ class Guess
 		@moves.redo
 	end
 
-	def addmove(cellState)
-		@moves.add(cellState)
+	def addmove(cellState,triRotative)
+		@moves.add(cellState,triRotative)
 	end
 
 

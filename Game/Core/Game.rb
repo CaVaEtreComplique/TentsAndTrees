@@ -45,8 +45,8 @@ class Game
 		@currentGuess.redo
 	end
 
-	def addmove(cellState)
-		@currentGuess.addmove(cellState)
+	def addmove(move,triRotative=true)
+		@currentGuess.addmove(move,triRotative)
 	end
 
 end

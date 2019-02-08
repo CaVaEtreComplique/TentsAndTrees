@@ -35,6 +35,24 @@ class Cell
 		return true
 	end
 
+	def primaryUnchange
+		return false if @frozen unless (@state==:tree||@state==:lockedTree)
+		case @state
+			when :white
+				@state = :tent
+			when :tent
+				@state = :grass
+			when :grass
+				@state = :white
+
+			when :tree
+				@state = :lockedTree
+			when :lockedTree
+				@state = :tree
+		end
+		return true
+	end
+
 	def dragLeftChange
 		return false if @frozen
 		case @state
@@ -47,7 +65,7 @@ class Cell
 	end
 
 	def biRotative?
-		@state == :lockedTree || :tree
+		@state == :lockedTree ||  @state == :tree
 	end
 
 end

@@ -131,23 +131,24 @@ class GridUi
 			when 1
 				@first.leftClicked
 				cell=@first
-				@game.addmove(Proc.new{cell.leftClicked
-					 cell.leftClicked unless cell.coreCell.biRotative? 	})
+				@game.addmove(Proc.new{cell.unLeftClicked})
 			else
 				sameState.each { |cell|
 					cell.dragLeftClicked
 				}
-				@game.addmove(Proc.new{sameState.each { |cell|
-					cell.dragLeftClicked	}})
+				@game.addmove(Proc.new{sameState.each{ |cell|
+					cell.dragLeftClicked	}},false)
 		end
 	end
 
 	def undo
-		@game.undo.call
+		@game.undo[0].call
 	end
 
 	def redo
-		@game.redo.call
+		p=@game.redo
+		p[0].call unless !p[1]
+		p[0].call
 	end
 
 	def beginDrag(cell, click)

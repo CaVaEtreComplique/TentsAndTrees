@@ -33,6 +33,12 @@ class CellUi
 		show()
 	end
 
+	def unLeftClicked
+		coreCell.primaryUnchange()
+		normal()
+		show()
+	end
+
 	def dragLeftClicked
 		coreCell.dragLeftChange()
 		normal()
