@@ -14,7 +14,6 @@ class GridGenerator
     file = File.new(File.dirname(__FILE__) + "/../../Assets/Files/FichierDeGrilles.txt", "r")
     gridBase=file.readlines
     file.close
-
     case mode
     when "easy"
       line=Random.new.rand(0...100)
@@ -25,11 +24,8 @@ class GridGenerator
     else
       line=Random.new.rand(0...1100)
     end
-
     @difficulty=mode
-
     gridPick=gridBase[line]
-
     grid=gridPick.split(';')
     @nRows=grid.shift.to_i
     @nCols=grid.shift.to_i

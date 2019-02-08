@@ -9,6 +9,7 @@ class GridUi
 
 	@gtkObject        # the associated gtk object
 	@cells            # a matrix of all the cells
+	@cellsTrans				# a transposition of the matrix
 	@first            # the first cell in an action
 	@last             # the last cell in an action
 	@currentSelection # a SelectionUi object
@@ -17,6 +18,7 @@ class GridUi
 	@colClues         # all the clues for the cols
 	@assets
 	@click
+	@tracer
 	@screen
 
 	attr_reader :gtkObject
@@ -32,15 +34,17 @@ class GridUi
 		nCol = game.nCol
 		@game = game
 		@assets = assets
+		@tracer = true
 		# cration of the UI version of the clues
-		@rowClues = game.rowClues.each_with_index.map { |clue, i| ClueUi.new(:horizontal, clue, i) }
-		@colClues = game.colClues.each_with_index.map { |clue, i| ClueUi.new(:vertical,   clue, i) }
+		@rowClues = game.rowClues.each.map { |clue| ClueUi.new(:horizontal, clue) }
+		@colClues = game.colClues.each.map { |clue| ClueUi.new(:vertical,   clue) }
 		# creation of the UI version of the cells
 		@cells = (0...nRow).map { |r|
 			(0...nCol).map { |c|
 				CellUi.new(self, r, c, @assets)
 			}
 		}
+		@cellsTrans=@cells.transpose
 		# creation of the grid itself
 		initGtkGrid()
 		@gtkObject.signal_connect("button_release_event") { |_, event|
@@ -48,13 +52,17 @@ class GridUi
 				case event.button
 				when Click::LEFT
 					leftClickedDraged()
+					puts "coucou"
 				end
 			end
 			endDrag()
 		}
 		# comment the lines below to test without the bug
 		@gtkObject.signal_connect("leave_notify_event") { |widget, event|
-			endDrag() if event.detail.nick != "inferior"
+			if event.detail.nick != "inferior"
+				endDrag()
+				# self.refresh
+			end
 		}
 		@currentSelection = SelectionUi.new
 	end
@@ -76,6 +84,28 @@ class GridUi
 		}
 		@gtkObject = Gtk::EventBox.new
 		@gtkObject.add(realGrid)
+	end
+
+	def toogleTracer
+		case @tracer
+		when true
+			@tracer = false
+		when false
+			@tracer = true
+		end
+		@tracer
+	end
+
+	def tracerActive?
+		@tracer
+	end
+
+	def hover(cell)
+		return unless tracerActive?
+		row = @cells   [cell.row][0..(cell.col == 0 ? 0 : cell.col)]
+		col = @cellsTrans[cell.col][0..(cell.row == 0 ? 0 : cell.row)]
+		@currentSelection.update(row + col)
+		@currentSelection.show
 	end
 
 	def coreCellAt(row, col)
@@ -164,6 +194,14 @@ class GridUi
 
 	def clickdefined?
 		@last != nil && @first != nil
+	end
+
+	def refresh
+		@cells.each { |r|
+			r.each { |c|
+				c.normal
+			}
+		}
 	end
 
 end

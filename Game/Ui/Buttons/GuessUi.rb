@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + "/Button"
 
-class ClueUi < Button
+class GuessUi < Button
 
 end

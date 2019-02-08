@@ -20,6 +20,9 @@ class Game
 		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
 	end
 
+	def resetGrid
+		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
+	end
 
 	def beginGuess
 		@currentGuess = @currentGuess.next()
@@ -27,11 +30,6 @@ class Game
 
 	def removeGuess
 		@currentGuess = @currentGuess.prev()
-	end
-
-	def applyGuess
-		@currentGuess.apply
-		removeGuess()
 	end
 
 	def cellAt(row, col)

@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + "/Click"
+
 class CellUi
 
 	attr_reader :gtkObject, :row, :col, :variation
@@ -11,22 +13,18 @@ class CellUi
 		normal()
 
 		@gtkObject.signal_connect("button_press_event") { |_, event|
-			@parent.beginDrag(self, event.button)
-			Gdk.pointer_ungrab(Gdk::CURRENT_TIME)
+			if event.button==Click::LEFT
+				@parent.beginDrag(self, event.button)
+				Gdk.pointer_ungrab(Gdk::CURRENT_TIME)
+			end
 		}
 		@gtkObject.signal_connect("enter_notify_event") { |_, event|
 			if @parent.draged?
 				@parent.selection(self)
+			else
+				@parent.hover(self)
 			end
 		}
-	end
-
-	def to_s
-		"(r#{@row}, c#{@col})"
-	end
-
-	def say(msg)
-		puts "Cell #{self}: #{msg}"
 	end
 
 	def leftClicked
