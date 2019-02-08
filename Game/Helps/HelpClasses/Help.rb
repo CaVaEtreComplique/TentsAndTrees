@@ -7,11 +7,9 @@ class Help
     @helpText = self.helpText
   end
 
-  attr_reader :row, :column, :cell, :text
+  attr_reader :text
 
-  def to_s
-    return text
-  end
+  alias :to_s :text
 
   def helpFound?()
     return true

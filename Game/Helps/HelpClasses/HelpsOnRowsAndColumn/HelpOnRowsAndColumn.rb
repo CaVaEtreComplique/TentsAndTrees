@@ -2,8 +2,8 @@ require File.dirname(__FILE__) + "/../Help"
 
 class HelpOnRowsAndColumn
   def initialize(rowOrColumn)
-    @column = rowOrColumn 
+    @column = rowOrColumn
     @row = rowOrColumn
-    Super()
+    super()
   end
 end

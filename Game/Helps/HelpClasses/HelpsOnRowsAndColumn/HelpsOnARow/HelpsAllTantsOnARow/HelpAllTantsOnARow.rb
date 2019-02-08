@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + "/../HelpsOneRow"
 
 class HelpAllTantsOnARow
   def initialize(row)
-    Super(row)
+    super(row)
   end
 
   def getText
