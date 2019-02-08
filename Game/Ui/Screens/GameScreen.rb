@@ -8,7 +8,7 @@ class GameScreen < Screen
   def initialize(game,assets)
     super()
     gridUi=GridUi.new(game, assets)
-    @gtkObject = Gtk::Table.new(3,3)
+    @gtkObject = Gtk::Table.new(3,4)
 
     newGuess=GuessUi.new(:vertical,"Nouvelle Hypothèse")
     newGuess.onClick(){
@@ -35,9 +35,11 @@ class GameScreen < Screen
     }
     undoButton=Button.new(:vertical,"Annuler")
     undoButton.onClick(){
+      game.undo
     }
     redoButton=Button.new(:vertical,"Rétablir")
     redoButton.onClick(){
+      game.redo
     }
 
     undoRedoBox = Gtk::Box.new(:horizontal)
@@ -49,12 +51,16 @@ class GameScreen < Screen
     rightBox = Gtk::Box.new(:vertical)
     rightBox.add(newGuess.gtkObject).add(removeGuess.gtkObject).add(toogleTracer.gtkObject)
 
-    globalBox = Gtk::Box.new(:horizontal)
+    globalBox = Gtk::Box.new(:vertical)
     globalBox.add(leftBox).add(rightBox)
 
-    @gtkObject.attach(globalBox,2,3,1,2)
-    @gtkObject.attach(gridUi.gtkObject, 0, 1, 0, 3)
-    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+    # @gtkObject.attach(Button.new(:vertical,"button1").gtkObject,0,1,0,3)
+    # @gtkObject.attach(Button.new(:vertical,"button2").gtkObject,2,3,0,3)
+    # @gtkObject.attach(Button.new(:horizontal,"button3").gtkObject,1,2,0,1)
+    # @gtkObject.attach(Button.new(:horizontal,"button4").gtkObject,1,2,2,3)
+    @gtkObject.attach(globalBox,3,4,1,2)
+    @gtkObject.attach(gridUi.gtkObject, 1, 2, 1, 2)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,3)
   end
 
 end

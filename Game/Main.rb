@@ -22,7 +22,7 @@ win.signal_connect('delete_event') {
 win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
 win.resizable=true
 win.show_all
-(loadScreen=LoadingScreen.new).applyOn(win)
+(loadScreen=LoadingScreen.new(self)).applyOn(win)
 loadScreen.run
 
 Thread.new {
@@ -37,7 +37,7 @@ Thread.new {
 	assets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)
   # Generation de ecran de jeu
 	loadScreen.text("Generation de l'écran de jeu")
-	gameScreen=GameScreen.new(game,assets)
+	gameScreen=GameScreen.new(self,game,assets)
 	gameScreen.applyOn(win)
 	loadScreen.kill
 }
