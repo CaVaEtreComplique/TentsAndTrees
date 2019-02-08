@@ -1,7 +1,7 @@
 #class Help, which contain a String text to explain the help, a column, a row
 
 class Help
-  private_class_methode :new
+  private_class_methode :new  #abstract
 
   def initialize()
     @helpText = self.helpText

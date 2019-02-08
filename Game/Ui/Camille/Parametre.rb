@@ -14,6 +14,13 @@ class Parametre < Screen
     monLabel.set_markup(titre)
     @gtkObject.add(monLabel)
 
+    #Menu deroulant des langues
+    fr ="Francais"
+    ang="Anglais"
+    @gtkObject.add(langue=Gtk::ComboBoxText.new)
+    langue.append_text(fr)
+    langue.append_text(ang)
+
 
 
     appli=Button.new(:horizontal,"Appliquer")

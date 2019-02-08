@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + "/../Game"
+
 # count the cells whith the State state in the row or column rank in the Game game, verticaly (VertHor =0 ) or horizontaly (VertHor =1 )
 class Count
   def Count.count(game, state, vertHor, rank)

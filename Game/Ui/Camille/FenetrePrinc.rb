@@ -14,14 +14,13 @@ class FenetrePrinc < Screen
     menuV=Gtk::Box.new(:vertical,100)
     @gtkObject.attach(menuV,1,2,0,1)
     #Premiere case : titre
-    titre= "<span font_desc=\"menu\">Des arbres et des tentes </span>\n"
+    titre= "<span font_desc=\"menu\">dEs ArbrEs Et dEs tEntEs </span>\n"
     monLabel=Gtk::Label.new()
     monLabel.set_markup(titre)
     menuV.add(monLabel)
 
     #Bontons de menu
     jouer=Button.new(:horizontal,"jouer")
-
     menuV.add(jouer.gtkObject)
     jouer.onClick{
         ModeDeJeu.new(@parent).applyOn(@gtkObject)
