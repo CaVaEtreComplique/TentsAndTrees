@@ -3,7 +3,7 @@
 require File.dirname(__FILE__) + "/../HelpOnRowsAndColumn" + ".rb"
 
 class HelpOneRow < HelpOnRowsAndColumn
-  def initialize(row, column, cell, text)
-    Super(row, column, cell, text)
+  def initialize(row)
+    Super(row)
   end
 end

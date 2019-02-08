@@ -3,11 +3,8 @@
 class Help
   private_class_methode :new
 
-  def initialize(row, column, cell, text)
-    @row = row
-    @column = column
-    @cell = cell
-    @text = text
+  def initialize()
+    @helpText = self.helpText
   end
 
   attr_reader :row, :column, :cell, :text
@@ -18,5 +15,9 @@ class Help
 
   def helpFound?()
     return true
+  end
+
+  def getText()
+    @helpText = "Txt not Available"
   end
 end
