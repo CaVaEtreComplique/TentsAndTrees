@@ -31,7 +31,7 @@ class Game
 		@nCol = oGrid.nCols
 		@nRow = oGrid.nCols
 		@gridAnswers = oGrid.answers
-		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers,true))
+		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
 	end
 
