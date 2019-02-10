@@ -1,18 +1,27 @@
-# Cette classe permet de lancer un chronomètre sur un thread différent pour mesurer le temps écoulé
-# depuis le début d'une grille (ou de décompter le temps depuis un certian montant alloué)
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   08-Feb-2019
+# @Email:  coco72.cp@gmail.com
+# @Filename: Chronometre.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 09-Feb-2019
 
+
+
+# This Class allow to run a timer or a chrono (the rest of the file will write chrono for both)
+# on a separeted thread in order to mesure time spend
+# since the start of a game
+#
 
 require 'gtk3'
 require "../Constants.rb"
 
-#Representation d'un chronomètre thread
 class Chronometre
-	#@labelChrono 												Label affichant le temps
-	#@sec																	Le nombre de secondes écoulés depuis le premier lancement du Chrono
-	#@pause 		 													Booleen indiquant si le chrono est en pause ou non
-	#@chrono 															Le thread contenant le chrono
+	#@labelChrono 												time displaying label
+	#@sec																	seconds spent since the chrono start
+	#@pause 		 													Boolean allowing to know if the chrono is paused or not
+	#@chrono 															the thread which the chrono runs on+
 	#@dixieme 														Dixieme de seconde (Pas obligatoire)
-	#@mode
+	#@mode																Chrono or Timer
 
 	# nombre de seconde écoulée depuis la dernière remise à zéro
 	attr_reader :sec

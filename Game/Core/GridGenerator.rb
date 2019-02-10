@@ -1,3 +1,11 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: GridGenerator.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
 
 class GridGenerator
   @grid
@@ -14,6 +22,7 @@ class GridGenerator
     file = File.new(File.dirname(__FILE__) + "/../../Assets/Files/FichierDeGrilles.txt", "r")
     gridBase=file.readlines
     file.close
+    ProcessStatus.send("Choix de la grille")
     case mode
     when "easy"
       line=Random.new.rand(0...100)
@@ -21,9 +30,11 @@ class GridGenerator
       line=Random.new.rand(101...700)
     when "hard"
       line=Random.new.rand(701...1100)
-    else
+    when "random"
       line=Random.new.rand(0...1100)
     end
+    
+    ProcessStatus.send("Récupération des données de la grille")
     @difficulty=mode
     gridPick=gridBase[line]
     grid=gridPick.split(';')

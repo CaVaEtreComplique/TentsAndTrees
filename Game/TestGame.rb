@@ -1,13 +1,23 @@
-#!/usr/bin/env ruby
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: TestGame.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
 
+
+
+def require_all(_dir)
+	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
+		require file
+	}
+end
 require "gtk3"
-require File.dirname(__FILE__) + "/Core/GridGenerator"
-require File.dirname(__FILE__) + "/Ui/AssetsLoaderClass/CellAssets"
-require File.dirname(__FILE__) + "/Core/GameMode"
-require File.dirname(__FILE__) + "/Core/Game"
-require File.dirname(__FILE__) + "/Ui/Screens/LoadingScreen"
-require File.dirname(__FILE__) + "/Ui/Screens/GameScreen"
+require_all("Core")
+require_all("Ui")
 
+
+ProcessStatus.new
 # ----------------------------------
 # => Generation de la fenetre de jeu
 # ----------------------------------
@@ -22,26 +32,22 @@ win.signal_connect('delete_event') {
 win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
 win.resizable=true
 win.show_all
-(loadScreen=LoadingScreen.new(self)).applyOn(win)
-loadScreen.run
 
 Thread.new {
+	(loadScreen=LoadingScreen.new(win)).applyOn(win)
+	loadScreen.run
 	# Generation de la grille
-	loadScreen.text("Generation de la grille")
-	generatedGrid=GridGenerator.new("random")
+	generatedGrid=GridGenerator.new("easy")
 	# Generation de la partie
-	loadScreen.text("Génération de la sauvegarde")
 	# save=Save.new
-	loadScreen.text("Generation de la partie")
 	game=Game.new(generatedGrid,nil,nil)
 	# Generation des textures
-	loadScreen.text("Generation des textures")
 	assets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)
   # Generation de ecran de jeu
-	loadScreen.text("Generation de l'écran de jeu")
-	gameScreen=GameScreen.new(self,game,assets)
+	gameScreen=GameScreen.new(win,game,assets)
+	ProcessStatus.send("Affichage de l'écran de jeu")
 	gameScreen.applyOn(win)
-	loadScreen.kill
+	game.run
 }
 
 # ----------------------------------

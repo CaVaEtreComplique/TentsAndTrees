@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   08-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: SelectionUi.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 09-Feb-2019
+
+
+
 class SelectionUi
 	@selected
 	@modified

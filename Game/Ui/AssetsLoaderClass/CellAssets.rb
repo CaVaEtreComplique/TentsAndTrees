@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: CellAssets.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
+
 require File.dirname(__FILE__) + "/../AssetsClass/CellAsset"
 require File.dirname(__FILE__) + "/../AssetsClass/BackgroundAsset"
 require File.dirname(__FILE__) + "/../AssetsClass/WindowIconAsset"
@@ -25,6 +34,8 @@ class CellAssets
 		treeSelectedArrayFrozen = Array.new
 		lockedTreeSelectedArrayFrozen = Array.new
 
+		ProcessStatus.send("Chargement des textures")
+		ProcessStatus.send("Adaptation de textures de la grille à lécran")
 		(0...4).each { |x|
 			tentArray.push(CellAsset.new(pathToAssets+"tent"+x.to_s+".png",nRows, nCols))
 		}

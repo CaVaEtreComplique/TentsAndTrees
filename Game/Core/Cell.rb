@@ -1,4 +1,12 @@
-##
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: Cell.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
+
 # A Cell retains a state and an associated right to modify it's state
 
 class Cell
@@ -66,6 +74,12 @@ class Cell
 
 	def biRotative?
 		@state == :lockedTree ||  @state == :tree
+	end
+
+	def ==(otherCell)
+		oState=otherCell.state
+		return @state==otherCell.state unless ([:tree,:lockedTree].include?(oState) && [:tree,:lockedTree].include?(@state))
+		true
 	end
 
 end
