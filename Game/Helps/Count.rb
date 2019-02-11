@@ -6,17 +6,17 @@ class Count
     res = 0
     if(vertHor==0)
     {#Vertical
-      0.upto(game.nCol){ |i|
+      (0..game.nCol).each{ |i|
         if(game.cellAt(i, rank).state == state){
-          res = res+1
+          res += 1
         }
       }
     }
     elsif (vertHor ==1)
     {#Horizontal
-      0.upto(game.nRow){ |i|
+      (0..game.nRow).each{ |i|
         if(game.cellAt(rank, i).state == state){
-          res = res+1
+          res += 1
         }
       }
     }
@@ -24,7 +24,7 @@ class Count
   end
 
   def Count.findFirst(game, state, vertHor, rank)
-    if(vertHor==0)
+    if(vertHor == 0)
     {#Vertical
       (0..game.nCol).each{ |i|
         if(game.cellAt(i, rank).state == state){
@@ -32,7 +32,7 @@ class Count
         }
       }
     }
-    elsif (vertHor ==1)
+    elsif (vertHor == 1)
     {#Horizontal
       (0..game.nRow).each{ |i|
         if(game.cellAt(rank, i).state == state){
