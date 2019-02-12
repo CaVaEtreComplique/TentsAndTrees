@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   08-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: GridUi.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
+
 require "gtk3"
 require File.dirname(__FILE__) + "/CellUi"
 require File.dirname(__FILE__) + "/SelectionUi"
@@ -35,6 +44,7 @@ class GridUi
 		@game = game
 		@assets = assets
 		@tracer = true
+		ProcessStatus.send("Chargement des indices")
 		# cration of the UI version of the clues
 		@rowClues = game.rowClues.each.map { |clue| ClueUi.new(:horizontal, clue) }
 		@colClues = game.colClues.each.map { |clue| ClueUi.new(:vertical,   clue) }
@@ -46,6 +56,7 @@ class GridUi
 		}
 		@cellsTrans=@cells.transpose
 		# creation of the grid itself
+		ProcessStatus.send("Chargement des cases")
 		initGtkGrid()
 		@gtkObject.signal_connect("button_release_event") { |_, event|
 			if (@click == event.button)
@@ -100,7 +111,7 @@ class GridUi
 
 	def hover(cell)
 		return unless tracerActive?
-		mode=0
+		mode=0	# => 0 or -1
 		row = @cells   [cell.row][0..(cell.col == 0 ? mode : cell.col)]
 		col = @cellsTrans[cell.col][0..(cell.row == 0 ? mode : cell.row)]
 		@currentSelection.update(row + col)
@@ -131,23 +142,24 @@ class GridUi
 			when 1
 				@first.leftClicked
 				cell=@first
-				@game.addmove(Proc.new{cell.leftClicked
-					 cell.leftClicked unless cell.coreCell.biRotative? 	})
+				@game.addmove(Proc.new{cell.unLeftClicked})
 			else
 				sameState.each { |cell|
 					cell.dragLeftClicked
 				}
-				@game.addmove(Proc.new{sameState.each { |cell|
-					cell.dragLeftClicked	}})
+				@game.addmove(Proc.new{sameState.each{ |cell|
+					cell.dragLeftClicked	}},false)
 		end
 	end
 
 	def undo
-		@game.undo.call
+		@game.undo[0].call
 	end
 
 	def redo
-		@game.redo.call
+		p=@game.redo
+		p[0].call unless !p[1]
+		p[0].call
 	end
 
 	def beginDrag(cell, click)

@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: Guess.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 09-Feb-2019
+
+
+
 require File.dirname(__FILE__) + "/Moves"
 
 class Guess
@@ -42,8 +51,8 @@ class Guess
 		@moves.redo
 	end
 
-	def addmove(cellState)
-		@moves.add(cellState)
+	def addmove(cellState,triRotative)
+		@moves.add(cellState,triRotative)
 	end
 
 

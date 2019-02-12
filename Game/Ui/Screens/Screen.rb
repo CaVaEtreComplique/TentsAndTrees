@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: Screen.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
+
 require 'gtk3'
 
 class Screen
@@ -5,10 +14,10 @@ class Screen
   @backgroundPath
 
   def initialize(parent)
-    @parent=parent
-  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/forest.jpg")
     screen = Gdk::Screen.default
-    @buffer=@buffer.scale(screen.width, screen.height, :bilinear)
+    @parent=parent
+  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/"+Random.new.rand(1...4).to_s+".jpg")
+    @buffer=@buffer.scale(screen.width,screen.height)
   end
 
   def applyOn(widget)

@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   09-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: Moves.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 09-Feb-2019
+
+
+
 class Moves
 	@moves #All the Move s
 	@redo #Redo stack
@@ -14,15 +23,6 @@ class Moves
 	end
 
 	##
-	# Adds a Move to moves stack and clears redo stack
-	# * *Arguments* :
-	#   - +move+ -> the move to add
-	def add(move)
-		@moves.push(move)
-		clearRedo
-	end
-
-	##
 	# Replay each Move on th given Game
 	# * *Arguments* :
 	#   - +game+ -> the game to replay on
@@ -30,6 +30,15 @@ class Moves
 		@moves.each { |move|
 			move.replay(game)
 		}
+	end
+
+	##
+	# Adds a Move to moves stack and clears redo stack
+	# * *Arguments* :
+	#   - +move+ -> the move to add
+	def add(move,triRotative)
+		@moves.push([move,triRotative])
+		clearRedo
 	end
 
 	##
@@ -43,7 +52,7 @@ class Moves
 			@redo.push(@moves.pop)
 			return @redo.last
 		end
-		return Proc.new {}
+		return [Proc.new{},true]
 	end
 
 	##
@@ -57,7 +66,7 @@ class Moves
 			@moves.push(@redo.pop)
 			return @moves.last
 		end
-		return Proc.new {}
+		return [Proc.new{},true]
 	end
 
 	##

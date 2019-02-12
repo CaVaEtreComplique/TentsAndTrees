@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   08-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: CellUi.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 09-Feb-2019
+
+
+
 require File.dirname(__FILE__) + "/Click"
 
 class CellUi
@@ -29,6 +38,12 @@ class CellUi
 
 	def leftClicked
 		coreCell.primaryChange()
+		normal()
+		show()
+	end
+
+	def unLeftClicked
+		coreCell.primaryUnchange()
 		normal()
 		show()
 	end

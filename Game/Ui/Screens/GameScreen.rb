@@ -1,21 +1,34 @@
+# @Author: Corentin Petit <CorentinPetit>
+# @Date:   08-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: GameScreen.rb
+# @Last modified by:   CorentinPetit
+# @Last modified time: 10-Feb-2019
+
+
+
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../GridUi"
-require File.dirname(__FILE__) + "/../Buttons/GuessUi"
+require File.dirname(__FILE__) + "/../Buttons/Button"
 
 class GameScreen < Screen
 
   def initialize(parent,game,assets)
     super(parent)
+
+    @game=game.add_observer(self)
+
     gridUi=GridUi.new(game, assets)
     @gtkObject = Gtk::Table.new(3,4)
 
-    newGuess=GuessUi.new(:vertical,"Nouvelle Hypothèse")
+    ProcessStatus.send("Chargement des boutons de jeu")
+    newGuess=Button.new(:vertical,"Nouvelle Hypothèse")
     newGuess.onClick(){
       game.beginGuess
       gridUi.refresh
     }
-    removeGuess=GuessUi.new(:vertical,"Réfuter Hypothèse")
+    removeGuess=Button.new(:vertical,"Réfuter Hypothèse")
     removeGuess.onClick(){
       game.removeGuess
       gridUi.refresh
@@ -57,6 +70,11 @@ class GameScreen < Screen
     @gtkObject.attach(globalBox,3,4,1,2)
     @gtkObject.attach(gridUi.gtkObject, 1, 2, 1, 2)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,3)
+  end
+
+  def update
+    s=VictoryScreen.new(@parent)
+    s.applyOn(@parent)
   end
 
 end
