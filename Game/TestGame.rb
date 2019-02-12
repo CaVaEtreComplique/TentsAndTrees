@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: TestGame.rb
 # @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified time: 12-Feb-2019
 
 
 
@@ -22,7 +22,7 @@ ProcessStatus.new
 # => Generation de la fenetre de jeu
 # ----------------------------------
 screen=Gdk::Screen.default
-win = Gtk::Window.new.set_default_size(screen.width,screen.height)
+win = Gtk::Window.new.fullscreen
 win.title = "Tent & Trees"
 win.signal_connect('delete_event') {
 	Gtk.main_quit
@@ -42,9 +42,10 @@ Thread.new {
 	# save=Save.new
 	game=Game.new(generatedGrid,nil,nil)
 	# Generation des textures
-	assets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)
+	cellAssets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)
+	# charAssets=CharAssets.new( (screen.width*0.3)/50 )
   # Generation de ecran de jeu
-	gameScreen=GameScreen.new(win,game,assets)
+	gameScreen=GameScreen.new(win,game,cellAssets)
 	ProcessStatus.send("Affichage de l'écran de jeu")
 	gameScreen.applyOn(win)
 	game.run

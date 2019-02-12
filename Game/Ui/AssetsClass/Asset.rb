@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Asset.rb
 # @Last modified by:   CorentinPetit
-# @Last modified time: 09-Feb-2019
+# @Last modified time: 12-Feb-2019
 
 
 
@@ -17,7 +17,6 @@ class Asset
 
 	def initialize(file)
 		@buffer= GdkPixbuf::Pixbuf.new(file: file)
-		resize
 	end
 
 	def resize(width,height)

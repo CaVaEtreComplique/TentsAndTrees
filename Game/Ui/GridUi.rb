@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
 # @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified time: 11-Feb-2019
 
 
 
@@ -60,14 +60,13 @@ class GridUi
 		initGtkGrid()
 		@gtkObject.signal_connect("button_release_event") { |_, event|
 			if (@click == event.button)
-				case event.button
-				when Click::LEFT
+				if event.button
+					Click::LEFT
 					leftClickedDraged()
 				end
 			end
 			endDrag()
 		}
-		# comment the lines below to test without the bug
 		@gtkObject.signal_connect("leave_notify_event") { |widget, event|
 			if event.detail.nick != "inferior"
 				endDrag()

@@ -3,17 +3,17 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CellAssets.rb
 # @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified time: 11-Feb-2019
 
 
 
 require File.dirname(__FILE__) + "/../AssetsClass/CellAsset"
-require File.dirname(__FILE__) + "/../AssetsClass/BackgroundAsset"
-require File.dirname(__FILE__) + "/../AssetsClass/WindowIconAsset"
 
 class CellAssets
 	@cellAssets
 	@cellAssetsSelected
+	@cellAssetsFrozen
+	@cellAssetsSelectedFrozen
 
 	# @buttons ...
 	def initialize(nRows, nCols)
