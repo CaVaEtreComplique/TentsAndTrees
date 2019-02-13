@@ -21,7 +21,7 @@ class Game
 	@nCol
 	@nRow
 
-	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
+	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction, :chrono
 	attr_reader :chrono
 
 	def initialize(oGrid,gameMode,save=nil)
@@ -34,6 +34,7 @@ class Game
 		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
     @moveDone=false
+    (@chrono=GLib::Timer.new).stop
 	end
 
 	def resetGrid
@@ -71,6 +72,7 @@ class Game
 	end
 
 	def run
+    @chrono.start
 		loop do
 			if @moveDone
 				changed                 # notify observers

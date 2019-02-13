@@ -34,10 +34,12 @@ class ClueUi < Button
   end
 
   def update
-    if @gtkLabels.text.to_i < count(:tent)
-      @gtkLabels.set_markup("<span foreground='red' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
-    elsif @gtkLabels.text.to_i == count(:tent)
+    i = @gtkLabels.text.to_i
+    c=count(:tent)
+    if i == c
       @gtkLabels.set_markup("<span foreground='green' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
+    elsif i < c
+      @gtkLabels.set_markup("<span foreground='red' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
     else
       @gtkLabels.set_markup("<span foreground='black' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
     end

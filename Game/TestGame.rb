@@ -21,7 +21,6 @@ ProcessStatus.new
 # ----------------------------------
 # => Generation de la fenetre de jeu
 # ----------------------------------
-screen=Gdk::Screen.default
 win = Gtk::Window.new.fullscreen
 win.title = "Tent & Trees"
 win.signal_connect('delete_event') {

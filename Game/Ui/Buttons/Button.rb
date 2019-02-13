@@ -16,13 +16,12 @@ class Button
 	@gtkObject
 	@gtkLabels
 
-	attr_reader :gtkObject
+	attr_reader :gtkObject, :gtkLabels
 
 	def initialize(orientation, label)
-		# @gtkLabels = Gtk::Label.new()
 		@gtkLabels = Gtk::Label.new(label.to_s)
     gtkBox = Gtk::Box.new(orientation)
-		gtkBox.pack_end(@gtkLabels, expand:true, fill:true, padding:0)
+		gtkBox.pack_end(@gtkLabels, expand:true, fill:false, padding:0)
 		@gtkObject = Gtk::Button.new
 		@gtkObject.add(gtkBox)
 	end

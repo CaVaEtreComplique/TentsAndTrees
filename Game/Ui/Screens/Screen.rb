@@ -16,8 +16,7 @@ class Screen
   def initialize(parent)
     screen = Gdk::Screen.default
     @parent=parent
-  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/2.jpg")
-  	# @buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/"+Random.new.rand(1...4).to_s+".jpg")
+  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/4.png")
     @buffer=@buffer.scale(screen.width,screen.height)
   end
 

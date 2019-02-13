@@ -64,13 +64,15 @@ class Text
     newLabel.split(//).each{ |char|
       CharAssets.new(char.upcase,@fs).asset.applyOn(@textBox)
     }
-    @textBoxSelected.each { |child|
-      @textBoxSelected.remove(child)
-    }
-    newLabel.split(//).each{ |char|
-      CharAssets.new(char.upcase+"Selected",@fs).asset.applyOn(@textBoxSelected)
-    }
-    @textBoxSelected.show_all
+    if ! defined?(@textBoxSelected).nil?
+      @textBoxSelected.each { |child|
+        @textBoxSelected.remove(child)
+      }
+      newLabel.split(//).each{ |char|
+        CharAssets.new(char.upcase+"Selected",@fs).asset.applyOn(@textBoxSelected)
+      }
+      @textBoxSelected.show_all
+    end
     @textBox.show_all
     self
   end
@@ -100,7 +102,8 @@ class Text
   def ratio(width,height)
     cw=[(width/@charNumber-@borderWidth*2).truncate,10].max
     ch=[(height-@borderWidth*2).truncate,10].max
-    (ch * @charNumber + @borderWidth*2) < cw ? ch : cw
+    # (ch * @charNumber + @borderWidth*2) < cw ? ch : cw
+    ch
   end
 
 end
