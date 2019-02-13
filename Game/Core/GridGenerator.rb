@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 
@@ -33,7 +33,7 @@ class GridGenerator
     when "random"
       line=Random.new.rand(0...1100)
     end
-    
+
     ProcessStatus.send("Récupération des données de la grille")
     @difficulty=mode
     gridPick=gridBase[line]

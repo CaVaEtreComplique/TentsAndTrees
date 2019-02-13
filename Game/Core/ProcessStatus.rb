@@ -2,7 +2,7 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ProcessStatus.rb
-# @Last modified by:   CorentinPetit
+# @Last modified by:   zeigon
 # @Last modified time: 12-Feb-2019
 
 
@@ -25,7 +25,7 @@ class ProcessStatus
       @@status=message
       @@observers.each{ |o|
         o.recive(@@status)
-        sleep(0.5)
+        # sleep(0.5)
       }
     end
     self

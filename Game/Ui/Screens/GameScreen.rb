@@ -2,8 +2,8 @@
 # @Date:   08-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 12-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 
@@ -16,7 +16,7 @@ class GameScreen < Screen
 
   def initialize(parent,game,cellAssets)
     super(parent)
-    @game=game.add_observer(self)
+    (@game=game).add_observer(self)
     @victoryScreen = VictoryScreen.new(@parent,@game)
 
     gridUi=GridUi.new(game, cellAssets)
@@ -25,34 +25,43 @@ class GameScreen < Screen
     screen=Gdk::Screen.default
 
     ProcessStatus.send("Chargement des textures")
-    newGuess=Text.new("Nouvelle Hypothese",screen.width*0.28,screen.height*0.28)
+    newGuess=Text.new("Nouvelle Hypothese",screen.width*0.3,screen.height*0.3)
     newGuess.onClick(){
       game.beginGuess
       gridUi.refresh
     }
-    removeGuess=Text.new("Refuter Hypothese",screen.width*0.28,screen.height*0.28)
+    removeGuess=Text.new("Refuter Hypothese",screen.width*0.3,screen.height*0.1)
     removeGuess.onClick(){
       game.removeGuess
       gridUi.refresh
     }
-    toogleTracer=Text.new("Desactiver le traceur",screen.width*0.28,screen.height*0.28)
+    toogleTracer=Text.new("Desactiver le traceur",screen.width*0.3,screen.height*0.1)
     toogleTracer.onClick(){
       if gridUi.toogleTracer
-        toogleTracer.updateLabel("Desactiver le traceur",screen.width*0.28,screen.height*0.28)
+        toogleTracer.updateLabel("Desactiver le traceur",screen.width*0.3,screen.height*0.1)
       else
-        toogleTracer.updateLabel("Activer le traceur",screen.width*0.28,screen.height*0.28)
+        toogleTracer.updateLabel("Activer le traceur",screen.width*0.3,screen.height*0.1)
       end
     }
-    resetGrid=Text.new("Remettre la grille a zero",screen.width*0.28,screen.height*0.28)
+
+    toogleCountIndicators=Text.new("Desactiver les Indicateurs",screen.width*0.3,screen.height*0.1)
+    toogleCountIndicators.onClick(){
+      if gridUi.toogleCountIndicators
+        toogleCountIndicators.updateLabel("Desactiver les Indicateurs",screen.width*0.3,screen.height*0.1)
+      else
+        toogleCountIndicators.updateLabel("Activer les Indicateurs",screen.width*0.3,screen.height*0.1)
+      end
+    }
+    resetGrid=Text.new("Remettre la grille a zero",screen.width*0.3,screen.height*0.1)
     resetGrid.onClick(){
       game.resetGrid
       gridUi.refresh
     }
-    undoButton=Text.new("Annuler",screen.width*0.14,screen.height*0.28)
+    undoButton=Text.new("Annuler",screen.width*0.15,screen.height*0.1)
     undoButton.onClick(){
       gridUi.undo
     }
-    redoButton=Text.new("Retablir",screen.width*0.14,screen.height*0.28)
+    redoButton=Text.new("Retablir",screen.width*0.15,screen.height*0.1)
     redoButton.onClick(){
       gridUi.redo
     }
@@ -68,6 +77,7 @@ class GameScreen < Screen
     globalBox.pack_start(newGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(removeGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: 10)
+    globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: 10)
 
     @gtkObject.attach(globalBox,3,4,1,2)
     @gtkObject.attach(gridUi.gtkObject, 1, 2, 1, 2)
@@ -75,7 +85,10 @@ class GameScreen < Screen
   end
 
   def update
-    @victoryScreen.applyOn(@parent)
+    if @game.currentGuess.grid==@game.correction
+      @victoryScreen.applyOn(@parent)
+      @game.delete_observer(self)
+    end
   end
 
 end

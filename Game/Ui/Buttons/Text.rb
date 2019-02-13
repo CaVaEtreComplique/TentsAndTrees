@@ -2,8 +2,8 @@
 # @Date:   10-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 12-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 class Text
 
@@ -17,14 +17,16 @@ class Text
     @label=label
     @orientation=orientation
     @gtkObject=Gtk::Alignment.new(0.5, 0.2, 0, 0)
-    @eventBox = Gtk::EventBox.new()
+    @eventBox = Gtk::EventBox.new
     @eventBox.set_border_width(@borderWidth)
-    @textBox = Gtk::Box.new(orientation)
+    @textBox = Gtk::Box.new(@orientation)
+    @textBoxSelected = Gtk::Box.new(@orientation)
 
     @fs=ratio(@currentWidth,@currentHeight)
 
     @label.split(//).each{ |char|
-      CharAssets.new(char,@fs).asset.applyOn(@textBox)
+      CharAssets.new(char.upcase,@fs).asset.applyOn(@textBox)
+      CharAssets.new(char.upcase+"Selected",@fs).asset.applyOn(@textBoxSelected)
     }
 
     @gtkObject.add(@eventBox.add(@textBox))
@@ -36,9 +38,13 @@ class Text
     @textBox.each { |child|
       @textBox.remove(child)
     }
+    @textBoxSelected.each { |child|
+      @textBoxSelected.remove(child)
+    }
     @fs=ratio(width,height)
     @label.split(//).each{ |char|
-      CharAssets.new(char,@fs).asset.applyOn(@textBox)
+      CharAssets.new(char.upcase,@fs).asset.applyOn(@textBox)
+      CharAssets.new(char.upcase+"Selected",@fs).asset.applyOn(@textBoxSelected)
     }
     @textBox.show_all
     self
@@ -54,29 +60,22 @@ class Text
     @textBox.each { |child|
       @textBox.remove(child)
     }
-
-    if !defined?(@textBoxSelected).nil? then
-      @textBoxSelected.each { |child|
-        @textBoxSelected.remove(child)
-      }
-    end
-
     @fs=ratio(width,height)
     newLabel.split(//).each{ |char|
-      CharAssets.new(char,@fs).asset.applyOn(@textBox)
-      if !defined?(@textBoxSelected).nil? then CharAssets.new(char,@fs).asset.applyOn(@textBoxSelected) end
+      CharAssets.new(char.upcase,@fs).asset.applyOn(@textBox)
     }
+    @textBoxSelected.each { |child|
+      @textBoxSelected.remove(child)
+    }
+    newLabel.split(//).each{ |char|
+      CharAssets.new(char.upcase+"Selected",@fs).asset.applyOn(@textBoxSelected)
+    }
+    @textBoxSelected.show_all
     @textBox.show_all
-    if !defined?(@textBoxSelected).nil? then @textBoxSelected.show_all end
     self
   end
 
   def onClick(block=nil)
-    return unless block_given?
-    @textBoxSelected = Gtk::Box.new(@orientation)
-    @label.split(//).each{ |char|
-      CharAssets.new(char+"Selected",@fs).asset.applyOn(@textBoxSelected)
-    }
     @eventBox.signal_connect("enter_notify_event") { |widget, event|
       @eventBox.each { |child|
         @eventBox.remove(child)
@@ -99,9 +98,9 @@ class Text
   end
 
   def ratio(width,height)
-    w=[(width/@charNumber-@borderWidth*2).truncate,10].max
-    h=[(height/@charNumber-@borderWidth*2).truncate,10].max
-    fs=[w,h].max
+    cw=[(width/@charNumber-@borderWidth*2).truncate,10].max
+    ch=[(height-@borderWidth*2).truncate,10].max
+    (ch * @charNumber + @borderWidth*2) < cw ? ch : cw
   end
 
 end

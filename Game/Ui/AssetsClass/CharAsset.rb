@@ -2,7 +2,7 @@
 # @Date:   10-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CharAsset.rb
-# @Last modified by:   CorentinPetit
+# @Last modified by:   zeigon
 # @Last modified time: 12-Feb-2019
 
 
@@ -14,7 +14,7 @@ class CharAsset < Asset
 	@image
 	@buffer
 	def initialize(char,width=20)
-		super(File.dirname(__FILE__) + "/../../../Assets/Characters/"+char.upcase+".png")
+		super(File.dirname(__FILE__) + "/../../../Assets/Characters/"+char+".png")
 		resize(width,width)
 	end
 

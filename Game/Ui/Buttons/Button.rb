@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Button.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 
@@ -19,6 +19,7 @@ class Button
 	attr_reader :gtkObject
 
 	def initialize(orientation, label)
+		# @gtkLabels = Gtk::Label.new()
 		@gtkLabels = Gtk::Label.new(label.to_s)
     gtkBox = Gtk::Box.new(orientation)
 		gtkBox.pack_end(@gtkLabels, expand:true, fill:true, padding:0)

@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: TestGame.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 12-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 

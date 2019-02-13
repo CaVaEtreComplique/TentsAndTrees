@@ -2,8 +2,8 @@
 # @Date:   08-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 11-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 
@@ -43,11 +43,11 @@ class GridUi
 		nCol = game.nCol
 		@game = game
 		@assets = assets
-		@tracer = true
+		@countIndicators = @tracer = true
 		ProcessStatus.send("Chargement des indices")
 		# cration of the UI version of the clues
-		@rowClues = game.rowClues.each.map { |clue| ClueUi.new(:horizontal, clue) }
-		@colClues = game.colClues.each.map { |clue| ClueUi.new(:vertical,   clue) }
+		@rowClues = game.rowClues.each_with_index.map { |clue,j| ClueUi.new(:horizontal, clue, j, @game) }
+		@colClues = game.colClues.each_with_index.map { |clue,i| ClueUi.new(:vertical,   clue, i, @game) }
 		# creation of the UI version of the cells
 		@cells = (0...nRow).map { |r|
 			(0...nCol).map { |c|
@@ -102,6 +102,20 @@ class GridUi
 			@tracer = true
 		end
 		@tracer
+	end
+
+	def toogleCountIndicators
+		case @countIndicators
+		when true
+			@countIndicators = false
+			@rowClues.each{ |c|  c.activateHelp(@countIndicators)}
+			@colClues.each{ |c|  c.activateHelp(@countIndicators)}
+		when false
+			@countIndicators = true
+			@rowClues.each{ |c|  c.activateHelp(@countIndicators)}
+			@colClues.each{ |c|  c.activateHelp(@countIndicators)}
+		end
+		@countIndicators
 	end
 
 	def tracerActive?

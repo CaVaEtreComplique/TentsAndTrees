@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Cell.rb
-# @Last modified by:   CorentinPetit
-# @Last modified time: 10-Feb-2019
+# @Last modified by:   zeigon
+# @Last modified time: 13-Feb-2019
 
 
 
@@ -15,7 +15,7 @@ class Cell
 	@frozen # if it's frozen it cannot be modified
 
 	attr_reader :state, :frozen
-	def initialize(args={state: :white, frozen: false}) # default value are there only if no args are given
+	def initialize(args={state: :white, frozen: false}) # default value are there only if no args at all are given
 		@state = args[:state]
 		@frozen = args[:frozen]
 	end
