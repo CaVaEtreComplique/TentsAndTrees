@@ -62,8 +62,7 @@ class GameScreen < Screen
         @game.chrono.stop
         @pauseScreen.applyOn(@parent)
     }
-    @chronoUi=ChronoUi.new(@game.chrono)
-    @chronoUi.run
+    @chronoUi=ChronoUi.new(@game.time.truncate)
 
     undoRedoBox = Gtk::Box.new(:horizontal)
     undoRedoBox.pack_start(undoButton.gtkObject, expand: false, fill: false, padding: 10)
@@ -86,10 +85,15 @@ class GameScreen < Screen
   end
 
   def update
+    @chronoUi.updateLabel(@game.time.truncate)
     if @game.currentGuess.grid==@game.correction
       @game.chrono.stop
-      @victoryScreen.applyOn(@parent,@chronoUi.gtkLabels.label)
-      # @game.delete_observer(self)
+      @victoryScreen.applyOn(@parent,@chronoUi.gtkLabels.label,true)
+      @game.delete_observer(self)
+    elsif @game.time.truncate <=0
+      @game.chrono.stop
+      @victoryScreen.applyOn(@parent,@chronoUi.gtkLabels.label,false)
+      @game.delete_observer(self)
     end
   end
 

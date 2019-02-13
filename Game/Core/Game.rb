@@ -21,10 +21,10 @@ class Game
 	@nCol
 	@nRow
 
-	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction, :chrono
-	attr_reader :chrono
+	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
+	attr_reader :chrono, :time
 
-	def initialize(oGrid,gameMode,save=nil)
+	def initialize(oGrid,gameMode,baseTime=0,save=nil)
 		ProcessStatus.send("Initialisation de la Partie")
 		@rowClues = oGrid.rows
 		@colClues = oGrid.cols
@@ -34,7 +34,9 @@ class Game
 		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
     @moveDone=false
+    @baseTime=baseTime
     (@chrono=GLib::Timer.new).stop
+    @time=@chrono.elapsed[0]
 	end
 
 	def resetGrid
@@ -73,8 +75,11 @@ class Game
 
 	def run
     @chrono.start
+    lastTime=0
 		loop do
-			if @moveDone
+      @time=(@baseTime-(@chrono.elapsed[0]).truncate).abs
+			if @moveDone || @time!=lastTime
+        lastTime=@time
 				changed                 # notify observers
 				notify_observers()
         # delete_observers()

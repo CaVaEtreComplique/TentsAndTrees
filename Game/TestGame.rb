@@ -39,7 +39,7 @@ Thread.new {
 	generatedGrid=GridGenerator.new("easy")
 	# Generation de la partie
 	# save=Save.new
-	game=Game.new(generatedGrid,nil,nil)
+	game=Game.new(generatedGrid,nil)
 	# Generation des textures
 	cellAssets=CellAssets.new(generatedGrid.nRows, generatedGrid.nCols)
 	# charAssets=CharAssets.new( (screen.width*0.3)/50 )
