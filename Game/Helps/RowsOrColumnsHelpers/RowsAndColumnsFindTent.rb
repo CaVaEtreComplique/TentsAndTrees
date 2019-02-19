@@ -1,6 +1,6 @@
 #RowsAndColumnsFindTent help you to find Tent in a row or columns
 
-require File.dirname(__FILE__) + "/FindTent"
+require File.dirname(__FILE__) + "/../../Core/Game"
 
 class RowsAndColumnsFindTent
 
@@ -24,27 +24,25 @@ class RowsAndColumnsFindTent
 
         if(game.cellAt(i, j).state == (state: :white)){
 
-          if (!cellFind && !cellSet){   #if don't have a cell registed / correct already
+          if (!cellFind && !cellSet){   #we lock the first cell of the actual zone we're in, unless we already have a correct cell
             cell = game.cellAt(i, j)
-            cellFind = true             #we lock the first cell of the zone
+            cellFind = true
           }
           sizeTentZone += 1;
 
         }else if(game.cellAt(i, j).state == (state: :grass)){
 
-          switch(sizeTentZone % 2){
-            case 1:
-              nbTent += 1
-              cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-              break;
+          case (sizeTentZone % 2)
+          when 1
+            nbTent += 1
+            cellSet = true  #The size of the zone is odd so the cell that we have selected beforehand can be tent.
 
-            case 0:
-              if (!cellSet){
-                cellFind = false
-                cell = nil
-              }
-              break;
-          }
+          when 0
+            if (!cellSet){
+              cellFind = false #The size of the zone is even so the cell that we have selected beforehand can't be a tent.
+              cell = nil
+            }
+          end
 
           nbTent += sizeTentZone / 2;
           sizeTentZone = 0;
@@ -53,22 +51,21 @@ class RowsAndColumnsFindTent
 
           if(game.cellAt(i + 1, j + 1).state == (state: :tree) || game.cellAt(i + 1, j - 1).state == (state: :tree) ||
           game.cellAt(i - 1, j + 1).state == (state: :tree) || game.cellAt(i - 1, j - 1).state == (state: :tree) ||
-          game.cellAt(i, j + 1).state == (state: :tree) || game.cellAt(i, j + 2).state == (state: :tree))
+          game.cellAt(i, j + 1).state == (state: :tree) || game.cellAt(i, j + 2).state == (state: :tree) || game.cellAt(i, j - 2).state == (state: :tree))
           { #We do not link the left zone and the right zone
 
-            switch(sizeTentZone % 2){
-              case 1:
-                nbTent += 1
-                cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-                break;
+            #so the tree that we found act as a white case
+            case (sizeTentZone % 2)
+            when 1
+              nbTent += 1
+              cellSet = true  #The size of the zone is odd so the cell that we have selected beforehand can be tent.
 
-              case 0:
-                if (!cellSet){
-                  cellFind = false
-                  cell = nil
-                }
-                break;
-            }
+            when 0:
+              if (!cellSet){
+                cellFind = false  #The size of the zone is even so the cell that we have selected beforehand can't be a tent.
+                cell = nil
+              }
+            end
 
             nbTent += sizeTentZone / 2;
             sizeTentZone = 0;
@@ -85,23 +82,21 @@ class RowsAndColumnsFindTent
 
       }
 
-      switch(sizeTentZone % 2){
-        case 1:
-          nbTent += 1
-          cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-          break;
+      case (sizeTentZone % 2)
+      when 1
+        nbTent += 1
+        cellSet = true  #The size of the zone is odd so the cell that we have selected beforehand can be tent.
 
-        case 0:
-          if (!cellSet){
-            cellFind = false
-            cell = nil
-          }
-          break;
-      }
+      when 0:
+        if (!cellSet){
+          cellFind = false  #The size of the zone is even so the cell that we have selected beforehand can't be a tent.
+          cell = nil
+        }
+      end
 
       nbTent += sizeTentZone / 2;
 
-      return cell if nbTent == clue && !cell.nil?
+      return HelpAllPossibilitiesGiveItRow.new(cell, i, state: :tent) if nbTent == clue && !cell.nil?
     }
 
     #for each column we applie the alorithm
@@ -125,19 +120,17 @@ class RowsAndColumnsFindTent
 
         }else if(game.cellAt(j, i).state == (state: :grass)){
 
-          switch(sizeTentZone % 2){
-            case 1:
-              nbTent += 1
-              cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-              break;
+          case (sizeTentZone % 2)
+          when 1
+            nbTent += 1
+            cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
 
-            case 0:
-              if (!cellSet){
-                cellFind = false
-                cell = nil
-              }
-              break;
-          }
+          when 0
+            if (!cellSet){
+              cellFind = false
+              cell = nil
+            }
+          end
 
           nbTent += sizeTentZone / 2;
           sizeTentZone = 0;
@@ -149,19 +142,17 @@ class RowsAndColumnsFindTent
           game.cellAt(j, i + 1).state == (state: :tree) || game.cellAt(j, i + 2).state == (state: :tree))
           { #We do not link the top zone and the bottom zone
 
-            switch(sizeTentZone % 2){
-              case 1:
-                nbTent += 1
-                cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-                break;
+            case (sizeTentZone % 2)
+            when 1
+              nbTent += 1
+              cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
 
-              case 0:
-                if (!cellSet){
-                  cellFind = false
-                  cell = nil
-                }
-                break;
-            }
+            when 0
+              if (!cellSet){
+                cellFind = false
+                cell = nil
+              }
+            end
 
             nbTent += sizeTentZone / 2;
             sizeTentZone = 0;
@@ -178,24 +169,24 @@ class RowsAndColumnsFindTent
 
       }
 
-      switch(sizeTentZone % 2){
-        case 1:
-          nbTent += 1
-          cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
-          break;
+      case (sizeTentZone % 2)
+      when 1
+        nbTent += 1
+        cellSet = true  #The size of the zone imply that the registered cell is eligible for a tent.
 
-        case 0:
-          if (!cellSet){
-            cellFind = false
-            cell = nil
-          }
-          break;
-      }
+      when 0
+        if (!cellSet){ #if the cell registered as not yet been proven correct
+          cellFind = false
+          cell = nil
+        }
+      end
+
       nbTent += sizeTentZone / 2;
 
-      return cell if nbTent == clue && !cell.nil?
+      return HelpAllPossibilitiesGiveItColumn.new(cell, j, state: :tent) if nbTent == clue && !cell.nil?
     }
 
     return HelpNotFound.new()
-  }
+
+  end
 end
