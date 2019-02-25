@@ -78,10 +78,24 @@ class Cell
 		@state == :lockedTree ||  @state == :tree
 	end
 
+	alias isATree? biRotative?
+
 	def ==(otherCell)
 		oState=otherCell.state
 		return @state==otherCell.state unless ([:tree,:lockedTree].include?(oState) && [:tree,:lockedTree].include?(@state))
 		true
+	end
+
+	def isATent?
+		return @state == :tent
+	end
+
+	def isAGrass?
+		return @state == :grass
+	end
+
+	def isAWhite?
+			return @state == :white
 	end
 
 end
