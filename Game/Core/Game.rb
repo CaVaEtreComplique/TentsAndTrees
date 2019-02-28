@@ -11,6 +11,7 @@ require "observer"
 require File.dirname(__FILE__) + "/Guess"
 require File.dirname(__FILE__) + "/Grid"
 require File.dirname(__FILE__) + "/GridGenerator"
+require File.dirname(__FILE__) + "/../Helps/Helper"
 
 class Game
   include Observable
@@ -77,6 +78,10 @@ class Game
   def calculateScore
     @session.calculateScore
   end
+
+  def help
+      Helper.help(self)
+    end
 
 	def run
     @chrono.start

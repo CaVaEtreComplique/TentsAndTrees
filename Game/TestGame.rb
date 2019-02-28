@@ -53,9 +53,7 @@ class Session
 			if continue
 				@time+=@game.time
 			else
-				puts "reset du score"
 				@score=0
-				p @score
 			end
 
 
