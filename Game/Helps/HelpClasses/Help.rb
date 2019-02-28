@@ -7,9 +7,9 @@ class Help
     @helpText = self.helpText
   end
 
-  attr_reader :text
+  attr_reader :helpText
 
-  alias :to_s :text
+  alias :to_s :helpText
 
   def helpFound?()
     return true
