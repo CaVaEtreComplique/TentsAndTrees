@@ -13,9 +13,11 @@ class Cell
 	@@states = [:white, :grass, :tent, :tree, :lockedTree]
 	@state  # one of [:white, :grass, :tent,:tree,:lockedTree]
 	@frozen # if it's frozen it cannot be modified
+	@row
+	@column
 
 	attr_reader :state, :frozen
-	def initialize(args={state: :white, frozen: false}) # default value are there only if no args at all are given
+	def initialize(args={state: :white, frozen: false, row: 0, column: 0}) # default value are there only if no args at all are given
 		@state = args[:state]
 		@frozen = args[:frozen]
 	end
@@ -76,10 +78,24 @@ class Cell
 		@state == :lockedTree ||  @state == :tree
 	end
 
+	alias isATree? biRotative?
+
 	def ==(otherCell)
 		oState=otherCell.state
 		return @state==otherCell.state unless ([:tree,:lockedTree].include?(oState) && [:tree,:lockedTree].include?(@state))
 		true
+	end
+
+	def isATent?
+		return @state == :tent
+	end
+
+	def isAGrass?
+		return @state == :grass
+	end
+
+	def isAWhite?
+			return @state == :white
 	end
 
 end
