@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + "/../Help"
 
-class HelpOnRowsAndColumn
+class HelpOnRowsAndColumn < Help
   private_class_methode :new  #abstract
   def initialize(rowOrColumn)
     @column = rowOrColumn
