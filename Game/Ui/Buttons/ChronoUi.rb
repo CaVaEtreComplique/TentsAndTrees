@@ -10,22 +10,19 @@ class ChronoUi < Button
 	attr_reader :time
 
 	def initialize(time)
-	  s, m = time % 60, time / 60
-	  h = m / 60
-	  m = m % 60
-    super(:horizontal,"%02dh %02dm %02ds" % [h, m, s])
+    super(:horizontal,"%02dh %02dm %02ds" % parce(time))
 	end
 
 
   def updateLabel(time)
+	  super("%02dh %02dm %02ds" % parce(time))
+  end
+
+	def parce(time)
 	  s, m = time % 60, time / 60
 	  h = m / 60
 	  m = m % 60
-	  super("%02dh %02dm %02ds" % [h, m, s])
-  end
-
-	def kill
-		@run=false
+		[h, m, s]
 	end
 
 end

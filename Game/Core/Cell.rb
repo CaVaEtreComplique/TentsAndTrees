@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Cell.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 26-Feb-2019
 
 
 
@@ -82,7 +82,7 @@ class Cell
 
 	def ==(otherCell)
 		oState=otherCell.state
-		return @state==otherCell.state unless ([:tree,:lockedTree].include?(oState) && [:tree,:lockedTree].include?(@state))
+		return @state==oState unless ([:tree,:lockedTree].include?(oState) && [:tree,:lockedTree].include?(@state))
 		true
 	end
 

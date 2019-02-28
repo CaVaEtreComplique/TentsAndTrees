@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 28-Feb-2019
 
 
 require 'gtk3'
@@ -11,35 +11,53 @@ require File.dirname(__FILE__) + "/Screen"
 
 class VictoryScreen < Screen
 
-  def initialize(parent,game)
+  def initialize(parent,session)
     super(parent)
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
     vBox=Gtk::Box.new(:vertical)
+    @session=session
 
-    replay=Text.new("Rejouer").resize(screen.width*0.25,screen.height*0.1)
+    @scoreText=Text.new("sScore non charge").resize(screen.width*0.25,screen.height*0.1)
+    @resultText=Text.new("Victoire").resize(screen.width*0.8,screen.height*0.20)
+    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
+    vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
+
+    if [:adventure,:timeAttack].include?(session.gameMode)
+      @replay=Text.new("Continuer").resize(screen.width*0.25,screen.height*0.1)
+      vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
+    end
 
     quit=Text.new("Quitter").resize(screen.width*0.25,screen.height*0.1)
     quit.onClick{
       Gtk.main_quit
     }
-
-    @scoreText=Text.new("sTime non charge").resize(screen.width*0.25,screen.height*0.1)
-    @resultText=Text.new("Victoire").resize(screen.width*0.8,screen.height*0.20)
-    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
-    vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
-    vBox.pack_start(replay.gtkObject, expand: false, fill: true, padding: 20)
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
+
 
     Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @gtkObject.attach(vBox,0,3,0,1)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
 
-  def applyOn(widget,sTime,result)
+  def applyOn(widget,sScore,won)
     screen = Gdk::Screen.default
-    @scoreText.updateLabel("Temps "+sTime,screen.width*0.25,screen.height*0.05)
-    @resultText.updateLabel("Defaite",screen.width*0.8,screen.height*0.20) unless result
+    @score=sScore
+    @scoreText.updateLabel("Score "+@score.to_s,screen.width*0.25,screen.height*0.05)
+    if !won
+      @resultText.updateLabel("Defaite",screen.width*0.8,screen.height*0.20)
+    end
+    if !won || !@session.continuable?
+      @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
+      @replay.onClick{
+        @session.replay(false)
+      }
+    else
+      @replay.onClick{
+        @session.replay(true)
+      }
+    end
+
     super(widget)
   end
 

@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <zeigon>
+# @Date:   26-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: ModeDeJeu.rb
+# @Last modified by:   zeigon
+# @Last modified time: 26-Feb-2019
+
+
+
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"

@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 20-Feb-2019
 
 class Text
 
@@ -90,10 +90,16 @@ class Text
       }
       @eventBox.add(@textBox)
     }
-
-    @gtkObject.signal_connect("button_release_event") { |_, event|
+    @eventBox.signal_connect("button_release_event") { |_, event|
       if event.button==Click::LEFT
         yield
+        if !@eventBox.mapped?
+          @eventBox.each { |child|
+            @eventBox.remove(child)
+          }
+          @textBox.show_all
+          @eventBox.add(@textBox)
+        end
       end
     }
     self
@@ -102,7 +108,7 @@ class Text
   def ratio(width,height)
     cw=[(width/@charNumber-@borderWidth*2).truncate,10].max
     ch=[(height-@borderWidth*2).truncate,10].max
-    # (ch * @charNumber + @borderWidth*2) < cw ? ch : cw
+    (ch * @charNumber + @borderWidth*2) < cw ? ch : cw
     ch
   end
 

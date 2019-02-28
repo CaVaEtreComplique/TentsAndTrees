@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 28-Feb-2019
 
 
 
@@ -22,19 +22,20 @@ class Game
 	@nRow
 
 	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
-	attr_reader :chrono, :time
+	attr_reader :chrono, :time, :baseTime, :session
 
-	def initialize(oGrid,gameMode,baseTime=0,save=nil)
+	def initialize(session, save=nil)
 		ProcessStatus.send("Initialisation de la Partie")
-		@rowClues = oGrid.rows
-		@colClues = oGrid.cols
-		@nCol = oGrid.nCols.to_i
-		@nRow = oGrid.nCols.to_i
-		@gridAnswers = oGrid.answers
+    @session=session
+		@rowClues = @session.gridPick.rows
+		@colClues = @session.gridPick.cols
+		@nCol = @session.gridPick.nCols.to_i
+		@nRow = @session.gridPick.nCols.to_i
+		@gridAnswers = @session.gridPick.answers
 		@currentGuess = Guess.new(Grid.new(@nRow, @nCol,@gridAnswers))
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
     @moveDone=false
-    @baseTime=baseTime
+    @baseTime=@session.time
     (@chrono=GLib::Timer.new).stop
     @time=@chrono.elapsed[0]
 	end
@@ -73,6 +74,10 @@ class Game
 		@currentGuess.addmove(move,triRotative)
 	end
 
+  def calculateScore
+    @session.calculateScore
+  end
+
 	def run
     @chrono.start
     lastTime=0
@@ -82,7 +87,6 @@ class Game
         lastTime=@time
 				changed                 # notify observers
 				notify_observers()
-        # delete_observers()
         @moveDone=false
 			end
 			sleep(0.1)

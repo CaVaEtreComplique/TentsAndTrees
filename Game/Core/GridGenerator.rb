@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 28-Feb-2019
 
 
 
@@ -14,24 +14,38 @@ class GridGenerator
   @nRows
   @nCols
   @difficulty
+  @associatedTimer
 
-  attr_reader :rows, :cols, :nRows, :nCols, :answers
+  attr_reader :rows, :cols, :nRows, :nCols, :answers, :associatedTimer
 
-  def initialize(mode="random")
+  def initialize(mode = :quickplay, difficulty =:random)
     # Une ligne par grille et une rille par ligne (il y a 1100 lignes)
     file = File.new(File.dirname(__FILE__) + "/../../Assets/Files/FichierDeGrilles.txt", "r")
     gridBase=file.readlines
     file.close
     ProcessStatus.send("Choix de la grille")
-    case mode
-    when "easy"
+    case difficulty
+    when :easy
       line=Random.new.rand(0...100)
-    when "medium"
+    when :medium
       line=Random.new.rand(101...700)
-    when "hard"
+    when :hard
       line=Random.new.rand(701...1100)
-    when "random"
+    when :random
       line=Random.new.rand(0...1100)
+    end
+
+    case mode
+    when :timeAttack
+      if (0...100).include?(line)
+        @associatedTimer=30
+      elsif (101...700).include?(line)
+        @associatedTimer=600
+      elsif (701...1100).include?(line)
+        @associatedTimer=1800
+      end
+    else
+      @associatedTimer=0
     end
 
     ProcessStatus.send("Récupération des données de la grille")

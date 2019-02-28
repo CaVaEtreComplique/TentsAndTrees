@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 27-Feb-2019
 
 
 
@@ -16,10 +16,10 @@ class GameScreen < Screen
 
   attr_reader :gridUi
 
-  def initialize(parent,game,cellAssets)
+  def initialize(parent,game,cellAssets,victoryScreen)
     super(parent)
     (@game=game).add_observer(self)
-    @victoryScreen = VictoryScreen.new(@parent,@game)
+    @victoryScreen = victoryScreen
     @pauseScreen = PauseScreen.new(@parent,@game,self)
 
     @gridUi=GridUi.new(game, cellAssets)
@@ -85,14 +85,18 @@ class GameScreen < Screen
   end
 
   def update
+    if !@parent.active?
+      @game.chrono.stop
+      @pauseScreen.applyOn(@parent)
+    end
     @chronoUi.updateLabel(@game.time.truncate)
     if @game.currentGuess.grid==@game.correction
       @game.chrono.stop
-      @victoryScreen.applyOn(@parent,@chronoUi.gtkLabels.label,true)
+      @victoryScreen.applyOn(@parent,@game.calculateScore,true)
       @game.delete_observer(self)
     elsif @game.time.truncate <=0
       @game.chrono.stop
-      @victoryScreen.applyOn(@parent,@chronoUi.gtkLabels.label,false)
+      @victoryScreen.applyOn(@parent,@game.calculateScore,false)
       @game.delete_observer(self)
     end
   end
