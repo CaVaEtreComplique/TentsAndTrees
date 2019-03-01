@@ -12,13 +12,13 @@ require File.dirname(__FILE__) + "/Screen"
 
 class PauseScreen < Screen
 
-  def initialize(manager,game)
+  def initialize(gameScreen,manager,game)
     super(manager.win)
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
 
     @game=game
-    @gameScreen=manager.gameScreen
+    @gameScreen=gameScreen
 
     buttonHeight = screen.height*0.04
     buttonWidth = screen.width*0.3

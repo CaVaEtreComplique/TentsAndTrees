@@ -20,7 +20,7 @@ class GameScreen < Screen
     super(manager.win)
     (@game=game).add_observer(self)
     @victoryScreen = victoryScreen
-    @pauseScreen = PauseScreen.new(manager,@game)
+    @pauseScreen = PauseScreen.new(self,manager,@game)
 
     @gridUi=GridUi.new(game, cellAssets)
     @gtkObject = Gtk::Table.new(3,4)
@@ -56,7 +56,6 @@ class GameScreen < Screen
     }
     help=Text.new("Aide",buttonWidth,buttonHeight)
       help.onClick(){
-        p "Là"
         print @game.help
     }
     pause=Text.new("Pause",buttonWidth*1.1,buttonHeight*1.1)
