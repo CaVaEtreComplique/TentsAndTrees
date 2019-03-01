@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 
@@ -18,7 +18,7 @@ class GridGenerator
 
   attr_reader :rows, :cols, :nRows, :nCols, :answers, :associatedTimer
 
-  def initialize(mode = :quickplay, difficulty =:random)
+  def initialize(difficulty =:random)
     # Une ligne par grille et une rille par ligne (il y a 1100 lignes)
     file = File.new(File.dirname(__FILE__) + "/../../Assets/Files/FichierDeGrilles.txt", "r")
     gridBase=file.readlines
@@ -35,8 +35,8 @@ class GridGenerator
       line=Random.new.rand(0...1100)
     end
 
-    case mode
-    when :timeAttack
+    # case mode
+    # when :timeAttack
       if (0...100).include?(line)
         @associatedTimer=30
       elsif (101...700).include?(line)
@@ -44,12 +44,11 @@ class GridGenerator
       elsif (701...1100).include?(line)
         @associatedTimer=1800
       end
-    else
-      @associatedTimer=0
-    end
+    # else
+    #   @associatedTimer=0
+    # end
 
     ProcessStatus.send("Récupération des données de la grille")
-    @difficulty=mode
     gridPick=gridBase[line]
     grid=gridPick.split(';')
     @nRows=grid.shift.to_i

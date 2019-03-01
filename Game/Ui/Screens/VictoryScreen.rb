@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 require 'gtk3'
@@ -11,8 +11,9 @@ require File.dirname(__FILE__) + "/Screen"
 
 class VictoryScreen < Screen
 
-  def initialize(parent,session)
-    super(parent)
+  def initialize(manager,session)
+    @manager=manager
+    super(@manager.win)
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
     vBox=Gtk::Box.new(:vertical)
@@ -40,24 +41,25 @@ class VictoryScreen < Screen
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
 
-  def applyOn(widget,sScore,won)
+  def applyOn(widget,sScore,isWon)
     screen = Gdk::Screen.default
     @score=sScore
     @scoreText.updateLabel("Score "+@score.to_s,screen.width*0.25,screen.height*0.05)
-    if !won
+    if !isWon
       @resultText.updateLabel("Defaite",screen.width*0.8,screen.height*0.20)
     end
-    if !won || !@session.continuable?
+    if !isWon || !@session.continuable?
       @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
       @replay.onClick{
-        @session.replay(false)
+          @session.replay(false)
+          @manager.runGameSession(@session)
       }
     else
       @replay.onClick{
-        @session.replay(true)
+          @session.replay(true)
+          @manager.runGameSession(@session)
       }
     end
-
     super(widget)
   end
 

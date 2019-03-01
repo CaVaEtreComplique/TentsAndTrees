@@ -11,11 +11,12 @@ class Session
 	# attr_writer :score
 
 	def initialize(gameMode, difficulty)
-			@win=win
-			@gameMode=gameMode
-			@difficulty=difficulty
-			@score=0
-			replay(false)
+    # Save loading here ?
+		@win=win
+		@gameMode=gameMode
+		@difficulty=difficulty
+		@score=0
+		replay(false)
 	end
 
 	def continuable?
@@ -23,14 +24,25 @@ class Session
 	end
 
 	def calculateScore
-		@score+=@game.time
+    case @gameMode
+    when :timeAttack
+		    @score+=@game.time
+    when :quickplay
+        @score = [@gridPick.associatedTimer-@game.time,0].max
+    end
 	end
 
 	def replay(continue)
-		# Generation de la grille
-		@gridPick = GridGenerator.new(@gameMode,@difficulty)
-		@time=@gridPick.associatedTimer
-		# Save loading here ?
+    # Generation de la grille
+    @gridPick = GridGenerator.new(@difficulty)
+
+    case @gameMode
+    when :timeAttack
+    		@time=@gridPick.associatedTimer
+    when :quickplay
+    		@time=0
+    end
+
 		# Generation de la partie
 		if continue
 			@time+=@game.time

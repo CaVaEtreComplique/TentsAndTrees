@@ -94,11 +94,13 @@ class GameScreen < Screen
     if @game.currentGuess.grid==@game.correction
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,true)
-      @game.delete_observer(self)
+      @game.chrono.destroy
+      @game.delete_observers
     elsif @game.time.truncate <=0
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false)
-      @game.delete_observer(self)
+      @game.delete_observers
+      @game.chrono.destroy
     end
   end
 
