@@ -1,3 +1,11 @@
+# @Author: Corentin Petit <zeigon>
+# @Date:   01-Mar-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: ChoixDiff.rb
+# @Last modified by:   zeigon
+# @Last modified time: 01-Mar-2019
+
+
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -30,19 +38,19 @@ class ChoixDiff < Screen
     facile=Text.new("Facile",@widthText,@heightText)
 		 @menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)
 		facile.onClick{
-			 session=Session.new(:timeattack, :easy)
+			 session=Session.new(:quickplay, :easy)
 			 manager.runGameSession(session)
 		}
     moyen=Text.new("Moyen",@widthText,@heightText)
 		 @menu.pack_start(moyen.gtkObject ,expand: false, fill: true, padding: @pad)
 		moyen.onClick{
-			 session=Session.new(:timeattack, :medium)
+			 session=Session.new(:quickplay, :medium)
 			 manager.runGameSession(session)
 		}
     diff=Text.new("Difficile",@widthText,@heightText)
 		 @menu.pack_start(diff.gtkObject ,expand: false, fill: true, padding: @pad)
 		diff.onClick{
-			 session=Session.new(:timeattack, :hard)
+			 session=Session.new(:quickplay, :hard)
 			 manager.runGameSession(session)
 		}
     retour=Text.new("retour",@widthText,@heightText)

@@ -24,14 +24,12 @@ class VictoryScreen < Screen
     vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
     vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
 
-    if [:adventure,:timeAttack].include?(session.gameMode)
-      @replay=Text.new("Continuer").resize(screen.width*0.25,screen.height*0.1)
-      vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
-    end
+    @replay=Text.new("Continuer").resize(screen.width*0.25,screen.height*0.1)
+    vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
 
     quit=Text.new("Quitter").resize(screen.width*0.25,screen.height*0.1)
     quit.onClick{
-      # @manager.mainScreen.applyOn(@parent)
+      @manager.mainScreen.applyOn(@parent)
       Gtk.main_quit
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
@@ -52,13 +50,13 @@ class VictoryScreen < Screen
     if !isWon || !@session.continuable?
       @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
       @replay.onClick{
-          @session.replay(false)
-          @manager.runGameSession(@session)
+        @session.replay(false)
+        @manager.runGameSession(@session)
       }
     else
       @replay.onClick{
-          @session.replay(true)
-          @manager.runGameSession(@session)
+        @session.replay(true)
+        @manager.runGameSession(@session)
       }
     end
     super(widget)
