@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 27-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 
@@ -56,6 +56,7 @@ class GameScreen < Screen
     }
     help=Text.new("Aide",buttonWidth,buttonHeight)
       help.onClick(){
+        # @game.help
     }
     pause=Text.new("Pause",buttonWidth*1.1,buttonHeight*1.1)
       pause.onClick(){

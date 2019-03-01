@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 
@@ -11,7 +11,7 @@ require "observer"
 require File.dirname(__FILE__) + "/Guess"
 require File.dirname(__FILE__) + "/Grid"
 require File.dirname(__FILE__) + "/GridGenerator"
-require File.dirname(__FILE__) + "/../Helps/Helper"
+# require File.dirname(__FILE__) + "/../Helps/Helper"
 
 class Game
   include Observable
@@ -80,7 +80,7 @@ class Game
   end
 
   def help
-      Helper.help(self)
+      # Helper.help(self)
     end
 
 	def run
