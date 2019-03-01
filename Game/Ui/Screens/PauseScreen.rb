@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: PauseScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 14-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 
@@ -12,13 +12,13 @@ require File.dirname(__FILE__) + "/Screen"
 
 class PauseScreen < Screen
 
-  def initialize(parent,game, gameScreen)
-    super(parent)
+  def initialize(manager,game)
+    super(manager.win)
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
 
     @game=game
-    @gameScreen=gameScreen
+    @gameScreen=manager.gameScreen
 
     buttonHeight = screen.height*0.04
     buttonWidth = screen.width*0.3
@@ -47,7 +47,7 @@ class PauseScreen < Screen
     }
     quit=Text.new("Quitter",buttonWidth*1.1,buttonHeight*1.1)
       quit.onClick(){
-        Gtk.main_quit
+        manager.mainScreen.applyOn(@parent)
     }
 
     globalBox=Gtk::Box.new(:vertical)

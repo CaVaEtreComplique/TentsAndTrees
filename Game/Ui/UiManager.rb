@@ -6,7 +6,7 @@
 # @Last modified time: 01-Mar-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen
 
   def initialize(window)
     ProcessStatus.new
@@ -31,9 +31,9 @@ class UiManager
       cellAssets=CellAssets.new(game.nRow, game.nCol)
       # Generation des ecrans de jeu
       victoryScreen=VictoryScreen.new(self,session)
-      gameScreen=GameScreen.new(@win,game,cellAssets,victoryScreen)
+      @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
       ProcessStatus.send("Affichage de l'écran de jeu")
-      gameScreen.applyOn(@win)
+      @gameScreen.applyOn(@win)
       ProcessStatus.send("Lancement de la partie")
       game.run
       kill #It seems there is a bug where the trhread doesn't systematicaly kill itself at the end of the block

@@ -22,7 +22,6 @@ class Cell
 		@frozen = args[:frozen]
 		@row = args[:row]
 		@column = args[:column]
-		print "Je suis une cellule et je m initialise avec ; " + @row.to_s + ";" + @column.to_s
 	end
 
 	def frozenOf(cell)

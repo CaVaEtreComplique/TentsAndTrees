@@ -35,7 +35,5 @@ win.show_all
 
 ui = UiManager.new(win)
 ui.run
-# session=Session.new(:timeAttack, :easy)
-# ui.runGameSession(session)
 
 Gtk.main

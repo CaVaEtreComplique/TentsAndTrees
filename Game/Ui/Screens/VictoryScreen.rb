@@ -31,6 +31,7 @@ class VictoryScreen < Screen
 
     quit=Text.new("Quitter").resize(screen.width*0.25,screen.height*0.1)
     quit.onClick{
+      # @manager.mainScreen.applyOn(@parent)
       Gtk.main_quit
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)

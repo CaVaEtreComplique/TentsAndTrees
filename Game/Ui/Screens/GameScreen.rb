@@ -16,11 +16,11 @@ class GameScreen < Screen
 
   attr_reader :gridUi
 
-  def initialize(parent,game,cellAssets,victoryScreen)
-    super(parent)
+  def initialize(manager,game,cellAssets,victoryScreen)
+    super(manager.win)
     (@game=game).add_observer(self)
     @victoryScreen = victoryScreen
-    @pauseScreen = PauseScreen.new(@parent,@game,self)
+    @pauseScreen = PauseScreen.new(manager,@game)
 
     @gridUi=GridUi.new(game, cellAssets)
     @gtkObject = Gtk::Table.new(3,4)

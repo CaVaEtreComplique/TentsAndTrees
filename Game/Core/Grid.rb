@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Grid.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 01-Mar-2019
 
 
 
@@ -20,14 +20,14 @@ class Grid
 		@gridAnswers=gridAnswers
 		@rows = (0..nRow-1).map {|x|
 			(0..nCol-1).map { |y|
-				if @gridAnswers.at(x).at(y)=='A'
+				if @gridAnswers.at(x).at(y)=="A"
 					Cell.new(state: :tree,frozen: false,row: x,column: y)
-				elsif @gridAnswers.at(x).at(y)=='T' && withAnswers
+				elsif @gridAnswers.at(x).at(y)=="T" && withAnswers
 					Cell.new(state: :tent,frozen: false,row: x,column: y)
-				elsif @gridAnswers.at(x).at(y)=='_' && withAnswers
+				elsif @gridAnswers.at(x).at(y)=="_" && withAnswers
 					Cell.new(state: :grass,frozen: false,row: x,column: y)
 				else
-					Cell.new
+					Cell.new(state: :white,frozen: false,row: x,column: y)
 				end
 			}
 		}
@@ -44,6 +44,10 @@ class Grid
 		return newG
 	end
 
+	def each
+
+	end
+
 	def cellAt(row, col)
 		return @rows[row][col]
 	end
@@ -53,7 +57,7 @@ class Grid
 			cols.each_with_index { |_,y|
 				return false unless self.cellAt(x,y)==otherGrid.cellAt(x,y)
 			}
-		 }
+		}
 		true
 	end
 

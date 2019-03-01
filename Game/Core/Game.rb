@@ -80,13 +80,11 @@ class Game
   end
 
   def help
-    p "ici"
       return Helper.help(self)
-      p"fini"
     end
 
 	def run
-    @chrono.start
+@chrono.start
     lastTime=0
 		loop do
       @time=(@baseTime-(@chrono.elapsed[0]).truncate).abs
