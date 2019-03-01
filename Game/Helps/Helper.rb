@@ -3,15 +3,19 @@
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
+require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 
 class Helper
   def Helper.help( game )
     #game.beginGuess
+
     if(!((help = CellDontTouchTreeHelper.help(game)).helpFound?))  #1
       if(true)  #2
         if(!((help = RowsAndColumnsGrassHelper.help(game)).helpFound?))  #3
           if(!((help = RowsAndColumnsTentsHelper.help(game)).helpFound?))  #4
-            help = HelpNotFound.new
+            if(!((help = CellTouchATentHelper.help(game)).helpFound?))
+              help = HelpNotFound.new
+            end
           end
         end
       end

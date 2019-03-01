@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + "/../HelpOn1Cell"
 #Help the player to find a white cell whitch isn't adjacent a tree
 
 class HelpCellTooFarOfTrees < HelpOn1Cell
+  public_class_method :new
   def initialize(cell)
     super(cell)
   end
