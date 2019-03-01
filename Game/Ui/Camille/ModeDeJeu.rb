@@ -35,11 +35,15 @@ class ModeDeJeu < Screen
     @gtkObject.add(aventure.gtkObject)
     timeA=Button.new(:horizontal,"Partie rapide")
     timeA.onClick{
-
-      #Mettre le truc de Corentin mais ca marche pas parce que il a pas fait de classe
+			 session=Session.new(:quickplay, :random)
+			 ui.runGameSession(session)
     }
     @gtkObject.add(timeA.gtkObject)
     clm=Button.new(:horizontal,"Contre la montre")
+		clm.onClick{
+			 session=Session.new(:timeattack, :random)
+			 ui.runGameSession(session)
+		}
     @gtkObject.add(clm.gtkObject)
     retour=Button.new(:horizontal,"retour")
     @gtkObject.add(retour.gtkObject)
