@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + "/HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
-require_all(__FILE__)
+require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
+require_all(__FILE__ + "/../")
 
 class CellDontTouchTreeHelper
   def CellDontTouchTreeHelper.help(game)
