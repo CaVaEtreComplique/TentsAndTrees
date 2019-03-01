@@ -12,37 +12,45 @@ end
 
 class ModeDeJeu < Screen
   def initialize(manager)
+		screen=Gdk::Screen.default
+		@pad =10
     super(manager.win)
     #Menu principal
     #menuV=box verticale
-    @gtkObject=Gtk::Box.new(:vertical, 100)
+
+		@gtkObject= Gtk::Table.new(3,3)
+    @menu=Gtk::Box.new(:vertical, 100)
+    @gtkObject.attach(@menu,1,2,1,2)
 
     #Premiere case : titre
-    titre= "<span font_desc=\"menu\">Mode de Jeu </span>\n"
-    monLabel=Gtk::Label.new()
-    monLabel.set_markup(titre)
-    @gtkObject.add(monLabel)
+		titre=Text.new("Mode de Jeu",screen.width*0.10,screen.height*0.08)
+		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
+
 
     #Bontons de menu
-    aventure=Button.new(:horizontal,"Aventure")
-    @gtkObject.add(aventure.gtkObject)
-    timeA=Button.new(:horizontal,"Partie rapide")
+    aventure=Text.new("Aventure",screen.width*0.1,screen.height*0.04)
+  	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
+		aventure.onClick{
+
+		 }
+
+    timeA=Text.new("Partie rapide",screen.width*0.1,screen.height*0.04)
+		@menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
     timeA.onClick{
-			 session=Session.new(:quickplay, :random)
-			 manager.runGameSession(session)
+			 manager.diffchScreen.applyOn(@parent)
     }
-    @gtkObject.add(timeA.gtkObject)
-    clm=Button.new(:horizontal,"Contre la montre")
+    clm=Text.new("Contre la montre",screen.width*0.1,screen.height*0.04)
+		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		clm.onClick{
 			 session=Session.new(:timeattack, :random)
 			 manager.runGameSession(session)
 		}
-    @gtkObject.add(clm.gtkObject)
-    retour=Button.new(:horizontal,"retour")
-    @gtkObject.add(retour.gtkObject)
+    retour=Text.new("retour",screen.width*0.1,screen.height*0.04)
+   @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
     }
 
+		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
 end

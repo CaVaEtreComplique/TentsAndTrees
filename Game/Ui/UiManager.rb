@@ -6,7 +6,7 @@
 # @Last modified time: 01-Mar-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen
 
   def initialize(window)
     ProcessStatus.new
@@ -15,6 +15,7 @@ class UiManager
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)
     @paramScreen=Parametre.new(self)
+    @diffchScreen=ChoixDiff.new(self)
   end
 
   def run
