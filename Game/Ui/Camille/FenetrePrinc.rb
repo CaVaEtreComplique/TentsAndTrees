@@ -2,41 +2,40 @@ require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
+require File.dirname(__FILE__) + "/../Buttons/Text"
 
 class FenetrePrinc < Screen
-  def initialize(parent)
-    super(parent)
+  def initialize(manager)
+    super(manager.win)
     screen=Gdk::Screen.default
     #Menu principal
-    @gtkObject= Gtk::Table.new(1,3,false)
+    @gtkObject= Gtk::Table.new(3,3)
 
   #menuV=box verticale
-    menuV=Gtk::Box.new(:vertical,100)
+    menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(menuV,1,2,0,1)
     #Premiere case : titre
-    titre= "<span font_desc=\"menu\">dEs ArbrEs Et dEs tEntEs </span>\n"
-    monLabel=Gtk::Label.new()
-    monLabel.set_markup(titre)
-    menuV.add(monLabel)
+    titre=Text.new("dEs ArbrEs Et dEs tEntEs",screen.width*0.10,screen.height*0.10)
+    menuV.add(titre.gtkObject)
 
     #Bontons de menu
-    jouer=Button.new(:horizontal,"jouer")
+    jouer=Text.new("jouer",screen.width*0.25,screen.height*0.1)
     menuV.add(jouer.gtkObject)
     jouer.onClick{
-        ModeDeJeu.new(@parent).applyOn(@gtkObject)
+        manager.modeScreen.applyOn(@parent)
     }
 
-    parametre=Button.new(:horizontal,"parametres")
+    parametre=Text.new("parametres",screen.width*0.015,screen.height*0.015)
     menuV.add(parametre.gtkObject)
     parametre.onClick{
-        Parametre.new(@parent).applyOn(@gtkObject)
+        manager.paramScreen.applyOn(@parent)
     }
-    regle=Button.new(:horizontal,"regle")
+    regle=Text.new("regle",screen.width*0.01,screen.height*0.01)
     menuV.add(regle.gtkObject)
-    meilleurScore=Button.new(:horizontal,"meilleur Score")
+    meilleurScore=Text.new("meilleur Score",screen.width*0.01,screen.height*0.01)
     menuV.add(meilleurScore.gtkObject)
 
-    #@gtkObject.attach(Gtk::Layout.new.add(Gtk::Image.new(pixbuf: @buffer)),0,3,0,1)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 
   end
 end

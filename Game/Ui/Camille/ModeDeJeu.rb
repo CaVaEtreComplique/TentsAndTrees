@@ -1,10 +1,3 @@
-# @Author: Corentin Petit <zeigon>
-# @Date:   26-Feb-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
-# @Filename: ModeDeJeu.rb
-# @Last modified by:   zeigon
-# @Last modified time: 26-Feb-2019
-
 
 
 require 'gtk3'
@@ -18,8 +11,8 @@ def require_all(_dir)
 end
 
 class ModeDeJeu < Screen
-  def initialize(parent)
-    super(parent)
+  def initialize(manager)
+    super(manager.win)
     #Menu principal
     #menuV=box verticale
     @gtkObject=Gtk::Box.new(:vertical, 100)
@@ -35,16 +28,20 @@ class ModeDeJeu < Screen
     @gtkObject.add(aventure.gtkObject)
     timeA=Button.new(:horizontal,"Partie rapide")
     timeA.onClick{
-
-      #Mettre le truc de Corentin mais ca marche pas parce que il a pas fait de classe
+			 session=Session.new(:quickplay, :random)
+			 manager.runGameSession(session)
     }
     @gtkObject.add(timeA.gtkObject)
     clm=Button.new(:horizontal,"Contre la montre")
+		clm.onClick{
+			 session=Session.new(:timeattack, :random)
+			 manager.runGameSession(session)
+		}
     @gtkObject.add(clm.gtkObject)
     retour=Button.new(:horizontal,"retour")
     @gtkObject.add(retour.gtkObject)
     retour.onClick{
-        FenetrePrinc.new(@parent).applyOn(@gtkObject)
+        manager.mainScreen.applyOn(@parent)
     }
 
   end

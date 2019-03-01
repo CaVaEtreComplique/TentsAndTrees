@@ -6,12 +6,19 @@
 # @Last modified time: 01-Mar-2019
 
 class UiManager
-    attr_reader :win
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen
 
   def initialize(window)
     ProcessStatus.new
     @win=window
-    @loadScreen=LoadingScreen.new(@win)
+    @loadScreen=LoadingScreen.new(self)
+    @mainScreen=FenetrePrinc.new(self)
+    @modeScreen=ModeDeJeu.new(self)
+    @paramScreen=Parametre.new(self)
+  end
+
+  def run
+    @mainScreen.applyOn(@win)
   end
 
   def runGameSession(session)
