@@ -6,7 +6,7 @@
 # @Last modified time: 01-Mar-2019
 
 
-require File.dirname(__FILE__) + "/../CharAssets"
+require File.dirname(__FILE__) + "/../AssetsLoaderClass/CharAssets"
 
 class Text
 
