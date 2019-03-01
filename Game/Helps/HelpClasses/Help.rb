@@ -20,6 +20,6 @@ class Help
   end
 
   def to_s
-    return @helpText
+    return @helpText + "\n"
   end
 end

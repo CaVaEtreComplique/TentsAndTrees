@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + "/../HelpOnAColumn"
 
 class HelpAllGrassOnAColumn < HelpOnAColumn
+    public_class_method :new
   def initialize(column)
     super(column)
   end
