@@ -5,7 +5,6 @@ class Help
 
   def initialize()
     @helpText = self.getText
-    p self.class.to_s + "initialise"
   end
 
   attr_reader :helpText
@@ -21,7 +20,6 @@ class Help
   end
 
   def to_s
-    p "ici"
     return @helpText
   end
 end

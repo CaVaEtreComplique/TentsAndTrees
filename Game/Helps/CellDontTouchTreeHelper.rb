@@ -13,7 +13,6 @@ class CellDontTouchTreeHelper
               y-1 >=0 &&!(game.cellAt(x, y-1).isATree?) )
               #If the cell is white dont touch a tree
 
-                print "coos : " + x.to_s + " " + y.to_s
                 return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
           end
       }
