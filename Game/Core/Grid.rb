@@ -21,11 +21,11 @@ class Grid
 		@rows = (0..nRow-1).map {|x|
 			(0..nCol-1).map { |y|
 				if @gridAnswers.at(x).at(y)=='A'
-					Cell.new(state: :tree,frozen: false,row: :x,column: :y)
+					Cell.new(state: :tree,frozen: false,row: x,column: y)
 				elsif @gridAnswers.at(x).at(y)=='T' && withAnswers
-					Cell.new(state: :tent,frozen: false,row: :x,column: :y)
+					Cell.new(state: :tent,frozen: false,row: x,column: y)
 				elsif @gridAnswers.at(x).at(y)=='_' && withAnswers
-					Cell.new(state: :grass,frozen: false,row: :x,column: :y)
+					Cell.new(state: :grass,frozen: false,row: x,column: y)
 				else
 					Cell.new
 				end
