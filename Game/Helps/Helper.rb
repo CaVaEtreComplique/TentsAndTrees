@@ -7,11 +7,13 @@ require File.dirname(__FILE__) + "/CellDontTouchTreeHelper"
 class Helper
   def Helper.help( game )
     #game.beginGuess
-    p "aide"
     if(!((help = CellDontTouchTreeHelper.help(game)).helpFound?))  #1
+      p "ici"
       if(true)  #2
         if(!((help = RowsAndColumnsGrassHelper.help(game)).helpFound?))  #3
+          p "là"
           if(!((help = RowsAndColumnsTentsHelper.help(game)).helpFound?))  #4
+            p "Je suis un génie"
             help = HelpNotFound.new
           end
         end

@@ -1,11 +1,11 @@
-require File.dirname(__FILE__) + "/../HelpsOneColumn"
+require File.dirname(__FILE__) + "/../HelpOnAColumn"
 
-class HelpAllGrassOnAColumn
+class HelpAllGrassOnAColumn < HelpOnAColumn
   def initialize(column)
     super(column)
   end
 
   def getText
-    @helpText = "All tents need to be placed, so all the empty cells of the column " + @row + " are tents"
+    @helpText = "All tents need to be placed, so all the empty cells of the column " + @row.to_s + " are tents"
   end
 end
