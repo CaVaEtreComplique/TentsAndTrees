@@ -12,6 +12,13 @@ class UiManager
     ProcessStatus.new
     @win=window
     @loadScreen=LoadingScreen.new(@win)
+    @mainScreen=FenetrePrinc.new(@win)
+    @modeScreen=ModeDeJeu.new(@win)
+    @paramScreen=Parametre.new(@win)
+  end
+
+  def run
+    @mainScreen.applyOn(@win)
   end
 
   def runGameSession(session)

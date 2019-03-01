@@ -34,7 +34,8 @@ win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/
 win.show_all
 
 ui = UiManager.new(win)
-session=Session.new(:timeAttack, :easy)
-ui.runGameSession(session)
+ui.run
+# session=Session.new(:timeAttack, :easy)
+# ui.runGameSession(session)
 
 Gtk.main
