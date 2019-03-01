@@ -15,25 +15,25 @@ class FenetrePrinc < Screen
     menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(menuV,1,2,0,1)
     #Premiere case : titre
-    titre=Text.new("dEs ArbrEs Et dEs tEntEs",screen.width*0.10,screen.height*0.10)
-    menuV.add(titre.gtkObject)
+    titre=Text.new("dEs ArbrEs Et dEs tEntEs",screen.width*0.10,screen.height*0.08)
+    menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: 50)
 
     #Bontons de menu
-    jouer=Text.new("jouer",screen.width*0.25,screen.height*0.1)
-    menuV.add(jouer.gtkObject)
+    jouer=Text.new("jouer",screen.width*0.15,screen.height*0.06)
+    menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: 50)
     jouer.onClick{
         manager.modeScreen.applyOn(@parent)
     }
 
-    parametre=Text.new("parametres",screen.width*0.015,screen.height*0.015)
-    menuV.add(parametre.gtkObject)
+    parametre=Text.new("parametres",screen.width*0.15,screen.height*0.06)
+    menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: 50)
     parametre.onClick{
         manager.paramScreen.applyOn(@parent)
     }
-    regle=Text.new("regle",screen.width*0.01,screen.height*0.01)
-    menuV.add(regle.gtkObject)
-    meilleurScore=Text.new("meilleur Score",screen.width*0.01,screen.height*0.01)
-    menuV.add(meilleurScore.gtkObject)
+    regle=Text.new("regle",screen.width*0.15,screen.height*0.06)
+    menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: 50)
+    meilleurScore=Text.new("meilleur Score",screen.width*0.15,screen.height*0.06)
+    menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: 50)
 
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 
