@@ -10,7 +10,7 @@ class Session
 	attr_reader :game, :gridPick, :time, :score, :win, :gameMode, :difficulty
 	# attr_writer :score
 
-	def initialize(win, gameMode, difficulty)
+	def initialize(gameMode, difficulty)
 			@win=win
 			@gameMode=gameMode
 			@difficulty=difficulty

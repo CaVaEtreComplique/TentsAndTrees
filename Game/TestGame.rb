@@ -35,7 +35,7 @@ win.show_all
 
 ui = UiManager.new(win)
 Thread.new {
-	session=Session.new(win, :timeAttack, :easy)
+	session=Session.new(:timeAttack, :easy)
 	ui.runGameSession(session)
 }
 
