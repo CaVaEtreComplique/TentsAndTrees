@@ -1,10 +1,10 @@
 #class Help, which contain a String text to explain the help, a column, a row
 
 class Help
-  private_class_methode :new  #abstract
+  #private_class_methode :new  #abstract
 
   def initialize()
-    @helpText = self.helpText
+    @helpText = getText
   end
 
   attr_reader :helpText
@@ -16,6 +16,6 @@ class Help
   end
 
   def getText()
-    @helpText = "Txt not Available"
+    "Txt not Available"
   end
 end

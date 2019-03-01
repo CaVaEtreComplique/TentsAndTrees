@@ -16,7 +16,7 @@ end
 require "gtk3"
 require_all("Core")
 require_all("Ui")
-# require_all("Helps")
+require_all("Helps")
 
 # ----------------------------------
 # => Main

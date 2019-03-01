@@ -8,10 +8,10 @@ class Helper
   def Helper.help( game )
     game.beginGuess
 
-    if(help = CellDontTouchTreeHelper.help(game).helpFound? == false) then #1
-      if(true) then #2
-        if(help = RowsAndColumnsGrassHelper.help(game).helpFound? == false) then #3
-          if(help = RowsAndColumnsTentsHelper.help(game).helpFound? == false) then #4
+    if(!(help = CellDontTouchTreeHelper.help(game).helpFound?))  #1
+      if(true)  #2
+        if(help = RowsAndColumnsGrassHelper.help(game).helpFound?)  #3
+          if(help = RowsAndColumnsTentsHelper.help(game).helpFound?)  #4
 
           end
         end
