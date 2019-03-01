@@ -12,7 +12,6 @@ class RowsAndColumnsTentsHelper
     (0...game.nCol).each{ |i| #for each column
       if(Count.count(game, :white, 0, i ) + (nbTents = Count.count(game, :tent, 0, i )) == game.colClues[i] && nbTents != game.colClues[i])
       #if there are much grass that we need for the column
-      p nbTents
         if( cell = Count.findFirst(game, :white ,0,i).class == Cell)
         #if there is an empty cell
           return HelpAllGrassOnARow.new(i) #You help player by saying that the row is full of tents
