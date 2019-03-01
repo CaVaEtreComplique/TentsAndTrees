@@ -21,8 +21,6 @@ class ModeDeJeu < Screen
     @heightText=screen.height*0.04
     #Menu principal
 
-    #menuV=box verticale
-
 		@gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
@@ -41,17 +39,20 @@ class ModeDeJeu < Screen
 
     timeA=Text.new("Partie rapide",@widthText,@heightText)
 		@menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
+		#Renvoie vers la page choix des niveaux
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }
     clm=Text.new("Contre la montre",@widthText,@heightText)
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
+		#Lance une partie contre la montre
 		clm.onClick{
 			 session=Session.new(:timeattack, :random)
 			 manager.runGameSession(session)
 		}
     retour=Text.new("retour",@widthText,@heightText)
    @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
+	 #Renvoie vers la page principale
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
     }
