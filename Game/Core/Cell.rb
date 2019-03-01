@@ -20,6 +20,8 @@ class Cell
 	def initialize(args={state: :white, frozen: false, row: 0, column: 0}) # default value are there only if no args at all are given
 		@state = args[:state]
 		@frozen = args[:frozen]
+		@row = args[:row]
+		@column = args[:column]
 	end
 
 	def frozenOf(cell)
@@ -98,4 +100,7 @@ class Cell
 			return @state == :white
 	end
 
+	def to_s
+		return "["+@column.to_s+";"+@row.to_s+"]"
+	end
 end

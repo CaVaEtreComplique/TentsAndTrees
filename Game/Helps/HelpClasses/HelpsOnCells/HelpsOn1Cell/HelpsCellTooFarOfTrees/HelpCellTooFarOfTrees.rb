@@ -7,7 +7,7 @@ class HelpCellTooFarOfTrees < HelpOn1Cell
     super(cell)
   end
 
-  def gotText()
-    return "La case " + @cell + " ne touche pas d arbre eet est donc du gazon"
+  def getText()
+    return "La case " + @cell.to_s + " ne touche pas d arbre et est donc du gazon"
   end
 end

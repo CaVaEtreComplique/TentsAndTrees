@@ -56,7 +56,8 @@ class GameScreen < Screen
     }
     help=Text.new("Aide",buttonWidth,buttonHeight)
       help.onClick(){
-        # @game.help
+        p "Là"
+        print @game.help
     }
     pause=Text.new("Pause",buttonWidth*1.1,buttonHeight*1.1)
       pause.onClick(){

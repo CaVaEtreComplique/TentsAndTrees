@@ -11,7 +11,7 @@ require "observer"
 require File.dirname(__FILE__) + "/Guess"
 require File.dirname(__FILE__) + "/Grid"
 require File.dirname(__FILE__) + "/GridGenerator"
-# require File.dirname(__FILE__) + "/../Helps/Helper"
+require File.dirname(__FILE__) + "/../Helps/Helper"
 
 class Game
   include Observable
@@ -80,7 +80,9 @@ class Game
   end
 
   def help
-      # Helper.help(self)
+    p "ici"
+      return Helper.help(self)
+      p"fini"
     end
 
 	def run

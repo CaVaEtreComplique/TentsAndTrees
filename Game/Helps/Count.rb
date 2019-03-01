@@ -16,6 +16,7 @@ class Count
   end
 
   def Count.findFirst(game, state, vertHor, rank)
+    #return the first cell of the game with the state state
     if(vertHor == 0)
     #Vertical
       (0...game.nCol).each{ |i|
