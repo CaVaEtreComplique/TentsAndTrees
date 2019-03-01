@@ -22,13 +22,13 @@ class FenetrePrinc < Screen
     jouer=Text.new("jouer",screen.width*0.25,screen.height*0.1)
     menuV.add(jouer.gtkObject)
     jouer.onClick{
-        manager.modeScreen.applyOn(@gtkObject)
+        manager.modeScreen.applyOn(@parent)
     }
 
     parametre=Text.new("parametres",screen.width*0.015,screen.height*0.015)
     menuV.add(parametre.gtkObject)
     parametre.onClick{
-        manager.paramScreen.applyOn(@gtkObject)
+        manager.paramScreen.applyOn(@parent)
     }
     regle=Text.new("regle",screen.width*0.01,screen.height*0.01)
     menuV.add(regle.gtkObject)

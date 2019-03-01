@@ -41,7 +41,7 @@ class ModeDeJeu < Screen
     retour=Button.new(:horizontal,"retour")
     @gtkObject.add(retour.gtkObject)
     retour.onClick{
-        FenetrePrinc.new(@parent).applyOn(@gtkObject)
+        manager.mainScreen.applyOn(@parent)
     }
 
   end

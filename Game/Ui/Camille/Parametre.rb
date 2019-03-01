@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
 class Parametre < Screen
-  def initialize(parent)
-    super(parent)
+  def initialize(manager)
+    super(manager.win)
     #menuV=box verticale
     @gtkObject=Gtk::Box.new(:vertical, 100)
     #Premiere case : titre
@@ -29,7 +29,7 @@ class Parametre < Screen
     retour=Button.new(:horizontal,"retour")
     @gtkObject.add(retour.gtkObject)
     retour.onClick{
-        FenetrePrinc.new(@parent).applyOn(@gtkObject)
+        manager.mainScreen.applyOn(@parent)
     }
 
 
