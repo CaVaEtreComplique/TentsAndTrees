@@ -1,3 +1,10 @@
+# @Author: Corentin Petit <zeigon>
+# @Date:   01-Mar-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: ModeDeJeu.rb
+# @Last modified by:   zeigon
+# @Last modified time: 01-Mar-2019
+
 
 
 require 'gtk3'
@@ -47,7 +54,7 @@ class ModeDeJeu < Screen
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre
 		clm.onClick{
-			 session=Session.new(:timeattack, :random)
+			 session=Session.new(:timeAttack, :random)
 			 manager.runGameSession(session)
 		}
     retour=Text.new("retour",@widthText,@heightText)
