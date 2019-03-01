@@ -11,16 +11,21 @@ end
 
 class Parametre < Screen
   def initialize(manager)
-    @pad =10
+
     super(manager.win)
     screen=Gdk::Screen.default
+	  @pad =10
+		@widthTitre=screen.width*0.10
+    @heightTitre=screen.height*0.08
+    @widthText=screen.width*0.08
+    @heightText=screen.height*0.05
     #menuV=box verticale
     @gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
 
 
-    titre=Text.new("Parametre",screen.width*0.10,screen.height*0.08)
+    titre=Text.new("Parametre",@widthTitre,@heightTitre)
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
     #Menu deroulant des langues
@@ -34,13 +39,13 @@ class Parametre < Screen
 
 
 
-    appli=Text.new("Appliquer",screen.width*0.08,screen.height*0.05)
+    appli=Text.new("Appliquer",@widthText,@heightText)
     @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
     appli.onClick{
       #Changement de langue
     }
 
-    retour=Text.new("retour",screen.width*0.08,screen.height*0.05)
+    retour=Text.new("retour",@widthText,@heightText)
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
