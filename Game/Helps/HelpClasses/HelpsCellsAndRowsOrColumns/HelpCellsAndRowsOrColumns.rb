@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + "/../Help"
 
 class HelpCellsAndRowsOrColumns < Help
-  private_class_methode :new  #abstract
+  #private_class_method :new  #abstract
   def initialize(cell, rowOrColumn)
-    super()
     @column = rowOrColumn
-    @cell = rowOrColumn
-    @row = row
+    @cell = cell
+    @row = rowOrColumn
+    super()
   end
 end
