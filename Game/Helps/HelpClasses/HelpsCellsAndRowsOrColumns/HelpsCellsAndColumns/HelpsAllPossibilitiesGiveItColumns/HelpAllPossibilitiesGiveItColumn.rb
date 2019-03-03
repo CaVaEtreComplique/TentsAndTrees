@@ -10,6 +10,6 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndRowsOrColumns
   end
 
   def getText()
-    @helpText = "Toutes les possibilités de la rangée " + @row.to_s + " font que la case a l'état " +  @state.to_s + " Test"
+    @helpText = "Toutes les possibilités de la colonne " + @row.to_s + " font que la case a l'état " +  @state.to_s + " Test"
   end
 end
