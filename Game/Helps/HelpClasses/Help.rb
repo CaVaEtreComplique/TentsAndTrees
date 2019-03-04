@@ -1,22 +1,24 @@
-#class Help, which contain a String text to explain the help, a column, a row
+#class Help, which contain a String text to explain the help
+#this class is abstract
 require_all(__FILE__)
 class Help
-  #private_class_methode :new  #abstract
+  private_class_method :new  #abstract
 
   def initialize()
+    #initialize the help text as what it need to be
     @helpText = self.getText
   end
 
   attr_reader :helpText
 
-  alias :to_s :helpText
-
   def helpFound?()
+    #return true if a help has been found, else return false
     return true
   end
 
   def getText()
-    "Txt not Available"
+    #retrun the text for the help
+    return "Txt not Available"
   end
 
   def to_s

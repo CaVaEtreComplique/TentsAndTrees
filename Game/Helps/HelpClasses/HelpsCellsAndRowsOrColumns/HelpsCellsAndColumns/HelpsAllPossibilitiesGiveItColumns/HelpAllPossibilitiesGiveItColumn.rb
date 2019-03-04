@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + "/../HelpCellsAndColumns"
 #Help for when all the possibilities of the row give a cell with a state
 
 class HelpAllPossibilitiesGiveItColumn < HelpCellsAndRowsOrColumns
+  public_class_method :new
   def initialize(cell, column, state)
     super(cell, column)
     @state = state
