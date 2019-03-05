@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Grid.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -45,7 +45,7 @@ class Grid
 	end
 
 	def each
-
+		yield @rows.each
 	end
 
 	def cellAt(row, col)
