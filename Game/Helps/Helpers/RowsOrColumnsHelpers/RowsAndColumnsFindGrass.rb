@@ -4,11 +4,11 @@ require File.dirname(__FILE__) + "/../FindWhiteZone"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibilitiesGiveItRow"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
+class RowsAndColumnsFindGrass < FictivHelper
 
-class RowsAndColumnsFindGrass
-
-  def RowsAndColumnsFindGrass.help(game)
+  def help(game)
 
     #puts(game.cellAt(0,5).state.to_s)
 

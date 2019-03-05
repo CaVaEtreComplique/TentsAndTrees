@@ -1,23 +1,15 @@
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
-#require_all(__FILE__ + "/../")
 require File.dirname(__FILE__) + "/../FictivHelper"
-
-#Dans les var
-#@helper
-#
-#dans init
-#@helper=Helper.initializor
-#
-# def help
-#     return @helper.help(self)
-# end
 
 class CellDontTouchTreeHelper < FictivHelper
 
   public_class_method :new
 
   def help(game)
+
+    #puts(game.cellAt(0, 5).state.to_s)
+
     (0...game.nCol).each{ |x|
       (0...game.nRow).each{ |y|
           if((game.cellAt(x, y).isAWhite?) &&
@@ -27,7 +19,7 @@ class CellDontTouchTreeHelper < FictivHelper
               (y-1 < 0 || !(game.cellAt(x, y-1).isATree?) ))
               #If the cell is white dont touch a tree
 
-                return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
+              return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
           end
       }
     }

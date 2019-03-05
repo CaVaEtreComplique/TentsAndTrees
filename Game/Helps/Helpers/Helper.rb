@@ -30,15 +30,11 @@ class Helper < FictivHelper
 
   end
 
-  def Helper.help(game)
-    puts ("Un essai")
-  end
-
   def help(game) #called to help
     #game.beginGuess
 
     @helps.each{ |aHelp|
-      if(!((helpRes = aHelp.help(game)).helpFound?))
+      if(((helpRes = aHelp.help(game)).helpFound?))
         #game.removeGuess
         return helpRes
       end

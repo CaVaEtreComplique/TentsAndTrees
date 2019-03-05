@@ -8,6 +8,6 @@ class HelpAllTentsOnARow < HelpOneRow
   end
 
   def getText #returns the text of the help, saying that "All tents needed are placed, so all the empty cells of the row ° are grass"
-    @helpText = "All tents needed are placed, so all the empty cells of the row " + @row.to_s + " are grass"
+    @helpText = "All tents needed have been placed, so all the empty cells of the row " + @row.to_s + " are grass"
   end
 end

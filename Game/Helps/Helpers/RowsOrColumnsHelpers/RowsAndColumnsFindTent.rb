@@ -5,10 +5,11 @@ require File.dirname(__FILE__) + "/../FindWhiteZone"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibilitiesGiveItRow"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
-class RowsAndColumnsFindTent
+class RowsAndColumnsFindTent < FictivHelper
 
-  def RowsAndColumnsFindTent.help(game)
+  def help(game)
 
     #Algorithm for each columns
     (0...game.nCol).each do |i|
@@ -27,7 +28,7 @@ class RowsAndColumnsFindTent
       end
       nbTent += Count.count(game, :tent, 0, i)
 
-      if nbTent != game.colClues[i]  #Un bug : colClues est l'indice de ligne
+      if nbTent != game.colClues[i]
         break
       end
 
@@ -54,7 +55,7 @@ class RowsAndColumnsFindTent
       end
       nbTent += Count.count(game, :tent, 1, i)
 
-      if nbTent == game.rowClues[i]  #Un bug : rowClues est l'indice de colone
+      if nbTent == game.rowClues[i]
 
         if !(cell.nil?) #We find an answer
           return HelpAllPossibilitiesGiveItColumn.new(cell, i, "tent")

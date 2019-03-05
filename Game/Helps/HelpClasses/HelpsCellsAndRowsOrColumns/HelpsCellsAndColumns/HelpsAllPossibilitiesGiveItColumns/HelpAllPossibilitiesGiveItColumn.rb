@@ -5,9 +5,9 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndRowsOrColumns
 
   public_class_method :new #Instanciable class
   def initialize(cell, column, state) #need a cell, a column, and the state you can set on the cell
-    super(cell, column)
     @state = state
     puts "Test " + @state.to_s
+    super(cell, column)
   end
 
   def getText()

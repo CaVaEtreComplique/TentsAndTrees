@@ -4,9 +4,9 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   #Help for when all the possibilities of the row give a cell a certain state
   public_class_method :new #instanciable
   def initialize(cell, row, state)
-    super(cell, row)
     @state = state
     puts "Test " + @state.to_s
+    super(cell, row)
   end
 
   def getText()
