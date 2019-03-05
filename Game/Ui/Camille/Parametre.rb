@@ -1,3 +1,11 @@
+
+# @Author: VAIDIE Camille <CamilleVAIDIE>
+# @Date:   8-Feb-2019
+# @Email:  camille.vaidie.etu@univ-lemans.fr
+# @Filename: Parametre.rb
+# @Last modified by:   CamilleVAIDIE
+# @Last modified time: 5-Mar-2019
+
 require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
 require File.dirname(__FILE__) + "/../Screens/Screen"

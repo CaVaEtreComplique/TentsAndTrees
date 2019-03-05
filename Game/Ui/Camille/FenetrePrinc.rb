@@ -1,3 +1,11 @@
+
+# @Author: VAIDIE Camille <CamilleVAIDIE>
+# @Date:   25-Jan-2019
+# @Email:  camille.vaidie.etu@univ-lemans.fr
+# @Filename: FenetrePrinc.rb
+# @Last modified by:   CamilleVAIDIE
+# @Last modified time: 1-Mar-2019
+
 require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
 require File.dirname(__FILE__) + "/../Screens/Screen"

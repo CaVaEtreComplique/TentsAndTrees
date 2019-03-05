@@ -1,9 +1,10 @@
-# @Author: Corentin Petit <zeigon>
-# @Date:   01-Mar-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
+
+# @Author: VAIDIE Camille <CamilleVAIDIE>
+# @Date:   25-Jan-2019
+# @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified by:   CamilleVAIDIE
+# @Last modified time: 5-Mar-2019
 
 
 
