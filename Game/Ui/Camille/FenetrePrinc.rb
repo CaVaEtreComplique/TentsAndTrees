@@ -9,11 +9,11 @@ class FenetrePrinc < Screen
     super(manager.win)
     screen=Gdk::Screen.default
 
-    @pad=50
+    @pad=30
     @widthTitre=screen.width*0.10
     @heightTitre=screen.height*0.08
     @widthText=screen.width*0.15
-    @heightText=screen.height*0.06
+    @heightText=screen.height*0.04
 
     #Menu principal
     @gtkObject= Gtk::Table.new(3,3)
