@@ -160,7 +160,6 @@ class GridUi
 				sameState.each { |cell|
 					cell.dragLeftClicked
 				}
-				# @game.addmove([sameState,"unLeftClicked"])
 				@game.addmove([sameState,"dragLeftClicked"])
 		end
 	end
@@ -175,8 +174,9 @@ class GridUi
 	def redo
 		cells = @game.redo[0]
 		cells[0].each{ |cell|
+			cell.method(cells[1]).call unless cells[0].size>1
 			cell.method(cells[1]).call
-		} unless !@game.redo[1]
+		}
 	end
 
 	def beginDrag(cell, click)
