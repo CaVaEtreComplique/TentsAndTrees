@@ -24,18 +24,18 @@ class FenetrePrinc < Screen
     @heightText=screen.height*0.04
 
     @gtkObject= Gtk::Table.new(3,3)
-    menuV=Gtk::Box.new(:vertical)
-    @gtkObject.attach(menuV,1,2,0,1)
+    @menuV=Gtk::Box.new(:vertical)
+    @gtkObject.attach(@menuV,1,2,0,1)
 
     #Premiere case : titre
     titre=Text.new("dEs ArbrEs Et dEs tEntEs",@widthTitre,@heightTitre)
     #add sur gtkObject
-    menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
   #Bontons de menu
     jouer=Text.new("jouer",@widthText,@heightText)
     #add sur gtkObject
-    menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page Mode de jeu
     jouer.onClick{
         manager.modeScreen.applyOn(@parent)
@@ -43,28 +43,28 @@ class FenetrePrinc < Screen
 
     parametre=Text.new("parametres",@widthText,@heightText)
     #add sur gtkObject
-    menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page parametre
     parametre.onClick{
         manager.paramScreen.applyOn(@parent)
     }
     regle=Text.new("regle",@widthText,@heightText)
     #add sur gtkObject
-    menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers le diaporama des regles
     regle.onClick{
      }
 
     meilleurScore=Text.new("meilleur Score",@widthText,@heightText)
     #add sur gtkObject
-    menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page des meilleurs scores
     meilleurScore.onClick{
      }
 
     quitter=Text.new("Quitter",@widthText,@heightText)
     #add sur gtkObject
-    menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
     quitter.onClick(){
         Gtk.main_quit
     }
