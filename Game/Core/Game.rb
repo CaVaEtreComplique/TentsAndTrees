@@ -25,7 +25,7 @@ class Game
 	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
 	attr_reader :chrono, :time, :baseTime, :session
 
-	def initialize(session, save=nil)
+	def initialize(session)
 		ProcessStatus.send("Initialisation de la Partie")
     @session=session
 		@rowClues = @session.gridPick.rows

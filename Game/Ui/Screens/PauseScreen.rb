@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: PauseScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -47,6 +47,7 @@ class PauseScreen < Screen
     }
     quit=Text.new("Quitter",buttonWidth*1.1,buttonHeight*1.1)
       quit.onClick(){
+        manager.createNewSave
         manager.mainScreen.applyOn(@parent)
     }
 

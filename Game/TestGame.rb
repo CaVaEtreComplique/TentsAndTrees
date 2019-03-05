@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: TestGame.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -33,7 +33,7 @@ win.signal_connect('delete_event') {
 win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
 win.show_all
 
-ui = UiManager.new(win)
+ui = UiManager.new(win,player)
 ui.run
 
 Gtk.main

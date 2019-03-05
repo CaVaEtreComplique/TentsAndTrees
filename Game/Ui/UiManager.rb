@@ -3,13 +3,14 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 class UiManager
     attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen
 
-  def initialize(window)
+  def initialize(window,player)
     ProcessStatus.new
+    @player=player
     @win=window
     @loadScreen=LoadingScreen.new(self)
     @mainScreen=FenetrePrinc.new(self)
@@ -22,15 +23,17 @@ class UiManager
     @mainScreen.applyOn(@win)
   end
 
-  def runGameSession(session)
+  def runGameSession(session, saveId=nil)
     Thread.new {
+      @saveId=nil
+      @session=session
       @loadScreen.applyOn(@win)
       @loadScreen.run
-      game=session.game
+      game=@session.game
       # Generation des textures
       cellAssets=CellAssets.new(game.nRow, game.nCol)
       # Generation des ecrans de jeu
-      victoryScreen=VictoryScreen.new(self,session)
+      victoryScreen=VictoryScreen.new(self,@session)
       @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
       ProcessStatus.send("Affichage de l'écran de jeu")
       @gameScreen.applyOn(@win)
@@ -38,6 +41,10 @@ class UiManager
       game.run
       kill #It seems there is a bug where the trhread doesn't systematicaly kill itself at the end of the block
     }
+  end
+
+  def createNewSave
+    Save.update(@session, @saveId, @player)
   end
 
 end

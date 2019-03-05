@@ -11,7 +11,6 @@ class Session
 	# attr_writer :score
 
 	def initialize(gameMode, difficulty)
-    # Save loading here ?
 		@win=win
 		@gameMode=gameMode
 		@difficulty=difficulty
