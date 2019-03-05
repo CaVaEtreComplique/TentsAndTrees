@@ -5,17 +5,32 @@
 # @Last modified by:   CorentinPetit
 # @Last modified time: 12-Feb-2019
 
-
-
+##
+#Asset is an abstract class needed to create and use all of the images from the
+#game. It creates these 4 variables :
+#	@image
+#	@buffer
+#	@width
+#	@height
+#
+#This class needs to be initialized. In the initializer the buffer variable
+#takes its value from a file taken in the method parameters.
+#
+#This class creates two methods : resize and applyOn.
+#
+#The resize class modifies the buffer to make it fit the size taken in
+#parameters.
+#
+#The applyOn method takes a widget in parameters and puts the image on it.
 class Asset
 	@image
 	@buffer
 	@width
 	@height
 
-	attr_reader :buffer
+	attr_reader :buffer  #:nodoc:
 
-	def initialize(file)
+	def initialize(file)  #:nodoc:
 		@buffer= GdkPixbuf::Pixbuf.new(file: file)
 	end
 
