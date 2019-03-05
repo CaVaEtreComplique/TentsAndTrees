@@ -33,7 +33,7 @@ end
 #
 #This class also inherits the screen variable from the Screen class.
 #
-#The gtkObject is the Table where the menu (a vertical box) is added to create
+#The gtkObject is the table where the menu (a vertical box) is added to create
 #the menu buttons.
 #
 #==Implementation
@@ -51,7 +51,7 @@ end
 #	     manager.runGameSession(session)
 #    }
 #
-#Here we created a button entitled "Jouer" that leads to the game mode menu.
+#Here we created a button entitled "Jouer" that leads to the game screen.
 #The other buttons are created by doing this aswell.
 #
 #*Finally*, when all of the buttons are done we add a background picture with :
