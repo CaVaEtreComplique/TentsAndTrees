@@ -16,7 +16,7 @@ class Cell
 	@row
 	@column
 
-	attr_reader :state, :frozen
+	attr_reader :state, :frozen, :row, :column
 	def initialize(args={state: :white, frozen: false, row: 0, column: 0}) # default value are there only if no args at all are given
 		@state = args[:state]
 		@frozen = args[:frozen]

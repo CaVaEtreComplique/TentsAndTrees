@@ -21,6 +21,7 @@ class Game
 	@colClues
 	@nCol
 	@nRow
+  @helper
 
 	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
 	attr_reader :chrono, :time, :baseTime, :session
@@ -39,6 +40,7 @@ class Game
     @baseTime=@session.time
     (@chrono=GLib::Timer.new).stop
     @time=@chrono.elapsed[0]
+    @helper=Helper.initializor
 	end
 
 	def resetGrid
@@ -80,8 +82,8 @@ class Game
   end
 
   def help
-      return Helper.help(self)
-    end
+    return @helper.help(self)
+  end
 
 	def run
 @chrono.start
