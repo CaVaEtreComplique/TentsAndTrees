@@ -1,3 +1,12 @@
+# @Author: Corentin Petit <zeigon>
+# @Date:   20-Feb-2019
+# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Filename: RowsAndColumnsFindGrass.rb
+# @Last modified by:   zeigon
+# @Last modified time: 05-Mar-2019
+
+
+
 #RowsAndColumnsFindGrass help you to find grass in a row or columns
 
 require File.dirname(__FILE__) + "/../../Core/Game"
@@ -26,7 +35,7 @@ class RowsAndColumnsFindGrass
       (0..game.nRow).each{ |j|
 
         if(game.cellAt(i, j).state == (state: :white)){
-
+          p game.cellAt(i, j)
           if (positionPrevOdd == j - 2) && (!oddGrassFind) && (!oddGrassSet) { #find grass between two odd zone
             if (game.cellAt(i - 1, j - 1).state == (state: :white)){
               oddGrassFind = true

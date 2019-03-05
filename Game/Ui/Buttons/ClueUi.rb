@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ClueUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Feb-2019
+# @Last modified time: 04-Mar-2019
 
 
 
@@ -37,7 +37,7 @@ class ClueUi < Button
     i = @gtkLabels.text.to_i
     c=count(:tent)
     if i == c
-      @gtkLabels.set_markup("<span foreground='green' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
+      @gtkLabels.set_markup("<span foreground='blue' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
     elsif i < c
       @gtkLabels.set_markup("<span foreground='red' weight='ultrabold' size='x-large'>"+@gtkLabels.text+"</span>")
     else
