@@ -1,9 +1,22 @@
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
-require_all(__FILE__ + "/../")
-require ile.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
+#require_all(__FILE__ + "/../")
+require File.dirname(__FILE__) + "/../FictivHelper"
+
+#Dans les var
+#@helper
+#
+#dans init
+#@helper=Helper.initializor
+#
+# def help
+#     return @helper.help(self)
+# end
 
 class CellDontTouchTreeHelper < FictivHelper
+
+  public_class_method :new
+
   def help(game)
     (0...game.nCol).each{ |x|
       (0...game.nRow).each{ |y|

@@ -10,9 +10,11 @@
 #RowsAndColumnsFindGrass help you to find grass in a row or columns
 
 require File.dirname(__FILE__) + "/../../Core/Game"
-require ile.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
 class RowsAndColumnsFindGrass < FictivHelper
+
+  public_class_method :new 
 
   def help(game)
 

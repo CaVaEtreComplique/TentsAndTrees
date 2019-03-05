@@ -1,12 +1,15 @@
 #GrassHelper help you to find where you can fill a row or column whith grass
 
-require File.dirname(__FILE__) + "/../Count"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllTentsOnAColumn/HelpAllTentsOnAColumn"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow"
-require ile.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../../Count"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllTentsOnAColumn/HelpAllTentsOnAColumn"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
 class RowsAndColumnsGrassHelper < FictivHelper
+
+  public_class_method :new
+
   def help(game)
     (0...game.nCol).each{ |i| #for each column
       if( Count.count(game,:tent, 0, i ) == game.colClues[i] &&

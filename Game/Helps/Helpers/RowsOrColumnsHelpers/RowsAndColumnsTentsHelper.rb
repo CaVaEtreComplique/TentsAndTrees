@@ -1,12 +1,14 @@
 #TentsHelper help you to find where you can fill a row or column whith tents
 
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllGrassOnAColumn/HelpAllGrassOnAColumn"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllGrassOnARow/HelpAllGrassOnARow"
-require ile.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllGrassOnAColumn/HelpAllGrassOnAColumn"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllGrassOnARow/HelpAllGrassOnARow"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
 
 class RowsAndColumnsTentsHelper < FictivHelper
+
+  public_class_method :new
 
   def help(game)
     (0...game.nCol).each{ |i| #for each column

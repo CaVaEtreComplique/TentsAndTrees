@@ -1,9 +1,12 @@
 #A helper whitch help the player to place grass in cells whitch touch tents
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
-require ile.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
+require File.dirname(__FILE__) + "/../FictivHelper"
 
 class CellTouchATentHelper < FictivHelper
+  
+public_class_method :new
+
   def help(game)
     (0...game.nCol).each{ |x|
       (0...game.nRow).each{ |y|
