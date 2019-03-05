@@ -26,7 +26,7 @@ class CellUi
 		@gtkObject.signal_connect("button_press_event") { |_, event|
 			if event.button==Click::LEFT
 				if Gdk::EventType::BUTTON2_PRESS==event.event_type
-					doubleClick
+					@parent.beginDrag(self, event.button)
 				end
 				@parent.beginDrag(self, event.button)
 				Gdk.pointer_ungrab(Gdk::CURRENT_TIME)
@@ -39,12 +39,6 @@ class CellUi
 				@parent.hover(self)
 			end
 		}
-	end
-
-	def doubleClick
-		coreCell.primaryChange
-		normal
-		show
 	end
 
 	def leftClicked

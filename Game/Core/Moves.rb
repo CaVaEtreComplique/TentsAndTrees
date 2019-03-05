@@ -52,7 +52,7 @@ class Moves
 			@redo.push(@moves.pop)
 			return @redo.last
 		end
-		return [Proc.new{},true]
+		return [[[nil],"nil?"],true]
 	end
 
 	##
@@ -66,7 +66,7 @@ class Moves
 			@moves.push(@redo.pop)
 			return @moves.last
 		end
-		return [Proc.new{},true]
+		return [[[nil],"nil?"],true]
 	end
 
 	##

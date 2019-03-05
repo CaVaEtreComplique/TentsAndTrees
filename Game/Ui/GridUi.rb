@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -155,24 +155,28 @@ class GridUi
 			when 1
 				@first.leftClicked
 				cell=@first
-				@game.addmove(Proc.new{cell.unLeftClicked})
+				@game.addmove([[cell],"unLeftClicked"])
 			else
 				sameState.each { |cell|
 					cell.dragLeftClicked
 				}
-				@game.addmove(Proc.new{sameState.each{ |cell|
-					cell.dragLeftClicked	}},false)
+				# @game.addmove([sameState,"unLeftClicked"])
+				@game.addmove([sameState,"dragLeftClicked"])
 		end
 	end
 
 	def undo
-		@game.undo[0].call
+		cells = @game.undo[0]
+		cells[0].each{ |cell|
+			cell.method(cells[1]).call
+		}
 	end
 
 	def redo
-		p=@game.redo
-		p[0].call unless !p[1]
-		p[0].call
+		cells = @game.redo[0]
+		cells[0].each{ |cell|
+			cell.method(cells[1]).call
+		} unless !@game.redo[1]
 	end
 
 	def beginDrag(cell, click)

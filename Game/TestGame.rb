@@ -33,7 +33,7 @@ win.signal_connect('delete_event') {
 win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
 win.show_all
 
-ui = UiManager.new(win,player)
+ui = UiManager.new(win,nil)
 ui.run
 
 Gtk.main
