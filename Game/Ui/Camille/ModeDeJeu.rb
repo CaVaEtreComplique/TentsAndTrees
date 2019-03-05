@@ -1,9 +1,10 @@
-# @Author: Corentin Petit <zeigon>
-# @Date:   01-Mar-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
+
+# @Author: VAIDIE Camille <CamilleVAIDIE>
+# @Date:   25-Jan-2019
+# @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified by:   CamilleVAIDIE
+# @Last modified time: 5-Mar-2019
 
 
 
@@ -21,27 +22,27 @@ class ModeDeJeu < Screen
   def initialize(manager)
 		super(manager.win)
     screen=Gdk::Screen.default
+		#Variable pour resize le texte
 		@pad =10
 		@widthTitre=screen.width*0.10
     @heightTitre=screen.height*0.08
     @widthText=screen.width*0.1
     @heightText=screen.height*0.04
+
     #Menu principal
 
 		@gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
-
-    #Premiere case : titre
+  #Bontons de menu
 		titre=Text.new("Mode de Jeu",@widthTitre,@heightTitre)
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-
-    #Bontons de menu
     aventure=Text.new("Aventure",@widthText,@heightText)
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
+		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
-
+				#Lancer le mode aventure
 		 }
 
     timeA=Text.new("Partie rapide",@widthText,@heightText)
@@ -52,7 +53,7 @@ class ModeDeJeu < Screen
     }
     clm=Text.new("Contre la montre",@widthText,@heightText)
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
-		#Lance une partie contre la montre
+		#Lance une partie contre la montre en mide easy
 		clm.onClick{
 			 session=Session.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
