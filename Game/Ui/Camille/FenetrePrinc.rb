@@ -12,6 +12,25 @@ require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
 
+##
+#==Presentation==
+#FenetrePrinc is an inherited class from the Screen class. This class only needs
+#to be initialized and applied so the only method is the initializer. It
+#creates and implements the main menu from the game.
+#==Variables==
+#The FenetrePrinc class creates the title and text
+#size and the padding variables with
+#   @pad=30
+#   @widthTitre=screen.width*0.10
+#   @heightTitre=screen.height*0.08
+#   @widthText=screen.width*0.15
+#   @heightText=screen.height*0.04
+#
+#This class also inherits the screen variable from the Screen class.
+#
+#The gtkObject is the Table where the menuV (a vertical box) is added to create
+#the menu buttons.
+
 class FenetrePrinc < Screen
   def initialize(manager)
     super(manager.win)
@@ -27,12 +46,14 @@ class FenetrePrinc < Screen
     @menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menuV,1,2,0,1)
 
-    #Premiere case : titre
+    ##
+    #Here is how a button is implemented on the man menu :
+    #+First+ we
     titre=Text.new("dEs ArbrEs Et dEs tEntEs",@widthTitre,@heightTitre)
     #add sur gtkObject
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-  #Bontons de menu
+    #Bontons de menu
     jouer=Text.new("jouer",@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
