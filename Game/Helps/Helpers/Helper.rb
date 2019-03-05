@@ -1,28 +1,47 @@
 #Main of the help, when you need a help, let's call Helper to help you
-
+require File.dirname(__FILE__) + "/FictivHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 
-class Helper
-  def Helper.help( game )
+class Helper < FictivHelper
+  #needed to be initialized at the start
+  private_class_method :new
+
+  @@helper
+  @helps
+
+  def Helper.initializor
+    if defined?(@@helper).nil?
+      return @@helper = Helper.new
+    else
+      return @@helper
+    end
+  end
+
+  def initialize
+    @helps = Array.new
+
+    @helps.push(CellDontTouchTreeHelper.new)
+    @helps.push(RowsAndColumnsGrassHelper.new)
+    @helps.push(RowsAndColumnsTentsHelper.new)
+    @helps.push(CellTouchATentHelper.new)
+
+  end
+
+  def Helper.help(game)
+  end
+
+  def help(game) #called to help
     #game.beginGuess
 
-    if(!((help = CellDontTouchTreeHelper.help(game)).helpFound?))  #1
-      if(true)  #2
-        if(!((help = RowsAndColumnsGrassHelper.help(game)).helpFound?))  #3
-          if(!((help = RowsAndColumnsTentsHelper.help(game)).helpFound?))  #4
-            if(!((help = CellTouchATentHelper.help(game)).helpFound?))
-              help = HelpNotFound.new
-            end
-          end
-        end
+    @helps.each{ |aHelp|
+      if(!((helpRes = aHelp.help(game)).helpFound?))
+        #game.removeGuess
+        return helpRes
       end
-    end
-
+    }
     #game.removeGuess
-
-    return help
-  end
+    return help = HelpNotFound.new
 end
