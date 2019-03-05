@@ -19,7 +19,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #creates and implements the main menu from the game by creating its buttons.
 #
 #==Variables
-#The FenetrePrinc class creates the title, text
+#The FenetrePrinc class creates the title size, text
 #size and the padding variables with :
 #   @pad=30
 #   @widthTitre=screen.width*0.10
@@ -33,7 +33,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #the menu buttons.
 #
 #==Implementation
-#Here is how a button is implemented on the main menu :
+#=====Here is how a button is implemented on the main menu :
 #
 #*First* we add some text to the button :
 #   jouer=Text.new("jouer",@widthText,@heightText)
@@ -48,7 +48,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #Here we created a button entitled "Jouer" that leads to the game mode menu.
 #The other buttons are created by doing this aswell.
 #
-#*Finally*, when all the buttons are done we add a background picture with :
+#*Finally*, when all of the buttons are done we add a background picture with :
 #   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
 
