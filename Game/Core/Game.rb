@@ -11,7 +11,7 @@ require "observer"
 require File.dirname(__FILE__) + "/Guess"
 require File.dirname(__FILE__) + "/Grid"
 require File.dirname(__FILE__) + "/GridGenerator"
-require File.dirname(__FILE__) + "/../Helps/Helper"
+require File.dirname(__FILE__) + "/../Helps/Helpers/Helper"
 
 class Game
   include Observable
