@@ -13,13 +13,14 @@ require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
 
 ##
-#==Presentation==
+#==Presentation
 #FenetrePrinc is an inherited class from the Screen class. This class only needs
-#to be initialized and applied so the only method is the initializer. It
-#creates and implements the main menu from the game.
-#==Variables==
-#The FenetrePrinc class creates the title and text
-#size and the padding variables with
+#to be initialized and applied, so the only method is the initializer. It
+#creates and implements the main menu from the game by creating its buttons.
+#
+#==Variables
+#The FenetrePrinc class creates the title, text
+#size and the padding variables with :
 #   @pad=30
 #   @widthTitre=screen.width*0.10
 #   @heightTitre=screen.height*0.08
@@ -30,12 +31,32 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #
 #The gtkObject is the Table where the menuV (a vertical box) is added to create
 #the menu buttons.
+#
+#==Implementation
+#Here is how a button is implemented on the main menu :
+#
+#*First* we add some text to the button :
+#   jouer=Text.new("jouer",@widthText,@heightText)
+#
+#*Next* we add the button we just created in the VBox (gtkObject) :
+#   @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
+#
+#*Then* we add the action the button does when it is clicked :
+#   jouer.onClick{
+#      manager.modeScreen.applyOn(@parent)
+#   }
+#Here we created a button entitled "Jouer" that leads to the game mode menu.
+#The other buttons are created by doing this aswell.
+#
+#*Finally*, when all the buttons are done we add a background picture with :
+#   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+#
 
 class FenetrePrinc < Screen
-  def initialize(manager)
+  def initialize(manager) #:nodoc:
     super(manager.win)
     screen=Gdk::Screen.default
-		#Variable pour resize le texte
+    #Variable pour resize le texte
     @pad=30
     @widthTitre=screen.width*0.10
     @heightTitre=screen.height*0.08
@@ -46,14 +67,10 @@ class FenetrePrinc < Screen
     @menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menuV,1,2,0,1)
 
-    ##
-    #Here is how a button is implemented on the man menu :
-    #+First+ we
     titre=Text.new("dEs ArbrEs Et dEs tEntEs",@widthTitre,@heightTitre)
     #add sur gtkObject
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    #Bontons de menu
     jouer=Text.new("jouer",@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
