@@ -1,9 +1,10 @@
 require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"
 require_all(__FILE__ + "/../")
+require ile.dirname(__FILE__) + "/../FictivHelper"
 
-class CellDontTouchTreeHelper
-  def CellDontTouchTreeHelper.help(game)
+class CellDontTouchTreeHelper < FictivHelper
+  def help(game)
     (0...game.nCol).each{ |x|
       (0...game.nRow).each{ |y|
           if((game.cellAt(x, y).isAWhite?) &&

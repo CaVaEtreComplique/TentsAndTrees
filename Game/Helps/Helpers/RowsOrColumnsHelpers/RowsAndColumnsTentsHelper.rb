@@ -3,12 +3,12 @@
 require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllGrassOnAColumn/HelpAllGrassOnAColumn"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllGrassOnARow/HelpAllGrassOnARow"
+require ile.dirname(__FILE__) + "/../FictivHelper"
 
 
+class RowsAndColumnsTentsHelper < FictivHelper
 
-class RowsAndColumnsTentsHelper
-
-  def RowsAndColumnsTentsHelper.help(game)
+  def help(game)
     (0...game.nCol).each{ |i| #for each column
       if(Count.count(game, :white, 0, i ) + (nbTents = Count.count(game, :tent, 0, i )) == game.colClues[i] && nbTents != game.colClues[i])
       #if there are much grass that we need for the column

@@ -4,10 +4,10 @@ require File.dirname(__FILE__) + "/../Count"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllTentsOnAColumn/HelpAllTentsOnAColumn"
 require File.dirname(__FILE__) + "/../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow"
+require ile.dirname(__FILE__) + "/../FictivHelper"
 
-
-class RowsAndColumnsGrassHelper
-  def RowsAndColumnsGrassHelper.help(game)
+class RowsAndColumnsGrassHelper < FictivHelper
+  def help(game)
     (0...game.nCol).each{ |i| #for each column
       if( Count.count(game,:tent, 0, i ) == game.colClues[i] &&
         #if there are much tents that we need for the column
