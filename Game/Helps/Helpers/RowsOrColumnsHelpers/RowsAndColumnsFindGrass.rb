@@ -1,161 +1,154 @@
-# @Author: Corentin Petit <zeigon>
-# @Date:   20-Feb-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
-# @Filename: RowsAndColumnsFindGrass.rb
-# @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
-
-
-
 #RowsAndColumnsFindGrass help you to find grass in a row or columns
 
-require File.dirname(__FILE__) + "/../../Core/Game"
-require File.dirname(__FILE__) + "/../FictivHelper"
+require File.dirname(__FILE__) + "/../FindWhiteZone"
+require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
+require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibilitiesGiveItRow"
 
-class RowsAndColumnsFindGrass < FictivHelper
 
-  public_class_method :new 
+class RowsAndColumnsFindGrass
 
-  def help(game)
+  def RowsAndColumnsFindGrass.help(game)
 
-    nbTent = 0
-    sizeTentZone = 0
-    positionPrevOdd = -3
-    even = true
-    oddGrassFind = false
-    oddGrassSet = false
-    oddGrassCell = nil
-    evenGrassFind = false
-    evenGrassSet = false
-    evenGrassCell = nil
+    #puts(game.cellAt(0,5).state.to_s)
 
-    #for each row we applie the alorithm
-    (0..game.nCol).each{ |i|
+    #Algorithm for each columns
+    (0...game.nCol).each do |i|
+      cell = nil  #reset
+      nbTent = 0
+      odd = true
 
-      nbTent = 0        #reset
-      sizeTentZone = 0
+      whiteZone = FindWhiteZone.Find(game, 0, i)
+      whiteZone.each do |zone| #Count the number of possible tent
+        if (zone.size % 2 == 0)
+          nbTent += (zone.size / 2)
+        else
+          nbTent += (zone.size / 2) + 1
+        end
+      end
+      nbTent += Count.count(game, :tent, 0, i)
 
-      (0..game.nRow).each{ |j|
+      if ((nbTent == game.colClues[i] || (nbTent == game.colClues[i] + 1)) && game.colClues[i] != 0)  #Un bug : colClues est l'indice de ligne
 
-        if(game.cellAt(i, j).state == (state: :white)){
-          p game.cellAt(i, j)
-          if (positionPrevOdd == j - 2) && (!oddGrassFind) && (!oddGrassSet) { #find grass between two odd zone
-            if (game.cellAt(i - 1, j - 1).state == (state: :white)){
-              oddGrassFind = true
-              oddGrassCell = game.cellAt(i - 1, j - 1)
-            }elsif (game.cellAt(i + 1, j - 1).state == (state: :white)){
-              oddGrassFind = true
-              oddGrassCell = game.cellAt(i + 1, j - 1)
-            }
-          }
+        #Time efficient, in case of medium/big grid
+        if (nbTent == game.colClues[i])
 
-          even = even ? false : true
-
-          if (!oddGrassFind) && (!oddGrassSet) && (even) { #Find grass for odd zone
-            if (game.cellAt(i - 1, j).state == (state: :white)){
-              oddGrassFind = true
-              oddGrassCell = game.cellAt(i - 1, j)
-            }elsif (game.cellAt(i + 1, j).state == (state: :white)){
-              oddGrassFind = true
-              oddGrassCell = game.cellAt(i + 1, j)
-            }
-          }
-
-          if (!evenGrassFind) && (!evenGrassSet){ #Find grass for even zone
-            if (game.cellAt(i - 1, j).state == (state: :white)){
-              evenGrassFind = true
-              evenGrassCell = game.cellAt(i - 1, j)
-            }elsif (game.cellAt(i + 1, j).state == (state: :white)){
-              evenGrassFind = true
-              evenGrassCell = game.cellAt(i + 1, j)
-            }
-          }
-
-          positionPrevOdd = i
-          sizeTentZone += 1
-
-        }elsif (game.cellAt(i, j).state == (state: :grass)){
-
-          case (sizeTentZone % 2)
-          when 1
-            nbTent += 1
-            oddGrassSet = true if oddGrassFind
-          when 0
-            if (!oddGrassSet){
-              oddGrassFind = false
-              oddGrassCell = nil
-            }
-            positionPrevOdd = -3
+          whiteZone.each do |zone|
+            zone.each do |cell|
+              if(cell.column + 1 < game.nCol)
+                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), i, "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
+              end
+              if(cell.column - 1 >= 0)
+                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), i, "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
+              end
+            end
           end
 
-          evenGrassSet = true if evenGrassFind
-          nbTent += sizeTentZone / 2;
-          sizeTentZone = 0;
-          even = true
-
-        }elsif (game.cellAt(i, j).state == (state: :tree)){
-
-          if(game.cellAt(i + 1, j + 1).state == (state: :tree) || game.cellAt(i + 1, j - 1).state == (state: :tree) ||
-          game.cellAt(i - 1, j + 1).state == (state: :tree) || game.cellAt(i - 1, j - 1).state == (state: :tree) ||
-          game.cellAt(i, j + 1).state == (state: :tree) || game.cellAt(i, j + 2).state == (state: :tree) || game.cellAt(i, j - 2).state == (state: :tree))
-          { #We do not link the left zone and the right zone
-
-            #so the tree that we found act as a white case
-            case (sizeTentZone % 2)
-            when 1
-              nbTent += 1
-              oddGrassSet = true if oddGrassFind
-            when 0
-              if (!oddGrassSet){
-                oddGrassFind = false
-                oddGrassCell = nil
-              }
-              positionPrevOdd = -3
+        else  #nbTent == game.colClues[i]+1
+          whiteZone.each do |zone|
+            if zone.size % 2 == 1 #odd zone
+              if(!odd)   #Two consecutive odd zone
+                cell = zone.first
+                if (game.cellAt(cell.row - 2, cell.column).isAWhite?)
+                  if cell.column + 1 < game.nCol
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column + 1), i, "grass") if game.cellAt(cell.row - 1, cell.column + 1).isAWhite?
+                  end
+                  if cell.column - 1 >= 0
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column - 1), i, "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
+                  end
+                end
+              end
+              odd = true
+              zone.each do |cell|
+                if !odd
+                  if(cell.column + 1 < game.nCol)
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), i, "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
+                  end
+                  if(cell.column - 1 >= 0)
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), i, "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
+                  end
+                end
+                odd = !odd
+              end
+              odd = false
+            else  #zone.size % 2 == 0 --> even zone
+              odd = true
             end
+          end
 
-            evenGrassSet = true if evenGrassFind
-            nbTent += sizeTentZone / 2;
-            sizeTentZone = 0;
-            even = true
-
-          }
-
-        }else if (game.cellAt(i, j).state == (state: :tent)){
-          nbTent += 1
-        }
-
-        if(nbTent > clue + 1){    #Comment on recupere les indices de la grillse svp ?
-          break;  #If we have more possibility of tent then the row indication we change ligne
-        }
-
-      }
-
-      case (sizeTentZone % 2)
-      when 1
-        nbTent += 1
-        oddGrassSet = true if oddGrassFind
-      when 0
-        if (!oddGrassSet){
-          oddGrassFind = false
-          oddGrassCell = nil
-        }
-        positionPrevOdd = -3
+        end
       end
+    end
 
-      evenGrassSet = true if evenGrassFind
-      nbTent += sizeTentZone / 2;
+    #Algorithm for each row
+    (0...game.nRow).each do |i|
+      cell = nil  #reset
+      nbTent = 0
+      odd = true
 
-      return HelpAllPossibilitiesGiveItRow.new(oddGrassCell, i, state: :grass) if nbTent == clue && !oddGrassCell.nil?
-      return HelpAllPossibilitiesGiveItRow.new(evenGrassCell, i, state: :grass) if nbTent == clue && !evenGrassCell.nil?
-      return HelpAllPossibilitiesGiveItRow.new(evenGrassCell, i, state: :grass) if nbTent == clue + 1 && !evenGrassCell.nil?
+      whiteZone = FindWhiteZone.Find(game, 1, i)
+      whiteZone.each do |zone| #Count the number of possible tent
+        if (zone.size % 2 == 0)
+          nbTent += (zone.size / 2)
+        else
+          nbTent += (zone.size / 2) + 1
+        end
+      end
+      nbTent += Count.count(game, :tent, 1, i)
 
-    }
+      if ((nbTent == game.rowClues[i] || (nbTent == game.rowClues[i] + 1)) && game.rowClues[i] != 0)  #Un bug : colClues est l'indice de ligne
 
+        #Time efficient, in case of medium/big grid
+        if (nbTent == game.rowClues[i])
 
+          whiteZone.each do |zone|
+            zone.each do |cell|
+              if(cell.row + 1 < game.nRow)
+                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), i, "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
+              end
+              if(cell.row - 1 >= 0)
+                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), i, "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
+              end
+            end
+          end
 
+        else  #nbTent == game.rowClues[i]+1
+          whiteZone.each do |zone|
+            if zone.size % 2 == 1 #odd zone
+              if(!odd)   #Two consecutive odd zone
+                cell = zone.first
+                if (game.cellAt(cell.row, cell.column - 2).isAWhite?)
+                  if cell.row + 1 < game.nRow
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column - 1), i, "grass") if game.cellAt(cell.row + 1, cell.column - 1).isAWhite?
+                  end
+                  if cell.row - 1 >= 0
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column - 1), i, "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
+                  end
+                end
+              end
+              odd = true
+              zone.each do |cell|
+                if !odd
+                  if(cell.row + 1 < game.nRow)
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), i, "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
+                  end
+                  if(cell.row - 1 >= 0)
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), i, "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
+                  end
+                end
+                odd = !odd
+              end
+              odd = false
+            else  #zone.size % 2 == 0 --> even zone
+              odd = true
+            end
+          end
 
-
+        end
+      end
+    end
 
     return HelpNotFound.new()
+
   end
 end
