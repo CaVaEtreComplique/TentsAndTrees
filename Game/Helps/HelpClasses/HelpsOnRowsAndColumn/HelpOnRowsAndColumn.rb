@@ -1,7 +1,8 @@
 require File.dirname(__FILE__) + "/../Help"
 
 class HelpOnRowsAndColumn < Help
-  #private_class_methode :new  #abstract
+  #abstract class
+  #help gave when the player need a row or a column
   def initialize(rowOrColumn)
     @column = rowOrColumn
     @row = rowOrColumn

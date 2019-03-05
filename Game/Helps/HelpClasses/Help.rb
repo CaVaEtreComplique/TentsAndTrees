@@ -2,7 +2,8 @@
 #this class is abstract
 require_all(__FILE__)
 class Help
-  private_class_method :new  #abstract
+  #parent of all helps, used any time when you ask a help
+  private_class_method :new  #abstract class
 
   def initialize()
     #initialize the help text as what it need to be

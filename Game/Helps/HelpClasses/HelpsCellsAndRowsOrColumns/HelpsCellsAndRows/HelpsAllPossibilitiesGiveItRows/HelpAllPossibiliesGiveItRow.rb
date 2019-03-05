@@ -1,9 +1,8 @@
 require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
-#Help for when all the possibilities of the row give a cell a certain state
-
 class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
-  public_class_method :new
+  #Help for when all the possibilities of the row give a cell a certain state
+  public_class_method :new #instanciable
   def initialize(cell, row, state)
     super(cell, row)
     @state = state
@@ -11,6 +10,7 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   end
 
   def getText()
+    #returns the text of the help, saying that all the possibilitieses of a row give the state of the cell
     @helpText = "Toutes les possibilités de la rangée " + @row.to_s + " font que la case a l'état " + @state.to_s + " Test"
   end
 end

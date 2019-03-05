@@ -3,7 +3,7 @@
 require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 
 class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
-  #private_class_methode :new  #abstract
+  #abstract class
 
   def initialize(cell, column)
     super(cell, column)

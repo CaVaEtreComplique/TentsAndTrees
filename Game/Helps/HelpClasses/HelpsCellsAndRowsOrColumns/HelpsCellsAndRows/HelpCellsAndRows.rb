@@ -1,9 +1,8 @@
-
-
 require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 
 class HelpCellsAndRows < HelpCellsAndRowsOrColumns
-  #private_class_method :new  #abstract
+  #abstract class
+  #help about a cell and a row
 
   def initialize(cell, row)
     super(cell, row)
