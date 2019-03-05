@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 04-Mar-2019
 
 
 require 'gtk3'
@@ -30,7 +30,7 @@ class VictoryScreen < Screen
     quit=Text.new("Quitter").resize(screen.width*0.25,screen.height*0.1)
     quit.onClick{
       @manager.mainScreen.applyOn(@parent)
-      Gtk.main_quit
+      # Gtk.main_quit
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
 

@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 04-Mar-2019
 
 
 
@@ -93,8 +93,6 @@ class GameScreen < Screen
     @chronoUi.updateLabel(@game.time.truncate)
     if @game.currentGuess.grid==@game.correction
       @game.chrono.stop
-      p @parent.class
-      p @victoryScreen.class
       @victoryScreen.applyOn(@parent,@game.calculateScore,true)
       @game.chrono.destroy
       @game.delete_observers

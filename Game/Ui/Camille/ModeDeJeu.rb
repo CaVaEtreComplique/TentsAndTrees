@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 04-Mar-2019
 
 
 
@@ -54,7 +54,7 @@ class ModeDeJeu < Screen
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre
 		clm.onClick{
-			 session=Session.new(:timeAttack, :random)
+			 session=Session.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
     retour=Text.new("retour",@widthText,@heightText)

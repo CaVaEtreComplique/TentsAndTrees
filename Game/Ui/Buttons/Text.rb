@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 02-Mar-2019
 
 
 require File.dirname(__FILE__) + "/../AssetsLoaderClass/CharAssets"
@@ -100,8 +100,8 @@ class Text
           @eventBox.each { |child|
             @eventBox.remove(child)
           }
-          @textBox.show_all
           @eventBox.add(@textBox)
+          @textBox.show_all
         end
       end
     }
