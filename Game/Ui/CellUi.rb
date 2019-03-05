@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CellUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -21,8 +21,13 @@ class CellUi
 		@gtkObject = Gtk::EventBox.new
 		normal()
 
+
+
 		@gtkObject.signal_connect("button_press_event") { |_, event|
 			if event.button==Click::LEFT
+				if Gdk::EventType::BUTTON2_PRESS==event.event_type
+					doubleClick
+				end
 				@parent.beginDrag(self, event.button)
 				Gdk.pointer_ungrab(Gdk::CURRENT_TIME)
 			end
@@ -36,22 +41,28 @@ class CellUi
 		}
 	end
 
+	def doubleClick
+		coreCell.primaryChange
+		normal
+		show
+	end
+
 	def leftClicked
-		coreCell.primaryChange()
-		normal()
-		show()
+		coreCell.primaryChange
+		normal
+		show
 	end
 
 	def unLeftClicked
-		coreCell.primaryUnchange()
-		normal()
-		show()
+		coreCell.primaryUnchange
+		normal
+		show
 	end
 
 	def dragLeftClicked
-		coreCell.dragLeftChange()
-		normal()
-		show()
+		coreCell.dragLeftChange
+		normal
+		show
 	end
 
 	def coreCell
