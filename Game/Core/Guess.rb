@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Guess.rb
 # @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified time: 05-Mar-2019
 
 
 
@@ -53,6 +53,10 @@ class Guess
 
 	def addmove(cellState,triRotative)
 		@moves.add(cellState,triRotative)
+	end
+
+	def moves
+		return @moves.moves
 	end
 
 end
