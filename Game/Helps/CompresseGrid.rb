@@ -1,11 +1,10 @@
 # Compresse the grid into 3 array whitch containe tent, tree and grass
 
-
 class CompresseGrid
   def CompresseGrid.compresse(game)
 
     tree = Array.new
-    tent = Array.new 
+    tent = Array.new
     grass = Array.new
 
     (0...game.nRow).each do |i|

@@ -1,12 +1,14 @@
 #RowsAndColumnsFindGrass help you to find grass in a row or columns
 
-require File.dirname(__FILE__) + "/../FindWhiteZone"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibilitiesGiveItRow"
+require File.dirname(__FILE__) + "/../../FindWhiteZone"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
 class RowsAndColumnsFindGrass < FictivHelper
+
+  public_class_method :new
 
   def help(game)
 
@@ -28,7 +30,7 @@ class RowsAndColumnsFindGrass < FictivHelper
       end
       nbTent += Count.count(game, :tent, 0, i)
 
-      if ((nbTent == game.colClues[i] || (nbTent == game.colClues[i] + 1)) && game.colClues[i] != 0)  #Un bug : colClues est l'indice de ligne
+      if ((nbTent == game.colClues[i] || (nbTent == game.colClues[i] + 1)) && game.colClues[i] != 0)
 
         #Time efficient, in case of medium/big grid
         if (nbTent == game.colClues[i])
@@ -96,7 +98,7 @@ class RowsAndColumnsFindGrass < FictivHelper
       end
       nbTent += Count.count(game, :tent, 1, i)
 
-      if ((nbTent == game.rowClues[i] || (nbTent == game.rowClues[i] + 1)) && game.rowClues[i] != 0)  #Un bug : colClues est l'indice de ligne
+      if ((nbTent == game.rowClues[i] || (nbTent == game.rowClues[i] + 1)) && game.rowClues[i] != 0)
 
         #Time efficient, in case of medium/big grid
         if (nbTent == game.rowClues[i])

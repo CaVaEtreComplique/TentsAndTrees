@@ -1,13 +1,15 @@
 #RowsAndColumnsFindTent help you to find Tent in a row or columns
 
-require File.dirname(__FILE__) + "/../Count"
-require File.dirname(__FILE__) + "/../FindWhiteZone"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpNotFound/HelpNotFound"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
-require File.dirname(__FILE__) + "/../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibilitiesGiveItRow"
+require File.dirname(__FILE__) + "/../../Count"
+require File.dirname(__FILE__) + "/../../FindWhiteZone"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
+require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
 class RowsAndColumnsFindTent < FictivHelper
+
+  public_class_method :new
 
   def help(game)
 

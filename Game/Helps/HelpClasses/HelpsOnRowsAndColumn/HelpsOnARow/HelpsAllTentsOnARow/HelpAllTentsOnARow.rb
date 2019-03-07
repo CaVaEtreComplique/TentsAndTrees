@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + "/../HelpOneRow"
 
 class HelpAllTentsOnARow < HelpOneRow
-  #class saying that all tents of the row are placed , it need to be filled with grass
+  #class saying that all tents of the row are placed, it need to be filled with grass
   public_class_method :new #instanciable class
   def initialize(row)
     super(row)

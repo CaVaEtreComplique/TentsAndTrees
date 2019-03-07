@@ -12,6 +12,6 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndRowsOrColumns
 
   def getText()
     #returns the text of the help, saying that all the possibilitieses of a column give the state of the cell
-    return @helpText = "Toutes les possibilités de la colonne " + @row.to_s + " font que la case a l'état " +  @state.to_s + " Test"
+    return @helpText = "Toutes les possibilités de la colonne " + @row.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s + " Test"
   end
 end
