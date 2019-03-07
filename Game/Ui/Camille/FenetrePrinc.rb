@@ -11,6 +11,8 @@ require File.dirname(__FILE__) + "/ModeDeJeu"
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
+require File.dirname(__FILE__) + "/../../Core/XmlReader"
+
 
 ##
 #==Presentation
@@ -72,7 +74,7 @@ class FenetrePrinc < Screen
     #add sur gtkObject
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    jouer=Text.new("jouer",@widthText,@heightText)
+    jouer=Text.new(manager.language.getButtonLabel("main" , "play"),@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page Mode de jeu

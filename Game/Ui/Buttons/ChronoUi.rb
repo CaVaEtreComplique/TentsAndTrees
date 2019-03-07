@@ -5,6 +5,9 @@
 # @Last modified by:   zeigon
 # @Last modified time: 13-Feb-2019
 
+require File.dirname(__FILE__) + "/Button"
+
+
 class ChronoUi < Button
 
 	attr_reader :time

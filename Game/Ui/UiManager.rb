@@ -6,12 +6,13 @@
 # @Last modified time: 05-Mar-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen, :language
 
   def initialize(window,player)
     ProcessStatus.new
     @player=player
     @win=window
+    @language=XmlReader.new
     @loadScreen=LoadingScreen.new(self)
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)
@@ -42,7 +43,7 @@ class UiManager
       kill #It seems there is a bug where the trhread doesn't systematicaly kill itself at the end of the block
     }
   end
-  
+
   def createNewSave
     Save.update(@session)
   end
