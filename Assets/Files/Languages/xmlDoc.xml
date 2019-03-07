@@ -1,0 +1,56 @@
+<languages>
+  <french>
+    <language>Francais</language>
+    <name>Arbres et tentes</name>
+    <screen>
+      <main>
+        <buttons>
+          <play>Jouer</play>
+          <settings>Parametres</settings>
+          <rules>Regles</rules>
+        </buttons>
+      </main>
+
+      <settings>
+        <buttons>
+          <apply>Appliquer</apply>
+          <back>Retour</back>
+        </buttons>
+      </settings>
+
+      <gamemode>
+        <buttons>
+          <adventure>Aventure</adventure>
+          <quick>Partie rapide</quick>
+          <timeattack>Contre la montre</timeattack>
+          <back>Retour</back>
+        </buttons>
+      </gamemode>
+
+      <winning>
+        <texts>
+          <victory>VICTOIRE</victory>
+          <time>Temps : </time>
+        </texts>
+        <buttons>
+          <nextlevel>Niveau suivant</nextlevel>
+          <quit>Quitter</quit>
+        </buttons>
+      </winning>
+
+      <pause>
+
+      </pause>
+    </screen>
+    <helps>
+      <help>
+        <rank>oui</rank>
+        <text>Blablabla</text>
+      </help>
+    </helps>
+  </french>
+  <english>
+    <language>English</language>
+    <name>Tents and trees</name>
+  </english>
+</languages>
