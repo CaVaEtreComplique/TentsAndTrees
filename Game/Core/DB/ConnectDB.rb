@@ -1,14 +1,10 @@
 require 'rubygems'
 require 'sqlite3'
 require File.dirname(__FILE__) + "/Player.rb"
-require File.dirname(__FILE__) + "/Save.rb"
+require File.dirname(__FILE__) + "/SaveDB.rb"
 require File.dirname(__FILE__) + "/HighScore.rb"
 require File.dirname(__FILE__) + "/Gamemode.rb"
 require 'digest/sha1'
-
-#TO DO
-#Finir les méthodes de bases de données
-
 
 class ConnectDB
 
@@ -92,6 +88,21 @@ class ConnectDB
 
 	end
 
+  def testSave(content)
+
+    save = nil;
+
+    @db.execute "INSERT INTO Test(content) VALUES('#{content}')" do |row|
+			puts row
+		end
+
+    @db.execute "SELECT * FROM Test ORDER BY player_id DESC LIMIT 1" do |row|
+			return row[1]
+		end
+
+  end
+
+
 	# Create a Save in the database with the content and the Player provided. The game must be connected to the database
 	#
 	# ==== Attributes
@@ -107,7 +118,24 @@ class ConnectDB
 
 		d = DateTime.now
 
-		@db.execute "INSERT INTO Save(player_id_save, date_save content_save) VALUES(#{player.player_id}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')" do |row|
+		@db.execute "INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.player_id}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')" do |row|
+			puts row
+		end
+
+	end
+
+  # Delete a Save in the database with the ID of the Save. The game must be connected to the database
+	#
+	# ==== Attributes
+	# * +id+ - The ID of the save to delete
+  #
+	# ==== Examples
+	#
+	#    db = ConnectDB.new()
+	# 	 db.deleteSave((ID of the save))
+	def deleteSave(id)
+
+		@db.execute "DELETE FROM Save WHERE id_save = #{id}" do |row|
 			puts row
 		end
 
@@ -118,6 +146,10 @@ class ConnectDB
 	# ==== Attributes
 	# * +player+ - The Player who saved
 	#
+  #
+  # ==== Return
+  # 	The saves created by the Player in an Array
+  #
 	# ==== Examples
 	#
 	#    db = ConnectDB.new()
@@ -128,10 +160,34 @@ class ConnectDB
 		saves = Array.new
 
 		@db.execute "SELECT * FROM Save WHERE player_id_save = #{player.player_id}" do |row|
-			saves.push(new Save(row[0],row[1],row[2],row[3]))
+			saves.push(new SaveDB(row[0],row[1],row[2],row[3]),row[4],row[5])
 		end
 
 		return saves
+
+	end
+
+  # Retrieve the save from the ID provided. The game must be connected to the database
+	#
+	# ==== Attributes
+	# * +id+ - The ID of the Save
+  #
+  # ==== Return
+  # 	The save that matches the ID provides
+  #
+	# ==== Examples
+	#
+	#    db = ConnectDB.new()
+	# 	 db.getSaveByID(id)
+	def getSaveByID(id)
+
+		save = nil
+
+		@db.execute "SELECT * FROM Save WHERE id_save = #{id}" do |row|
+			save = new SaveDB(row[0],row[1],row[2],row[3]),row[4],row[5]
+		end
+
+		return save
 
 	end
 
@@ -141,6 +197,10 @@ class ConnectDB
 	# * +gamemode+ - The gamemode
 	# * +diff+ - The difficulty
 	#
+  #
+  # ==== Return
+  # 	The highscores that match the game mode and the difficulty in an Array
+  #
 	# ==== Examples
 	#
 	#    db = ConnectDB.new()
@@ -159,6 +219,16 @@ class ConnectDB
 
 	end
 
+  # Retrieve the gamemodes available. The game must be connected to the database
+  #
+  #
+  # ==== Return
+  # 	All the game modes in an Array
+  #
+  # ==== Examples
+  #
+  #    db = ConnectDB.new()
+  # 	 db.getGamemodes()
   def getGamemodes()
 
     gm = Array.new

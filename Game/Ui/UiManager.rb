@@ -42,9 +42,9 @@ class UiManager
       kill #It seems there is a bug where the trhread doesn't systematicaly kill itself at the end of the block
     }
   end
-
+  
   def createNewSave
-    Save.update(@session, @saveId, @player)
+    Save.update(@session)
   end
 
 end

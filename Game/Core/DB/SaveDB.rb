@@ -1,7 +1,7 @@
 
 # A Save is defined by its ID, its Player, its date and its content
 # This Class is used to represent a Save in the database
-class Save
+class SaveDB
 
   @id_save # The ID of the Save
   @player_id_save # The Player's ID of the Save
