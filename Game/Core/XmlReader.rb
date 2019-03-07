@@ -19,6 +19,10 @@ class XmlReader
      return @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").fetch(key)
   end
 
+  def getScreenTexts(currentScreen, key)
+    return @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("texts").fetch(key)
+  end
+
   def setLanguage(l)
     @language = l
   end

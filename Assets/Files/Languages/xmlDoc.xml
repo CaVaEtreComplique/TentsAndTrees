@@ -1,13 +1,17 @@
 <languages>
   <french>
     <language>Francais</language>
-    <name>Arbres et tentes</name>
     <screen>
       <main>
+        <texts>
+          <title>dEs ArbrEs Et dEs tEntEs</title>
+        </texts>
         <buttons>
           <play>Jouer</play>
           <settings>Parametres</settings>
           <rules>Regles</rules>
+          <score>Meilleurs Score</score>
+          <exit>Quitter</exit>
         </buttons>
       </main>
 
