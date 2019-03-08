@@ -6,13 +6,12 @@
 # @Last modified time: 08-Mar-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen, :language
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen
 
   def initialize(window,player)
     ProcessStatus.new
     @player=player
     @win=window
-    @language=XmlReader.new
     @loadScreen=LoadingScreen.new(self)
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)

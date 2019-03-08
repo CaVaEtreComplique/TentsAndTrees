@@ -9,7 +9,8 @@ require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'
 
 class XmlReader
-  def initialize()
+  include Singleton
+    def initialize()
     xmlDoc = Nokogiri::XML(File.read("../Assets/Files/Languages/xmlDoc.xml"))
     @xmlHash = Hash.from_xml(xmlDoc.to_s)
     @language = "french"
