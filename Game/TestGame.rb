@@ -24,16 +24,20 @@ require_all("Helps")
 # ----------------------------------
 # => Generation de la fenetre de jeu
 # ----------------------------------
-win = Gtk::Window.new.fullscreen
-win.title = "Tent & Trees"
-win.signal_connect('delete_event') {
-	Gtk.main_quit
-	false
-}
-win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
-win.show_all
+class TestGame
+	def initialize
+		win = Gtk::Window.new.fullscreen
+		win.title = "Tent & Trees"
+		win.signal_connect('delete_event') {
+			Gtk.main_quit
+			false
+		}
+		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
+		win.show_all
 
-ui = UiManager.new(win,nil)
-ui.run
+		ui = UiManager.new(win,nil)
+		ui.run
 
-Gtk.main
+		Gtk.main
+	end
+end
