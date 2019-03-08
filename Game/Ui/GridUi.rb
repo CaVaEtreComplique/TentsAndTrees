@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 08-Mar-2019
 
 
 
@@ -103,6 +103,7 @@ class GridUi
 		end
 		@tracer
 	end
+	private_class_method :initGtkGrid
 
 	def toogleCountIndicators
 		case @countIndicators

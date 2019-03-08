@@ -11,7 +11,7 @@ class LoadedFromSaveSession < Session
 
   def initialize(gameMoves, gameTime, gridPick, score, gameMode, difficulty)
     super(gameMode, difficulty)
-    @time=time
+    setTime
     @score=score
     @gridPick=gridPick
     @game=game.new(self)

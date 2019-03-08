@@ -11,6 +11,7 @@ class NewSession < Session
 
   def initialize(gameMode, difficulty)
     super(gameMode, difficulty)
+    setTime
 		@score=0
     replay(false)
   end

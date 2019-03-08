@@ -28,17 +28,19 @@ class Session
     end
 	end
 
+	def setTime
+		case @gameMode
+		when :timeAttack
+				@time=@gridPick.associatedTimer
+		when :quickplay
+				@time=0
+		end
+	end
+	private_class_method :setTime
+
 	def replay(continue)
     # Generation de la grille
     @gridPick = GridGenerator.new(@difficulty)
-
-    case @gameMode
-    when :timeAttack
-    		@time=@gridPick.associatedTimer
-    when :quickplay
-    		@time=0
-    end
-
 		# Generation de la partie
 		if continue
 			@time+=@game.time
