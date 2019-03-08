@@ -5,27 +5,32 @@
 # @Last modified by:   zeigon
 # @Last modified time: 05-Mar-2019
 
-
-
+##
+# :startdoc:
+# This class manages all the moves within the game, epecially the undo/redo
+# function. Its methods are undo, redo, replay, add and clear and are applied
+# to the moves, using a redo stack.
 class Moves
-	@moves #All the Move s
+	@moves #All the Moves
 	@redo #Redo stack
 
-	attr_reader :moves #Stack of Move s
+	# :nodoc:
+	attr_reader :moves #Stack of Moves
+	# :startdoc:
 
 	##
-	# Creates a new Moves object
+	# Creates a new Moves object.
 	# * *Arguments* :
-	#   - +moves+ -> all the Move s (empty by default)
+	#   - +moves+ -> all the Moves (empty by default).
 	def initialize(moves = [])
 		@moves = moves
 		@redo = []
 	end
 
 	##
-	# Replay each Move on th given Game
+	# Replays each move on the given Game.
 	# * *Arguments* :
-	#   - +game+ -> the game to replay on
+	#   - +game+ -> the Game to replay on.
 	def replay(game)
 		@moves.each { |move|
 			move.replay(game)
@@ -33,20 +38,21 @@ class Moves
 	end
 
 	##
-	# Adds a Move to moves stack and clears redo stack
+	# Adds a move to the "moves" stack and clears redo stack.
 	# * *Arguments* :
-	#   - +move+ -> the move to add
+	#   - +move+ -> the move to add.
 	def add(move,triRotative)
 		@moves.push([move,triRotative])
 		clearRedo
 	end
 
 	##
-	# undo the last Move (i.e replay it on the given game) and push it on redo stack
+	# Undoes the last move (i.e replay it on the given game) and pushes it on
+	# the redo stack.
 	# * *Arguments* :
-	#   - +game+ -> the game to undo on
+	#   - +game+ -> the Game to undo on.
 	# * *Returns* :
-	#   - The Undo Move to proc
+	#   - The undo move to proc.
 	def undo
 		if @moves.last != nil
 			@redo.push(@moves.pop)
@@ -56,11 +62,12 @@ class Moves
 	end
 
 	##
-	# redo the last undo Move (i.e replay it on the given game) and push it on undo stack
+	# Redoes the last undo move (i.e replay it on the given game) and pushes it
+	# on the undo stack.
 	# * *Arguments* :
-	#   - +game+ -> the game to redo on
+	#   - +game+ -> the game to redo on.
 	# * *Returns* :
-	#   - The redo Move to proc
+	#   - The redo move to proc.
 	def redo
 		if @redo.last != nil
 			@moves.push(@redo.pop)
@@ -70,7 +77,7 @@ class Moves
 	end
 
 	##
-	# Clears redo stack
+	# Clears the redo stack.
 	def clearRedo
 		@redo.clear
 	end
