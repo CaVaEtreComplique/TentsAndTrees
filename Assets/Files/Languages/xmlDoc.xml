@@ -38,6 +38,7 @@
           <adventure>Aventure</adventure>
           <quick>Partie rapide</quick>
           <timeattack>Contre la montre</timeattack>
+          <save>Charger Sauvegarde</save>
           <back>Retour</back>
         </buttons>
       </gamemode>
@@ -139,6 +140,7 @@
           <adventure>Adventure</adventure>
           <quick>Quick play</quick>
           <timeattack>TimeAttack</timeattack>
+          <save>Load save</save>
           <back>Back</back>
         </buttons>
       </gamemode>
@@ -162,7 +164,7 @@
           <newguess>New Hypothesis</newguess>
           <refuteguess>Refute Hypothesis</refuteguess>
           <rz>Reset Grid</rz>
-          <cancel>Cancel</cancel>
+          <undo>Undo</undo>
           <redo>Redo</redo>
           <pause>Pause</pause>
         </buttons>

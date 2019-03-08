@@ -101,7 +101,7 @@ class ModeDeJeu < Screen
 			 session=NewSession.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
-		save=Text.new("Charger sauvegarde",@widthText,@heightText)
+		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)
 	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
 	 save.onClick{
 	  }
