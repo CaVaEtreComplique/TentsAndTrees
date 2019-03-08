@@ -3,8 +3,8 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   CamilleVAIDIE
-# @Last modified time: 5-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 08-Mar-2019
 
 
 
@@ -98,7 +98,7 @@ class ModeDeJeu < Screen
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
-			 session=Session.new(:timeAttack, :easy)
+			 session=NewSession.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
     retour=Text.new("retour",@widthText,@heightText)

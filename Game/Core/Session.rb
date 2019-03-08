@@ -3,19 +3,16 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Session.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 08-Mar-2019
 
 class Session
 
-	attr_reader :game, :gridPick, :time, :score, :win, :gameMode, :difficulty
+	attr_reader :game, :gridPick, :time, :score, :gameMode, :difficulty
 	# attr_writer :score
 
 	def initialize(gameMode, difficulty)
-		@win=win
 		@gameMode=gameMode
 		@difficulty=difficulty
-		@score=0
-		replay(false)
 	end
 
 	def continuable?

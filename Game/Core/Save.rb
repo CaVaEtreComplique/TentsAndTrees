@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Saves.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 08-Mar-2019
 require File.dirname(__FILE__) + "/DB/ConnectDB.rb"
 
 class Save
@@ -27,7 +27,7 @@ class Save
   end
 
   def Save.update(session)
-    Marshal.dump(session)
+    Marshal.dump([session.game.currentGuess,session.time,session.score,session.gridPick,session.gameMode,session.difficulty])
     puts Marshal.load(Save.testSave(session))
   end
 

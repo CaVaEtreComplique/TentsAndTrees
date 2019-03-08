@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 08-Mar-2019
 
 
 
@@ -25,6 +25,8 @@ class Game
 
 	attr_reader :rowClues, :colClues, :nRow, :nCol, :currentGuess, :correction
 	attr_reader :chrono, :time, :baseTime, :session
+
+  attr_writer :currentGuess, :time
 
 	def initialize(session)
 		ProcessStatus.send("Initialisation de la Partie")
