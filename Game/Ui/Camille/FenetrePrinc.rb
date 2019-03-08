@@ -11,7 +11,7 @@ require File.dirname(__FILE__) + "/ModeDeJeu"
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
-require File.dirname(__FILE__) + "/../../Core/XmlReader"
+
 
 
 ##

@@ -78,30 +78,30 @@ class ModeDeJeu < Screen
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
   #Bontons de menu
-		titre=Text.new("Mode de Jeu",@widthTitre,@heightTitre)
+		titre=Text.new(manager.language.getScreenTexts("gamemode" , "title"),@widthTitre,@heightTitre)
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    aventure=Text.new("Aventure",@widthText,@heightText)
+    aventure=Text.new(manager.language.getButtonLabel("gamemode" , "adventure"),@widthText,@heightText)
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
 				#Lancer le mode aventure
 		 }
 
-    timeA=Text.new("Partie rapide",@widthText,@heightText)
+    timeA=Text.new(manager.language.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
 		@menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Renvoie vers la page choix des niveaux
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }
-    clm=Text.new("Contre la montre",@widthText,@heightText)
+    clm=Text.new(manager.language.getButtonLabel("gamemode" , "timeattack"),@widthText,@heightText)
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
 			 session=NewSession.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
-    retour=Text.new("retour",@widthText,@heightText)
+    retour=Text.new(manager.language.getButtonLabel("gamemode" , "back"),@widthText,@heightText)
    @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
 	 #Renvoie vers la page principale
     retour.onClick{

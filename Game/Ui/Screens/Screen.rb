@@ -8,6 +8,7 @@
 
 
 require 'gtk3'
+require File.dirname(__FILE__) + "/../../Core/XmlReader"
 
 class Screen
   @gtkObject

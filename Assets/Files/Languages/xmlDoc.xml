@@ -1,6 +1,11 @@
 <languages>
   <french>
     <language>Francais</language>
+
+    <loadingmessages>
+      <loading>Chargement en cours</loading>
+      <textures>Chargement des textures</textures>
+    </loadingmessages>
     <screen>
       <main>
         <texts>
@@ -8,14 +13,17 @@
         </texts>
         <buttons>
           <play>Jouer</play>
-          <settings>Parametres</settings>
+          <settings>Parametre</settings>
           <rules>Regles</rules>
-          <score>Meilleurs Score</score>
+          <score>Meilleurs Scores</score>
           <exit>Quitter</exit>
         </buttons>
       </main>
 
       <settings>
+        <texts>
+          <title>Parametre</title>
+        </texts>
         <buttons>
           <apply>Appliquer</apply>
           <back>Retour</back>
@@ -23,6 +31,9 @@
       </settings>
 
       <gamemode>
+        <texts>
+          <title>Mode de jeu</title>
+        </texts>
         <buttons>
           <adventure>Aventure</adventure>
           <quick>Partie rapide</quick>
@@ -31,26 +42,61 @@
         </buttons>
       </gamemode>
 
-      <winning>
+      <difficulty>
         <texts>
-          <victory>VICTOIRE</victory>
-          <time>Temps : </time>
+          <title>Choix du niveau</title>
         </texts>
         <buttons>
-          <nextlevel>Niveau suivant</nextlevel>
-          <quit>Quitter</quit>
+          <easy>Facile</easy>
+          <normal>Moyen</normal>
+          <hard>Difficile</hard>
+          <back>Retour</back>
         </buttons>
-      </winning>
+      </difficulty>
+
+      <ingame>
+        <texts>
+        </texts>
+        <buttons>
+          <newguess>Nouvelle Hypothese</newguess>
+          <refuteguess>Refuter Hypothese</refuteguess>
+          <rz>Remettre la grille a zero</rz>
+          <cancel>Annuler</cancel>
+          <redo>Retablir</redo>
+          <pause>Pause</pause>
+        </buttons>
+      </ingame>
 
       <pause>
-
+        <texts>
+        </texts>
+        <buttons>
+          <resume>Reprendre</resume>
+          <disabletracker>Desactiver le traceur</disabletracker>
+          <enabletracker>Activer le traceur</enabletracker>
+          <disableindicators>Desactiver les Indicateurs</disableindicators>
+          <enableindicators>Activer les indicateurs</enableindicators>
+          <quit>Quitter</quit>
+        </buttons>
       </pause>
+
+      <victory>
+        <texts>
+          <win>VICTOIRE</win>
+          <lose>Defaite</lose>
+          <score>Score : </score>
+          <errscore>sScore non charge</errscore>
+        </texts>
+        <buttons>
+          <continue>Continuer</continue>
+          <retry>Rejouer</retry>
+          <quit>Quitter</quit>
+        </buttons>
+      </victory>
+
     </screen>
     <helps>
-      <help>
-        <rank>oui</rank>
-        <text>Blablabla</text>
-      </help>
+      <notfound>Aucune aide trouvée</notfound>
     </helps>
   </french>
   <english>

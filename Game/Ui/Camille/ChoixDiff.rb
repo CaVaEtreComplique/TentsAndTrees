@@ -75,32 +75,32 @@ class ChoixDiff < Screen
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
   #Bontons de menu
-    titre=Text.new("Choix du niveau",@widthTitre,@heightTitre)
+    titre=Text.new(manager.language.getScreenTexts("difficulty" , "title"),@widthTitre,@heightTitre)
 		  #add sur gtkObject
     @menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    facile=Text.new("Facile",@widthText,@heightText)
+    facile=Text.new(manager.language.getButtonLabel("difficulty" , "easy"),@widthText,@heightText)
 		 @menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
 			 session=NewSession.new(:quickplay, :easy)
 			 manager.runGameSession(session)
 		}
-    moyen=Text.new("Moyen",@widthText,@heightText)
+    moyen=Text.new(manager.language.getButtonLabel("difficulty" , "normal"),@widthText,@heightText)
 		 @menu.pack_start(moyen.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
 			 session=NewSession.new(:quickplay, :medium)
 			 manager.runGameSession(session)
 		}
-    diff=Text.new("Difficile",@widthText,@heightText)
+    diff=Text.new(manager.language.getButtonLabel("difficulty" , "hard"),@widthText,@heightText)
 		 @menu.pack_start(diff.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
 			 session=NewSession.new(:quickplay, :hard)
 			 manager.runGameSession(session)
 		}
-    retour=Text.new("retour",@widthText,@heightText)
+    retour=Text.new(manager.language.getButtonLabel("difficulty" , "back"),@widthText,@heightText)
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
 		 #Renvoie sur la page mode de jeu
     retour.onClick{
