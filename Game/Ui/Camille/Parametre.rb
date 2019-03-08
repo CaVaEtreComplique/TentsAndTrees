@@ -35,7 +35,7 @@ class Parametre < Screen
     @gtkObject.attach(@menu,1,2,1,2)
 
   #Bontons de menu
-    titre=Text.new(manager.language.getScreenTexts("settings" , "title"),@widthTitre,@heightTitre)
+    titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@widthTitre,@heightTitre)
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
     #Menu deroulant des langues
@@ -49,13 +49,13 @@ class Parametre < Screen
 
 
 
-    appli=Text.new(manager.language.getButtonLabel("settings" , "apply"),@widthText,@heightText)
+    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@widthText,@heightText)
     @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
     appli.onClick{
       #Changement de langue
     }
 
-    retour=Text.new(manager.language.getButtonLabel("settings" , "back"),@widthText,@heightText)
+    retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@widthText,@heightText)
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Renvoie sur la page principale
     retour.onClick{

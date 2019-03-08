@@ -3,8 +3,8 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: FenetrePrinc.rb
-# @Last modified by:   CamilleVAIDIE
-# @Last modified time: 1-Mar-2019
+# @Last modified by:   <QuentinGoncalves>
+# @Last modified time: 08-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
@@ -70,11 +70,11 @@ class FenetrePrinc < Screen
     @menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menuV,1,2,0,1)
 
-    titre=Text.new(manager.language.getScreenTexts("main" , "title"),@widthTitre,@heightTitre)
+    titre=Text.new(@textManager.getScreenTexts("main" , "title"),@widthTitre,@heightTitre)
     #add sur gtkObject
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    jouer=Text.new(manager.language.getButtonLabel("main" , "play"),@widthText,@heightText)
+    jouer=Text.new(@textManager.getButtonLabel("main" , "play"),@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page Mode de jeu
@@ -82,28 +82,28 @@ class FenetrePrinc < Screen
         manager.modeScreen.applyOn(@parent)
     }
 
-    parametre=Text.new(manager.language.getButtonLabel("main" , "settings"),@widthText,@heightText)
+    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"),@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page parametre
     parametre.onClick{
         manager.paramScreen.applyOn(@parent)
     }
-    regle=Text.new(manager.language.getButtonLabel("main" , "rules") ,@widthText,@heightText)
+    regle=Text.new(@textManager.getButtonLabel("main" , "rules") ,@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers le diaporama des regles
     regle.onClick{
      }
 
-    meilleurScore=Text.new(manager.language.getButtonLabel("main" , "score"),@widthText,@heightText)
+    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"),@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
     #Renvoie vers la page des meilleurs scores
     meilleurScore.onClick{
      }
 
-    quitter=Text.new(manager.language.getButtonLabel("main" , "exit"),@widthText,@heightText)
+    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"),@widthText,@heightText)
     #add sur gtkObject
     @menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
     quitter.onClick(){

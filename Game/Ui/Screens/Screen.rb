@@ -19,6 +19,7 @@ class Screen
     @parent=parent
   	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/4.png")
     @buffer=@buffer.scale(screen.width,screen.height)
+    @textManager=XmlReader.instance
   end
 
   def applyOn(widget)
