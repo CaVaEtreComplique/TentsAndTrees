@@ -10,10 +10,11 @@ require 'active_support/core_ext/hash/conversions'
 
 class XmlReader
   include Singleton
+  attr_writer :language
     def initialize()
     xmlDoc = Nokogiri::XML(File.read("../Assets/Files/Languages/xmlDoc.xml"))
     @xmlHash = Hash.from_xml(xmlDoc.to_s)
-    @language = "french"
+    @language = "english"
   end
 
   def getButtonLabel(currentScreen, key)
@@ -22,10 +23,6 @@ class XmlReader
 
   def getScreenTexts(currentScreen, key)
     return @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("texts").fetch(key)
-  end
-
-  def setLanguage(l)
-    @language = l
   end
 
   def buttonMaxString(currentScreen)

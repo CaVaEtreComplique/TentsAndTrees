@@ -9,11 +9,11 @@
     <screen>
       <main>
         <texts>
-          <title>dEs ArbrEs Et dEs tEntEs</title>
+          <title>Des Arbres et des Tentes</title>
         </texts>
         <buttons>
           <play>Jouer</play>
-          <settings>Parametre</settings>
+          <settings>Parametres</settings>
           <rules>Regles</rules>
           <score>Meilleurs Scores</score>
           <exit>Quitter</exit>
@@ -22,7 +22,7 @@
 
       <settings>
         <texts>
-          <title>Parametre</title>
+          <title>Parametres</title>
         </texts>
         <buttons>
           <apply>Appliquer</apply>
@@ -61,7 +61,7 @@
           <newguess>Nouvelle Hypothese</newguess>
           <refuteguess>Refuter Hypothese</refuteguess>
           <rz>Remettre la grille a zero</rz>
-          <cancel>Annuler</cancel>
+          <undo>Annuler</undo>
           <redo>Retablir</redo>
           <pause>Pause</pause>
         </buttons>
@@ -85,7 +85,7 @@
           <win>VICTOIRE</win>
           <lose>Defaite</lose>
           <score>Score : </score>
-          <errscore>sScore non charge</errscore>
+          <errscore>Score non charge</errscore>
         </texts>
         <buttons>
           <continue>Continuer</continue>
@@ -96,11 +96,108 @@
 
     </screen>
     <helps>
-      <notfound>Aucune aide trouvée</notfound>
+      <notfound>Aucune aide trouvee</notfound>
     </helps>
   </french>
+
   <english>
     <language>English</language>
-    <name>Tents and trees</name>
+
+    <loadingmessages>
+      <loading>Loading...</loading>
+      <textures>Textures loading</textures>
+    </loadingmessages>
+    <screen>
+      <main>
+        <texts>
+          <title>Tents and Trees</title>
+        </texts>
+        <buttons>
+          <play>Play</play>
+          <settings>Settings</settings>
+          <rules>Rules</rules>
+          <score>High Scores</score>
+          <exit>Exit</exit>
+        </buttons>
+      </main>
+
+      <settings>
+        <texts>
+          <title>Settings</title>
+        </texts>
+        <buttons>
+          <apply>Apply</apply>
+          <back>Back</back>
+        </buttons>
+      </settings>
+
+      <gamemode>
+        <texts>
+          <title>Game Mode</title>
+        </texts>
+        <buttons>
+          <adventure>Adventure</adventure>
+          <quick>Quick play</quick>
+          <timeattack>TimeAttack</timeattack>
+          <back>Back</back>
+        </buttons>
+      </gamemode>
+
+      <difficulty>
+        <texts>
+          <title>Difficulty</title>
+        </texts>
+        <buttons>
+          <easy>Easy</easy>
+          <normal>Normal</normal>
+          <hard>Hard</hard>
+          <back>Back</back>
+        </buttons>
+      </difficulty>
+
+      <ingame>
+        <texts>
+        </texts>
+        <buttons>
+          <newguess>New Hypothesis</newguess>
+          <refuteguess>Refute Hypothesis</refuteguess>
+          <rz>Reset Grid</rz>
+          <cancel>Cancel</cancel>
+          <redo>Redo</redo>
+          <pause>Pause</pause>
+        </buttons>
+      </ingame>
+
+      <pause>
+        <texts>
+        </texts>
+        <buttons>
+          <resume>Resume</resume>
+          <disabletracker>Disable tracker</disabletracker>
+          <enabletracker>Enable tracker</enabletracker>
+          <disableindicators>Disable indicators</disableindicators>
+          <enableindicators>Enable indicators</enableindicators>
+          <quit>Exit</quit>
+        </buttons>
+      </pause>
+
+      <victory>
+        <texts>
+          <win>VICTORY</win>
+          <lose>Defeat</lose>
+          <score>Score : </score>
+          <errscore>Unable to load Score</errscore>
+        </texts>
+        <buttons>
+          <continue>Continue</continue>
+          <retry>Retry</retry>
+          <quit>Exit</quit>
+        </buttons>
+      </victory>
+
+    </screen>
+    <helps>
+      <notfound>No help found</notfound>
+    </helps>
   </english>
 </languages>
