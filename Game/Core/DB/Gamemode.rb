@@ -1,6 +1,5 @@
-
-# A Gamemode is defined by its ID and its name
-# This Class is used to represent a Gamemode in the database
+# A Gamemode is defined by its ID and its name. 
+# This is here to represent a Gamemode in the database
 class Gamemode
 
   @id_gamemode # ID of the Gamemode
@@ -20,6 +19,7 @@ class Gamemode
     @id_gamemode,@name_gamemode = id, name
   end
 
+  # :nodoc:
   attr_reader :id_gamemode, :name_gamemode
 
 end
