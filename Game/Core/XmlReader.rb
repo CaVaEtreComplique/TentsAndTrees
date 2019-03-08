@@ -1,9 +1,9 @@
-# @Author: Gonçalves Quentin
+# @Author: Gonçalves Quentin <QuentinGoncalves>
 # @Date:   29-Feb-2019
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: XmlReader.rb
-# @Last modified by:   Gonçalves Quentin
-# @Last modified time: 05-March-2019
+# @Last modified by:   <QuentinGoncalves>
+# @Last modified time: 08-March-2019
 
 require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'
@@ -25,6 +25,14 @@ class XmlReader
 
   def setLanguage(l)
     @language = l
+  end
+
+  def buttonMaxString(currentScreen)
+    longest = Array.new
+    @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").each_values{
+    |v| longest.push(v) }
+    longest.sort_by!(&:length).reverse!
+    return longest[0]
   end
 
 end
