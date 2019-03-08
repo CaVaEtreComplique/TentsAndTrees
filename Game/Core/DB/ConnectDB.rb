@@ -8,30 +8,34 @@ require 'digest/sha1'
 
 class ConnectDB
 
-  @db # The database of the game
+  @db #The database of the game
 
-	# Constructor of a ConnectDB. Connect the game with the database
+  ##
+  # Constructor of ConnectDB. Connects the game to the database.
   #
-  # ==== Examples
+  # =====Examples
   #
   #    db = ConnectDB.new()
   def initialize
-    # Open a SQLite 3 database file
+   #Opens a SQLite 3 database file
     @db = SQLite3::Database.new 'db.sqlite'
   end
 
-	# Retrieve the player that matches the id given. The game must be connected to the database
-  #
-	# ==== Attributes
-	# * +id+ - The ID of the Player we're looking for
+	# This method retrieves the Player that matches the given id. The game must
+   # be connected to the database.
+   #
+	# ===== Attributes
+	# * +id+ - The ID of the Player we're looking for.
 	#
-	# ==== Return
-	# 	The Player we're looking for or nil if the ID doesn't match any Player in the database
+	# ===== Return
+	# The Player we're looking for or nil if the ID doesn't match any Player in
+   # the database.
 	#
-  # ==== Examples
-  #
-  #    db = ConnectDB.new()
-	# 	 db.getPlayer(1)
+   # ===== Examples
+   #
+   #    db = ConnectDB.new()
+	#    db.getPlayer(1)
+   # -----------
   def getPlayer(id)
 
     players = Array.new
@@ -45,19 +49,22 @@ class ConnectDB
 
   end
 
-	# Try to find the player in the database with the name and the password provided. The game must be connected to the database
+	# This method tries to find the player in the database with the name and the
+   # password provided. The game must be connected to the database.
 	#
-	# ==== Attributes
+	# ===== Attributes
 	# * +name+ - The name of the Player we're looking for
 	# * +password+ - The password of the Player we're looking for
 	#
-	# ==== Return
-	# 	The Player we're looking for or nil if no one if found in the database
+	# ===== Return
+	# The Player we're looking for or nil if no one can be found in the database
 	#
-	# ==== Examples
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 db.playerConnect("aze","azeaze")
+   #
+   # -------
 	def playerConnect(name, password)
 
 		pl = nil
@@ -70,16 +77,19 @@ class ConnectDB
 
 	end
 
-	# Add a player in the database with the name and the password provided. The game must be connected to the database
+	# This method adds a player in the database with the name and the password
+   # provided. The game must be connected to the database.
 	#
-	# ==== Attributes
+	# ===== Attributes
 	# * +name+ - The name of the Player we want to add
-	# * +password+ - The password of the Player wewant to add
+	# * +password+ - The password of the Player we want to add
 	#
-	# ==== Examples
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 db.createPlayer("aze","azeaze")
+   #
+   # -------------
 	def createPlayer(name, password)
 
 		@db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')" do |row|
@@ -88,32 +98,20 @@ class ConnectDB
 
 	end
 
-  def testSave(content)
-
-    save = nil;
-
-    @db.execute "INSERT INTO Test(content) VALUES('#{content}')" do |row|
-			puts row
-		end
-
-    @db.execute "SELECT * FROM Test ORDER BY player_id DESC LIMIT 1" do |row|
-			return row[1]
-		end
-
-  end
-
-
-	# Create a Save in the database with the content and the Player provided. The game must be connected to the database
+	# This method creates a Save in the database with the content and the Player
+   # provided. The game must be connected to the database.
 	#
-	# ==== Attributes
+	# ===== Attributes
 	# * +player+ - The Player who wants to save
-	# * +content+ - The content of the Save
+	# * +content+ - The content of the save
 	#
-	# ==== Examples
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.save(pl, "Things to save")
+   #
+   # -------------
 	def save(player, content)
 
 		d = DateTime.now
@@ -124,15 +122,18 @@ class ConnectDB
 
 	end
 
-  # Delete a Save in the database with the ID of the Save. The game must be connected to the database
+   # This method deletes a Save in the database with the ID of the Save. The
+   # game must be connected to the database.
 	#
-	# ==== Attributes
-	# * +id+ - The ID of the save to delete
-  #
-	# ==== Examples
+	# ===== Attributes
+	# * +id+ - The ID of the save we want to delete.
+   #
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 db.deleteSave((ID of the save))
+   #
+   # --------------
 	def deleteSave(id)
 
 		@db.execute "DELETE FROM Save WHERE id_save = #{id}" do |row|
@@ -141,20 +142,23 @@ class ConnectDB
 
 	end
 
-	# Retrieve the saves created by the player. The game must be connected to the database
+	# This method retrieves the saves created by the Player.
+   # The game must be connected to the database.
 	#
-	# ==== Attributes
-	# * +player+ - The Player who saved
+	# ===== Attributes
+	# * +player+ - The Player who saved.
 	#
-  #
-  # ==== Return
-  # 	The saves created by the Player in an Array
-  #
-	# ==== Examples
+   #
+   # ===== Return
+   # The saves created by the Player in an Array.
+   #
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.getPlayersSave(pl)
+   #
+   # ------------
 	def getPlayersSave(player)
 
 		saves = Array.new
@@ -167,18 +171,21 @@ class ConnectDB
 
 	end
 
-  # Retrieve the save from the ID provided. The game must be connected to the database
+   # This method retrieves the save from the provided ID. The game must be
+   # connected to the database.
 	#
-	# ==== Attributes
+	# ===== Attributes
 	# * +id+ - The ID of the Save
-  #
-  # ==== Return
-  # 	The save that matches the ID provides
-  #
-	# ==== Examples
+   #
+   # ===== Return
+   # The save that matches the ID provided
+   #
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 db.getSaveByID(id)
+   #
+   # ------------
 	def getSaveByID(id)
 
 		save = nil
@@ -191,22 +198,25 @@ class ConnectDB
 
 	end
 
-	# Retrieve the high scores by game mode and difficulty. The game must be connected to the database
+	# This method retrieves the high scores by game mode and difficulty. The game
+   # must be connected to the database.
 	#
-	# ==== Attributes
+	# ===== Attributes
 	# * +gamemode+ - The gamemode
 	# * +diff+ - The difficulty
 	#
-  #
-  # ==== Return
-  # 	The highscores that match the game mode and the difficulty in an Array
-  #
-	# ==== Examples
+   #
+   # ===== Return
+   # The highscores that match the game mode and the difficulty in an Array
+   #
+	# ===== Examples
 	#
-	#    db = ConnectDB.new()
+	#   db = ConnectDB.new()
 	# 	 gm = Gamemode.new(1,"Gamemode name")
-  #    diff = Difficulty.new(1,"Easy")
+   #   diff = Difficulty.new(1,"Easy")
 	# 	 db.getHighScoresByGamemodeDiff(gm,diff)
+   #
+   # -------------
 	def getHighScoresByGamemodeDiff(gamemode, diff)
 
 		hg = Array.new
@@ -219,16 +229,19 @@ class ConnectDB
 
 	end
 
-  # Retrieve the gamemodes available. The game must be connected to the database
+  # This method retrieves the game modes available. The game must be connected to
+  # the database.
   #
   #
-  # ==== Return
-  # 	All the game modes in an Array
+  # ===== Return
+  # All the game modes in an Array
   #
-  # ==== Examples
+  # ===== Examples
   #
   #    db = ConnectDB.new()
   # 	 db.getGamemodes()
+  #
+  # ---------
   def getGamemodes()
 
     gm = Array.new
