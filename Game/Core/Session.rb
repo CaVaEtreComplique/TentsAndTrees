@@ -36,7 +36,6 @@ class Session
 				@time=0
 		end
 	end
-	private_class_method :setTime
 
 	def replay(continue)
     # Generation de la grille

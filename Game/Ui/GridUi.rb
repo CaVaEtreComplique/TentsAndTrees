@@ -75,7 +75,7 @@ class GridUi
 		@currentSelection = SelectionUi.new
 	end
 
-	def initGtkGrid
+	private_class_method def self.initGtkGrid
 		realGrid = Gtk::Grid.new
 		realGrid.set_column_spacing(Constants::SPACING)
 		realGrid.set_row_spacing(Constants::SPACING)
@@ -103,7 +103,6 @@ class GridUi
 		end
 		@tracer
 	end
-	private_class_method :initGtkGrid
 
 	def toogleCountIndicators
 		case @countIndicators
