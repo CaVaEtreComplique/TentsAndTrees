@@ -40,6 +40,7 @@ class Session
 	def replay(continue)
     # Generation de la grille
     @gridPick = GridGenerator.new(@difficulty)
+		setTime
 		# Generation de la partie
 		if continue
 			@time+=@game.time
