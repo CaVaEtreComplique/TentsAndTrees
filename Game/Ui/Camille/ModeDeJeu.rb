@@ -66,11 +66,11 @@ class ModeDeJeu < Screen
 		super(manager.win)
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-		@pad =10
+		@pad =1
 		@widthTitre=screen.width*0.10
     @heightTitre=screen.height*0.08
-    @widthText=screen.width*0.1
-    @heightText=screen.height*0.04
+    @widthText=screen.width*0.3
+    @heightText=screen.height*0.03
 
     #Menu principal
 
@@ -101,6 +101,11 @@ class ModeDeJeu < Screen
 			 session=NewSession.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
+		save=Text.new("Charger sauvegarde",@widthText,@heightText)
+	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
+	 save.onClick{
+	  }
+
     retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@widthText,@heightText)
    @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
 	 #Renvoie vers la page principale

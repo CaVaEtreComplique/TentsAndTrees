@@ -47,10 +47,9 @@ class Connexion < Screen
        Gtk.main_quit
     }
 
-  #  quitter.resize(10,10)
+
     saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
-    #saisi.set_text(text)
 
     @menu.pack_start(@image,expand: false, fill: true, padding: @pad)
 
@@ -65,7 +64,8 @@ class Connexion < Screen
        #Gtk.main_quit
        #TestGame
       # if(playerConnect)
-       TestGame.new
+      #win.OnDestroy
+      TestGame.new
      }
     win.add(@menu)
     win.show_all
