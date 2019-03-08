@@ -38,6 +38,6 @@ class TestGame
 		ui = UiManager.new(win,nil)
 		ui.run
 
-		Gtk.main
+		# Gtk.mainSSS
 	end
 end
