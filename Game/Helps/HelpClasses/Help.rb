@@ -2,10 +2,9 @@ require_all(__FILE__)
 ##
 #The help class is an abstract class which contains a String to explain the
 #help. It contains the methods helpFound? and getText and they act on the help
-#text.
+#text. This abstract class is the parent of every help in the game.
 class Help
   # :nodoc:
-  #Parent of all helps, used any time when you ask for help.
   private_class_method :new  #abstract class
 
   # :startdoc:
