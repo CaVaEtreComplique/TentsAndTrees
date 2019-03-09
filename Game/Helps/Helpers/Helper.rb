@@ -5,6 +5,8 @@ require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsTentsHelpe
 require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper"
+require File.dirname(__FILE__) + "/CellsHelpers/CellWhiteOverlap"
+require File.dirname(__FILE__) + "/../GameDecorated"
 
 class Helper < FictivHelper
   #needed to be initialized at the start
@@ -25,28 +27,27 @@ class Helper < FictivHelper
     @helps = Array.new
 
 
-    @helps.push(AllTreesHaveTentsHelper.new)
-    @helps.push(CellDontTouchTreeHelper.new)
-    @helps.push(RowsAndColumnsGrassHelper.new)
-    @helps.push(RowsAndColumnsTentsHelper.new)
-    @helps.push(CellTouchATentHelper.new)
+    @helps.push(CellWhiteOverlap.new)
+    #@helps.push(AllTreesHaveTentsHelper.new)
+    #@helps.push(CellDontTouchTreeHelper.new)
+    #@helps.push(RowsAndColumnsGrassHelper.new)
+    #@helps.push(RowsAndColumnsTentsHelper.new)
+    #@helps.push(CellTouchATentHelper.new)
 
 
   end
 
   def help(game) #called to help
     #game.beginGuess
-    compt =0
+    game = GameDecorated.new(game)
+
     @helps.each{ |aHelp|
       if(((helpRes = aHelp.help(game)).helpFound?))
         #game.removeGuess
         return helpRes
-      else
-        p "pas trouve" + compt.to_s
-        compt +=1
       end
     }
     #game.removeGuess
-    # return help = HelpNotFound.new
+    return help = HelpNotFound.new
   end
 end

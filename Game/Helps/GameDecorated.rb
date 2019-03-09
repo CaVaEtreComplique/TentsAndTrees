@@ -4,10 +4,11 @@ class GameDecorated
 
 	@game
 	@tree
+	@tent
   @grass
   @white
 
-	attr_reader :game, :tree, :grass, :white
+	attr_reader :game, :tree, :grass, :white, :tent
 
 	def initialize(game)
 
@@ -15,6 +16,7 @@ class GameDecorated
     @tree = array[0]
     @tent = array[1]
     @grass = array[2]
+		@white = array[3]
 
 		@game = game
 
