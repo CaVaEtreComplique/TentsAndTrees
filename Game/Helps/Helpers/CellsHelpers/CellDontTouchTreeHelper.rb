@@ -8,21 +8,22 @@ class CellDontTouchTreeHelper < FictivHelper
 
   def help(game)
 
-    #puts(game.cellAt(0, 5).state.to_s)
+    white = game.white()
+    game = game.game()
 
-    (0...game.nCol).each{ |x|
-      (0...game.nRow).each{ |y|
-          if((game.cellAt(x, y).isAWhite?) &&
-              (x+1 >= game.nCol || !(game.cellAt(x+1, y).isATree?)) &&
-              (x-1 < 0 || !(game.cellAt(x-1, y).isATree?)) &&
-              (y+1 >= game.nCol || !(game.cellAt(x, y+1).isATree?)) &&
-              (y-1 < 0 || !(game.cellAt(x, y-1).isATree?) ))
-              #If the cell is white dont touch a tree
+    white.each() do |cell|
+      x = cell.row
+      y = cell.column
 
-              return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
-          end
-      }
-    }
+      if( (x + 1 >= game.nCol || !(game.cellAt(x + 1, y).isATree?)) &&
+      (x - 1 < 0 || !(game.cellAt(x - 1, y).isATree?)) &&
+      (y + 1 >= game.nCol || !(game.cellAt(x, y + 1).isATree?)) &&
+      (y - 1 < 0 || !(game.cellAt(x, y - 1).isATree?)) )
+        #If the cell is white dont touch a tree
+        return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
+      end
+    end
     return HelpNotFound.new()
   end
+    
 end
