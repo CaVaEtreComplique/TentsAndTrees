@@ -12,6 +12,8 @@ class RowsAndColumnsGrassHelper < FictivHelper
 
   def help(game)
 
+    game = game.game()
+
     (0...game.nCol).each{ |i| #for each column
       if( Count.count(game, :tent, 0, i ) == game.colClues[i] &&
         #if there are much tents that we need for the column

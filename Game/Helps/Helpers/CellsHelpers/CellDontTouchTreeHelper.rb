@@ -15,15 +15,15 @@ class CellDontTouchTreeHelper < FictivHelper
       x = cell.row
       y = cell.column
 
-      if( (x + 1 >= game.nCol || !(game.cellAt(x + 1, y).isATree?)) &&
+      if( (x + 1 >= game.nRow || !(game.cellAt(x + 1, y).isATree?)) &&
       (x - 1 < 0 || !(game.cellAt(x - 1, y).isATree?)) &&
       (y + 1 >= game.nCol || !(game.cellAt(x, y + 1).isATree?)) &&
       (y - 1 < 0 || !(game.cellAt(x, y - 1).isATree?)) )
         #If the cell is white dont touch a tree
-        return HelpCellTooFarOfTrees.new(game.cellAt(x,y))
+        return HelpCellTooFarOfTrees.new(cell)
       end
     end
     return HelpNotFound.new()
   end
-    
+
 end

@@ -12,7 +12,7 @@ class RowsAndColumnsFindGrass < FictivHelper
 
   def help(game)
 
-    #puts(game.cellAt(0,5).state.to_s)
+    game = game.game()
 
     #Algorithm for each columns
     (0...game.nCol).each do |i|

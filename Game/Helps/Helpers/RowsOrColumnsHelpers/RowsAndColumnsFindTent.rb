@@ -13,6 +13,8 @@ class RowsAndColumnsFindTent < FictivHelper
 
   def help(game)
 
+    game = game.game()
+
     #Algorithm for each columns
     (0...game.nCol).each do |i|
 

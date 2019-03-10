@@ -2,6 +2,8 @@
 require File.dirname(__FILE__) + "/FictivHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper"
+require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsFindTent"
+require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsFindGrass"
 require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper"
@@ -26,13 +28,14 @@ class Helper < FictivHelper
   def initialize
     @helps = Array.new
 
-
+    @helps.push(AllTreesHaveTentsHelper.new)
+    @helps.push(CellDontTouchTreeHelper.new)
+    @helps.push(RowsAndColumnsGrassHelper.new)
+    @helps.push(RowsAndColumnsTentsHelper.new)
+    @helps.push(CellTouchATentHelper.new)
+    @helps.push(RowsAndColumnsFindGrass.new)
+    @helps.push(RowsAndColumnsFindTent.new)
     @helps.push(CellWhiteOverlap.new)
-    #@helps.push(AllTreesHaveTentsHelper.new)
-    #@helps.push(CellDontTouchTreeHelper.new)
-    #@helps.push(RowsAndColumnsGrassHelper.new)
-    #@helps.push(RowsAndColumnsTentsHelper.new)
-    #@helps.push(CellTouchATentHelper.new)
 
 
   end

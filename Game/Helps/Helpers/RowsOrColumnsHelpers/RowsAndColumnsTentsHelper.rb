@@ -11,6 +11,9 @@ class RowsAndColumnsTentsHelper < FictivHelper
   public_class_method :new
 
   def help(game)
+
+    game = game.game()
+
     (0...game.nCol).each{ |i| #for each column
       if(Count.count(game, :white, 0, i ) + (nbTents = Count.count(game, :tent, 0, i )) == game.colClues[i] && nbTents != game.colClues[i])
       #if there are much grass that we need for the column
@@ -20,7 +23,7 @@ class RowsAndColumnsTentsHelper < FictivHelper
         end
       end
     }
-    
+
     (0...game.nRow).each{ |i| #for each row
 
       if(Count.count(game, :white, 1, i ) + (nbTents = Count.count(game, :tent, 1, i )) == game.rowClues[i] && nbTents != game.rowClues[i])
