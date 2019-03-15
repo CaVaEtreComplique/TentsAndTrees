@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + "/../HelpOn3Cells"
 class HelpsOnACellOverlap < HelpOn3Cells
   #a class for helping when a cell touch a tent, so the cell is grass
   public_class_method :new #instanciable
-  def initialize(cell, cellwhite1, cellwhite2)
-    super(cell, cellwhite1, cellwhite2)
+  def initialize(cellGrass, cellwhite1, cellwhite2)
+    super(cellGrass, cellwhite1, cellwhite2)
   end
 
   def getText()

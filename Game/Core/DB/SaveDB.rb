@@ -4,8 +4,6 @@ class SaveDB
 
   @id_save # The ID of the Save
   @player_id_save # The Player's ID of the Save
-  @gamemode_id_save # The Gamemode of the Save
-  @difficulty_id_save # The Difficulty of the Save
   @date_save # The date of the Save
   @content_save # The content of the Save
 
@@ -22,12 +20,11 @@ class SaveDB
   # ===== Examples
   #
   #    save = Save.new(1,1,01-03-2019,"Things to Save (State of the grid)")
-  def initialize(id, player, gm, diff, date, content)
+  def initialize(id, player, date, content)
     @id_save,@player_id_save,@date_save, @content_save = id, player, date, content
-    @gamemode_id_save,@difficulty_id_save = gm, diff
   end
 
   # :nodoc:
-  attr_reader :id_save, :player_id_save, :gamemode_id_save, :difficulty_id_save, :date_save, :content_save
+  attr_reader :id_save, :player_id_save, :date_save, :content_save
 
 end

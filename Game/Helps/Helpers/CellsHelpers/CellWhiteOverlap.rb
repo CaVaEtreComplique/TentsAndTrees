@@ -14,6 +14,7 @@ public_class_method :new
 
     tree.each do |cell|
       north = south = est = west = false
+
       compt = 0
 
       cellV = if cell.row + 1 < game.nCol then game.cellAt(cell.row + 1, cell.column) else nil end
