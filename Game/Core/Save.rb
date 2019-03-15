@@ -17,9 +17,9 @@ class Save
   end
 
 
-  def load(id)
+  def Save.load(id)
     save = ConnectDB.new().getSaveByID(id)
-    YAML.load(save.content_save)
+    return save
   end
 
   def load()

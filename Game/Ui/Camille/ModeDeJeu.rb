@@ -104,6 +104,7 @@ class ModeDeJeu < Screen
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)
 	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
 	 save.onClick{
+		 Save.load(8)
 	  }
 
     retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@widthText,@heightText)

@@ -54,6 +54,7 @@ class Session
 	end
 
 	def save
+		@game.delete_observers
 		Save.update(self)
 	end
 

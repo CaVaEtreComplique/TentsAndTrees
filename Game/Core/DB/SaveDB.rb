@@ -21,7 +21,7 @@ class SaveDB
   #
   #    save = Save.new(1,1,01-03-2019,"Things to Save (State of the grid)")
   def initialize(id, player, date, content)
-    @id_save,@player_id_save,@date_save, @content_save = id, player, date, content
+    @id_save,@player_id_save,@date_save, @content_save = id, player, date, YAML.load(content)
   end
 
   # :nodoc:
