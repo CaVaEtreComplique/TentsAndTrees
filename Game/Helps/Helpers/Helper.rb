@@ -22,7 +22,7 @@ require File.dirname(__FILE__) + "/../GameDecorated"
 
 class Helper < FictivHelper
   #needed to be initialized at the start
-  private_class_method :new
+  public_class_method :new
 
   @@helper
   @helps
