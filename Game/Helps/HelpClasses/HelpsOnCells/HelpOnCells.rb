@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   05-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: HelpOnCells.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 require File.dirname(__FILE__) + "/../Help"
 
 

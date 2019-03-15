@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   15-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: Help.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 require_all(__FILE__)
 ##
 #The help class is an abstract class which contains a String to explain the

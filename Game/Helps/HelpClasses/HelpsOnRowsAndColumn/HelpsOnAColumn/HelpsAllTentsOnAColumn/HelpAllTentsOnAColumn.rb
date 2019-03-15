@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   06-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: HelpAllTentsOnAColumn.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 require File.dirname(__FILE__) + "/../HelpOnAColumn"
 #Help witch fill with grass a column who have all it's tents
 class HelpAllTentsOnAColumn < HelpOnAColumn
