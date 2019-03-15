@@ -99,6 +99,30 @@ class ConnectDB
 
 	end
 
+  # This method check if the name of the Player already exists in the database
+  # The game must be connected to the database.
+  #
+  # ===== Attributes
+  # * +name+ - The name of the Player we want to check
+  #
+  # ===== Examples
+  #
+  #   db = ConnectDB.new()
+  # 	 db.isPlayerExist("aze")
+  #
+  # -------------
+  def isPlayerExist(name)
+
+    player = nil
+
+    @db.execute "SELECT * FROM Player WHERE name_player='#{name}'" do |row|
+      player = Player.new(row[0],row[1],row[2])
+    end
+
+    return player
+
+  end
+
 	# This method creates a Save in the database with the content and the Player
    # provided. The game must be connected to the database.
 	#
