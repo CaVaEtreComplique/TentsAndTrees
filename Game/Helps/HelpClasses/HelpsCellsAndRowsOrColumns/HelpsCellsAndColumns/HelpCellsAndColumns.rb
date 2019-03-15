@@ -23,3 +23,4 @@ class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
   def initialize(cell, column)
     super(cell, column)
   end
+end
