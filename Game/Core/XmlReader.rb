@@ -8,15 +8,30 @@
 require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'
 
+##
+# ==== Presentation
+# The XmlReader class is here to read every necessary information inside the XML
+# file. The XML file contains all the language data such as every word or phrase
+# in the game in French and English. This reader gets the informations and
+# applies them to the game.
+#
+# ==== Variables
+# ====== language :
+# The language variable determines the game's language.
+#
+# ==== Methods
+# This class contains 5 methods, each described further down.
 class XmlReader
   include Singleton
+  #:nodoc:
   attr_writer :language
+  #:startdoc:
 
   ##
-  # Read the XML document that contain all the text needed in the gamemode
-  # This file is convert into a HashTable wich is indent by element
-  # Here is also defined the language of the game
-  ##
+  # The initialization method reads the XML document, which is converted into a
+  # HashTable indented by element.
+  # Here is also defined the game's language.
+  #
   def initialize()
     xmlDoc = Nokogiri::XML(File.read("../Assets/Files/Languages/xmlDoc.xml"))
     @xmlHash = Hash.from_xml(xmlDoc.to_s)
@@ -24,23 +39,26 @@ class XmlReader
   end
 
   ##
-  # Fetch the button label of a button according to the current screen and its key
-  ##
+  # The getButtonLabel method fetches the label of a button according to the
+  # current screen and its key.
+  #
   def getButtonLabel(currentScreen, key)
      return @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").fetch(key)
   end
 
   ##
-  # Fetch a text according to the current screen and its key
-  ##
+  # The getScreentexts method fetches a text according to the current screen
+  # and its key.
+  #
   def getScreenTexts(currentScreen, key)
     return @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("texts").fetch(key)
   end
 
   ##
-  # Fetch a text according to a key and the position of a delimiter (here ";")
-  # This way it is possible to divide the text and put values between it
-  ##
+  # The getHelpTexts method fetches a text according to a key and the position
+  # of a delimiter (here we use ";"). This way it is possible to divide the text
+  # and put values between it.
+  #
   def getHelpsTexts(key, delimiterPosition)
       temp = String.new
       temp = @xmlHash.fetch("languages").fetch(@language).fetch("helps").fetch(key)
@@ -48,8 +66,9 @@ class XmlReader
   end
 
   ##
-  # Return the length of the longest label of a button in a screen
-  ##
+  # The buttonMaxString method returns the length of the longest label of a
+  # button in a screen.
+  #
   def buttonMaxString(currentScreen)
     longest = Array.new
     @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").each_values{
