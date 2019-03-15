@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 
 
@@ -148,6 +148,7 @@ class GridUi
 	def leftClickedDraged
 		return unless clickdefined?
 		return leftClicked unless draged?
+		sameStateCoords = []
 		sameState = cellsFromFirstToEnd.select { |cell|
 			cell.sameState?(@first)
 		}
@@ -155,27 +156,29 @@ class GridUi
 			when 1
 				@first.leftClicked
 				cell=@first
-				@game.addmove([[cell],"unLeftClicked"])
+				@game.addmove([[cell.coords],"unLeftClicked"])
 			else
 				sameState.each { |cell|
 					cell.dragLeftClicked
+					sameStateCoords << cell.coords
 				}
-				@game.addmove([sameState,"dragLeftClicked"])
+				@game.addmove([sameStateCoords,"dragLeftClicked"])
 		end
 	end
 
 	def undo
-		cells = @game.undo[0]
+		cells = @game.undo
 		cells[0].each{ |cell|
-			cell.method(cells[1]).call
+			# cell.method(cells[1]).call
+			@cells[cell[0]][cell[1]].method(cells[1]).call
 		}
 	end
 
 	def redo
-		cells = @game.redo[0]
+		cells = @game.redo
 		cells[0].each{ |cell|
-			cell.method(cells[1]).call unless cells[0].size>1
-			cell.method(cells[1]).call
+			@cells[cell[0]][cell[1]].method(cells[1]).call unless cells[0].size>1
+			@cells[cell[0]][cell[1]].method(cells[1]).call
 		}
 	end
 

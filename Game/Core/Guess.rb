@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Guess.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 
 
@@ -51,8 +51,8 @@ class Guess
 		@moves.redo
 	end
 
-	def addmove(move,triRotative)
-		@moves.add(move,triRotative)
+	def addmove(move)
+		@moves.add(move)
 	end
 
 	def moves

@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 
 
@@ -76,7 +76,7 @@ class Game
 
 	def addmove(move,triRotative=true)
     @moveDone=true
-		@currentGuess.addmove(move,triRotative)
+		@currentGuess.addmove(move)
 	end
 
   def calculateScore

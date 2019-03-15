@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Moves.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 ##
 # :startdoc:
@@ -41,8 +41,8 @@ class Moves
 	# Adds a move to the "moves" stack and clears redo stack.
 	# * *Arguments* :
 	#   - +move+ -> the move to add.
-	def add(move,triRotative)
-		@moves.push([move,triRotative])
+	def add(move)
+		@moves.push(move)
 		clearRedo
 	end
 
@@ -58,7 +58,7 @@ class Moves
 			@redo.push(@moves.pop)
 			return @redo.last
 		end
-		return [[[nil],"nil?"],true]
+		return [[[0,0]],"outOfBound"]
 	end
 
 	##
@@ -73,7 +73,7 @@ class Moves
 			@moves.push(@redo.pop)
 			return @moves.last
 		end
-		return [[[nil],"nil?"],true]
+		return [[[0,0]],"outOfBound"]
 	end
 
 	##
