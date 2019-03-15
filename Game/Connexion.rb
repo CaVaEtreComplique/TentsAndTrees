@@ -46,6 +46,7 @@ class Connexion
     mdp = Text.new("MOT DE PASSE",0.5,0.3)
     ident = Text.new("SE CONNECTER",0.5,0.3)
 		inscription =Text.new("INSCRIPTION",0.5,0.3)
+		mdpOublie=Text.new("MOT DE PASSE OUBLIE",0.5,0.3)
 
     quitter=Asset.new(File.dirname(__FILE__) + "/../Assets/Icons/cancel.png")
     quitter.resize(20,20)
@@ -55,6 +56,7 @@ class Connexion
     }
 		saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
+		saisi2.visibility=false
 
     @menu.pack_start(@image,expand: false, fill: true, padding: @pad)
 
@@ -73,18 +75,24 @@ class Connexion
 	 				saisi2.set_text("")
 			end
     }
+		@menu.pack_start(mdpOublie.gtkObject,expand: false, fill: true, padding: @pad)
+		mdpOublie.onClick{
+					#	MotdepasseOublie.new
+		 }
 		 @menu.pack_start(inscription.gtkObject,expand: false, fill: true, padding: @pad)
 		 inscription.onClick{
+			 if(connect.isPlayerExist(saisi.text)!=nil)
+					Probleme.new
+					saisi.set_text("")
+					saisi2.set_text("")
+				end
 			 		if(connect.isPlayerExist(saisi.text)==nil)
 						connect.createPlayer(saisi.text, saisi2.text)
 						TestGame.new
 					end
-					if(connect.isPlayerExist(saisi.text)!=nil)
-						Probleme.new
-						saisi.set_text("")
-						saisi2.set_text("")
-					end
+
 			}
+
   # win.add(@#)
     win.signal_connect('destroy') {Gtk.main_quit}
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)

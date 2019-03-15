@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellOverlap.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 

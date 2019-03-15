@@ -34,4 +34,8 @@ class HelpCellsAndRowsOrColumns < Help
     @row = rowOrColumn
     super()
   end
+
+  def cellsList
+    return super().push(cell)
+  end
 end

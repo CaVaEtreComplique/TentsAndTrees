@@ -24,6 +24,12 @@ class Helper < FictivHelper
 
   include Singleton
 
+  ##MODS for displaying only on game screen ( @@ONLY_UI_MOD ) or on the terminal as well ( @@DEBUG_MOD )
+  @@DEBUG_MOD=1
+  @@ONLY_UI_MOD=0
+  @@mod = @@DEBUG_MOD
+  ######################################"""
+
   @@helper
   @helps
 
@@ -32,14 +38,14 @@ class Helper < FictivHelper
     #initialize with all helpers
     @helps = Array.new
 
-    # @helps.push(CellTouchATentHelper.new)       # Fill the cells near a Tent with grass
-    # @helps.push(RowsAndColumnsTentsHelper.new)  # Fill a row/column whith tents when it has all this grass
-    # @helps.push(RowsAndColumnsGrassHelper.new)  # Fill a row/column whith grass when it has all this tents
-    # @helps.push(CellDontTouchTreeHelper.new)    # Help when a cell dont touch a tree, it will be a grass
-    # @helps.push(RowsAndColumnsFindTent.new)     # RowsAndColumnsFindTent help you to find Tent in a row or columns
-    # @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
-    # @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
-    @helps.push(AllTreesHaveTentsHelper.new)   # Place a tent for a tree that don't has his tent
+    @helps.push(CellTouchATentHelper.new)       # Fill the cells near a Tent with grass
+    @helps.push(RowsAndColumnsTentsHelper.new)  # Fill a row/column whith tents when it has all this grass
+    @helps.push(RowsAndColumnsGrassHelper.new)  # Fill a row/column whith grass when it has all this tents
+    @helps.push(CellDontTouchTreeHelper.new)    # Help when a cell dont touch a tree, it will be a grass
+    @helps.push(RowsAndColumnsFindTent.new)     # RowsAndColumnsFindTent help you to find Tent in a row or columns
+    @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
+    @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
+    @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
 
   end
 
@@ -51,10 +57,19 @@ class Helper < FictivHelper
     @helps.each{ |aHelp|
       if(((helpRes = aHelp.help(game)).helpFound?))
         #game.removeGuess
-        return helpRes
+        if(@@mod == @@DEBUG_MOD)
+          p helpRes.to_s
+        end
+          return helpRes.getRes()
       end
     }
     #game.removeGuess
-    return help = HelpNotFound.new
+
+    help = HelpNotFound.new
+
+    if(@@mod == @@DEBUG_MOD)
+      p help.to_s
+    end
+      return help.getRes()
   end
 end

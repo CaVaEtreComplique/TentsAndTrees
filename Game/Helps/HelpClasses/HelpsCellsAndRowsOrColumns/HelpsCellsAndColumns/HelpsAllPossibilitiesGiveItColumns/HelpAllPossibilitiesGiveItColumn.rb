@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItColumn.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -33,6 +33,6 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   # that all the column's possibilities give only one possible option for a
   # given cell.
   def getText()
-    return @helpText = "Toutes les possibilités de la colonne " + @row.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s
+    return @helpText = "Toutes les possibilités de la colonne " + @column[0].column.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s
   end
 end
