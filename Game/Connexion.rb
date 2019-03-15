@@ -2,8 +2,8 @@
 # @Date:   8-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Connexion.rb
-# @Last modified by:    CamilleVAIDIE
-# @Last modified time: 08-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 15-Mar-2019
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -19,9 +19,7 @@ require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
 
 
 class Connexion
-  def onDestroy
-     gtk.destroy
-  end
+
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
@@ -32,7 +30,9 @@ class Connexion
     win = Gtk::Window.new
     win.set_default_size(495,495)
     win.set_resizable(false)
-    #win.set_window_position(POS_CENTER_ALWAYS)
+		win.decorated=false
+    win.window_position= :center_always
+
     @menu=Gtk::Box.new(:vertical, 25)
 
   	@gtkObject= Gtk::Table.new(3,3)
@@ -64,17 +64,15 @@ class Connexion
     @menu.pack_start(saisi2,expand: false, fill: true, padding: @pad)
     @menu.pack_start(ident.gtkObject,expand: false, fill: true, padding: @pad)
     ident.onClick{
-     if(connect.playerConnect(saisi.text,saisi2.text)!=nil)
-			   TestGame.new
-				#	win.destroy
-		 end
-		 if(connect.playerConnect(saisi.text,saisi2.text)==nil)
-			 	ProblemeIdent.new
- 				saisi.set_text("")
- 				saisi2.set_text("")
+	    if(connect.playerConnect(saisi.text,saisi2.text)!=nil)
+				win.hide
+				TestGame.new
+			else
+				 	ProblemeIdent.new
+	 				saisi.set_text("")
+	 				saisi2.set_text("")
 			end
-
-     }
+    }
 		 @menu.pack_start(inscription.gtkObject,expand: false, fill: true, padding: @pad)
 		 inscription.onClick{
 			 		if(connect.isPlayerExist(saisi.text)==nil)
@@ -88,7 +86,7 @@ class Connexion
 					end
 			}
   # win.add(@#)
-    win.signal_connect('destroy') {onDestroy}
+    win.signal_connect('destroy') {Gtk.main_quit}
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 		win.add(@gtkObject)
 		win.show_all
