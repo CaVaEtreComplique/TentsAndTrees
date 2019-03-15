@@ -1,6 +1,15 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   15-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: HelpAllPossibilitiesGiveItColumn.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 require File.dirname(__FILE__) + "/../HelpCellsAndColumns"
 
-class HelpAllPossibilitiesGiveItColumn < HelpCellsAndRowsOrColumns
+class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   #Help for when all the possibilities of the row give a cell with a state
 
   public_class_method :new #Instanciable class

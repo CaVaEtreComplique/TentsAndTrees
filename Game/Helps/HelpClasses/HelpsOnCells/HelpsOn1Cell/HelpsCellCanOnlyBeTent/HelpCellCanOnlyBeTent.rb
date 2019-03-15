@@ -1,3 +1,11 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   07-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: HelpCellCanOnlyBeTent.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
 
 require File.dirname(__FILE__) + "/../HelpOn1Cell"
 

@@ -1,3 +1,10 @@
+# @Author: Maxime Touze <MaximeTouze>
+# @Date:   09-Feb-2019
+# @Email:  maxime_touze.etu@univ-lemans.fr
+# @Filename: HelpNotFound.rb
+# @Last modified by:   MaximeTouze
+# @Last modified time: 13-Mar-2019
+
 require File.dirname(__FILE__) + "/../Help"
 
 ##
