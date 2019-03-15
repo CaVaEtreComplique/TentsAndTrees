@@ -25,7 +25,9 @@ class ProblemeIdent
 		#Variable pour resize le texte
 	  @pad =8
     win = Gtk::Window.new
-    win.set_default_size(150,150)
+		w=screen.width
+		h=screen.height
+    win.set_default_size(w/4,h/10)
     win.set_resizable(false)
 
   	@menu=Gtk::Box.new(:vertical, 25)
