@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: GameDecorated.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -16,8 +16,18 @@ class GameDecorated
 	@tent
   @grass
   @white
+	@nRow
+	@nCol
 
 	attr_reader :game, :tree, :grass, :white, :tent
+
+	def nRow
+		@game.nRow
+	end
+
+	def nCol
+		@game.nCol
+	end
 
 	def initialize(game)
 
