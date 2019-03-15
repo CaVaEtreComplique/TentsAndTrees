@@ -41,7 +41,7 @@ class Save
       diff = 3
     end
 
-    db.save(db.getPlayer(1),SaveContent.new(session.game.currentGuess,session.game.time,session.score,session.gridPick,session.gameMode,session.difficulty).to_yaml())
+    db.save(db.getPlayer(1),session.to_yaml())
   end
 
   def destroy

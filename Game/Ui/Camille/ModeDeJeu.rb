@@ -104,8 +104,8 @@ class ModeDeJeu < Screen
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)
 	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
 	 save.onClick{
-		 save = Save.load(18)
-		 session = Session.new(save.content_save)
+		 save = Save.load(29)
+		 session = save.content_save
 		 manager.runGameSession(session)
 	  }
 

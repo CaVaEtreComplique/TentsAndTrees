@@ -60,18 +60,3 @@ class Session
 	end
 
 end
-
-class Session
-
-	def initialize(content_save)
-		@gameMode=content_save.gameMode
-		@difficulty=content_save.difficulty
-		@score=content_save.score
-		@gridPick=content_save.gridPick
-		@time=content_save.time
-		@game=Game.new(self)
-		@game.time=@time
-		@game.currentGuess=content_save.guess
-	end
-
-end

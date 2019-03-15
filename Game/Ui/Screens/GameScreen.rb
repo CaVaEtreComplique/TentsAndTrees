@@ -100,7 +100,6 @@ class GameScreen < Screen
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false)
       @game.delete_observers
-      @game.chrono.destroy
     end
   end
 

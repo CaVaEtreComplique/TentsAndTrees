@@ -2,7 +2,7 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
-# @Last modified by:   zeigon
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -40,8 +40,7 @@ class Game
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
     @moveDone=false
     @baseTime=@session.time
-    # (@chrono=GLib::Timer.new).stop
-    @time=0
+    @time = @baseTime
 	end
 
 	def resetGrid
@@ -87,8 +86,15 @@ class Game
   end
 
 	def run
-    (@chrono=GLib::Timer.new).start
+    @chrono=GLib::Timer.new
+    @chrono.start
     lastTime=0
+    case @session.gameMode
+    when :timeAttack
+      @baseTime-=@baseTime-@time
+    else
+      @baseTime=-@time
+    end
 		loop do
       @time=(@baseTime-(@chrono.elapsed[0]).truncate).abs
 			if @moveDone || @time!=lastTime
