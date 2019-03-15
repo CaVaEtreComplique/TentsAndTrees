@@ -18,21 +18,25 @@ require File.dirname(__FILE__) + "/TestGame"
 require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
 
 
-class Connexion < Screen
+class Connexion
   def onDestroy
      Gtk.main_quit
   end
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-	  @pad =2
+	  @pad =8
 
     win = Gtk::Window.new
-    win.set_default_size(300,200)
+    win.set_default_size(380,400)
     win.set_resizable(false)
     #win.set_window_position(POS_CENTER_ALWAYS)
     @menu=Gtk::Box.new(:vertical, 25)
 
+  	@gtkObject= Gtk::Table.new(3,3)
+		@gtkObject.attach(@menu,1,2,1,2)
+
+		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Backgrounds/nature.png")
 
     @image=Gtk::EventBox.new()
 
@@ -67,9 +71,11 @@ class Connexion < Screen
       #win.OnDestroy
       TestGame.new
      }
-    win.add(@menu)
-    win.show_all
+  #  win.add(@#)
     win.signal_connect('destroy') {onDestroy}
+		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+		win.add(@gtkObject)
+		win.show_all
   end
 end
 
