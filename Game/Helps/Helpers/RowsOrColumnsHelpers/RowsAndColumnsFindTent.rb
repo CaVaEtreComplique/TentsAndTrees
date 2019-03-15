@@ -1,3 +1,12 @@
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: RowsAndColumnsFindTent.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
+
+
+
 #RowsAndColumnsFindTent help you to find Tent in a row or columns
 
 require File.dirname(__FILE__) + "/../../Count"

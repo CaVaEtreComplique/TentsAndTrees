@@ -1,4 +1,13 @@
-# Compresse the grid into 3 array whitch containe tent, tree and grass
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: CompresseGrid.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
+
+
+
+# Decompresse the grid into 4 arrays whitch contain tent, tree, grass and white
 
 class CompresseGrid
   def CompresseGrid.compresse(game)

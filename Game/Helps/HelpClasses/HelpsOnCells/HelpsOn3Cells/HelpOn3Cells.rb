@@ -1,8 +1,8 @@
-# @Author: Maxime Touze <Maxime>
+# @Author: Florian Tourpe <Sckylle>
 # @Date:   15-Mar-2019
-# @Email:  maxime_touze@univ-lemans.fr
+# @Email:  florian.tourpe@gmail.com
 # @Filename: HelpOn3Cells.rb
-# @Last modified by:   Maxime
+# @Last modified by:   Sckylle
 # @Last modified time: 15-Mar-2019
 
 

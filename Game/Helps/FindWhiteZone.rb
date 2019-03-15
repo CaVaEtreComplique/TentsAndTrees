@@ -1,3 +1,12 @@
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: FindWhiteZone.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
+
+
+
 #Find white block in column/row which follow each other, create an array who contain those block
 class FindWhiteZone
 	def FindWhiteZone.Find(game, vertHor, rank)

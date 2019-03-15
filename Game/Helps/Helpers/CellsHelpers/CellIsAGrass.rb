@@ -1,8 +1,8 @@
-# @Author: Maxime Touze <Maxime>
+# @Author: Florian Tourpe <Sckylle>
 # @Date:   15-Mar-2019
-# @Email:  maxime_touze@univ-lemans.fr
+# @Email:  florian.tourpe@gmail.com
 # @Filename: CellIsAGrass.rb
-# @Last modified by:   Maxime
+# @Last modified by:   Sckylle
 # @Last modified time: 15-Mar-2019
 
 
@@ -13,7 +13,7 @@ require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn1Cell/H
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
-class CellTouchATentHelper < FictivHelper
+class CellIsAGrass < FictivHelper
 
 public_class_method :new
 
