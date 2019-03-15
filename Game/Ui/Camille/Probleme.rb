@@ -24,8 +24,10 @@ class Probleme
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
 	  @pad =8
+		w=screen.width
+		h=screen.height
     win = Gtk::Window.new
-    win.set_default_size(150,150)
+    win.set_default_size(w/4,h/10)
     win.set_resizable(false)
 
   @menu=Gtk::Box.new(:vertical, 25)
