@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   15-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: RowsAndColumnsTentsHelper.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 #TentsHelper help you to find where you can fill a row or column whith tents
 
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
