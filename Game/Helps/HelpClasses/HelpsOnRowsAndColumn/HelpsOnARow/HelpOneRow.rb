@@ -18,4 +18,11 @@ class HelpOneRow < HelpOnRowsAndColumn
   def initialize(row)
     super(row)
   end
+  def cellsList
+    res = super()
+    @row.each{ |cell|
+      res.push(cell)
+     }
+    return res
+  end
 end

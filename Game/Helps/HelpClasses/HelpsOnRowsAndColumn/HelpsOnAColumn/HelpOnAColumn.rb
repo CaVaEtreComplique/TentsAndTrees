@@ -15,4 +15,11 @@ class HelpOnAColumn < HelpOnRowsAndColumn
   def initialize(column)
     super(column)
   end
+  def cellsList
+    res = super()
+    @column.each{ |cell|
+      res.push(cell)
+     }
+    return res
+  end
 end

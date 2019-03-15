@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpOn3Cells.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -15,5 +15,8 @@ class HelpOn3Cells < HelpOnCells #Abstract class
     @cell2 = cell2
     @cell3 = cell3
     super(cell1)
+  end
+  def cellsList
+    return super().push(@cell2).push(@cell3)
   end
 end

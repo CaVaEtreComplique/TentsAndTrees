@@ -48,4 +48,18 @@ class Help
   def to_s
     return @helpText + "\n"
   end
+
+  # This method returns the UI printable form of the help
+  # -----------
+  def getRes()
+    res = Array.new
+    res.push(getText)
+    res.push(cellsList())
+  end
+
+  # This method returns an array with all the cells important for the help
+  # -----------
+  def cellsList
+    return Array.new
+  end
 end
