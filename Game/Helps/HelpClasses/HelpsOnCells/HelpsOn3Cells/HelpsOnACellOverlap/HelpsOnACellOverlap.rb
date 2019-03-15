@@ -1,3 +1,12 @@
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: HelpsOnACellOverlap.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
+
+
+
 require File.dirname(__FILE__) + "/../HelpOn3Cells"
 
 

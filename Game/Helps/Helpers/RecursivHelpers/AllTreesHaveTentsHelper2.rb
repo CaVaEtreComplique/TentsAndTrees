@@ -1,3 +1,13 @@
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: AllTreesHaveTentsHelper2.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
+
+
+
+#Connect tree whith tent in order to find a tent
 require File.dirname(__FILE__) + "/../FictivHelper"
 require File.dirname(__FILE__) + "/../../CompresseGrid"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellCanOnlyBeTent/HelpCellCanOnlyBeTent"

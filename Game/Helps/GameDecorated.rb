@@ -1,4 +1,12 @@
+# @Author: Florian Tourpe <Sckylle>
+# @Date:   15-Mar-2019
+# @Email:  florian.tourpe@gmail.com
+# @Filename: GameDecorated.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 15-Mar-2019
 
+
+#Decompose the grid and include new array to the object
 require File.dirname(__FILE__) + "/CompresseGrid"
 
 class GameDecorated
