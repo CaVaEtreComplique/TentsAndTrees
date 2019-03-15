@@ -17,6 +17,6 @@ class HelpAllGrassOnAColumn < HelpOnAColumn
   end
 
   def getText #returns the text of the help, saying that "All tents need to be placed, so all the empty cells of the column ° are tents"
-    @helpText = "All tents needed have been placed, so all the empty cells of the column " + @column.to_s + " are tents"
+    @helpText = "All grass needed have been placed, so all the empty cells of the column " + @column[0].column.to_s + " are tents"
   end
 end

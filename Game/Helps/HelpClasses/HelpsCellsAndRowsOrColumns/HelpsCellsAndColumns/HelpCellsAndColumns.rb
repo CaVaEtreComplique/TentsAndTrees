@@ -22,4 +22,12 @@ class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
   def initialize(cell, column)
     super(cell, column)
   end
+
+  def cellsList
+    res = super()
+    @column.each{ |cell|
+      res.push(cell)
+     }
+    return res
+  end
 end

@@ -15,4 +15,7 @@ class HelpOn2Cells < HelpOnCells #Abstract class
     @cell2 = cell2
     super(cell1)
   end
+  def cellsList
+    return super().push(@cell2)
+  end
 end

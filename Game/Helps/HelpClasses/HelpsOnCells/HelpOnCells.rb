@@ -19,4 +19,7 @@ class HelpOnCells < Help
     @cell = cell
     super()
   end
+  def cellsList
+    return super().push(@cell)
+  end
 end

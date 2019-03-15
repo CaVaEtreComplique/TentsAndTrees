@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: RowsAndColumnsFindTent.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -46,7 +46,7 @@ class RowsAndColumnsFindTent < FictivHelper
       end
 
       if !(cell.nil?) #We find an answer
-        return HelpAllPossibilitiesGiveItRow.new(cell, i, "tent")
+        return HelpAllPossibilitiesGiveItRow.new(cell, game.correction.rows[i], "tent")
       end
 
     end
@@ -71,7 +71,7 @@ class RowsAndColumnsFindTent < FictivHelper
       if nbTent == game.rowClues[i]
 
         if !(cell.nil?) #We find an answer
-          return HelpAllPossibilitiesGiveItColumn.new(cell, i, "tent")
+          return HelpAllPossibilitiesGiveItColumn.new(cell, game.correction.cols[i], "tent")
         end
 
       end

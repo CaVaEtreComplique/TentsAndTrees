@@ -17,4 +17,8 @@ class HelpOn1Cell < HelpOnCells
   def initialize(cell)
     super(cell)
   end
+  def cellsList
+    return super()
+  end
+
 end
