@@ -2,7 +2,7 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
-# @Last modified by:   zeigon
+# @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
 
@@ -42,7 +42,6 @@ class Game
     @baseTime=@session.time
     (@chrono=GLib::Timer.new).stop
     @time=@chrono.elapsed[0]
-    @helper=Helper.initializor
 	end
 
 	def resetGrid
@@ -84,7 +83,7 @@ class Game
   end
 
   def help
-    return @helper.help(self)
+    return Helper.instance.help(self)
   end
 
 	def run

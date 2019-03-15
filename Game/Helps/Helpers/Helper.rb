@@ -21,19 +21,12 @@ require File.dirname(__FILE__) + "/../GameDecorated"
 
 class Helper < FictivHelper
   #needed to be initialized at the start
-  public_class_method :new
+
+  include Singleton
 
   @@helper
   @helps
 
-  def Helper.initializor
-    #Check for being a singleton
-    if defined?(@@helper).nil?
-      return @@helper = Helper.new
-    else
-      return @@helper
-    end
-  end
 
   def initialize
     #initialize with all helpers
