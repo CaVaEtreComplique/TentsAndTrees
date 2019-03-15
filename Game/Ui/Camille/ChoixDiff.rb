@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -47,7 +47,7 @@ end
 #
 #*Then* we add the action the button does when it is clicked :
 #    facile.onClick{
-#	     session=NewSession.new(:quickplay, :easy)
+#	     session=Session.new(:quickplay, :easy)
 #	     manager.runGameSession(session)
 #    }
 #
@@ -83,21 +83,21 @@ class ChoixDiff < Screen
 		 @menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
-			 session=NewSession.new(:quickplay, :easy)
+			 session=Session.new(:quickplay, :easy)
 			 manager.runGameSession(session)
 		}
     moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"),@widthText,@heightText)
 		 @menu.pack_start(moyen.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
-			 session=NewSession.new(:quickplay, :medium)
+			 session=Session.new(:quickplay, :medium)
 			 manager.runGameSession(session)
 		}
     diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"),@widthText,@heightText)
 		 @menu.pack_start(diff.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
-			 session=NewSession.new(:quickplay, :hard)
+			 session=Session.new(:quickplay, :hard)
 			 manager.runGameSession(session)
 		}
     retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"),@widthText,@heightText)

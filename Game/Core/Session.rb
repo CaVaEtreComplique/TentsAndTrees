@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Session.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 class Session
 
@@ -13,6 +13,8 @@ class Session
 	def initialize(gameMode, difficulty)
 		@gameMode=gameMode
 		@difficulty=difficulty
+		@score=0
+    replay(false)
 	end
 
 	def continuable?
@@ -49,6 +51,10 @@ class Session
 		end
 		@game=Game.new(self)
 		self
+	end
+
+	def save
+		Save.update(self)
 	end
 
 end
