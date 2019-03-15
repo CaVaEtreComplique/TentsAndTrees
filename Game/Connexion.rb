@@ -27,8 +27,10 @@ class Connexion
 		#Variable pour resize le texte
 	  @pad =8
 
+		connect=ConnectDB.new
+
     win = Gtk::Window.new
-    win.set_default_size(380,400)
+    win.set_default_size(495,495)
     win.set_resizable(false)
     #win.set_window_position(POS_CENTER_ALWAYS)
     @menu=Gtk::Box.new(:vertical, 25)
@@ -43,6 +45,7 @@ class Connexion
     log = Text.new("LOGIN",0.5,0.3)
     mdp = Text.new("MOT DE PASSE",0.5,0.3)
     ident = Text.new("SE CONNECTER",0.5,0.3)
+		inscription =Text.new("INSCRIPTION",0.5,0.3)
 
     quitter=Asset.new(File.dirname(__FILE__) + "/../Assets/Icons/cancel.png")
     quitter.resize(20,20)
@@ -50,9 +53,7 @@ class Connexion
     @image.signal_connect('button_press_event' ) {
        Gtk.main_quit
     }
-
-
-    saisi=Gtk::Entry.new()
+		saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
 
     @menu.pack_start(@image,expand: false, fill: true, padding: @pad)
@@ -63,15 +64,28 @@ class Connexion
     @menu.pack_start(saisi2,expand: false, fill: true, padding: @pad)
     @menu.pack_start(ident.gtkObject,expand: false, fill: true, padding: @pad)
     ident.onClick{
+     if(connect.playerConnect(saisi.text,saisi2.text)!=nil)
+			   TestGame.new
+				# win.destroy
+		 end
+		 if(connect.playerConnect(saisi.text,saisi2.text)==nil)
+		 		Gtk.main_quit
+			end
 
-       #verif sur l'ident et mdp
-       #Gtk.main_quit
-       #TestGame
-      # if(playerConnect)
-      #win.OnDestroy
-      TestGame.new
      }
-  #  win.add(@#)
+		 @menu.pack_start(inscription.gtkObject,expand: false, fill: true, padding: @pad)
+		 inscription.onClick{
+			 		#if( IDENT LIBRE)
+					connect.createPlayer(saisi.text, saisi2.text)
+					TestGame.new
+					#end
+					#if( IDENT PAS LIBRE)
+						pb = Text.new("Login indisponible",0.5,0.3)
+						@menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
+
+					#end
+			}
+  # win.add(@#)
     win.signal_connect('destroy') {onDestroy}
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 		win.add(@gtkObject)
