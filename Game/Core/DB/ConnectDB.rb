@@ -5,6 +5,7 @@ require File.dirname(__FILE__) + "/SaveDB.rb"
 require File.dirname(__FILE__) + "/HighScore.rb"
 require File.dirname(__FILE__) + "/Gamemode.rb"
 require 'digest/sha1'
+require 'yaml'
 
 class ConnectDB
 
@@ -18,7 +19,7 @@ class ConnectDB
   #    db = ConnectDB.new()
   def initialize
    #Opens a SQLite 3 database file
-    @db = SQLite3::Database.new 'db.sqlite'
+    @db = SQLite3::Database.new 'Core/DB/db.sqlite'
   end
 
 	# This method retrieves the Player that matches the given id. The game must
@@ -38,14 +39,14 @@ class ConnectDB
    # -----------
   def getPlayer(id)
 
-    players = Array.new
+    player = nil
 
     # Find some records
     @db.execute "SELECT * FROM Player WHERE player_id = #{id}" do |row|
-      players.push(Player.new(row[0],row[1],row[2]))
+      player = Player.new(row[0],row[1],row[2])
     end
 
-    return players
+    return player
 
   end
 
@@ -116,7 +117,9 @@ class ConnectDB
 
 		d = DateTime.now
 
-		@db.execute "INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.player_id}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')" do |row|
+    puts "INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')"
+
+		@db.execute("INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)", player.id_player, d.strftime("%d/%m/%Y %H:%M"),content) do |row|
 			puts row
 		end
 
@@ -164,7 +167,7 @@ class ConnectDB
 		saves = Array.new
 
 		@db.execute "SELECT * FROM Save WHERE player_id_save = #{player.player_id}" do |row|
-			saves.push(new SaveDB(row[0],row[1],row[2],row[3]),row[4],row[5])
+			saves.push(new SaveDB(row[0],row[1],row[2],row[3]))
 		end
 
 		return saves
@@ -191,7 +194,7 @@ class ConnectDB
 		save = nil
 
 		@db.execute "SELECT * FROM Save WHERE id_save = #{id}" do |row|
-			save = new SaveDB(row[0],row[1],row[2],row[3]),row[4],row[5]
+			save = SaveDB.new(row[0],row[1],row[2],row[3])
 		end
 
 		return save

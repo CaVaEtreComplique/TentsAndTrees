@@ -7,6 +7,7 @@ require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsFindGrass"
 require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper"
+require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper2"
 require File.dirname(__FILE__) + "/CellsHelpers/CellWhiteOverlap"
 require File.dirname(__FILE__) + "/../GameDecorated"
 
@@ -36,6 +37,7 @@ class Helper < FictivHelper
     @helps.push(RowsAndColumnsFindGrass.new)
     @helps.push(RowsAndColumnsFindTent.new)
     @helps.push(CellWhiteOverlap.new)
+    @helps.push(AllTreesHaveTentsHelper2.new)
 
 
   end
