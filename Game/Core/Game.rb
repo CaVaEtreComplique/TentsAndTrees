@@ -2,7 +2,7 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
-# @Last modified by:   Maxime
+# @Last modified by:   zeigon
 # @Last modified time: 15-Mar-2019
 
 
@@ -40,7 +40,7 @@ class Game
 		@correction =Grid.new(@nRow, @nCol,@gridAnswers,true)
     @moveDone=false
     @baseTime=@session.time
-    (@chrono=GLib::Timer.new).stop
+    # (@chrono=GLib::Timer.new).stop
     @time=@chrono.elapsed[0]
 	end
 
@@ -87,7 +87,7 @@ class Game
   end
 
 	def run
-@chrono.start
+    (@chrono=GLib::Timer.new).start
     lastTime=0
 		loop do
       @time=(@baseTime-(@chrono.elapsed[0]).truncate).abs
