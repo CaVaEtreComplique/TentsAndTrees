@@ -51,7 +51,7 @@ class ConnectDB
   end
 
 	# This method tries to find the player in the database with the name and the
-   # password provided. The game must be connected to the database.
+  # password provided. The game must be connected to the database.
 	#
 	# ===== Attributes
 	# * +name+ - The name of the Player we're looking for
@@ -64,8 +64,8 @@ class ConnectDB
 	#
 	#   db = ConnectDB.new()
 	# 	 db.playerConnect("aze","azeaze")
-   #
-   # -------
+  #
+  # -------
 	def playerConnect(name, password)
 
 		pl = nil
@@ -79,7 +79,7 @@ class ConnectDB
 	end
 
 	# This method adds a player in the database with the name and the password
-   # provided. The game must be connected to the database.
+  # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
 	# * +name+ - The name of the Player we want to add
@@ -89,8 +89,8 @@ class ConnectDB
 	#
 	#   db = ConnectDB.new()
 	# 	 db.createPlayer("aze","azeaze")
-   #
-   # -------------
+  #
+  # -------------
 	def createPlayer(name, password)
 
 		@db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')" do |row|

@@ -10,6 +10,7 @@ class Session
 	attr_reader :game, :gridPick, :time, :score, :gameMode, :difficulty
 	# attr_writer :score
 
+
 	def initialize(gameMode, difficulty)
 		@gameMode=gameMode
 		@difficulty=difficulty
@@ -56,6 +57,21 @@ class Session
 	def save
 		@game.delete_observers
 		Save.update(self)
+	end
+
+end
+
+class Session
+
+	def initialize(content_save)
+		@gameMode=content_save.gameMode
+		@difficulty=content_save.difficulty
+		@score=content_save.score
+		@gridPick=content_save.gridPick
+		@time=content_save.time
+		@game=Game.new(self)
+		@game.time=@time
+		@game.currentGuess=content_save.guess
 	end
 
 end

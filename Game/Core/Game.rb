@@ -41,7 +41,7 @@ class Game
     @moveDone=false
     @baseTime=@session.time
     # (@chrono=GLib::Timer.new).stop
-    @time=@chrono.elapsed[0]
+    @time=0
 	end
 
 	def resetGrid
