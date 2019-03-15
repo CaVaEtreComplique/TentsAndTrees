@@ -9,7 +9,7 @@
 
 require File.dirname(__FILE__) + "/../HelpOn2Cells"
 
-class HelpsOn2CellUniqueSolution < HelpOn2Cells
+class HelpsOn2CellTentUniqueSolution < HelpOn2Cells
   #a class for helping when a cell is link to a tree because of only one posibility
   public_class_method :new #instanciable
   def initialize(cellTent, cellTree)

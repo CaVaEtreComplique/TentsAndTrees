@@ -16,18 +16,8 @@ class GameDecorated
 	@tent
   @grass
   @white
-	@nRow
-	@nCol
 
 	attr_reader :game, :tree, :grass, :white, :tent
-
-	def nRow
-		@game.nRow
-	end
-
-	def nCol
-		@game.nCol
-	end
 
 	def initialize(game)
 
