@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   15-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: CellTouchATentHelper.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 #A helper whitch help the player to place grass in cells that touch tents
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
@@ -27,7 +36,7 @@ public_class_method :new
         return HelpOnACellTouchATent.new(game.cellAt(x, y), game.cellAt(x, y-1))
       end
 
-      #If the cell is white and touch a tent -in X, not +-
+      #If the cell is white and touch a tent /in X, not +/ :
       if(y-1 >= 0 && x-1 >= 0 && game.cellAt(x-1, y-1).isATent?)
         return HelpOnACellTouchATent.new(game.cellAt(x, y), game.cellAt(x-1, y-1))
       elsif(y-1 >= 0 && x+1 < game.nCol && game.cellAt(x+1, y-1).isATent?)

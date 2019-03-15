@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   15-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: CellIsAGrass.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 #A helper whitch help the player to place grass in cells that touch tents
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees"

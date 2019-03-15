@@ -1,3 +1,12 @@
+# @Author: Maxime Touze <Maxime>
+# @Date:   01-Mar-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: Count.rb
+# @Last modified by:   Maxime
+# @Last modified time: 15-Mar-2019
+
+
+
 # count the cells whith the State state in the row or column rank in the Game game, verticaly (VertHor =0 ) or horizontaly (VertHor =1 )
 class Count
   def Count.count(game, state, vertHor, rank)

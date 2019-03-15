@@ -3,10 +3,10 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 15-Mar-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen
+    attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen, :session
 
   def initialize(window,player)
     ProcessStatus.new
@@ -23,11 +23,10 @@ class UiManager
     @mainScreen.applyOn(@win)
   end
 
-  def runGameSession(session, saveId=nil)
+  def runGameSession(session)
     Thread.new {
-      @saveId=nil
-      @session=session
       @loadScreen.applyOn(@win)
+      @session=session
       @loadScreen.run
       game=@session.game
       # Generation des textures
@@ -39,12 +38,11 @@ class UiManager
       @gameScreen.applyOn(@win)
       ProcessStatus.send("Lancement de la partie")
       game.run
-      kill #It seems there is a bug where the trhread doesn't systematicaly kill itself at the end of the block
     }
   end
 
   def createNewSave
-    Save.update(@session)
+    @session.save
   end
 
 end
