@@ -1,3 +1,5 @@
+require('active_record')
+
 # A Player is defined by his ID, his name and his password.
 # This Class is here to represent a Player in the database
 class Player
@@ -5,7 +7,7 @@ class Player
   @id_player # ID of the Player
   @name_player # Name of the Player
   @password_player # Password of the Player
-
+ 
   # Constructor of a Player.
   #
   # ===== Attributes
