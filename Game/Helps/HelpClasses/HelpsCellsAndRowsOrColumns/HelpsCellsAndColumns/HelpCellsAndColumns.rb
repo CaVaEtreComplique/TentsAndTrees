@@ -15,7 +15,6 @@ require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 # for every help class that needs to know a cell and a column. The only method
 # this class knows is its initialization method.
 class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
-  #abstract class
 
 ##
 # This method only does what the initialize method in HelpCellsAndRowsOrColumns
