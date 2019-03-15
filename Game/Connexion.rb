@@ -20,7 +20,7 @@ require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
 
 class Connexion
   def onDestroy
-     Gtk.main_quit
+     gtk.destroy
   end
   def initialize()
     screen=Gdk::Screen.default
@@ -66,24 +66,26 @@ class Connexion
     ident.onClick{
      if(connect.playerConnect(saisi.text,saisi2.text)!=nil)
 			   TestGame.new
-				# win.destroy
+				#	win.destroy
 		 end
 		 if(connect.playerConnect(saisi.text,saisi2.text)==nil)
-		 		Gtk.main_quit
+			 	ProblemeIdent.new
+ 				saisi.set_text("")
+ 				saisi2.set_text("")
 			end
 
      }
 		 @menu.pack_start(inscription.gtkObject,expand: false, fill: true, padding: @pad)
 		 inscription.onClick{
-			 		#if( IDENT LIBRE)
-					connect.createPlayer(saisi.text, saisi2.text)
-					TestGame.new
-					#end
-					#if( IDENT PAS LIBRE)
-						pb = Text.new("Login indisponible",0.5,0.3)
-						@menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
-
-					#end
+			 		if(connect.isPlayerExist(saisi.text)==nil)
+						connect.createPlayer(saisi.text, saisi2.text)
+						TestGame.new
+					end
+					if(connect.isPlayerExist(saisi.text)!=nil)
+						Probleme.new
+						saisi.set_text("")
+						saisi2.set_text("")
+					end
 			}
   # win.add(@#)
     win.signal_connect('destroy') {onDestroy}
