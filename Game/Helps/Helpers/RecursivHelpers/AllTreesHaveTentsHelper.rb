@@ -17,203 +17,152 @@ require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/
 class AllTreesHaveTentsHelper < FictivHelper
   public_class_method :new
 
+  @game
   @treeList
+  @answer
+  @nbTent
+  @nbTree
 
   def help(game)
 
+    #initialize variable
+
+    treeAlreadySeen = false #boolean that tell if a tree has already been seen
+    answerGrass = nil #memories a cell that should be grass
+    cellGrassRef = nil  #memories the referenced tree for the above var
+    whiteCellArray = Array.new # Array that memories white cell next to the beginning tree
     tree = game.tree()
-    game = game.game()
+    @game = game.game()
 
-    @treeList = Array.new
-    result = Array.new  # Contain the result of research methode
-    # @treeList = Array.new  #An Array send ro research in order to mark tree
-    treeAlreadySeen = Array.new #Contain all the tree previously found in research
+    @answer = Array.new #Array that contain all te possible answer for a given tree network
+    @treeList = Array.new #Array that contain tree witch have been explored within the algorithm
+    @nbTree = 0 #nombre of tree seen in the tree network
+    @nbTent = 0 #nombre of tent seen in the tree network
 
-    whiteCellArray = Array.new #Use to find unique solution for a tree
-
-    nbTree = 0
-    nbTent = 0
-    answer = nil
-
-
-    compt = 0
-
-
+    #beginning
     tree.each() do |cell|
 
-      # puts(cell.to_s)
-
-      nbTree = 0 #reset var
-      nbTent = 0
-      answer = nil
+      @nbTree = 0 #reset var
+      @nbTent = 0
+      @answer = Array.new
       whiteCellArray = Array.new
-      compt += 1
+      treeAlreadySeen = false
 
-      if !treeAlreadySeen.include?(cell)
-          # puts(cell.to_s)
 
-        if (cell.row + 1 < game.nRow)
-          nextCell = game.cellAt(cell.row + 1, cell.column)
+      #Can't use  "@treeList.include?(cell)" because cell.==(otherCell) already override and useless with how we need to compare cell here
+      @treeList.each do |cell2|
+        if (cell.row == cell2.row && cell.column == cell2.column)
+          treeAlreadySeen = true
+          break
+        end
+      end
+
+      if !treeAlreadySeen
+
+        if (cell.row + 1 < @game.nRow)
+          nextCell = @game.cellAt(cell.row + 1, cell.column)
           if nextCell.isATent?
-            #puts("Test Droit")
-            result = research(0, 0, nil, nextCell, cell, game)
-            #puts("Resultat Droit  = " + result[0].to_s + " / " + result[1].to_s)
-            nbTree += result[0]
-            nbTent += result[1]
-            answer = result[2] if answer.nil?
-            if answer.nil? && (cell.row - 1 >= 0) && game.cellAt(cell.row - 1, cell.column).isAWhite?
-              answer = game.cellAt(cell.row - 1, cell.column)
-            end
+            research(nextCell, cell)
+            @answer.push(@game.cellAt(cell.row - 1, cell.column)) if (cell.row - 1 >= 0) && @game.cellAt(cell.row - 1, cell.column).isAWhite?
         elsif nextCell.isAWhite?
             whiteCellArray.push(nextCell)
           end
         end
         if (cell.row - 1 >= 0)
-          nextCell = game.cellAt(cell.row - 1, cell.column)
+          nextCell = @game.cellAt(cell.row - 1, cell.column)
           if nextCell.isATent?
-            #puts("Test Gauche")
-            result = research(0, 0, nil, nextCell, cell, game)
-            #puts("Gauche  = " + result[0].to_s + " / " + result[1].to_s)
-            nbTree += result[0]
-            nbTent += result[1]
-            answer = result[2] if answer.nil?
-            if answer.nil? && (cell.row + 1 < game.nRow) && game.cellAt(cell.row + 1, cell.column).isAWhite?
-              answer = game.cellAt(cell.row + 1, cell.column)
-            end
+            research(nextCell, cell)
+            @answer.push(@game.cellAt(cell.row + 1, cell.column)) if (cell.row + 1 < @game.nRow) && @game.cellAt(cell.row + 1, cell.column).isAWhite?
           elsif nextCell.isAWhite?
             whiteCellArray.push(nextCell)
           end
         end
-        if (cell.column + 1 < game.nCol)
-          nextCell = game.cellAt(cell.row, cell.column + 1)
+        if (cell.column + 1 < @game.nCol)
+          nextCell = @game.cellAt(cell.row, cell.column + 1)
           if nextCell.isATent?
-            #puts("Test Bas")
-            result = research(0, 0, nil, nextCell, cell, game)
-            #puts("Bas  = " + result[0].to_s + " / " + result[1].to_s)
-            nbTree += result[0]
-            nbTent += result[1]
-            answer = result[2] if answer.nil?
-            if answer.nil? && (cell.column - 1 >= 0) && game.cellAt(cell.row, cell.column - 1).isAWhite?
-              answer = game.cellAt(cell.row, cell.column - 1)
-            end
+            research(nextCell, cell)
+            @answer.push(@game.cellAt(cell.row, cell.column - 1)) if (cell.column - 1 >= 0) && @game.cellAt(cell.row, cell.column - 1).isAWhite?
           elsif nextCell.isAWhite?
             whiteCellArray.push(nextCell)
           end
         end
         if (cell.column - 1 >= 0)
-          nextCell = game.cellAt(cell.row, cell.column - 1)
+          nextCell = @game.cellAt(cell.row, cell.column - 1)
           if nextCell.isATent?
-            #puts("Test Haut")
-            result = research(0, 0, nil, nextCell, cell, game)
-            #puts("Haut  = " + result[0].to_s + " / " + result[1].to_s)
-            nbTree += result[0]
-            nbTent += result[1]
-            answer = result[2] if answer.nil?
-            if answer.nil? && (cell.column + 1 < game.nCol) && game.cellAt(cell.row, cell.column + 1).isAWhite?
-              answer = game.cellAt(cell.row, cell.column + 1)
-            end
+            research(nextCell, cell)
+            @answer.push(@game.cellAt(cell.row, cell.column + 1)) if (cell.column + 1 < @game.nCol) && @game.cellAt(cell.row, cell.column + 1).isAWhite?
           elsif nextCell.isAWhite?
             whiteCellArray.push(nextCell)
           end
         end
 
-        nbTree += 1
-        if nbTree > nbTent && !answer.nil?
-          return HelpsOnACellIsTentBecauseOfTree.new(answer, cell)
-        elsif nbTree == nbTent && ((whiteCellArray.size != 0) || (!answer.nil?))
-          answer = whiteCellArray.pop if answer.nil?
-          return HelpsOn2CellsGrassLinkedTree.new(answer, cell)
+        @nbTree += 1
+        if (@answer.size != 0 && (@nbTree - @nbTent) == @answer.size)
+          return HelpsOnACellIsTentBecauseOfTree.new(@answer.pop, cell)
+        elsif @nbTree == @nbTent && ((whiteCellArray.size != 0) || (@answer.size != 0)) #White cell
+          answerGrass = whiteCellArray.size != 0 ? whiteCellArray.pop : @answer.pop
+          cellGrassRef = cell
         elsif whiteCellArray.size == 1  #The tree only has one posibility
-          answer = whiteCellArray.pop
-          return HelpsOn2CellTentUniqueSolution.new(answer, cell)
+          @answer = whiteCellArray.pop
+          return HelpsOn2CellTentUniqueSolution.new(@answer, cell)
         end
 
       end
-      # puts(" ")
     end #End each
+    return HelpsOn2CellsGrassLinkedTree.new(answerGrass, cellGrassRef) if !answerGrass.nil?
     return HelpNotFound.new
   end
 
-  def research(nbTree, nbTent, answer, cell, prevCell, game)
+  def research(cell, prevCell)
 
-    resultNbTree = 0
-    resultNbTent = 0
     nextCell = nil
-    result = nil
 
     if cell.isATent?
-      #puts("TENT || Past : " + prevCell.to_s + " Present : " + cell.to_s)
 
-      if (cell.row + 1 < game.nRow)
-        nextCell = game.cellAt(cell.row + 1, cell.column)
-        #puts("Droit / Futur : " + nextCell.to_s + " | stat : " + nextCell.state.to_s)
+      if (cell.row + 1 < @game.nRow)
+        nextCell = @game.cellAt(cell.row + 1, cell.column)
         if ((nextCell.row != prevCell.row) || (nextCell.column != prevCell.column)) && (nextCell.isATree?)# if nextCell is a tree and is not prevCell
-          result = research(nbTree, nbTent, answer, nextCell, cell, game)
-          resultNbTree += result[0]
-          resultNbTent += result[1]
-          answer = result[2] if answer.nil?
+          research(nextCell, cell)
         end
       end
       if (cell.row - 1 >= 0)
-        nextCell = game.cellAt(cell.row - 1, cell.column)
-        #puts("Gauche / Futur : " + nextCell.to_s + " | stat : " + nextCell.state.to_s)
+        nextCell = @game.cellAt(cell.row - 1, cell.column)
         if ((nextCell.row != prevCell.row) || (nextCell.column != prevCell.column)) && (nextCell.isATree?)
-          result = research(nbTree, nbTent, answer, nextCell, cell, game)
-          resultNbTree += result[0]
-          resultNbTent += result[1]
-          answer = result[2] if answer.nil?
+          research(nextCell, cell)
         end
       end
-      if (cell.column + 1 < game.nCol)
-        nextCell = game.cellAt(cell.row, cell.column + 1)
-        #puts("Bas / Futur : " + nextCell.to_s + " | stat : " + nextCell.state.to_s)
+      if (cell.column + 1 < @game.nCol)
+        nextCell = @game.cellAt(cell.row, cell.column + 1)
         if ((nextCell.row != prevCell.row) || (nextCell.column != prevCell.column)) && (nextCell.isATree?)
-          result = research(nbTree, nbTent, answer, nextCell, cell, game)
-          resultNbTree += result[0]
-          resultNbTent += result[1]
-          answer = result[2] if answer.nil?
+          research(nextCell, cell)
         end
       end
       if (cell.column - 1 >= 0)
-        nextCell = game.cellAt(cell.row, cell.column - 1)
-        #puts("Haut / Futur : " + nextCell.to_s + " | stat : " + nextCell.state.to_s)
+        nextCell = @game.cellAt(cell.row, cell.column - 1)
         if ((nextCell.row != prevCell.row) || (nextCell.column != prevCell.column)) && (nextCell.isATree?)
-          result = research(nbTree, nbTent, answer, nextCell, cell, game)
-          resultNbTree += result[0]
-          resultNbTent += result[1]
-          answer = result[2] if answer.nil?
+          research(nextCell, cell)
         end
       end
 
-      nbTree += resultNbTree
-      nbTent += resultNbTent
+      @nbTent += 1
 
-      return [nbTree, nbTent + 1, answer]
 
     #END if cell.isATent?
     else  #cell.isATree?
 
-      #puts("TREE || Past : " + prevCell.to_s + " Present : " + cell.to_s)
-
       row = (cell.row - prevCell.row) + cell.row
       column = (cell.column - prevCell.column) + cell.column
 
-      if row >= 0 && row < game.nRow && column >= 0 && column < game.nRow
-        nextCell = game.cellAt(row, column)
-        #puts("X / Futur : " + nextCell.to_s + " | stat : " + nextCell.state.to_s)
+      if row >= 0 && row < @game.nRow && column >= 0 && column < @game.nRow
+        nextCell = @game.cellAt(row, column)
         if nextCell.isATent?
-          result = research(nbTree, nbTent, answer, nextCell, cell, game)
-          nbTree += result[0]
-          nbTent += result[1]
-          answer = result[2] if answer.nil?
+          research(nextCell, cell)
         elsif nextCell.isAWhite?
-          #puts("WHITE : " + nextCell.to_s)
-          answer = nextCell if answer.nil?
+          @answer.push(nextCell)
         end
       end
       @treeList.push(cell)
-
-      return [nbTree + 1, nbTent, answer]
+      @nbTree += 1
 
     end
   end

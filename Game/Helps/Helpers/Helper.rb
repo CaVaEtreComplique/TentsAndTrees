@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
-# @Last modified by:   Maxime
+# @Last modified by:   Sckylle
 # @Last modified time: 15-Mar-2019
 
 
@@ -58,7 +58,7 @@ class Helper < FictivHelper
       if(((helpRes = aHelp.help(game)).helpFound?))
         #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
-          p helpRes.to_s
+          puts "Debug : " + helpRes.to_s + "\n"
         end
           return helpRes.getRes()
       end
@@ -68,7 +68,7 @@ class Helper < FictivHelper
     help = HelpNotFound.new
 
     if(@@mod == @@DEBUG_MOD)
-      p help.to_s
+      puts "Debug : " + help.to_s + "\n"
     end
       return help.getRes()
   end
