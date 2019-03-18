@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Session.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 18-Mar-2019
 
 class Session
 
@@ -11,11 +11,16 @@ class Session
 	# attr_writer :score
 
 
-	def initialize(gameMode, difficulty)
+	def initialize(gameMode, difficulty, partOfAdventure=false)
 		@gameMode=gameMode
 		@difficulty=difficulty
+		@partOfAdventure=partOfAdventure
 		@score=0
     replay(false)
+	end
+
+	def partOfAdventure?
+		@partOfAdventure
 	end
 
 	def continuable?
@@ -41,6 +46,9 @@ class Session
 			@score=0
 		end
 		@game=Game.new(self)
+
+
+
 		self
 	end
 

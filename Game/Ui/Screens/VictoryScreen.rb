@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified time: 18-Mar-2019
 
 
 require 'gtk3'
@@ -30,7 +30,6 @@ class VictoryScreen < Screen
     quit=Text.new("Quitter").resize(screen.width*0.25,screen.height*0.1)
     quit.onClick{
       @manager.mainScreen.applyOn(@parent)
-      # Gtk.main_quit
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
 
@@ -48,11 +47,14 @@ class VictoryScreen < Screen
       @resultText.updateLabel("Defaite",screen.width*0.8,screen.height*0.20)
     end
     if !isWon || !@session.continuable?
-      @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
-      @replay.onClick{
-        @session.replay(false)
-        @manager.runGameSession(@session)
-      }
+      if @session.partOfAdventure?
+      else
+        @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
+        @replay.onClick{
+          @session.replay(false)
+          @manager.runGameSession(@session)
+        }
+      end
     else
       @replay.onClick{
         @session.replay(true)
