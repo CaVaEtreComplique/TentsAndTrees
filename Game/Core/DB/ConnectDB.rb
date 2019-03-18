@@ -94,8 +94,16 @@ class ConnectDB
 	def createPlayer(name, password)
 
 		@db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')" do |row|
-			puts row
+
 		end
+
+    player = nil
+
+    @db.execute "SELECT * FROM Player WHERE name_player='#{name}'" do |row|
+      player = Player.new(row[0],row[1],row[2])
+    end
+
+    return player
 
 	end
 
@@ -192,6 +200,7 @@ class ConnectDB
 
 		@db.execute "SELECT * FROM Save WHERE player_id_save = #{player.id_player}" do |row|
 			saves.push(SaveDB.new(row[0],row[1],row[2],row[3]))
+      puts row[0]
 		end
 
 		return saves
