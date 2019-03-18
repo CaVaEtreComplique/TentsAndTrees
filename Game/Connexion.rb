@@ -28,7 +28,7 @@ class Connexion
 		connect=ConnectDB.new
 
     win = Gtk::Window.new
-    win.set_default_size(495,495)
+    win.set_default_size(500,400)
     win.set_resizable(false)
 		win.decorated=false
     win.window_position= :center_always
@@ -39,6 +39,7 @@ class Connexion
 		@gtkObject.attach(@menu,1,2,1,2)
 
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Backgrounds/nature.png")
+		@buffer=@buffer.scale(500,500)
 
     @image=Gtk::EventBox.new()
 
