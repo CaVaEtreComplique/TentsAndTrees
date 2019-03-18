@@ -38,7 +38,7 @@ class GridGenerator
     # case mode
     # when :timeAttack
       if (0...100).include?(line)
-        @associatedTimer=30
+        @associatedTimer=300
       elsif (101...700).include?(line)
         @associatedTimer=600
       elsif (701...1100).include?(line)

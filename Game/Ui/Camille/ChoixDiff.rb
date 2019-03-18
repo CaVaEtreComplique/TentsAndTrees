@@ -83,21 +83,21 @@ class ChoixDiff < Screen
 		 @menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
-			 session=Session.new(:quickplay, :easy)
+			 session=QuickPlaySession.new(:quickplay, :easy)
 			 manager.runGameSession(session)
 		}
     moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"),@widthText,@heightText)
 		 @menu.pack_start(moyen.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
-			 session=Session.new(:quickplay, :medium)
+			 session=QuickPlaySession.new(:quickplay, :medium)
 			 manager.runGameSession(session)
 		}
     diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"),@widthText,@heightText)
 		 @menu.pack_start(diff.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
-			 session=Session.new(:quickplay, :hard)
+			 session=QuickPlaySession.new(:quickplay, :hard)
 			 manager.runGameSession(session)
 		}
     retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"),@widthText,@heightText)

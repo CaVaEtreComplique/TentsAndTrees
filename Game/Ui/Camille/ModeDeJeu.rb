@@ -85,7 +85,8 @@ class ModeDeJeu < Screen
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
-				#Lancer le mode aventure
+			session=AdventureSession.new(:timeAttack, :easy,1)
+		 manager.runGameSession(session)
 		 }
 
     timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
@@ -98,7 +99,7 @@ class ModeDeJeu < Screen
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
-			 session=Session.new(:timeAttack, :easy)
+			 session=TimeAttackSession.new(:timeAttack, :easy)
 			 manager.runGameSession(session)
 		}
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)
