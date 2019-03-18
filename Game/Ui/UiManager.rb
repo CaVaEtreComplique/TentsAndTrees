@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 18-Mar-2019
 
 class UiManager
     attr_reader :win,:loadScreen,:mainScreen,:modeScreen,:paramScreen,:diffchScreen, :gameScreen, :session
@@ -12,6 +12,10 @@ class UiManager
     ProcessStatus.new
     @player=player
     @win=window
+    update
+  end
+
+  def update
     @loadScreen=LoadingScreen.new(self)
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)

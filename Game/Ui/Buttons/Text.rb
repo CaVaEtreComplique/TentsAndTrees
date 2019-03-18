@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 18-Mar-2019
 
 
 require File.dirname(__FILE__) + "/../AssetsLoaderClass/CharAssets"
@@ -95,6 +95,7 @@ class Text
     }
     @eventBox.signal_connect("button_release_event") { |_, event|
       if event.button==Click::LEFT
+        yield
         if !@eventBox.mapped?
           @eventBox.each { |child|
             @eventBox.remove(child)
@@ -102,7 +103,6 @@ class Text
           @eventBox.add(@textBox)
           @textBox.show_all
         end
-        yield
       end
     }
     self

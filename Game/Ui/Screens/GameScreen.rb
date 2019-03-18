@@ -3,13 +3,14 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 18-Mar-2019
 
 
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../GridUi"
+require File.dirname(__FILE__) + "/../HelpUi"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
 class GameScreen < Screen
@@ -65,6 +66,9 @@ class GameScreen < Screen
     }
     @chronoUi=ChronoUi.new(@game.time.truncate)
 
+    # helpResponse = HelplUi.new
+    helpResponse = Preview.new(@game)
+
     undoRedoBox = Gtk::Box.new(:horizontal)
     undoRedoBox.pack_start(undoButton.gtkObject, expand: false, fill: false, padding: 10)
     undoRedoBox.pack_start(redoButton.gtkObject, expand: false, fill: false, padding: 10)
@@ -79,6 +83,8 @@ class GameScreen < Screen
     globalBox.pack_start(newGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(removeGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(help.gtkObject, expand: false, fill: false, padding: 10)
+    globalBox.pack_start(helpResponse.gtkObject, expand: false, fill: false, padding: 20)
+
 
     @gtkObject.attach(globalBox,3,4,1,2)
     @gtkObject.attach(@gridUi.gtkObject, 1, 2, 1, 2)
