@@ -29,13 +29,21 @@ class Probleme
     win = Gtk::Window.new
     win.set_default_size(w/4,h/10)
     win.set_resizable(false)
+		#win.decorated=false
+    win.window_position= :center_always
 
-  @menu=Gtk::Box.new(:vertical, 25)
+		@menu=Gtk::Box.new(:vertical, 25)
+		@gtkObject= Gtk::Table.new(3,3)
+		@gtkObject.attach(@menu,1,2,1,2)
+
+		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
+		@buffer=@buffer.scale(w/4,h/10)
 
     pb = Text.new("Identifiant indisponible",0.5,0.3)
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
-    win.add(@menu)
-    win.show_all
 
+		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+		win.add(@gtkObject)
+		win.show_all
   end
 end

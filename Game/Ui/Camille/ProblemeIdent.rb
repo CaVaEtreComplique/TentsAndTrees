@@ -23,19 +23,28 @@ class ProblemeIdent
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-	  @pad =8
+	  @pad =1
     win = Gtk::Window.new
 		w=screen.width
 		h=screen.height
     win.set_default_size(w/4,h/10)
     win.set_resizable(false)
+		win.window_position= :center_always
 
-  	@menu=Gtk::Box.new(:vertical, 25)
+		@menu=Gtk::Box.new(:vertical, 25)
+		@gtkObject= Gtk::Table.new(3,3)
+		@gtkObject.attach(@menu,1,2,1,2)
 
-    pb = Text.new("Identifiant introuvable et mot de passe incorrecte",0.5,0.3)
+		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
+		@buffer=@buffer.scale(w/4,h/10)
+
+    pb = Text.new("Identifiant introuvable",0.5,0.3)
+		pb2 = Text.new(" OU mot de passe incorrecte",0.5,0.3)
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
-    win.add(@menu)
-    win.show_all
+		@menu.pack_start(pb2.gtkObject,expand: false, fill: true, padding: @pad)
+		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+		win.add(@gtkObject)
+		win.show_all
 
   end
 end
