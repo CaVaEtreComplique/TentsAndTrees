@@ -26,7 +26,7 @@ class Connexion
 	  @pad =8
 
 		connect=ConnectDB.new
-
+		@@joueur=nil
     win = Gtk::Window.new
     win.set_default_size(500,400)
     win.set_resizable(false)
@@ -67,7 +67,8 @@ class Connexion
     @menu.pack_start(saisi2,expand: false, fill: true, padding: @pad)
     @menu.pack_start(ident.gtkObject,expand: false, fill: true, padding: @pad)
     ident.onClick{
-	    if(connect.playerConnect(saisi.text,saisi2.text)!=nil)
+			@@joueur=connect.playerConnect(saisi.text,saisi2.text)
+	    if(@@joueur!=nil)
 				win.hide
 				TestGame.new
 			else
@@ -88,7 +89,7 @@ class Connexion
 					saisi2.set_text("")
 				end
 			 		if(connect.isPlayerExist(saisi.text)==nil)
-						connect.createPlayer(saisi.text, saisi2.text)
+						@@joueur=connect.createPlayer(saisi.text, saisi2.text)
 						TestGame.new
 					end
 
@@ -100,6 +101,9 @@ class Connexion
 		win.add(@gtkObject)
 		win.show_all
   end
+	def Connexion.getJoueur
+			return @@joueur
+	end
 end
 
 Connexion.new
