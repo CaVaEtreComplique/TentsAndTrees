@@ -191,7 +191,7 @@ class ConnectDB
 		saves = Array.new
 
 		@db.execute "SELECT * FROM Save WHERE player_id_save = #{player.id_player}" do |row|
-			saves.push(new SaveDB(row[0],row[1],row[2],row[3]))
+			saves.push(SaveDB.new(row[0],row[1],row[2],row[3]))
 		end
 
 		return saves
