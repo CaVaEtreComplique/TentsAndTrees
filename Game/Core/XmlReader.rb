@@ -2,8 +2,8 @@
 # @Date:   29-Feb-2019
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: XmlReader.rb
-# @Last modified by:   <QuentinGoncalves>
-# @Last modified time: 14-March-2019
+# @Last modified by:   zeigon
+# @Last modified time: 18-Mar-2019
 
 require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'

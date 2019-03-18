@@ -3,8 +3,8 @@
 # @Date:   8-Feb-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Parametre.rb
-# @Last modified by:   <QuentinGoncalves>
-# @Last modified time: 08-March-2019# @Last modified time: 5-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 18-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
@@ -84,8 +84,8 @@ class Parametre < Screen
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
     #Menu deroulant des langues
-    fr ="Francais"
-    ang="Anglais"
+    fr ="french"
+    ang="english"
     langue=Gtk::ComboBoxText.new
   #  @menu.pack_start(langue.gtkObject ,expand: false, fill: true, padding: 10)
     @menu.add(langue=Gtk::ComboBoxText.new)
@@ -97,7 +97,9 @@ class Parametre < Screen
     appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@widthText,@heightText)
     @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
     appli.onClick{
-      #Changement de langue
+      @textManager.language=langue.active_text
+			manager.update
+			manager.mainScreen.applyOn(@parent)
     }
 
     retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@widthText,@heightText)
