@@ -41,7 +41,7 @@ class Save
       diff = 3
     end
 
-    db.save(Connexion.getJoueur.id_player,session.to_yaml())
+    db.save(Connexion.getJoueur,session.to_yaml())
   end
 
   def destroy
