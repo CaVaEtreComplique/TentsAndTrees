@@ -13,7 +13,7 @@ require File.dirname(__FILE__) + "/Cell"
 # The Grid class is the core of all the grids in the game.
 #
 # ====Variables
-# Each grid will know two variables : @rows and @cols : two array lists,
+# Each Grid will know two variables : @rows and @cols : two array lists,
 # respectively the grid's rows and the grid's columns, one being the transposed
 # of the other.
 #
@@ -28,11 +28,12 @@ class Grid
 	#:startdoc:
 
 	# ====Parameters
-	# The initialization method has in parameters the number of rows,
-	# the number of columns, a grid and a boolean variable "withAnswers"
-	# being set to false by default. If the grid in third parameter has the
-	# answers, the withAnswers variable is set to true. The grid in third
-	# parameter is taken from a text file.
+	# * +nRow+ - The number of rows
+	# * +nCol+ - The number of columns
+	# * +gridAnswers+ - The grid we take the data from
+	# * +withAnswers+ - A boolean set by default to false.
+	# If the gridAnswers contains the actual answers, the boolean is set to true.
+	# The gridAnswers is taken from a text file.
 	#
 	# ====Variables initialization
 	# In this method, the @rows list takes its values from the grid in parameters
@@ -61,6 +62,11 @@ class Grid
 	# The copyFrozen method creates a new grid that will have all the non-white
 	# cells frozen in order to save the unfrozen grid if the hypothesis is
 	# rejected.
+	#
+	# ====Returns
+	# * +newG+ - The grid that has been generated.
+	#
+	# -----
 	def copyFrozen
 		newG = Grid.new(@rows.size, @cols.size,@gridAnswers)
 		@rows.zip(newG.rows).each {|oldRow, newRow|
@@ -78,13 +84,21 @@ class Grid
 
 	# The cellAt method returns the cell with the coordinates taken in
 	# parameters.
+	# * +row+ - The row in which the cell we are looking for is.
+	# * +col+ - The column in which the cell we are looking for is.
+	#
+	# -----
 	def cellAt(row, col)
 		return @rows[row][col]
 	end
 
-	# The == method compares two grids and returns true if the grid taken in
-	# parameters is the same as the grid we're testing. This method is especially
-	# useful to test if the player has finished the grid.
+	# The == boolean method compares two grids and returns true if the grids are
+	# equal.
+	#
+	# ====Parameters
+	# * +otherGrid+ - The grid we want to compare the current grid with.
+	#
+	# -----
 	def ==(otherGrid)
 		@rows.each_with_index{ |cols,x|
 			cols.each_with_index { |_,y|
