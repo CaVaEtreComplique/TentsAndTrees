@@ -2,8 +2,8 @@
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Session.rb
-# @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 19-Mar-2019
 
 class Session
 
@@ -16,7 +16,6 @@ class Session
 		@difficulty=difficulty
 		@partOfAdventure=partOfAdventure
 		@score=0
-    replay(false)
 	end
 
 	def partOfAdventure?
@@ -35,19 +34,16 @@ class Session
 	end
 
 	def replay(continue)
-		calculateScore
 		# Generation de la grille
 		@gridPick = GridGenerator.new(@difficulty)
-		setTime
 		# Generation de la partie
 		if continue
-			@time+=@game.time
+			@time=@game.time+30
 		else
+			setTime
 			@score=0
 		end
 		@game=Game.new(self)
-
-
 
 		self
 	end

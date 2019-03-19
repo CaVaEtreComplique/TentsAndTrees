@@ -2,8 +2,8 @@
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
-# @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 19-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -84,6 +84,7 @@ class ChoixDiff < Screen
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
 			 session=QuickPlaySession.new(:quickplay, :easy)
+			 session.replay(false)
 			 manager.runGameSession(session)
 		}
     moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"),@widthText,@heightText)
@@ -91,6 +92,7 @@ class ChoixDiff < Screen
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
 			 session=QuickPlaySession.new(:quickplay, :medium)
+			 session.replay(false)
 			 manager.runGameSession(session)
 		}
     diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"),@widthText,@heightText)
@@ -98,6 +100,7 @@ class ChoixDiff < Screen
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
 			 session=QuickPlaySession.new(:quickplay, :hard)
+			 session.replay(false)
 			 manager.runGameSession(session)
 		}
     retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"),@widthText,@heightText)

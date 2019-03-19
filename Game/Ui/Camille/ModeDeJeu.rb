@@ -3,8 +3,8 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 19-Mar-2019
 
 
 
@@ -85,8 +85,9 @@ class ModeDeJeu < Screen
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
-			session=AdventureSession.new(:timeAttack, :easy,1)
-		 manager.runGameSession(session)
+			session=AdventureLevel.new(:timeAttack, :easy,1,false,3)
+			session.replay(false)
+		 	manager.runGameSession(session)
 		 }
 
     timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
@@ -100,6 +101,7 @@ class ModeDeJeu < Screen
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
 			 session=TimeAttackSession.new(:timeAttack, :easy)
+			 session.replay(false)
 			 manager.runGameSession(session)
 		}
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)

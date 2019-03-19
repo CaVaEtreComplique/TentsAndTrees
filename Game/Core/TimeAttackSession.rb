@@ -2,8 +2,8 @@
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Session.rb
-# @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 19-Mar-2019
 
 require File.dirname(__FILE__) + "/Session"
 
@@ -22,7 +22,7 @@ class TimeAttackSession < Session
 
 	def calculateScore
 		if @game
-			@score+=100
+			@score+=1
 		end
 	end
 
