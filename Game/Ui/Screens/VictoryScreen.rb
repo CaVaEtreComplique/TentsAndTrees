@@ -48,6 +48,10 @@ class VictoryScreen < Screen
     end
     if !isWon || !@session.continuable?
       if @session.partOfAdventure?
+        @replay.updateLabel("Selection Niveaux",screen.width*0.25,screen.height*0.1)
+        @replay.onClick{
+          @manager.modeScreen.applyOn(@parent)
+        }
       else
         @replay.updateLabel("Rejouer",screen.width*0.25,screen.height*0.1)
         @replay.onClick{
@@ -56,10 +60,18 @@ class VictoryScreen < Screen
         }
       end
     else
-      @replay.onClick{
-        @session.replay(true)
-        @manager.runGameSession(@session)
-      }
+      if @session.partOfAdventure? && @session.gameMode == :timeAttack && @session.finishedGrid == @session.numberOfGrid
+        #Afficher les etoiles à implementer
+        @replay.updateLabel("Selection Niveaux",screen.width*0.25,screen.height*0.1)
+        @replay.onClick{
+          @manager.levelNumberScreen.applyOn(@parent)
+        }
+      else
+        @replay.onClick{
+          @session.replay(true)
+          @manager.runGameSession(@session)
+        }
+      end
     end
     super(widget)
   end

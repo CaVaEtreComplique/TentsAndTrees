@@ -1,7 +1,7 @@
 # @Author: Corentin Petit <zeigon>
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
-# @Filename: Session.rb
+# @Filename: TimeAttackSession.rb
 # @Last modified by:   QuentinGoncalves
 # @Last modified time: 19-Mar-2019
 

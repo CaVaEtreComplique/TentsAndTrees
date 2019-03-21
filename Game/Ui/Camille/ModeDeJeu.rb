@@ -72,6 +72,7 @@ class ModeDeJeu < Screen
     @widthText=screen.width*0.3
     @heightText=screen.height*0.03
 
+
     #Menu principal
 
 		@gtkObject= Gtk::Table.new(3,3)
@@ -85,9 +86,7 @@ class ModeDeJeu < Screen
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
-			session=AdventureLevel.new(:timeAttack, :easy,1,false,3)
-			session.replay(false)
-		 	manager.runGameSession(session)
+			manager.levelNumberScreen.applyOn(@parent)
 		 }
 
     timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
@@ -100,8 +99,7 @@ class ModeDeJeu < Screen
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
-			 session=TimeAttackSession.new(:timeAttack, :easy)
-			 session.replay(false)
+			 session=TimeAttackSession.new(:timeAttack,:easy)
 			 manager.runGameSession(session)
 		}
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)

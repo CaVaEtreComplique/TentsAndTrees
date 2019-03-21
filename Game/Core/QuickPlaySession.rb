@@ -1,7 +1,7 @@
 # @Author: Corentin Petit <zeigon>
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
-# @Filename: Session.rb
+# @Filename: QuickPlaySession.rb
 # @Last modified by:   zeigon
 # @Last modified time: 18-Mar-2019
 

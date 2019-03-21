@@ -18,6 +18,10 @@ end
 class LevelNumber < Screen
   def initialize(manager)
 		super(manager.win)
+
+		#Chargement de la campagne
+		@adventure = Levels.new
+		
 		screen=Gdk::Screen.default
 		@pad=20
 		@widthText=screen.width*0.1
@@ -35,8 +39,8 @@ class LevelNumber < Screen
     n1=Text.new(" 1",@widthText,@heightText)
     @menuH1.pack_start(n1.gtkObject ,expand: false, fill: true, padding: @pad)
 		n1.onClick{
-			#session=AdventureSession.new(:timeAttack, :easy,1)
-			#manager.runGameSession(session)
+			session=@adventure.getLevel(:level1)
+			manager.runGameSession(session)
 	 }
 
 		n2=Text.new("2 ",@widthText,@heightText)

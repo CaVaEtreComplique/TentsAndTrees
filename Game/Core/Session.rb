@@ -16,6 +16,7 @@ class Session
 		@difficulty=difficulty
 		@partOfAdventure=partOfAdventure
 		@score=0
+		replay(false)
 	end
 
 	def partOfAdventure?
@@ -38,7 +39,7 @@ class Session
 		@gridPick = GridGenerator.new(@difficulty)
 		# Generation de la partie
 		if continue
-			@time=@game.time+30
+			@time=@game.time+@gridPick.associatedTimer
 		else
 			setTime
 			@score=0
