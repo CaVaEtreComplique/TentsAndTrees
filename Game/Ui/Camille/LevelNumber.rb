@@ -21,7 +21,7 @@ class LevelNumber < Screen
 
 		#Chargement de la campagne
 		@adventure = Levels.new
-		
+
 		screen=Gdk::Screen.default
 		@pad=20
 		@widthText=screen.width*0.1
@@ -45,15 +45,31 @@ class LevelNumber < Screen
 
 		n2=Text.new("2 ",@widthText,@heightText)
     @menuH1.pack_start(n2.gtkObject ,expand:false, fill: true, padding: @pad)
+		n2.onClick{
+			session=@adventure.getLevel(:level2)
+			manager.runGameSession(session)
+	 }
 
 		n3=Text.new("3 ",@widthText,@heightText)
     @menuH1.pack_start(n3.gtkObject ,expand: false, fill: true, padding: @pad)
+		n3.onClick{
+			session=@adventure.getLevel(:level3)
+			manager.runGameSession(session)
+	 }
 
 		n4=Text.new("4 ",@widthText,@heightText)
     @menuH1.pack_start(n4.gtkObject ,expand: false, fill: true, padding: @pad)
+		n4.onClick{
+			session=@adventure.getLevel(:level4)
+			manager.runGameSession(session)
+	 }
 
 		n5=Text.new("5 ",@widthText,@heightText)
     @menuH1.pack_start(n5.gtkObject ,expand: false, fill: true, padding: @pad)
+		n5.onClick{
+			session=@adventure.getLevel(:level5)
+			manager.runGameSession(session)
+	 }
 
 		n6=Text.new("6 ",@widthText,@heightText)
     @menuH2.pack_start(n6.gtkObject ,expand: false, fill: true, padding: @pad)
