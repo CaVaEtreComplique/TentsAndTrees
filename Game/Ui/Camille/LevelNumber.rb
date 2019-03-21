@@ -16,6 +16,8 @@ def require_all(_dir)
 end
 
 class LevelNumber < Screen
+
+
   def initialize(manager)
 		super(manager.win)
 
@@ -23,75 +25,62 @@ class LevelNumber < Screen
 		@adventure = Levels.new
 
 		screen=Gdk::Screen.default
-		@pad=20
+		@pad=1
 		@widthText=screen.width*0.1
     @heightText=screen.height*0.1
 
 		@gtkObject= Gtk::Table.new(3,3)
-    @menu=Gtk::Box.new(:vertical, 25)
-    @gtkObject.attach(@menu,1,2,1,2)
+		@menu= Gtk::Table.new(3,5)
+    #@menu=Gtk::Box.new(:vertical, 25)
+    @gtkObject.attach(@menu,0,1,0,1)
 
-		@menuH1=Gtk::Box.new(:horizontal, 25)
-		@menuH2=Gtk::Box.new(:horizontal, 25)
-		@menu.add(@menuH1)
-		@menu.add(@menuH2)
+    @nbNiveau=10
+    x=0
+    y=0
 
-    n1=Text.new(" 1",@widthText,@heightText)
-    @menuH1.pack_start(n1.gtkObject ,expand: false, fill: true, padding: @pad)
-		n1.onClick{
-			session=@adventure.getLevel(:level1)
-			manager.runGameSession(session)
-	 }
 
-		n2=Text.new("2 ",@widthText,@heightText)
-    @menuH1.pack_start(n2.gtkObject ,expand:false, fill: true, padding: @pad)
-		n2.onClick{
-			session=@adventure.getLevel(:level2)
-			manager.runGameSession(session)
-	 }
+    (1... @nbNiveau+1).each { |i|
+      @im=Gtk::Box.new(:horizontal, 25)
+      @menu.attach(@im,x,x+1,y,y+1)
+      if(i==1)
+        n=Text.new(i.to_s,@widthText,@heightText)
+        @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
+        n.onClick{
+          session=@adventure.getLevel(:level1)
+          manager.runGameSession(session)
+        }
+      else
+      n=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/Locked/"+i.to_s+".png")
+  		n.resize(70,65)
+  		n.applyOn(@im)
+      end
+      if i>5+y*5
+          y=y+1
+           x=0
+      end
+      x=x+1
 
-		n3=Text.new("3 ",@widthText,@heightText)
-    @menuH1.pack_start(n3.gtkObject ,expand: false, fill: true, padding: @pad)
-		n3.onClick{
-			session=@adventure.getLevel(:level3)
-			manager.runGameSession(session)
-	 }
+    #  @menu.remove(@im)
+    #  if i>5+y*5
+    #      y=y+1
+    #      x=0
+    #  end
+    #  n=Text.new(i.to_s,@widthText,@heightText)
+    #  @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
+    #  x=x+1
+    }
 
-		n4=Text.new("4 ",@widthText,@heightText)
-    @menuH1.pack_start(n4.gtkObject ,expand: false, fill: true, padding: @pad)
-		n4.onClick{
-			session=@adventure.getLevel(:level4)
-			manager.runGameSession(session)
-	 }
-
-		n5=Text.new("5 ",@widthText,@heightText)
-    @menuH1.pack_start(n5.gtkObject ,expand: false, fill: true, padding: @pad)
-		n5.onClick{
-			session=@adventure.getLevel(:level5)
-			manager.runGameSession(session)
-	 }
-
-		n6=Text.new("6 ",@widthText,@heightText)
-    @menuH2.pack_start(n6.gtkObject ,expand: false, fill: true, padding: @pad)
-
-		n7=Text.new("7 ",@widthText,@heightText)
-    @menuH2.pack_start(n7.gtkObject ,expand: false, fill: true, padding: @pad)
-
-		n8=Text.new("8 ",@widthText,@heightText)
-    @menuH2.pack_start(n8.gtkObject ,expand: false, fill: true, padding: @pad)
-
-		n9=Text.new("9 ",@widthText,@heightText)
-    @menuH2.pack_start(n9.gtkObject ,expand: false, fill: true, padding: @pad)
-
-		n10=Text.new("10 ",@widthText,@heightText)
-    @menuH2.pack_start(n10.gtkObject ,expand: false, fill: true, padding: @pad)
-
-		retour=Text.new("RETOUR",@widthText,screen.height*0.08)
-		@menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
+		@menuR=Gtk::Box.new(:horizontal, 25)
+		@gtkObject.attach(@menuR,0,1,1,2)
+    retour=Text.new("RETOUR",@widthText,screen.height*0.08)
+		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
 			manager.modeScreen.applyOn(@parent)
-		 }
+ 		}
+
+
 
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
+
 end
