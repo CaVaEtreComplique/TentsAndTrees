@@ -35,7 +35,7 @@ class AdventureLevel < Session
     when :timeAttack
 			if !@scoreMultiplier
 				@finishedGrid+=1
-				@score=+100
+				@score+=100
 			else
 				@finishedGrid+=1
         @score+= ((@game.time*@game.time)*@scoreMultiplier)/@numberOfGrid

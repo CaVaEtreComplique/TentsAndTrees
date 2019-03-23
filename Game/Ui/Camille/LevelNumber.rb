@@ -46,7 +46,7 @@ class LevelNumber < Screen
         n=Text.new(i.to_s,@widthText,@heightText)
         @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
         n.onClick{
-          session=@adventure.getLevel(:level1)
+          session=@adventure.getLevel(1)
           manager.runGameSession(session)
         }
       else

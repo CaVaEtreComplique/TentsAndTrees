@@ -9,6 +9,7 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
+require File.dirname(__FILE__) + "/../Camille/Diapo"
 
 class PauseScreen < Screen
 
@@ -51,11 +52,15 @@ class PauseScreen < Screen
         manager.mainScreen.applyOn(@parent)
     }
 
+    diapo = Diapo.new(screen.width*0.45,screen.height*0.45)
+    diapo.box.signal_connect("button_press_event"){diapo.nuImage}
+
     globalBox=Gtk::Box.new(:vertical)
     globalBox.pack_start(resume.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(quit.gtkObject, expand: false, fill: false, padding: 10)
+    globalBox.pack_start(diapo.box, expand: false, fill: false, padding: 100)
 
     Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @gtkObject.attach(globalBox,0,3,0,1)

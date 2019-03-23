@@ -11,11 +11,11 @@ class Levels
 
 	def initialize()
     @levels = {
-			level1: AdventureLevel.new(:quickplay, :easy, 1, 3, false),
-			level2: AdventureLevel.new(:timeAttack, :easy, false, 3, 1),
-			level3: AdventureLevel.new(:quickplay, :easy, 0.95, 3, false),
-			level4: AdventureLevel.new(:timeAttack, :easy, false, 3, 2),
-			level5: AdventureLevel.new(:quickplay, :easy, 0.9, 3, false)
+			1 =>  AdventureLevel.new(:quickplay, :easy, 1, 3, false),
+			2 => AdventureLevel.new(:timeAttack, :easy, false, 3, 1),
+			3 => AdventureLevel.new(:quickplay, :easy, 0.95, 3, false),
+			4 => AdventureLevel.new(:timeAttack, :easy, false, 3, 2),
+			5 => AdventureLevel.new(:quickplay, :easy, 0.9, 3, false)
 		}
 	end
 
