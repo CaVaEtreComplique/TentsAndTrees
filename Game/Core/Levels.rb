@@ -1,6 +1,6 @@
 # @Author: Quentin Goncalves <QuentinGoncalves>
 # @Date:   18-Mar-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
+# @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: Levels.rb
 # @Last modified by:   QuentinGoncalves
 # @Last modified time: 18-Mar-2019

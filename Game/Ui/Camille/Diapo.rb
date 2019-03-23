@@ -1,3 +1,11 @@
+# @Author: Quentin Goncalves <QuentinGoncalves>
+# @Date:   18-Mar-2019
+# @Email:  quentin.goncalves.etu@univ-lemans.fr
+# @Filename: Diapo.rb
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 23-Mar-2019
+
+
 require 'gtk3'
 
 class Diapo
