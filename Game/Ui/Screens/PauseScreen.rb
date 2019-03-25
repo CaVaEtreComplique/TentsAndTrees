@@ -2,8 +2,8 @@
 # @Date:   13-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: PauseScreen.rb
-# @Last modified by:   QuentinGoncalves
-# @Last modified time: 23-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -49,6 +49,7 @@ class PauseScreen < Screen
     quit=Text.new("Quitter",buttonWidth*1.1,buttonHeight*1.1)
       quit.onClick(){
         manager.createNewSave
+        @game.delete_observers
         manager.mainScreen.applyOn(@parent)
     }
 

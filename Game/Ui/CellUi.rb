@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CellUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -73,6 +73,12 @@ class CellUi
 		normalAsset = @assets.cellAsset(coreCell.state,@variation,coreCell.frozen)
 		@variation = normalAsset.at(1)
 		applyAsset(normalAsset.at(0))
+	end
+
+	def glowing
+		glowingAsset = @assets.cellAssetGlowing(coreCell.state,@variation,coreCell.frozen)
+		@variation = glowingAsset.at(1)
+		applyAsset(glowingAsset.at(0))
 	end
 
 	alias :unselect :normal

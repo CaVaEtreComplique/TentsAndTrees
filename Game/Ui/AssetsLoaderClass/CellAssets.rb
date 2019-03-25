@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CellAssets.rb
 # @Last modified by:   zeigon
-# @Last modified time: 04-Mar-2019
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -139,6 +139,15 @@ class CellAssets
 	end
 
 	def cellAssetSelected(state,variation=-1,frozen=false)
+		case frozen
+		when false
+			[@cellAssetsSelected[state].at(variation),variation]
+		when true
+			[@cellAssetsSelectedFrozen[state].at(variation),variation]
+		end
+	end
+
+	def cellAssetGlowing(state,variation=-1,frozen=false)
 		case frozen
 		when false
 			[@cellAssetsSelected[state].at(variation),variation]

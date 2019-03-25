@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -38,7 +38,7 @@ class GridUi
 	# creation of a new grid UI
 	# @param game the current game
 	#
-	def initialize(game, assets)
+	def initialize(game, assets, parent)
 		nRow = game.nRow
 		nCol = game.nCol
 		@game = game
@@ -60,8 +60,8 @@ class GridUi
 		initGtkGrid()
 		@gtkObject.signal_connect("button_release_event") { |_, event|
 			if (@click == event.button)
-				if event.button
-					Click::LEFT
+				if event.button == Click::LEFT
+					parent.gridAltered
 					leftClickedDraged()
 				end
 			end

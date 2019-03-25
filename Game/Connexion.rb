@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Connexion.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 25-Mar-2019
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -87,11 +87,11 @@ class Connexion
 					Probleme.new
 					saisi.set_text("")
 					saisi2.set_text("")
-				end
-			 		if(connect.isPlayerExist(saisi.text)==nil)
-						@@joueur=connect.createPlayer(saisi.text, saisi2.text)
-						TestGame.new
-					end
+			elsif connect.isPlayerExist(saisi.text)==nil
+				@@joueur=connect.createPlayer(saisi.text, saisi2.text)
+				win.hide
+				TestGame.new
+			end
 
 			}
 

@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -17,13 +17,15 @@ class GameScreen < Screen
 
   attr_reader :gridUi
 
+  attr_writer :helpDisplayed
+
   def initialize(manager,game,cellAssets,victoryScreen)
     super(manager.win)
     (@game=game).add_observer(self)
     @victoryScreen = victoryScreen
     @pauseScreen = PauseScreen.new(self,manager,@game)
 
-    @gridUi=GridUi.new(game, cellAssets)
+    @gridUi=GridUi.new(game, cellAssets,self)
     @gtkObject = Gtk::Table.new(3,4)
 
     screen=Gdk::Screen.default
@@ -55,19 +57,30 @@ class GameScreen < Screen
     redoButton.onClick(){
       @gridUi.redo
     }
+
+    @helpResponseUi = HelpUi.new
     help=Text.new("Aide",buttonWidth,buttonHeight)
-      help.onClick(){
-        print @game.help
+    help.onClick(){
+      # Display the help message
+      @helpCR=@game.help
+      @helpResponseUi.update(@helpCR[0])
+      self.helpDisplayed=true
+      #  Make the concerned cells golw
+      @helpCR[1].each{ |cell|
+        cellUi= gridUi.cells[cell.row][cell.column]
+        cellUi.glowing
+      }
     }
+
     pause=Text.new("Pause",buttonWidth*1.1,buttonHeight*1.1)
       pause.onClick(){
         @game.chrono.stop
         @pauseScreen.applyOn(@parent)
     }
+
     @chronoUi=ChronoUi.new(@game.time.truncate)
 
     # helpResponse = HelplUi.new
-    helpResponse = Preview.new(@game)
 
     undoRedoBox = Gtk::Box.new(:horizontal)
     undoRedoBox.pack_start(undoButton.gtkObject, expand: false, fill: false, padding: 10)
@@ -83,12 +96,29 @@ class GameScreen < Screen
     globalBox.pack_start(newGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(removeGuess.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(help.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(helpResponse.gtkObject, expand: false, fill: false, padding: 20)
+    globalBox.pack_start(@helpResponseUi.gtkObject, expand: false, fill: false, padding: 20)
 
 
     @gtkObject.attach(globalBox,3,4,1,2)
     @gtkObject.attach(@gridUi.gtkObject, 1, 2, 1, 2)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,3)
+  end
+
+  def gridAltered
+    if helpDisplayed?
+      @helpResponseUi.update
+      @helpCR[1]
+      #  Make the concerned cells normal
+      @helpCR[1].each{ |cell|
+        cellUi= gridUi.cells[cell.row][cell.column]
+        cellUi.normal
+      }
+      helpDisplayed=false
+    end
+  end
+
+  def helpDisplayed?
+    @helpDisplayed
   end
 
   def update
