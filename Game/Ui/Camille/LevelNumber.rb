@@ -30,11 +30,11 @@ class LevelNumber < Screen
     @heightText=screen.height*0.1
 
 		@gtkObject= Gtk::Table.new(3,3)
-		@menu= Gtk::Table.new(3,5)
+		@menu= Gtk::Table.new(6,6)
     #@menu=Gtk::Box.new(:vertical, 25)
     @gtkObject.attach(@menu,0,1,0,1)
 
-    @nbNiveau=10
+    @nbNiveau=25
     x=0
     y=0
 
@@ -42,11 +42,11 @@ class LevelNumber < Screen
     (1... @nbNiveau+1).each { |i|
       @im=Gtk::Box.new(:horizontal, 25)
       @menu.attach(@im,x,x+1,y,y+1)
-      if(i==1)
+      if(i==1 || i==2)
         n=Text.new(i.to_s,@widthText,@heightText)
-        @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
+        @im.pack_start(n.gtkObject,expand: false, fill: true, padding:0)
         n.onClick{
-          session=@adventure.getLevel(1)
+          session=@adventure.getLevel(i)
           manager.runGameSession(session)
         }
       else
@@ -61,17 +61,18 @@ class LevelNumber < Screen
       x=x+1
 
     #  @menu.remove(@im)
-    #  if i>5+y*5
-    #      y=y+1
-    #      x=0
-    #  end
+	#	@im=Gtk::Box.new(:horizontal, 25)
+	#	@menu.attach(@im,x,x+1,y,y+1)
     #  n=Text.new(i.to_s,@widthText,@heightText)
     #  @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
-    #  x=x+1
+	#	n.onClick{
+	#		session=@adventure.getLevel(i)
+	#		manager.runGameSession(session)
+	#	}
     }
 
 		@menuR=Gtk::Box.new(:horizontal, 25)
-		@gtkObject.attach(@menuR,0,1,1,2)
+		@menu.attach(@menuR,5,6,5,6)
     retour=Text.new("RETOUR",@widthText,screen.height*0.08)
 		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
