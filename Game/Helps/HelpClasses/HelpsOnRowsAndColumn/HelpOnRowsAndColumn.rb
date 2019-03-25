@@ -2,8 +2,8 @@
 # @Date:   05-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnRowsAndColumn.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -12,9 +12,16 @@ require File.dirname(__FILE__) + "/../Help"
 class HelpOnRowsAndColumn < Help
   #abstract class
   #help gave when the player need a row or a column
+
+  attr_reader :column, :row
+
   def initialize(rowOrColumn)
     @column = rowOrColumn
     @row = rowOrColumn
     super()
+  end
+
+  def ==(otherHelp)
+    return(super(otherHelp) && @column == otherHelp.column && @row == otherHelp.row)
   end
 end

@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
-# @Last modified by:   Sckylle
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -33,8 +33,39 @@ class Helper < FictivHelper
   @@helper
   @helps
 
+  def helpsLevelsLimits(aHelpLevel)
+    if(aHelpLevel<1)
+      aHelpLevel =1
+    end
+    if(aHelpLevel>3)
+      aHelpLevel =3
+    end
+    return aHelpLevel
+  end
+
+  def initialize(helpLevelMin, helpLevelMax)
+    if(helpLevelMin<helpLevelMax)
+      self.initialize(helpLevelMax, helpLevelMin)
+    else
+      this.initialize()
+
+      helpLevelMin = helpsLevelsLimits(helpLevelMin)
+      helpLevelMax = helpsLevelsLimits(helpLevelMax)
+
+      @helpLevel = helpLevelMin
+      @helpLevelMin = helpLevelMin
+      @helpLevelMax = helpLevelMax
+    end
+  end
 
   def initialize
+
+    @helpLevel = 1
+    @helpLevelMin = 1
+    @helpLevelMax = 3
+
+    @lastHelp = HelpNotFound.new
+
     #initialize with all helpers
     @helps = Array.new
 
@@ -49,18 +80,30 @@ class Helper < FictivHelper
 
   end
 
+  def helpLevelManagement(aHelp)
+    if(aHelp == @lastHelp)
+      if(@helpLevel < @helpLevelMax)
+        @helpLevel +=1
+      end
+    else
+      @helpLevel = @helpLevelMin
+      @lastHelp = aHelp
+    end
+  end
+
   def help(game) #called to help the player
     #game.beginGuess
 
     game = GameDecorated.new(game)
 
-    @helps.each{ |aHelp|
-      if(((helpRes = aHelp.help(game)).helpFound?))
+    @helps.each{ |aHelper|
+      if(((helpRes = aHelper.help(game)).helpFound?))
+        helpLevelManagement(helpRes)
         #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
-          puts "Debug : " + helpRes.to_s + "\n"
+          puts "\nDebug : " + helpRes.to_s + @helpLevel.to_s + "\n"
         end
-          return helpRes.getRes()
+          return helpRes.getRes(@helpLevel)
       end
     }
     #game.removeGuess
@@ -68,8 +111,9 @@ class Helper < FictivHelper
     help = HelpNotFound.new
 
     if(@@mod == @@DEBUG_MOD)
-      puts "Debug : " + help.to_s + "\n"
+      puts "\nDebug : " + help.to_s + @helpLevel.to_s + "\n"
     end
-      return help.getRes()
+      helpLevelManagement(help)
+      return help.getRes(@helpLevel)
   end
 end

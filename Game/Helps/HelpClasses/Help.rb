@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Help.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -51,7 +51,7 @@ class Help
 
   # This method returns the UI printable form of the help
   # -----------
-  def getRes()
+  def getRes(helpLevel)
     res = Array.new
     res.push(getText)
     res.push(cellsList())
@@ -61,5 +61,10 @@ class Help
   # -----------
   def cellsList
     return Array.new
+  end
+
+
+  def ==(otherHelp)
+    return (self.class == otherHelp.class)
   end
 end

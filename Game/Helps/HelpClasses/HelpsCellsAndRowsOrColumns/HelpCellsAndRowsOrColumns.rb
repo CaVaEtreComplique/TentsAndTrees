@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellsAndRowsOrColumns.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -28,6 +28,9 @@ class HelpCellsAndRowsOrColumns < Help
   # The fact that 2 variables take the same value is because the method should
   # only take two parameters, the helps given afterwards will either contain a
   # row or a column, they can't contain both. They will also act on a cell.
+
+  attr_reader :cell, :column, :row
+
   def initialize(cell, rowOrColumn)
     @column = rowOrColumn
     @cell = cell
@@ -38,4 +41,8 @@ class HelpCellsAndRowsOrColumns < Help
   def cellsList
     return super().push(cell)
   end
+
+  def ==(otherHelp)
+    return(super(otherHelp) && @column == otherHelp.column && @cell == otherHelp.cell && @row == otherHelp.row)
+	end
 end

@@ -2,8 +2,8 @@
 # @Date:   05-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnCells.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 require File.dirname(__FILE__) + "/../Help"
 
@@ -15,11 +15,18 @@ require File.dirname(__FILE__) + "/../Help"
 # class.
 class HelpOnCells < Help
 #:nodoc:
+
+  attr_reader :cell
+
   def initialize(cell)
     @cell = cell
     super()
   end
   def cellsList
     return super().push(@cell)
+  end
+
+  def ==(otherHelp)
+    return(super(otherHelp)  && @cell == otherHelp.cell )
   end
 end
