@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: RowsAndColumnsGrassHelper.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 25-Mar-2019
 
 
 
@@ -28,7 +28,7 @@ class RowsAndColumnsGrassHelper < FictivHelper
         #if there are much tents that we need for the column
         cell = Count.findFirst(game, :white , 0, i).class == Cell)
         #if there is an empty cell
-        return HelpAllTentsOnARow.new(game.correction.rows[i])
+        return HelpAllTentsOnARow.new(game.correction.cols[i])
           #You help player by saying that the row is full of tents
       end
     }
@@ -39,7 +39,7 @@ class RowsAndColumnsGrassHelper < FictivHelper
         cell = Count.findFirst(game, :white , 1, i).class == Cell)
         #if there is an empty cell
            #You find a row to help player
-          return HelpAllTentsOnAColumn.new(game.correction.cols[i])
+          return HelpAllTentsOnAColumn.new(game.correction.rows[i])
           #You help player by saying that the column is full of tents
       end
     }
