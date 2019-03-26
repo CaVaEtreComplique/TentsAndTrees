@@ -30,7 +30,7 @@ class LoadingScreen < Screen
     @progressBar.pulse
   end
 
-  def text(s="Chargement en Cours")
+  def text(s=@textManager.getLoadingMessages("loading"))
     @progressBar.text=s
     @progressBar.set_show_text(true)
   end

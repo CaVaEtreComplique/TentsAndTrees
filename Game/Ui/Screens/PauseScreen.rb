@@ -24,29 +24,29 @@ class PauseScreen < Screen
     buttonHeight = screen.height*0.04
     buttonWidth = screen.width*0.3
 
-    resume=Text.new("reprendre",buttonWidth*1.1,buttonHeight*1.1)
+    resume=Text.new(@textManager.getButtonLabel("pause" , "resume"),buttonWidth*1.1,buttonHeight*1.1)
       resume.onClick(){
         @gameScreen.applyOn(@parent)
         @game.chrono.continue
     }
-    toogleTracer=Text.new("Desactiver le traceur",buttonWidth,buttonHeight)
+    toogleTracer=Text.new(@textManager.getButtonLabel("pause" , "disabletracker"),buttonWidth,buttonHeight)
     toogleTracer.onClick(){
       if @gameScreen.gridUi.toogleTracer
-        toogleTracer.updateLabel("Desactiver le traceur",buttonWidth,buttonHeight)
+        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "disabletracker"),buttonWidth,buttonHeight)
       else
-        toogleTracer.updateLabel("Activer le traceur",buttonWidth,buttonHeight)
+        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "enabletracker"),buttonWidth,buttonHeight)
       end
     }
 
-    toogleCountIndicators=Text.new("Desactiver les Indicateurs",buttonWidth,buttonHeight)
+    toogleCountIndicators=Text.new(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
     toogleCountIndicators.onClick(){
       if @gameScreen.gridUi.toogleCountIndicators
-        toogleCountIndicators.updateLabel("Desactiver les Indicateurs",buttonWidth,buttonHeight)
+        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
       else
-        toogleCountIndicators.updateLabel("Activer les Indicateurs",buttonWidth,buttonHeight)
+        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
       end
     }
-    quit=Text.new("Quitter",buttonWidth*1.1,buttonHeight*1.1)
+    quit=Text.new(@textManager.getButtonLabel("pause" , "quit"),buttonWidth*1.1,buttonHeight*1.1)
       quit.onClick(){
         manager.createNewSave
         @game.delete_observers

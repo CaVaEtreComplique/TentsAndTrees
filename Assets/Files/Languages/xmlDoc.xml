@@ -64,6 +64,7 @@
           <rz>Remettre la grille a zero</rz>
           <undo>Annuler</undo>
           <redo>Retablir</redo>
+          <help>Aide</help>
           <pause>Pause</pause>
         </buttons>
       </ingame>
@@ -90,6 +91,7 @@
         </texts>
         <buttons>
           <continue>Continuer</continue>
+          <levelselection>Selection Niveaux</levelselection>
           <retry>Rejouer</retry>
           <quit>Quitter</quit>
         </buttons>
@@ -166,6 +168,7 @@
           <rz>Reset Grid</rz>
           <undo>Undo</undo>
           <redo>Redo</redo>
+          <help>Help</help>
           <pause>Pause</pause>
         </buttons>
       </ingame>
@@ -192,6 +195,7 @@
         </texts>
         <buttons>
           <continue>Continue</continue>
+          <levelselection>Level Selection</levelselection>
           <retry>Retry</retry>
           <quit>Exit</quit>
         </buttons>

@@ -66,6 +66,13 @@ class XmlReader
   end
 
   ##
+  # The getLoadingMessages method fetches a loading text message according to the key
+  #
+  def getLoadingMessages(key)
+    return @xmlHash.fetch("languages").fetch(@language).fetch("loadingmessages").fetch(key)
+  end
+
+  ##
   # The buttonMaxString method returns the length of the longest label of a
   # button in a screen.
   #

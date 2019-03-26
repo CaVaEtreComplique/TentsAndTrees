@@ -33,33 +33,33 @@ class GameScreen < Screen
     buttonHeight = screen.height*0.04
     buttonWidth = screen.width*0.3
 
-    ProcessStatus.send("Chargement des textures")
-    newGuess=Text.new("Nouvelle Hypothese",buttonWidth,buttonHeight)
+    ProcessStatus.send(@textManager.getLoadingMessages("textures"))
+    newGuess=Text.new(@textManager.getButtonLabel("ingame" , "newguess"),buttonWidth,buttonHeight)
     newGuess.onClick(){
       game.beginGuess
       @gridUi.refresh
     }
-    removeGuess=Text.new("Refuter Hypothese",buttonWidth,buttonHeight)
+    removeGuess=Text.new(@textManager.getButtonLabel("ingame" , "refuteguess"),buttonWidth,buttonHeight)
     removeGuess.onClick(){
       game.removeGuess
       @gridUi.refresh
     }
-    resetGrid=Text.new("Remettre la grille a zero",buttonWidth,buttonHeight)
+    resetGrid=Text.new(@textManager.getButtonLabel("ingame" , "rz"),buttonWidth,buttonHeight)
     resetGrid.onClick(){
       game.resetGrid
       @gridUi.refresh
     }
-    undoButton=Text.new("Annuler",buttonWidth/2,buttonHeight)
+    undoButton=Text.new(@textManager.getButtonLabel("ingame" , "undo"),buttonWidth/2,buttonHeight)
     undoButton.onClick(){
       @gridUi.undo
     }
-    redoButton=Text.new("Retablir",buttonWidth/2,buttonHeight)
+    redoButton=Text.new(@textManager.getButtonLabel("ingame" , "redo"),buttonWidth/2,buttonHeight)
     redoButton.onClick(){
       @gridUi.redo
     }
 
     @helpResponseUi = HelpUi.new
-    help=Text.new("Aide",buttonWidth,buttonHeight)
+    help=Text.new(@textManager.getButtonLabel("ingame" , "help"),buttonWidth,buttonHeight)
     help.onClick(){
       # Display the help message
       @helpCR=@game.help
@@ -72,7 +72,7 @@ class GameScreen < Screen
       }
     }
 
-    pause=Text.new("Pause",buttonWidth*1.1,buttonHeight*1.1)
+    pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"),buttonWidth*1.1,buttonHeight*1.1)
       pause.onClick(){
         @game.chrono.stop
         @pauseScreen.applyOn(@parent)
