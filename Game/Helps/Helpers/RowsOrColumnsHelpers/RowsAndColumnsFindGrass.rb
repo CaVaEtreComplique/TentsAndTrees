@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: RowsAndColumnsFindGrass.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 27-Mar-2019
 
 
 
@@ -47,7 +47,7 @@ class RowsAndColumnsFindGrass < FictivHelper
           whiteZone.each do |zone|
             zone.each do |cell|
               if(cell.column + 1 < game.nCol)
-                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), game.correction.rows[i], "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
+                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), game.correction.cols[i], "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
               end
               if(cell.column - 1 >= 0)
                 return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
@@ -62,10 +62,10 @@ class RowsAndColumnsFindGrass < FictivHelper
                 cell = zone.first
                 if (game.cellAt(cell.row - 2, cell.column).isAWhite?)
                   if cell.column + 1 < game.nCol
-                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column + 1), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column + 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column + 1), game.correction.cols[i], "grass") if game.cellAt(cell.row - 1, cell.column + 1).isAWhite?
                   end
                   if cell.column - 1 >= 0
-                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.cols[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
                   end
                 end
               end
@@ -73,10 +73,10 @@ class RowsAndColumnsFindGrass < FictivHelper
               zone.each do |cell|
                 if !odd
                   if(cell.column + 1 < game.nCol)
-                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), game.correction.rows[i], "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), game.correction.cols[i], "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
                   end
                   if(cell.column - 1 >= 0)
-                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), game.correction.cols[i], "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
                   end
                 end
                 odd = !odd
@@ -115,10 +115,10 @@ class RowsAndColumnsFindGrass < FictivHelper
           whiteZone.each do |zone|
             zone.each do |cell|
               if(cell.row + 1 < game.nRow)
-                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), game.correction.cols[i], "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
+                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), game.correction.rows[i], "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
               end
               if(cell.row - 1 >= 0)
-                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), game.correction.cols[i], "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
+                return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
               end
             end
           end
@@ -130,10 +130,10 @@ class RowsAndColumnsFindGrass < FictivHelper
                 cell = zone.first
                 if (game.cellAt(cell.row, cell.column - 2).isAWhite?)
                   if cell.row + 1 < game.nRow
-                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column - 1), game.correction.cols[i], "grass") if game.cellAt(cell.row + 1, cell.column - 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row + 1, cell.column - 1).isAWhite?
                   end
                   if cell.row - 1 >= 0
-                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.cols[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
                   end
                 end
               end
@@ -141,10 +141,10 @@ class RowsAndColumnsFindGrass < FictivHelper
               zone.each do |cell|
                 if !odd
                   if(cell.row + 1 < game.nRow)
-                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), game.correction.cols[i], "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row + 1, cell.column), game.correction.rows[i], "grass") if game.cellAt(cell.row + 1, cell.column).isAWhite?
                   end
                   if(cell.row - 1 >= 0)
-                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), game.correction.cols[i], "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
+                    return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column).isAWhite?
                   end
                 end
                 odd = !odd
