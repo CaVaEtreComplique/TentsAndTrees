@@ -2,8 +2,8 @@
 # @Date:   04-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOn1Cell.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 require File.dirname(__FILE__) + "/../HelpOnCells"
 
@@ -17,8 +17,8 @@ class HelpOn1Cell < HelpOnCells
   def initialize(cell)
     super(cell)
   end
-  def cellsList
-    return super()
+  def cellsList(helpLevel)
+    return super(helpLevel)
   end
 
 end

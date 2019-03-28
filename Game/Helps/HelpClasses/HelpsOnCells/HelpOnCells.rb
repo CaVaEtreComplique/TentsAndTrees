@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnCells.rb
 # @Last modified by:   maxime
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 require File.dirname(__FILE__) + "/../Help"
 
@@ -22,8 +22,8 @@ class HelpOnCells < Help
     @cell = cell
     super()
   end
-  def cellsList
-    return super().push(@cell)
+  def cellsList(helpLevel)
+    return super(helpLevel).push(@cell)
   end
 
   def ==(otherHelp)

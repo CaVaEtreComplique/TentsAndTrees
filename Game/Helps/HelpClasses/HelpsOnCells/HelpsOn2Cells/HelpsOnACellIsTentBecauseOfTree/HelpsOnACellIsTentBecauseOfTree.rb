@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellIsTentBecauseOfTree.rb
-# @Last modified by:   Sckylle
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -16,7 +16,7 @@ class HelpsOnACellIsTentBecauseOfTree < HelpOn2Cells
     super(cellTent, cellTree)
   end
 
-  def getText()
+  def getText(helpLevel)
     #returns the text of the help, saying that a cell touch a class and is some grass
     return "La case " + @cell.to_s + " est une tent car elle touche le reseau d'arbre et tente en " + @cell2.to_s
   end

@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellOverlap.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -17,7 +17,7 @@ class HelpsOnACellOverlap < HelpOn3Cells
     super(cellGrass, cellwhite1, cellwhite2)
   end
 
-  def getText()
+  def getText(helpLevel)
     #returns the text of the help, saying that a cell touch a class and is some grass
     return "La case " + @cell.to_s + " est toucher par du gazon en " + @cell2.to_s + " et du gazon en " + @cell3.to_s + " et est donc du gazon."
   end

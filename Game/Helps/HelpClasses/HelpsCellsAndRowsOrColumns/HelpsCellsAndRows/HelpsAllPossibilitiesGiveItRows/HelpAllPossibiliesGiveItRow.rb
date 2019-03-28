@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItRow.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
@@ -32,7 +32,7 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   # It returns the helpText variable, here the text that will be returned says
   # that all the row's possibilities give only one possible option for a
   # given cell.
-  def getText()
+  def getText(helpLevel)
     @helpText = "Toutes les possibilités de la rangée " + @row[0].row.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s
   end
 end

@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpAllTentsOnAColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 26-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -16,7 +16,7 @@ class HelpAllTentsOnAColumn < HelpOnAColumn
     super(column)
   end
 
-  def getText #returns the text of the help, saying that "All tents need have been placed, so all the empty cells of the column are grass"
+  def getText(helpLevel) #returns the text of the help, saying that "All tents need have been placed, so all the empty cells of the column are grass"
     @helpText = "All tents needed have been placed, so all the empty cells of the column " + @column[0].row.to_s + " are grass"
   end
 end

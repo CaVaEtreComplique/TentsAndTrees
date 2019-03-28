@@ -2,8 +2,8 @@
 # @Date:   04-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellTooFarOfTrees.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -18,7 +18,7 @@ class HelpCellTooFarOfTrees < HelpOn1Cell
     super(cell)
   end
 
-  def getText()
+  def getText(helpLevel)
     #returns the text of the help, saying that the cell is grass
     return "La case " + @cell.to_s + " ne touche pas d arbre et est donc du gazon"
   end

@@ -2,8 +2,8 @@
 # @Date:   05-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnAColumn.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -15,8 +15,8 @@ class HelpOnAColumn < HelpOnRowsAndColumn
   def initialize(column)
     super(column)
   end
-  def cellsList
-    res = super()
+  def cellsList(helpLevel)
+    res = super(helpLevel)
     @column.each{ |cell|
       res.push(cell)
      }

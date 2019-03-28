@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Help.rb
 # @Last modified by:   maxime
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -39,7 +39,7 @@ class Help
   # ===== Returns
   # Returns the help text.
   # ---------
-  def getText()
+  def getText(helpLevel)
     return "Txt not Available"
   end
 
@@ -53,13 +53,13 @@ class Help
   # -----------
   def getRes(helpLevel)
     res = Array.new
-    res.push(getText)
-    res.push(cellsList())
+    res.push(getText(helpLevel))
+    res.push(cellsList(helpLevel))
   end
 
   # This method returns an array with all the cells important for the help
   # -----------
-  def cellsList
+  def cellsList(helpLevel)
     return Array.new
   end
 

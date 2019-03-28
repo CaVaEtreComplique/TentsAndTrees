@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpOn3Cells.rb
 # @Last modified by:   maxime
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -19,8 +19,8 @@ class HelpOn3Cells < HelpOnCells #Abstract class
     @cell3 = cell3
     super(cell1)
   end
-  def cellsList
-    return super().push(@cell2).push(@cell3)
+  def cellsList(helpLevel)
+    return super(helpLevel).push(@cell2).push(@cell3)
   end
 
   def ==(otherHelp)

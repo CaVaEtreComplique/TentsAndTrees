@@ -2,8 +2,8 @@
 # @Date:   05-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnACellTouchATent.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -16,8 +16,8 @@ class HelpOnACellTouchATent < HelpOn2Cells
     super(cell, tentCell)
   end
 
-  def getText()
+  def getText(helpLevel)
     #returns the text of the help, saying that a cell touch a class and is some grass
-    return "La case " + @cell.to_s + " touche une tente case " + @cell2.to_s
+    return "La case " + @cell.to_s + " touche une tente case " + @cell2.to_s+ " donc c est de l herbe"
   end
 end
