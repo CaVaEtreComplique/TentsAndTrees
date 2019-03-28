@@ -86,7 +86,7 @@
         <texts>
           <win>VICTOIRE</win>
           <lose>Defaite</lose>
-          <score>Score : </score>
+          <score>Score </score>
           <errscore>Score non charge</errscore>
         </texts>
         <buttons>
@@ -190,7 +190,7 @@
         <texts>
           <win>VICTORY</win>
           <lose>Defeat</lose>
-          <score>Score : </score>
+          <score>Score </score>
           <errscore>Unable to load Score</errscore>
         </texts>
         <buttons>

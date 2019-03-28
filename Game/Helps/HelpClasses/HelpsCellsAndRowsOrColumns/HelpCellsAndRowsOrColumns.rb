@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellsAndRowsOrColumns.rb
 # @Last modified by:   maxime
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -38,8 +38,8 @@ class HelpCellsAndRowsOrColumns < Help
     super()
   end
 
-  def cellsList
-    return super().push(cell)
+  def cellsList(helpLevel)
+    return super(helpLevel).push(cell)
   end
 
   def ==(otherHelp)

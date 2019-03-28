@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpAllGrassOnARow.rb
 # @Last modified by:   maxime
-# @Last modified time: 26-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -17,7 +17,7 @@ class HelpAllGrassOnARow < HelpOneRow
     super(row)
   end
 
-  def getText #returns the text of the help, saying that "All tents need to be placed, so all the empty cells of the row ° are tents"
+  def getText(helpLevel) #returns the text of the help, saying that "All tents need to be placed, so all the empty cells of the row ° are tents"
     @helpText = "All grass needed have been placed, so all the empty cells of the row " + @row[0].column.to_s + " are tents"
   end
 end

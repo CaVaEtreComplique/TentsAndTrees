@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  maxime_touze.etu@univ-lemans.fr
 # @Filename: HelpNotFound.rb
-# @Last modified by:   MaximeTouze
-# @Last modified time: 13-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 require File.dirname(__FILE__) + "/../Help"
 
@@ -21,7 +21,7 @@ class HelpNotFound < Help
 
   # This method is a redefinition of the Help.getText method. It returns a text
   # saying that no help has been found.
-  def getText()
+  def getText(helpLevel)
     return "Aucune aide trouvée"
   end
 end

@@ -2,8 +2,8 @@
 # @Date:   05-Mar-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOneRow.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -18,8 +18,8 @@ class HelpOneRow < HelpOnRowsAndColumn
   def initialize(row)
     super(row)
   end
-  def cellsList
-    res = super()
+  def cellsList(helpLevel)
+    res = super(helpLevel)
     @row.each{ |cell|
       res.push(cell)
      }
