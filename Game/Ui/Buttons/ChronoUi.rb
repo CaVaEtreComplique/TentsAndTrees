@@ -2,10 +2,10 @@
 # @Date:   13-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ChronoUi.rb
-# @Last modified by:   zeigon
+# @Last modified by:   maxime
 # @Last modified time: 29-Mar-2019
 
-require File.dirname(__FILE__) + "/Button"
+require File.dirname(__FILE__) + "/Text"
 
 ##
 # ==== Presentation
