@@ -36,7 +36,7 @@ class SaveBlock < Gtk::Box
       c=Text.new("CHARGER")
       @menu.pack_start(c.gtkObject ,expand: false, fill: true, padding: @pad)
       c.onClick{
-          manager.runGameSession(Save.load(save.id_save).content_save)
+          manager.runGameSessionFromSave(Save.load(save.id_save))
 
        }
 
