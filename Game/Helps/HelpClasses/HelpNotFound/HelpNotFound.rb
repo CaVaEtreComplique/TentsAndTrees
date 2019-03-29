@@ -13,14 +13,16 @@ require File.dirname(__FILE__) + "/../Help"
 class HelpNotFound < Help
   public_class_method :new
 
-  # This is a redefinition of the Help.helpFound? method. It returns false
-  # because no help has been found.
+  # This method is a redefinition of the helpFound? method in the Help class.
+  # ===== Returns
+  # It returns false because no help has been found.
   def helpFound?()
     return false
-  end 
+  end
 
-  # This method is a redefinition of the Help.getText method. It returns a text
-  # saying that no help has been found.
+  # This method is a redefinition of the getText method in the Help class.
+  # ===== Returns
+  # It returns a text saying that no help has been found.
   def getText(helpLevel)
     return "Aucune aide trouvée"
   end

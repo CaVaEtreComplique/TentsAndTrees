@@ -12,7 +12,7 @@ require_all(__FILE__)
 # The help class is an abstract class. It is the general parent of all the other
 # help classes in the game. To see the help classes tree, see below :
 #
-# *AJOUTER LE FICHIER D'ARBORESCENCES*
+# https://i.imgur.com/PkCqKyd.png
 #
 # This class knows the methods below :
 class Help
