@@ -29,9 +29,17 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
 
   ##
   # The getText method sends the help text the player will see.
-  # It returns the helpText variable, here the text that will be returned says
-  # that all the row's possibilities give only one possible option for a
-  # given cell.
+  # It returns the helpText variable that changes depending on the helpLevel the
+  # player is at.
+  # ===== Examples
+  # On level 1, the help says that a row leaves only one possible state for
+  # a cell (only the row is given).
+  #
+  # On level 2, the help says that a row leaves an obligatory state for one of
+  # the cells (the row and the state are given).
+  #
+  # On level 3, the help tells the player that all the possibilities from a row
+  # only leave one state for a cell (the row, the state and the cell are given).
   def getText(helpLevel)
     case(helpLevel)
       when 1

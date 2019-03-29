@@ -179,8 +179,19 @@ href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
         <div class="method-description">
           
           <p>The getText method sends the help text the player will see. It returns the
-helpText variable, here the text that will be returned says that all the
-row&#39;s possibilities give only one possible option for a given cell.</p>
+helpText variable that changes depending on the helpLevel the player is at.</p>
+
+<h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>On level 1, the help says that a row leaves only one possible state for a
+cell (only the row is given).</p>
+
+<p>On level 2, the help says that a row leaves an obligatory state for one of
+the cells (the row and the state are given).</p>
+
+<p>On level 3, the help tells the player that all the possibilities from a row
+only leave one state for a cell (the row, the state and the cell are
+given).</p>
           
           
             <div class="method-calls-super">
@@ -191,7 +202,7 @@ row&#39;s possibilities give only one possible option for a given cell.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">case</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
