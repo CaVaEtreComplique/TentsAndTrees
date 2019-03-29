@@ -59,9 +59,9 @@ class XmlReader
   # of a delimiter (here we use ";"). This way it is possible to divide the text
   # and put values between it.
   #
-  def getHelpsTexts(key, delimiterPosition)
+  def getHelpsTexts(help, helpLevel, delimiterPosition)
       temp = String.new
-      temp = @xmlHash.fetch("languages").fetch(@language).fetch("helps").fetch(key)
+      temp = @xmlHash.fetch("languages").fetch(@language).fetch("helps").fetch(help).fetch(helpLevel)
       return temp.split(";")[delimiterPosition]
   end
 
