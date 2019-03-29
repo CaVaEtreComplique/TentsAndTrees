@@ -94,6 +94,17 @@ class Parametre < Screen
     langue.append_text(ang)
 
 
+		desins=Text.new("Désincription")
+		@menu.pack_start(desins.gtkObject ,expand: false, fill: true, padding:@pad)
+		desins.onClick{
+			connect = ConnectDB.new
+			connect.deletePlayerSave(Connexion.getJoueur.id_player)
+			connect.deletePlayerHg(Connexion.getJoueur.id_player)
+			connect.deletePlayer(Connexion.getJoueur.id_player)
+			TestGame.hide
+			Connexion.show
+		}
+
 
     appli=Text.new(@textManager.getButtonLabel("settings" , "apply"))
     @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)

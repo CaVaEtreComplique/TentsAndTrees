@@ -27,13 +27,13 @@ class Connexion
 
 		connect=ConnectDB.new
 		@@joueur=nil
-    win = Gtk::Window.new
-    win.set_default_size(500,400)
-    win.set_resizable(false)
-		win.decorated=false
-    win.window_position= :center_always
-		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
-		win.show_all
+    @@win = Gtk::Window.new
+    @@win.set_default_size(500,400)
+    @@win.set_resizable(false)
+		@@win.decorated=false
+    @@win.window_position= :center_always
+		@@win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
+		@@win.show_all
 
     @menu=Gtk::Box.new(:vertical, 25)
 
@@ -70,10 +70,10 @@ class Connexion
 		@menu.pack_start(inscription.gtkObject,expand: false, fill: true, padding: @pad)
 
   	# win.add(@#)
-    win.signal_connect('destroy') {Gtk.main_quit}
+    @@win.signal_connect('destroy') {Gtk.main_quit}
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-		win.add(@gtkObject)
-		win.show_all
+		@@win.add(@gtkObject)
+		@@win.show_all
 
 
 		@image.signal_connect('button_press_event' ) {
@@ -87,13 +87,13 @@ class Connexion
 	  }
 
 		mdpOublie.onClick{
-			#	MotdepasseOublie.new
+				MotdepasseOublie.new
 		}
 
 		ident.onClick{
 			@@joueur=connect.playerConnect(saisi.text,saisi2.text)
 			if(@@joueur!=nil)
-				win.hide
+				@@win.hide
 				TestGame.new
 			else
 				ProblemeIdent.new
@@ -109,7 +109,7 @@ class Connexion
 				saisi2.set_text("")
 			elsif connect.isPlayerExist(saisi.text)==nil
 				@@joueur=connect.createPlayer(saisi.text, saisi2.text)
-				win.hide
+				@@win.hide
 				TestGame.new
 			end
 
@@ -119,6 +119,10 @@ class Connexion
 
 	def Connexion.getJoueur
 			return @@joueur
+	end
+
+	def Connexion.show
+			@@win.show_all
 	end
 end
 

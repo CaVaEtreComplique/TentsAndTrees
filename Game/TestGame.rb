@@ -26,19 +26,23 @@ require_all("Helps")
 # ----------------------------------
 class TestGame
 	def initialize
-		win = Gtk::Window.new.fullscreen
-		win.title = "Tent & Trees"
-		win.signal_connect('delete_event') {
+		@@win = Gtk::Window.new.fullscreen
+		@@win.title = "Tent & Trees"
+		@@win.signal_connect('delete_event') {
 			Gtk.main_quit
 			false
 		}
-		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
-		win.show_all
+		@@win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
+		@@win.show_all
 
-		ui = UiManager.new(win,nil)
+		ui = UiManager.new(@@win,nil)
 		ui.run
 
-		win.show_all
-		
+		@@win.show_all
+
+	end
+
+	def TestGame.hide
+			@@win.hide
 	end
 end

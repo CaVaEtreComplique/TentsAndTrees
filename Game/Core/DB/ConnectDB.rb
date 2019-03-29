@@ -177,6 +177,30 @@ class ConnectDB
 
 	end
 
+  def deletePlayerHg(id)
+    @db.execute "DELETE FROM HighScores WHERE id_player_highScores = #{id}" do |row|
+      puts row
+    end
+
+  end
+
+  def deletePlayer(id)
+		@db.execute "DELETE FROM Player WHERE player_id = #{id}" do |row|
+			puts row
+		end
+
+	end
+
+
+  def deletePlayerSave(id)
+
+		@db.execute "DELETE FROM Save WHERE player_id_save = #{id}" do |row|
+			puts row
+		end
+
+	end
+
+
 	# This method retrieves the saves created by the Player.
    # The game must be connected to the database.
 	#
