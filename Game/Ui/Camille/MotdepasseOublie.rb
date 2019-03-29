@@ -22,6 +22,7 @@ class MotdepasseOublie
   end
   def initialize()
     screen=Gdk::Screen.default
+		@textManager=XmlReader.instance
 		#Variable pour resize le texte
 	  @pad =8
     win = Gtk::Window.new
@@ -40,11 +41,12 @@ class MotdepasseOublie
 		saisiLogin = Gtk::Entry.new()
     saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
-    take = Text.new("SAISIR")
-		name = Text.new("Name")
-		password = Text.new("New Password")
-		confirmPass = Text.new("Confirm Password")
-		confirm =Text.new("Confirmer")
+
+    take = Text.new(@textManager.getScreenTexts("forgotpass" , "title"))
+		name = Text.new(@textManager.getScreenTexts("forgotpass" , "name"))
+		password = Text.new(@textManager.getScreenTexts("forgotpass" , "pass"))
+		confirmPass = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmpass"))
+		confirm = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmform"))
 
     @menu.pack_start(take.gtkObject,expand: false, fill: true, padding: @pad)
 		@menu.pack_start(name.gtkObject, expand: false, fill: true, padding: @pad)

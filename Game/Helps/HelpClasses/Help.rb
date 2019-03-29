@@ -14,7 +14,11 @@ require_all(__FILE__)
 #
 # https://i.imgur.com/PkCqKyd.png
 #
-# This class knows the methods below :
+# The classes in blue are abstract while the ones in green are concrete.
+#
+# This class' direct children are the HelpNotFound class and the abstract classes
+# HelpOnRowsAndColumn, HelpOnCells and HelpCellsAndRowsOrColumns. This class
+# knows the methods below :
 class Help
   # :nodoc:
   private_class_method :new  #abstract class

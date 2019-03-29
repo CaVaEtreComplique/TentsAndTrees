@@ -1,3 +1,14 @@
+<!--
+@Author: Maxime Touze <maxime>
+@Date:   28-Mar-2019
+@Email:  maxime_touze@univ-lemans.fr
+@Filename: xmlDoc.xml
+@Last modified by:   maxime
+@Last modified time: 29-Mar-2019
+-->
+
+
+
 <languages>
   <french>
     <language>Francais</language>
@@ -29,6 +40,16 @@
           <back>Retour</back>
         </buttons>
       </settings>
+
+      <forgotpass>
+        <texts>
+          <title>Saisir</title>
+          <name>Pseudo</name>
+          <pass>Nouveau mot de pass</pass>
+          <confirmpass>Confirmer le mot de pass</confirmpass>
+          <confirmform>Valider</confirmform>
+        </texts>
+      </forgotpass>
 
       <gamemode>
         <texts>
@@ -133,6 +154,16 @@
           <back>Back</back>
         </buttons>
       </settings>
+
+      <forgotpass>
+        <texts>
+          <title>Fill</title>
+          <name>Name</name>
+          <pass>New password</pass>
+          <confirmpass>Confirm pass</confirmpass>
+          <confirmform>Let's play</confirmform>
+        </texts>
+      </forgotpass>
 
       <gamemode>
         <texts>

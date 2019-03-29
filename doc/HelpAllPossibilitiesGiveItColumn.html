@@ -132,6 +132,16 @@ sends text to the player when he/she needs help.</p>
 method&#39;s parameters and initializes the cell and the column in
 parameters with the method from <a
 href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell</code> : The cell the player needs help with.</p>
+</li><li>
+<p><code>column</code> : The column the player needs help with.</p>
+</li><li>
+<p><code>state</code> : The obvious state for the cell, in order to show it to
+the player.</p>
+</li></ul>
           
           
             <div class="method-calls-super">
@@ -142,7 +152,7 @@ href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">state</span>)
   <span class="ruby-ivar">@state</span> = <span class="ruby-identifier">state</span>
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">column</span>)
@@ -178,9 +188,24 @@ href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
 
         <div class="method-description">
           
-          <p>The getText method sends the help text the player will see. It returns the
-helpText variable, here the text that will be returned says that all the
-column&#39;s possibilities give only one possible option for a given cell.</p>
+          <p>The getText method sends the help text the player will see.</p>
+
+<h5 id="method-i-getText-label-Attributes">Attributes<span><a href="#method-i-getText-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : Depending on this attribute, the help will be more
+or less precise.</p>
+</li></ul>
+
+<h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If the help&#39;s level is 1, this method will tell the player that the
+given row leaves only one state possible for one of the cells (without
+giving the cell, only telling the row).</p>
+
+<p>On level 2, this method will tell the player the column and the state for
+one of the cells (without telling the cel, only the column and the state).</p>
+
+<p>On level 3, the column, the cell and the state will be given.</p>
           
           
             <div class="method-calls-super">
@@ -191,7 +216,7 @@ column&#39;s possibilities give only one possible option for a given cell.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">case</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>

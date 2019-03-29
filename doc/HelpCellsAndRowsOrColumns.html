@@ -91,11 +91,15 @@
   <section class="description">
     
 <p>The <a href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>
-is an abstract class inherited from the <a href="Help.html">Help</a>
-abstract class and it will lead all the next specific help classes to help
-the player when a move can be done on a cell and a row or on a cell and a
-column. It contains a constructor, a redefinition of the &#39;==&#39;method
-and a cellsList method.</p>
+is an abstract class inherited from the <a href="Help.html">Help</a> class
+and it will lead all the next specific help classes to help the player when
+a move can be done on a cell and a row or on a cell and a column. It
+contains a constructor, a redefinition of the &#39;==&#39;method and a
+redefinition of the cellsList method from <a href="Help.html">Help</a>.</p>
+
+<p>This abstract class&#39; direct children are the abstract classes <a
+href="HelpCellsAndRows.html">HelpCellsAndRows</a> and <a
+href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
 
   </section>
 
@@ -164,7 +168,7 @@ row or a column, they can&#39;t contain both. They will also act on a cell.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 36</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">rowOrColumn</span>)
   <span class="ruby-ivar">@column</span> = <span class="ruby-identifier">rowOrColumn</span>
   <span class="ruby-ivar">@cell</span> = <span class="ruby-identifier">cell</span>
@@ -229,7 +233,7 @@ class&#39; variables, as you can see here :</p>
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 70</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">row</span>)
       <span class="ruby-keyword">end</span></pre>
@@ -285,7 +289,7 @@ help. Here specifically, it returns the level 3 helps, as you can see here
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 53</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">list</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>);
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)

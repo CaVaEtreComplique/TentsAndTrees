@@ -11,10 +11,13 @@ require File.dirname(__FILE__) + "/../Help"
 
 ##
 # The HelpCellsAndRowsOrColumns is an abstract class inherited from the Help
-# abstract class and it will lead all the next specific help classes to help
+# class and it will lead all the next specific help classes to help
 # the player when a move can be done on a cell and a row or on a cell and a
 # column. It contains a constructor, a redefinition of the '=='method and a
-# cellsList method.
+# redefinition of the cellsList method from Help.
+#
+# This abstract class' direct children are the abstract classes HelpCellsAndRows
+# and HelpCellsAndColumns.
 class HelpCellsAndRowsOrColumns < Help
    # :nodoc:
      attr_reader :cell, :column, :row

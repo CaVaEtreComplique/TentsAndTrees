@@ -14,6 +14,8 @@ require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 # class HelpCellsAndRowsOrColumns. This abstract class will determine a model
 # for every help class that needs to know a cell and a column. The only method
 # this class knows is its initialization method.
+#
+# This class' direct child is the HelpAllPossibilitiesGiveItColumn class.
 class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
 
 ##
@@ -23,6 +25,16 @@ class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
     super(cell, column)
   end
 
+  ##
+  # The cellsList method is a redefinition from the Help class.
+  # ===== Attributes
+  # * +helpLevel+ : The help's importance
+  # ===== Returns
+  # This method returns the result of this method in the parent class so an array
+  # with the column, like this :
+  #   @column.each{ |cell|
+  #      res.push(cell)
+  #   }
   def cellsList(helpLevel)
     #in the 3 cases, we need the column
     res = super(helpLevel)
