@@ -105,7 +105,14 @@ other help classes in the game. To see the help classes tree, see below :</p>
 
 <p><img src="https://i.imgur.com/PkCqKyd.png" /></p>
 
-<p>This class knows the methods below :</p>
+<p>The classes in blue are abstract while the ones in green are concrete.</p>
+
+<p>This class&#39; direct children are the <a
+href="HelpNotFound.html">HelpNotFound</a> class and the abstract classes <a
+href="HelpOnRowsAndColumn.html">HelpOnRowsAndColumn</a>, <a
+href="HelpOnCells.html">HelpOnCells</a> and <a
+href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>. This
+class knows the methods below :</p>
 
   </section>
 
@@ -153,7 +160,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 28</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-ivar">@price</span> = <span class="ruby-value">5</span>
   <span class="ruby-comment">#Initializes the help text as what it needs to be.</span>
@@ -204,7 +211,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 92</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">class</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -238,7 +245,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 73</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -272,7 +279,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="getRes-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 65</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getRes</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">getText</span>(<span class="ruby-identifier">helpLevel</span>))
@@ -313,7 +320,7 @@ initialize the @helpText variable in the class&#39; constructor.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 51</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Txt not Available&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -351,7 +358,7 @@ initialize the @helpText variable in the class&#39; constructor.</p>
 
           
           <div class="method-source-code" id="helpFound-3F-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 42</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpFound?</span>()
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>
@@ -393,7 +400,7 @@ go higher as the help gets higher and the game gets easier.</p>
 
           
           <div class="method-source-code" id="price-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 83</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@price</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">helpLevel</span>
 <span class="ruby-keyword">end</span></pre>
@@ -433,7 +440,7 @@ text.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 59</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@helpText</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
 <span class="ruby-keyword">end</span></pre>

@@ -22,6 +22,10 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   # The initialize method gives to the state variable a value from the method's
   # parameters and initializes the cell and the column in parameters with the
   # method from HelpCellsAndColumns.
+  # ===== Attributes
+  # * +cell+ : The cell the player needs help with.
+  # * +column+ : The column the player needs help with.
+  # * +state+ : The obvious state for the cell, in order to show it to the player.
   def initialize(cell, column, state)
     @state = state
     super(cell, column)
@@ -29,9 +33,18 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
 
   ##
   # The getText method sends the help text the player will see.
-  # It returns the helpText variable, here the text that will be returned says
-  # that all the column's possibilities give only one possible option for a
-  # given cell.
+  # ===== Attributes
+  # * +helpLevel+ : Depending on this attribute, the help will be more or less precise.
+  # ===== Examples
+  # If the help's level is 1, this method will tell the player that the given
+  # row leaves only one state possible for one of the cells (without giving the
+  # cell, only telling the row).
+  #
+  # On level 2, this method will tell the player the
+  # column and the state for one of the cells (without telling the cell, only the
+  # column and the state).
+  #
+  # On level 3, the column, the cell and the state will be given.
   def getText(helpLevel)
     case(helpLevel)
       when 1
