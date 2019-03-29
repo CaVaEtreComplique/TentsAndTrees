@@ -92,8 +92,7 @@
 abstract class inherited from the abstract class <a
 href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>. This
 abstract class will determine a model for every help class that needs to
-know a cell and a column. The only method this class knows is its
-initialization method.</p>
+know a cell and a column.</p>
 
 <p>This class&#39; direct child is the <a
 href="HelpAllPossibilitiesGiveItColumn.html">HelpAllPossibilitiesGiveItColumn</a>
@@ -144,7 +143,7 @@ but with a column instead of a row XOR a column.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb, line 24</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">column</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">column</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -206,7 +205,7 @@ array with the column, like this :</p>
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb, line 38</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-comment">#in the 3 cases, we need the column</span>
   <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)

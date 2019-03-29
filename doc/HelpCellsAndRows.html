@@ -91,9 +91,13 @@
 <p>The <a href="HelpCellsAndRows.html">HelpCellsAndRows</a> class is an
 abstract class inherited from the abstract class <a
 href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>. This
-abstract class will determine a model for every help class that needs to
-know a cell and a row. The only method this class knows is its
-initialization method.</p>
+abstract class will establish a model for every help class that needs to
+know a cell and a row. This class has a constructor and overrides the
+cellsList method.</p>
+
+<p>This class&#39; direct child is the <a
+href="HelpAllPossibilitiesGiveItRow.html">HelpAllPossibilitiesGiveItRow</a>
+class.</p>
 
   </section>
 
@@ -140,7 +144,7 @@ but with a row instead of a row XOR a column.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -175,7 +179,18 @@ but with a row instead of a row XOR a column.</p>
 
         <div class="method-description">
           
-          
+          <p>This method overrides the cellsList method from the <a
+href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a> class.</p>
+
+<h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance.</p>
+</li></ul>
+
+<h5 id="method-i-cellsList-label-Returns">Returns<span><a href="#method-i-cellsList-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>It returns an array with the rows added, whichever help level the player is
+at.</p>
           
           
             <div class="method-calls-super">
@@ -186,7 +201,7 @@ but with a row instead of a row XOR a column.</p>
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 24</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-comment">#in the 3 cases, we need the row</span>
   <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)

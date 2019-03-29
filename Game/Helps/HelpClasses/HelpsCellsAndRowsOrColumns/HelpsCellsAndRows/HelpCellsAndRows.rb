@@ -9,9 +9,11 @@ require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 
 ##
 # The HelpCellsAndRows class is an abstract class inherited from the abstract
-# class HelpCellsAndRowsOrColumns. This abstract class will determine a model
-# for every help class that needs to know a cell and a row. The only method
-# this class knows is its initialization method.
+# class HelpCellsAndRowsOrColumns. This abstract class will establish a model
+# for every help class that needs to know a cell and a row.
+# This class has a constructor and overrides the cellsList method.
+#
+# This class' direct child is the HelpAllPossibilitiesGiveItRow class.
 class HelpCellsAndRows < HelpCellsAndRowsOrColumns
 
 ##
@@ -21,6 +23,14 @@ class HelpCellsAndRows < HelpCellsAndRowsOrColumns
     super(cell, row)
   end
 
+  ##
+  # This method overrides the cellsList method from the HelpCellsAndRowsOrColumns
+  # class.
+  # ===== Attributes
+  # * +helpLevel+ : The help's importance.
+  # ===== Returns
+  # It returns an array with the rows added, whichever help level the
+  # player is at.
   def cellsList(helpLevel)
     #in the 3 cases, we need the row
     res = super(helpLevel)
