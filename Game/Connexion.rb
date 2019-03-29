@@ -117,6 +117,12 @@ class Connexion
 
   end
 
+	def Connexion.connexion(player)
+		@@joueur=player
+		@@win.hide
+		TestGame.new
+	end
+
 	def Connexion.getJoueur
 			return @@joueur
 	end

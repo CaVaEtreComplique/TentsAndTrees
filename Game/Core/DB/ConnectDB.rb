@@ -50,6 +50,18 @@ class ConnectDB
 
   end
 
+  def playerUpdate(login, mdp)
+    player = nil
+      @db.execute "UPDATE Player SET password_player='#{Digest::SHA1.hexdigest(mdp)}' WHERE name_player='#{login}'" do |row|
+        puts row
+      end
+
+      @db.execute "SELECT * FROM Player WHERE name_player = '#{login}' AND password_player='#{Digest::SHA1.hexdigest(mdp)}'" do |row|
+        player = Player.new(row[0],row[1],row[2])
+      end
+      return player
+  end
+
 	# This method tries to find the player in the database with the name and the
   # password provided. The game must be connected to the database.
 	#

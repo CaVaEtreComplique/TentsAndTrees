@@ -33,21 +33,29 @@ class MotdepasseOublie
     connect=ConnectDB.new
 
   	@menu=Gtk::Box.new(:vertical, 25)
+		saisiLogin = Gtk::Entry.new()
     saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
     mdp = Text.new("SAISIR")
-    @menu.pack_start(mdp,expand: false, fill: true, padding: @pad)
+		confirm =Text.new("Comfirmer")
+    @menu.pack_start(mdp.gtkObject,expand: false, fill: true, padding: @pad)
+		@menu.pack_start(saisiLogin, expand: false, fill: true, padding: @pad)
     @menu.pack_start(saisi,expand: false, fill: true, padding: @pad)
   #  @menu.pack_start(mdp,expand: false, fill: true, padding: @pad)
     @menu.pack_start(saisi2,expand: false, fill: true, padding: @pad)
+		@menu.pack_start(confirm.gtkObject,expand: false, fill: true, padding: @pad)
   #  if(saisi.text ==saisi2.text)
         #connect.    UPDATEPLAYER
   #  end
-    if(saisi.text !=saisi2.text)
-      saisi.set_text("")
-      saisi2.set_text("")
-    end
-
+		confirm.onClick{
+    	if(saisi.text !=saisi2.text)
+      	saisi.set_text("")
+      	saisi2.set_text("")
+    	else
+				win.hide
+				Connexion.connexion(connect.playerUpdate(saisiLogin.text, saisi.text))
+			end
+		}
     win.add(@menu)
     win.show_all
 
