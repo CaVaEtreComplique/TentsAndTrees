@@ -2,8 +2,8 @@
 # @Date:   29-Feb-2019
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: XmlReader.rb
-# @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 29-Mar-2019
 
 require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'
@@ -61,7 +61,7 @@ class XmlReader
   #
   def getHelpsTexts(help, helpLevel, delimiterPosition)
       temp = String.new
-      temp = @xmlHash.fetch("languages").fetch(@language).fetch("helps").fetch(help).fetch(helpLevel)
+      temp = @xmlHash.fetch("languages").fetch(@language).fetch("helps").fetch(help).fetch("lvl" + helpLevel.to_s)
       return temp.split(";")[delimiterPosition]
   end
 
