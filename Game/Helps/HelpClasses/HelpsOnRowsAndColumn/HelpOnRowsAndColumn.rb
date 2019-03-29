@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnRowsAndColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -19,7 +19,7 @@ class HelpOnRowsAndColumn < Help
     @column = rowOrColumn
     @row = rowOrColumn
     super()
-  end
+  end 
 
   def ==(otherHelp)
     return(super(otherHelp) && @column == otherHelp.column && @row == otherHelp.row)

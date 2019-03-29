@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Help.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -16,9 +16,11 @@ class Help
   # :nodoc:
   private_class_method :new  #abstract class
 
+
   # :startdoc:
   # The class' constructor.
   def initialize()
+    @price = 5
     #Initializes the help text as what it needs to be.
     @helpText = self.getText(@helpLevel)
   end
@@ -63,6 +65,10 @@ class Help
     return Array.new
   end
 
+
+  def price(helpLevel)
+    return @price * helpLevel
+  end
 
   def ==(otherHelp)
     return (self.class == otherHelp.class)

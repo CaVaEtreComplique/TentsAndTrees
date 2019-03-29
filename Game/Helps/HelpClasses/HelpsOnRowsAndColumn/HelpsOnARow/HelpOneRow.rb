@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOneRow.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -20,9 +20,11 @@ class HelpOneRow < HelpOnRowsAndColumn
   end
   def cellsList(helpLevel)
     res = super(helpLevel)
-    @row.each{ |cell|
-      res.push(cell)
-     }
+    if(helpLevel == 3)
+      @row.each{ |cell|
+        res.push(cell)
+       }
+     end
     return res
   end
 end

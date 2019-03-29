@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellsAndRows.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 
@@ -22,6 +22,7 @@ class HelpCellsAndRows < HelpCellsAndRowsOrColumns
   end
 
   def cellsList(helpLevel)
+    #in the 3 cases, we need the row
     res = super(helpLevel)
     @row.each{ |cell|
       res.push(cell)

@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpAllGrassOnAColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -17,6 +17,16 @@ class HelpAllGrassOnAColumn < HelpOnAColumn
   end
 
   def getText(helpLevel) #returns the text of the help, saying that "All tents need to be placed, so all the empty cells of the column ° are tents"
-    @helpText = "All grass needed have been placed, so all the empty cells of the column " + @column[0].row.to_s + " are tents"
+
+    case(helpLevel)
+      when 1
+        @helpText = "You placed all the grass of a column"
+      when 2
+        @helpText = "You placed all the grass on a column, so all the white cells are tents"
+      when 3
+        @helpText = "All grass needed have been placed, so all the empty cells of the column " + @column[0].row.to_s + " are tents"
+      else
+          super(helpLevel)
+      end
   end
 end

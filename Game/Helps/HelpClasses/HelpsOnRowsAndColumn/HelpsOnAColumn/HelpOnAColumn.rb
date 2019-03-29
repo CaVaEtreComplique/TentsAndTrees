@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOnAColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -17,9 +17,13 @@ class HelpOnAColumn < HelpOnRowsAndColumn
   end
   def cellsList(helpLevel)
     res = super(helpLevel)
-    @column.each{ |cell|
-      res.push(cell)
-     }
+
+    if(helpLevel == 3)
+      @column.each{ |cell|
+        res.push(cell)
+       }
+     end
+
     return res
   end
 end

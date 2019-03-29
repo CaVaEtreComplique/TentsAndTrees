@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellsAndColumns.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -24,6 +24,7 @@ class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
   end
 
   def cellsList(helpLevel)
+    #in the 3 cases, we need the column
     res = super(helpLevel)
     @column.each{ |cell|
       res.push(cell)

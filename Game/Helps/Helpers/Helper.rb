@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
 # @Last modified by:   maxime
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -91,6 +91,10 @@ class Helper < FictivHelper
     end
   end
 
+  def cout()
+    return @lastHelp.cout(@helpLevel)
+  end
+
   def help(game) #called to help the player
     #game.beginGuess
 
@@ -101,7 +105,7 @@ class Helper < FictivHelper
         helpLevelManagement(helpRes)
         #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
-          puts "\nDebug : " + helpRes.to_s + @helpLevel.to_s + "\n"
+          puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + "\n"
         end
           return helpRes.getRes(@helpLevel)
       end
