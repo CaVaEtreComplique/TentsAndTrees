@@ -109,7 +109,6 @@ class ModeDeJeu < Screen
 		 #save = Save.load(29)
 		 #session = save.content_save
 		 #manager.runGameSession(session)
-		 manager.update
 		 manager.listeSaveScreen.applyOn(@parent)
 		}
 

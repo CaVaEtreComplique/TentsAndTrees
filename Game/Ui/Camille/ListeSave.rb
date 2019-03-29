@@ -42,7 +42,7 @@ class ListeSave < Screen
 				@menu.pack_start(noSave.gtkObject ,expand: false, fill: true, padding: @pad)
 		else
 				tab.each{|i|
-					@menu.pack_start(SaveBlock.new(manager,i),expand: false, fill: true, padding: @pad)
+					@menu.pack_start(SaveBlock.new(manager,i,@parent),expand: false, fill: true, padding: @pad)
 
 				}
 		end

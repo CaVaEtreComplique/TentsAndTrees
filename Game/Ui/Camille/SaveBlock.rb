@@ -17,7 +17,7 @@ def require_all(_dir)
 end
 
 class SaveBlock < Gtk::Box
-	def initialize(manager,save)
+	def initialize(manager,save, parent)
     super(:horizontal)
       @pad =1
       @widthText=screen.width*0.1
@@ -39,6 +39,15 @@ class SaveBlock < Gtk::Box
           manager.runGameSession(Save.load(save.id_save).content_save)
 
        }
+
+			 delete=Text.new("Supprimer sauvegarde")
+       @menu.pack_start(delete.gtkObject ,expand: false, fill: true, padding: @pad)
+       delete.onClick{
+				 	 connect=ConnectDB.new
+					 connect.deleteSave(save.id_save)
+				 	 manager.updateSave
+           manager.listeSaveScreen.applyOn(parent)
+        }
 
        self.add(@menu)
 	end
