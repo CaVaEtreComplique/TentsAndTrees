@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ChronoUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 29-Mar-2019
 
 require File.dirname(__FILE__) + "/Button"
 
@@ -22,7 +22,7 @@ require File.dirname(__FILE__) + "/Button"
 # ==== Variable
 #
 # The only variable this class needs is the time value.
-class ChronoUi < Button
+class ChronoUi < Text
 
 	#:nodoc:
 	attr_reader :time
@@ -31,7 +31,11 @@ class ChronoUi < Button
 	# The initialization method creates a new button with specific values for the
 	# chronometer's creation.
 	def initialize(time)
-    super(:horizontal,"%02dh %02dm %02ds" % parce(time))
+    super("%02dh %02dm %02ds" % parce(time))
+    @font="Arial"
+    @color="black"
+    @weight="normal"
+    @style="normal"
 	end
 
 	# The updateLabel method updates the chronometer button's label in order to

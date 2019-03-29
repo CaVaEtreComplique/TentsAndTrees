@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -26,7 +26,7 @@ class GameScreen < Screen
     @pauseScreen = PauseScreen.new(self,manager,@game)
 
     @gridUi=GridUi.new(game, cellAssets,self)
-    @gtkObject = Gtk::Table.new(3,4)
+    @gtkObject = Gtk::Table.new(4,4)
 
     screen=Gdk::Screen.default
 
@@ -61,7 +61,8 @@ class GameScreen < Screen
     @helpResponseUi = Text.new ""
     @helpResponseUi.style="italic"
     @helpResponseUi.weight="normal"
-    @helpResponseUi.size=12
+    @helpResponseUi.color="red"
+    @helpResponseUi.size=15
     help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
     help.onClick(){
       # Display the help message
@@ -83,28 +84,27 @@ class GameScreen < Screen
 
     @chronoUi=ChronoUi.new(@game.time.truncate)
 
-    # helpResponse = HelplUi.new
-
     undoRedoBox = Gtk::Box.new(:horizontal)
-    undoRedoBox.pack_start(undoButton.gtkObject, expand: false, fill: false, padding: 10)
-    undoRedoBox.pack_start(redoButton.gtkObject, expand: false, fill: false, padding: 10)
+    undoRedoBox.pack_start(undoButton.gtkObject, expand: true, fill: false, padding: 3)
+    undoRedoBox.pack_start(redoButton.gtkObject, expand: true, fill: false, padding: 3)
     aliURB=Gtk::Alignment.new(0.5, 0.2, 0, 0).add(undoRedoBox)
     aliPause=Gtk::Alignment.new(1, 0.2, 0, 0).add(pause.gtkObject)
 
-    globalBox = Gtk::Box.new(:vertical  )
-    globalBox.pack_start(aliPause, expand: false, fill: true, padding: 10)
-    globalBox.pack_start(@chronoUi.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(aliURB, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(resetGrid.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(newGuess.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(removeGuess.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(help.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(@helpResponseUi.gtkObject, expand: false, fill: false, padding: 20)
+    globalBox = Gtk::Box.new(:vertical)
+    globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
+    globalBox.pack_start(@chronoUi.gtkObject, expand: true, fill: false, padding: 10)
+    globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
+    globalBox.pack_start(resetGrid.gtkObject, expand: true, fill: false, padding: 3)
+    globalBox.pack_start(newGuess.gtkObject, expand: true, fill: false, padding: 3)
+    globalBox.pack_start(removeGuess.gtkObject, expand: true, fill: false, padding: 3)
+    globalBox.pack_start(help.gtkObject, expand: true, fill: false, padding: 10)
 
+    globalAli=Gtk::Alignment.new(1, 1, 0, 1).add(globalBox)
 
-    @gtkObject.attach(globalBox,3,4,1,2)
-    @gtkObject.attach(@gridUi.gtkObject, 1, 2, 1, 2)
-    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,3)
+    @gtkObject.attach(globalAli,3,4,0,1)
+    @gtkObject.attach(@helpResponseUi.gtkObject,3,4,2,3)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
+    @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end
 
   def gridAltered

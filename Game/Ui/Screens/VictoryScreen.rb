@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 require 'gtk3'
@@ -70,6 +70,7 @@ class VictoryScreen < Screen
           @manager.levelNumberScreen.applyOn(@parent)
         }
       else
+        @replay.updateLabel(@textManager.getButtonLabel("victory" , "continue"))
         @replay.onClick{
           @session.replay(true)
           @manager.runGameSession(@session)

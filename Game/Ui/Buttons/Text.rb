@@ -9,11 +9,9 @@
 class Text
 
   attr_reader :size, :gtkObject
-  attr_writer :weight, :style, :size
-  # @@cursorIn=Gdk::Cursor.new(:hand1)
-  # @@cursorOut=Gdk::Cursor.new(:arrow)
+  attr_writer :weight, :style, :size, :color
 
-  def initialize(label, size=15)
+  def initialize(label, size=30)
     @label=label
     @gtkObject=Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @eventBox = Gtk::EventBox.new

@@ -12,9 +12,6 @@ require File.dirname(__FILE__) + "/Click"
 class CellUi
 	attr_reader :gtkObject, :row, :col, :variation
 
-	# @@cursorIn=Gdk::Cursor.new(:hand1)
-	# @@cursorOut=Gdk::Cursor.new(:arrow)
-
 	def initialize(parent, row, col, assets)
 		@row = row
 		@col = col

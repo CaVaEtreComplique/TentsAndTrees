@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: HelpUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 class HelpUi
 
@@ -15,9 +15,13 @@ class HelpUi
 
 	def initialize
 		@gtkObject = Gtk::DrawingArea.new
-    @size=140
-		@gtkObject.set_size_request(@size, @size)
-
+		@gtkObject.set_size_request((Gdk::Screen.default.width*0.3), (Gdk::Screen.default.height*0.3))
+		@label=Text.new ""
+    @label.style="italic"
+    @label.weight="normal"
+    @label.color="red"
+    @label.size=12
+		# @gtkObject.add(@label)
 		@gtkObject.signal_connect "draw" do |_widget, cr|
       onDrawSignal(cr)
     end
@@ -49,18 +53,13 @@ class HelpUi
 		cr.set_source_rgba(1, 1, 1, 1)
 		cr.paint
 		cr.destroy
+		@label.updateLabel ""
 	end
 
 	def update(message="")
 		return false unless @surface
 		clean
-		cr = Cairo::Context.new(@surface)
-    cr.select_font_face "Arial", Cairo::FONT_SLANT_NORMAL, Cairo::FONT_WEIGHT_NORMAL
-    cr.set_font_size 18
-    cr.move_to 5, 60
-		cr.show_text message
-		cr.destroy
-		@gtkObject.queue_draw
+		@label.updateLabel message
     self
  end
 
