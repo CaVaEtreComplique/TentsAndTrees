@@ -25,6 +25,10 @@ class UiManager
     @levelNumberScreen=LevelNumber.new(self)
   end
 
+  def updateSave
+    @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
+  end
+
   def run
     @mainScreen.applyOn(@win)
   end

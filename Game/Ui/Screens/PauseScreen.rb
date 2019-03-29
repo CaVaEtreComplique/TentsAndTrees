@@ -50,6 +50,7 @@ class PauseScreen < Screen
       quit.onClick(){
         manager.createNewSave
         @game.delete_observers
+        manager.updateSave
         manager.mainScreen.applyOn(@parent)
     }
 
