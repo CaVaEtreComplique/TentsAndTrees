@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -34,36 +34,39 @@ class GameScreen < Screen
     buttonWidth = screen.width*0.3
 
     ProcessStatus.send(@textManager.getLoadingMessages("textures"))
-    newGuess=Text.new(@textManager.getButtonLabel("ingame" , "newguess"),buttonWidth,buttonHeight)
+    newGuess=Text.new(@textManager.getButtonLabel("ingame" , "newguess"))
     newGuess.onClick(){
       game.beginGuess
       @gridUi.refresh
     }
-    removeGuess=Text.new(@textManager.getButtonLabel("ingame" , "refuteguess"),buttonWidth,buttonHeight)
+    removeGuess=Text.new(@textManager.getButtonLabel("ingame" , "refuteguess"))
     removeGuess.onClick(){
       game.removeGuess
       @gridUi.refresh
     }
-    resetGrid=Text.new(@textManager.getButtonLabel("ingame" , "rz"),buttonWidth,buttonHeight)
+    resetGrid=Text.new(@textManager.getButtonLabel("ingame" , "rz"))
     resetGrid.onClick(){
       game.resetGrid
       @gridUi.refresh
     }
-    undoButton=Text.new(@textManager.getButtonLabel("ingame" , "undo"),buttonWidth/2,buttonHeight)
+    undoButton=Text.new(@textManager.getButtonLabel("ingame" , "undo"))
     undoButton.onClick(){
       @gridUi.undo
     }
-    redoButton=Text.new(@textManager.getButtonLabel("ingame" , "redo"),buttonWidth/2,buttonHeight)
+    redoButton=Text.new(@textManager.getButtonLabel("ingame" , "redo"))
     redoButton.onClick(){
       @gridUi.redo
     }
 
-    @helpResponseUi = HelpUi.new
-    help=Text.new(@textManager.getButtonLabel("ingame" , "help"),buttonWidth,buttonHeight)
+    @helpResponseUi = Text.new ""
+    @helpResponseUi.style="italic"
+    @helpResponseUi.weight="normal"
+    @helpResponseUi.size=12
+    help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
     help.onClick(){
       # Display the help message
       @helpCR=@game.help
-      @helpResponseUi.update(@helpCR[0])
+      @helpResponseUi.updateLabel(@helpCR[0])
       self.helpDisplayed=true
       #  Make the concerned cells golw
       @helpCR[1].each{ |cell|
@@ -72,7 +75,7 @@ class GameScreen < Screen
       }
     }
 
-    pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"),buttonWidth*1.1,buttonHeight*1.1)
+    pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
       pause.onClick(){
         @game.chrono.stop
         @pauseScreen.applyOn(@parent)
@@ -106,7 +109,7 @@ class GameScreen < Screen
 
   def gridAltered
     if helpDisplayed?
-      @helpResponseUi.update
+      @helpResponseUi.updateLabel ""
       @helpCR[1]
       #  Make the concerned cells normal
       @helpCR[1].each{ |cell|

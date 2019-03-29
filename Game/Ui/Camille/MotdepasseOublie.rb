@@ -2,8 +2,8 @@
 # @Date:   8-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Connexion.rb
-# @Last modified by:    CamilleVAIDIE
-# @Last modified time: 08-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 28-Mar-2019
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -35,7 +35,7 @@ class MotdepasseOublie
   	@menu=Gtk::Box.new(:vertical, 25)
     saisi=Gtk::Entry.new()
     saisi2=Gtk::Entry.new()
-    mdp = Text.new("SAISIR",0.5,0.3)
+    mdp = Text.new("SAISIR")
     @menu.pack_start(mdp,expand: false, fill: true, padding: @pad)
     @menu.pack_start(saisi,expand: false, fill: true, padding: @pad)
   #  @menu.pack_start(mdp,expand: false, fill: true, padding: @pad)

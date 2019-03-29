@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
 # @Last modified by:   zeigon
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 class UiManager
     attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session

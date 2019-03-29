@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: TestGame.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
@@ -38,6 +38,7 @@ class TestGame
 		ui = UiManager.new(win,nil)
 		ui.run
 
-		# Gtk.mainSSS
+		win.show_all
+		
 	end
 end

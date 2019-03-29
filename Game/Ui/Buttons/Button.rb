@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Button.rb
 # @Last modified by:   zeigon
-# @Last modified time: 13-Feb-2019
+# @Last modified time: 28-Mar-2019
 
 require File.dirname(__FILE__) + "/../Click"
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"

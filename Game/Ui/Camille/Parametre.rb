@@ -4,7 +4,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Parametre.rb
 # @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/ModeDeJeu"
@@ -80,7 +80,8 @@ class Parametre < Screen
     @gtkObject.attach(@menu,1,2,1,2)
 
   #Bontons de menu
-    titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@widthTitre,@heightTitre)
+    titre=Text.new(@textManager.getScreenTexts("settings" , "title"))
+		titre.title
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
     #Menu deroulant des langues
@@ -94,7 +95,7 @@ class Parametre < Screen
 
 
 
-    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@widthText,@heightText)
+    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"))
     @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
     appli.onClick{
       @textManager.language=langue.active_text
@@ -102,7 +103,7 @@ class Parametre < Screen
 			manager.mainScreen.applyOn(@parent)
     }
 
-    retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@widthText,@heightText)
+    retour=Text.new(@textManager.getButtonLabel("settings" , "back"))
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Renvoie sur la page principale
     retour.onClick{

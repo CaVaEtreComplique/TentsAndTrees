@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -38,7 +38,7 @@ class ListeSave < Screen
 		tab=connect.getPlayersSave(joueur)
 
 		if(tab.empty?)
-				noSave=Text.new("PAS DE SAUVEGARDE",@widthTitre,@heightTitre)
+				noSave=Text.new("PAS DE SAUVEGARDE")
 				@menu.pack_start(noSave.gtkObject ,expand: false, fill: true, padding: @pad)
 		else
 				tab.each{|i|
@@ -46,7 +46,7 @@ class ListeSave < Screen
 
 				}
 		end
-		retour=Text.new("RETOUR",@widthTitre,@heightTitre)
+		retour=Text.new("RETOUR")
 		@menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
 			manager.modeScreen.applyOn(@parent)

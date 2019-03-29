@@ -2,8 +2,8 @@
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
-# @Last modified by:   QuentinGoncalves
-# @Last modified time: 19-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 28-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -75,32 +75,33 @@ class ChoixDiff < Screen
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
   #Bontons de menu
-    titre=Text.new(@textManager.getScreenTexts("difficulty" , "title"),@widthTitre,@heightTitre)
+    titre=Text.new(@textManager.getScreenTexts("difficulty" , "title"))
+		titre.title
 		  #add sur gtkObject
     @menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    facile=Text.new(@textManager.getButtonLabel("difficulty" , "easy"),@widthText,@heightText)
+    facile=Text.new(@textManager.getButtonLabel("difficulty" , "easy"))
 		 @menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
 			 session=QuickPlaySession.new(:quickplay, :easy)
 			 manager.runGameSession(session)
 		}
-    moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"),@widthText,@heightText)
+    moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"))
 		 @menu.pack_start(moyen.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
 			 session=QuickPlaySession.new(:quickplay, :medium)
 			 manager.runGameSession(session)
 		}
-    diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"),@widthText,@heightText)
+    diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"))
 		 @menu.pack_start(diff.gtkObject ,expand: false, fill: true, padding: @pad)
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
 			 session=QuickPlaySession.new(:quickplay, :hard)
 			 manager.runGameSession(session)
 		}
-    retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"),@widthText,@heightText)
+    retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"))
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
 		 #Renvoie sur la page mode de jeu
     retour.onClick{
@@ -110,16 +111,5 @@ class ChoixDiff < Screen
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 
 end
-
-
-
-
-
-
-
-
-
-
-
 
 end

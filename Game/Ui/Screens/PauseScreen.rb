@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: PauseScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -24,29 +24,29 @@ class PauseScreen < Screen
     buttonHeight = screen.height*0.04
     buttonWidth = screen.width*0.3
 
-    resume=Text.new(@textManager.getButtonLabel("pause" , "resume"),buttonWidth*1.1,buttonHeight*1.1)
+    resume=Text.new(@textManager.getButtonLabel("pause" , "resume"))
       resume.onClick(){
         @gameScreen.applyOn(@parent)
         @game.chrono.continue
     }
-    toogleTracer=Text.new(@textManager.getButtonLabel("pause" , "disabletracker"),buttonWidth,buttonHeight)
+    toogleTracer=Text.new(@textManager.getButtonLabel("pause" , "disabletracker"))
     toogleTracer.onClick(){
       if @gameScreen.gridUi.toogleTracer
-        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "disabletracker"),buttonWidth,buttonHeight)
+        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "disabletracker"))
       else
-        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "enabletracker"),buttonWidth,buttonHeight)
+        toogleTracer.updateLabel(@textManager.getButtonLabel("pause" , "enabletracker"))
       end
     }
 
-    toogleCountIndicators=Text.new(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
+    toogleCountIndicators=Text.new(@textManager.getButtonLabel("pause" , "disableindicators"))
     toogleCountIndicators.onClick(){
       if @gameScreen.gridUi.toogleCountIndicators
-        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
+        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "disableindicators"))
       else
-        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "disableindicators"),buttonWidth,buttonHeight)
+        toogleCountIndicators.updateLabel(@textManager.getButtonLabel("pause" , "enableindicators"))
       end
     }
-    quit=Text.new(@textManager.getButtonLabel("pause" , "quit"),buttonWidth*1.1,buttonHeight*1.1)
+    quit=Text.new(@textManager.getButtonLabel("pause" , "quit"))
       quit.onClick(){
         manager.createNewSave
         @game.delete_observers

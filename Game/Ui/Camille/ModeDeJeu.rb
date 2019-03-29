@@ -3,8 +3,8 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   QuentinGoncalves
-# @Last modified time: 19-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 28-Mar-2019
 
 
 
@@ -79,30 +79,31 @@ class ModeDeJeu < Screen
     @menu=Gtk::Box.new(:vertical, 100)
     @gtkObject.attach(@menu,1,2,1,2)
   #Bontons de menu
-		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"),@widthTitre,@heightTitre)
+		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"))
+		titre.title
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@widthText,@heightText)
+    aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
   	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
 			manager.levelNumberScreen.applyOn(@parent)
 		 }
 
-    timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
+    timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
 		@menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Renvoie vers la page choix des niveaux
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }
-    clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@widthText,@heightText)
+    clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
 		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
 			 session=TimeAttackSession.new(:timeAttack,:easy)
 			 manager.runGameSession(session)
 		}
-		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@widthText,@heightText)
+		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"))
 	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
 	 save.onClick{
 		 #save = Save.load(29)
@@ -112,7 +113,7 @@ class ModeDeJeu < Screen
 		 manager.listeSaveScreen.applyOn(@parent)
 		}
 
-    retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@widthText,@heightText)
+    retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"))
    @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
 	 #Renvoie vers la page principale
     retour.onClick{

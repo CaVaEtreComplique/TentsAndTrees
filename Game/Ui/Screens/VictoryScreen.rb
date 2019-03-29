@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: VictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 18-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 
 require 'gtk3'
@@ -19,15 +19,16 @@ class VictoryScreen < Screen
     vBox=Gtk::Box.new(:vertical)
     @session=session
 
-    @scoreText=Text.new(@textManager.getScreenTexts("victory" , "errscore")).resize(screen.width*0.25,screen.height*0.1)
-    @resultText=Text.new(@textManager.getScreenTexts("victory" , "win")).resize(screen.width*0.8,screen.height*0.20)
+    @scoreText=Text.new(@textManager.getScreenTexts("victory" , "errscore"))
+    @resultText=Text.new(@textManager.getScreenTexts("victory" , "win"))
+    @resultText.title
     vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
     vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
 
-    @replay=Text.new(@textManager.getButtonLabel("victory" , "retry")).resize(screen.width*0.25,screen.height*0.1)
+    @replay=Text.new(@textManager.getButtonLabel("victory" , "retry"))
     vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
 
-    quit=Text.new(@textManager.getButtonLabel("victory" , "quit")).resize(screen.width*0.25,screen.height*0.1)
+    quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
     quit.onClick{
       @manager.mainScreen.applyOn(@parent)
     }
@@ -42,18 +43,20 @@ class VictoryScreen < Screen
   def applyOn(widget,sScore,isWon)
     screen = Gdk::Screen.default
     @score=sScore
-    @scoreText.updateLabel(@textManager.getScreenTexts("victory" , "score") + @score.to_s,screen.width*0.25,screen.height*0.05)
+    newlab=@textManager.getScreenTexts("victory" , "score")+" "+@score.to_s
+    @scoreText.updateLabel(newlab)
     if !isWon
-      @resultText.updateLabel(@textManager.getScreenTexts("victory" , "lose"),screen.width*0.8,screen.height*0.20)
+      @resultText.updateLabel(@textManager.getScreenTexts("victory" , "lose"))
+      @resultText.title
     end
     if !isWon || !@session.continuable?
       if @session.partOfAdventure?
-        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"),screen.width*0.25,screen.height*0.1)
+        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
         @replay.onClick{
           @manager.modeScreen.applyOn(@parent)
         }
       else
-        @replay.updateLabel(@textManager.getButtonLabel("victory" , "retry"),screen.width*0.25,screen.height*0.1)
+        @replay.updateLabel(@textManager.getButtonLabel("victory" , "retry"))
         @replay.onClick{
           @session.replay(false)
           @manager.runGameSession(@session)
@@ -62,7 +65,7 @@ class VictoryScreen < Screen
     else
       if @session.partOfAdventure? && @session.gameMode == :timeAttack && @session.finishedGrid == @session.numberOfGrid
         #Afficher les etoiles à implementer
-        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"),screen.width*0.25,screen.height*0.1)
+        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
         @replay.onClick{
           @manager.levelNumberScreen.applyOn(@parent)
         }

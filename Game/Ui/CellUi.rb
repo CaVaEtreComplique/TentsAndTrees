@@ -3,15 +3,18 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: CellUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 25-Mar-2019
+# @Last modified time: 29-Mar-2019
 
 
 
 require File.dirname(__FILE__) + "/Click"
 
 class CellUi
-
 	attr_reader :gtkObject, :row, :col, :variation
+
+	# @@cursorIn=Gdk::Cursor.new(:hand1)
+	# @@cursorOut=Gdk::Cursor.new(:arrow)
+
 	def initialize(parent, row, col, assets)
 		@row = row
 		@col = col
@@ -33,12 +36,16 @@ class CellUi
 			end
 		}
 		@gtkObject.signal_connect("enter_notify_event") { |_, event|
+			@gtkObject.window.set_cursor(Click::CURSORIN) unless @gtkObject.window == nil
 			if @parent.draged?
 				@parent.selection(self)
 			else
 				@parent.hover(self)
 			end
 		}
+	  @gtkObject.signal_connect("leave_notify_event") { |widget, event|
+	    @gtkObject.window.set_cursor(Click::CURSOROUT) unless @gtkObject.window == nil
+	  }
 	end
 
 	def leftClicked

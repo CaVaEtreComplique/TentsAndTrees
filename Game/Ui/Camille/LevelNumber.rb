@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 15-Mar-2019
+# @Last modified time: 28-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -43,7 +43,7 @@ class LevelNumber < Screen
       @im=Gtk::Box.new(:horizontal, 25)
       @menu.attach(@im,x,x+1,y,y+1)
       if(i==1 || i==2)
-        n=Text.new(i.to_s,@widthText,@heightText)
+        n=Text.new(i.to_s)
         @im.pack_start(n.gtkObject,expand: false, fill: true, padding:0)
         n.onClick{
           session=@adventure.getLevel(i)
@@ -73,7 +73,7 @@ class LevelNumber < Screen
 
 		@menuR=Gtk::Box.new(:horizontal, 25)
 		@menu.attach(@menuR,5,6,5,6)
-    retour=Text.new("RETOUR",@widthText,screen.height*0.08)
+    retour=Text.new("RETOUR")
 		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
 			manager.modeScreen.applyOn(@parent)
