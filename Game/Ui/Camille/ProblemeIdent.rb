@@ -38,10 +38,12 @@ class ProblemeIdent
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10)
 
-    pb = Text.new("Identifiant introuvable")
-		pb2 = Text.new(" OU mot de passe incorrecte")
+    pb = Text.new("Identifiant introuvable \n OU \nmot de passe incorrecte",15)
+	#	pb2 = Text.new(" OU mot de passe incorrecte",15)
+		pb.colorChange("red")
+	#	pb2.colorChange("red")
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
-		@menu.pack_start(pb2.gtkObject,expand: false, fill: true, padding: @pad)
+	#	@menu.pack_start(pb2.gtkObject,expand: false, fill: true, padding: @pad)
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 		win.add(@gtkObject)
 		win.show_all

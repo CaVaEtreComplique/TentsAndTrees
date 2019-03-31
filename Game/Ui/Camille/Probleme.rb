@@ -39,7 +39,8 @@ class Probleme
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10)
 
-    pb = Text.new("Identifiant indisponible",0.5,0.3)
+    pb = Text.new("Identifiant indisponible",15)
+		pb.colorChange("red")
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
 
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
