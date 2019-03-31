@@ -6,7 +6,6 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/Icone"
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
 
 def require_all(_dir)
@@ -71,16 +70,17 @@ class LevelNumber < Screen
          x=0
       end
     }
-    		@menuR=Gtk::Box.new(:horizontal, 25)
-    		@menu.attach(@menuR,11,12,11,12)
-        retour=Text.new("RETOUR",14)
-    		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
-    		retour.onClick{
-    			manager.modeScreen.applyOn(@parent)
-     		}
-
-
-
-    		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-		end
+    @menuR=Gtk::Box.new(:horizontal, 25)
+		@menu.attach(@menuR,11,12,11,12)
+		retour=Text.new("RETOUR",14)
+    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
+  	retour.onClick{
+			if @game!=nil
+				manager.createNewSave
+				manager.updateSave
+			end
+    	manager.modeScreen.applyOn(@parent)
+		}
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+	end
 end
