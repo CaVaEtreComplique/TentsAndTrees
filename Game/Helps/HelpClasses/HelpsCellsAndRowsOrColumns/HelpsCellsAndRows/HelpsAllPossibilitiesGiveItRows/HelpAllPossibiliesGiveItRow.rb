@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItRow.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
@@ -40,14 +40,14 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   #
   # On level 3, the help tells the player that all the possibilities from a row
   # only leave one state for a cell (the row, the state and the cell are given).
-  def getText(helpLevel)
+  def getText(helpLevel) #allpossibilitiesrow
     case(helpLevel)
       when 1
-        @helpText = "La ligne " + @column[0].column.to_s + " donne une possibilité unique pour une case"
+        @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @column[0].column.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1)
       when 2
-        @helpText = "La ligne " + @column[0].column.to_s + " donne une case " +  @state.to_s + " obligatoire"
+        @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @column[0].column.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1) +  @state.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 2)
       when 3
-        @helpText = "Toutes les possibilités de la rangée " + @row[0].row.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s
+        @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @row[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 2) + @state.to_s
       else
           super(helpLevel)
       end

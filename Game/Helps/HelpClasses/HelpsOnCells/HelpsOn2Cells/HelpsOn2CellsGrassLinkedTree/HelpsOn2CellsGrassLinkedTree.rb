@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOn2CellsGrassLinkedTree.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 
 
@@ -16,15 +16,15 @@ class HelpsOn2CellsGrassLinkedTree < HelpOn2Cells
     super(cellTent, cellTree)
   end
 
-  def getText(helpLevel)
+  def getText(helpLevel) #grasslinkedtree
     #returns the text of the help, saying that a cell touch a class and is some grass
     case helpLevel
       when 1
-        return "Un réseau d'arbres est complet"
+        return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0)
       when 2
-        return "Un réseau d'arbres est complet, doncune case qui le touche est de l'herbe"
+        return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0)
       when 3
-        return "La case " + @cell.to_s + " est du gazon car le reseau d'arbre en  " + @cell2.to_s + " est complet"
+        return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 1) + @cell2.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 2)
       else
           super(helpLevel)
     end

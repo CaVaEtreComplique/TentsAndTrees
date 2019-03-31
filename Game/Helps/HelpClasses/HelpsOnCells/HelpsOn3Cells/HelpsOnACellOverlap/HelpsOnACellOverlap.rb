@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellOverlap.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 
 
@@ -17,15 +17,15 @@ class HelpsOnACellOverlap < HelpOn3Cells
     super(cellGrass, cellwhite1, cellwhite2)
   end
 
-  def getText(helpLevel)
+  def getText(helpLevel) #overlap
     #returns the text of the help, saying that a cell touch a class and is some grass
     case helpText
       when 1
-        return "Deux cellules blanches indiquent l'etat d'une troisième"
+        return @textManager.getHelpsTexts("overlap", helpLevel, 0)
       when 2
-        return "Deux cellules blanches indiquent qu'une autre cellule est du gazon"
+        return @textManager.getHelpsTexts("overlap", helpLevel, 0)
       when 3
-        return "La case " + @cell.to_s + " est touchée par deux cases blanches en " + @cell2.to_s + " et en " + @cell3.to_s + " et est donc du gazon."
+        return @textManager.getHelpsTexts("overlap", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 1) + @cell2.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 2) + @cell3.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 3)
       else
           super(helpLevel)
     end
