@@ -6,8 +6,8 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/../Screens/Screen"
-require File.dirname(__FILE__) + "/../Buttons/Button"
+require File.dirname(__FILE__) + "/Icone"
+require File.dirname(__FILE__) + "/../AssetsClass/Asset"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -23,65 +23,64 @@ class LevelNumber < Screen
 
 		#Chargement de la campagne
 		@adventure = Levels.new
+    screen=Gdk::Screen.default
+    @pad=1
 
-		screen=Gdk::Screen.default
-		@pad=1
-		@widthText=screen.width*0.1
-    @heightText=screen.height*0.1
-
-		@gtkObject= Gtk::Table.new(3,3)
-		@menu= Gtk::Table.new(6,6)
-    #@menu=Gtk::Box.new(:vertical, 25)
+    @gtkObject= Gtk::Table.new(3,3)
+    @menu= Gtk::Table.new(12,12)
     @gtkObject.attach(@menu,0,1,0,1)
 
     @nbNiveau=25
+    @nbEtoile=3
+		@nbEtoileObtenu=3
     x=0
     y=0
+    (1.. @nbNiveau).each { |i|
+        @im=Gtk::Box.new(:horizontal, 25)
+				@menu.attach(@im,x,x+1,y,y+1)
+
+				@BoxH=Gtk::Box.new(:horizontal,25)
+				@BoxV=Gtk::Box.new(:vertical,25)
+				@im.pack_start(@BoxV,expand: false, fill: true, padding: @pad)
+
+				@BoxV.pack_start(@BoxH,expand: false, fill: true, padding: @pad)
+
+				niveau=Text.new(i.to_s,40)
+			 	@BoxH.pack_start(niveau.gtkObject,expand: false, fill: true, padding: @pad)
+
+				@lock=Gtk::EventBox.new()
+				@stars=Gtk::Box.new(:horizontal,25)
+				s=Star.new(@nbEtoile,@nbEtoileObtenu)
+				@BoxV.pack_start(s.stars,expand: false, fill: true, padding: @pad)
 
 
-    (1... @nbNiveau+1).each { |i|
-      @im=Gtk::Box.new(:horizontal, 25)
-      @menu.attach(@im,x,x+1,y,y+1)
       if(i==1 || i==2)
-        n=Text.new(i.to_s)
-        @im.pack_start(n.gtkObject,expand: false, fill: true, padding:0)
-        n.onClick{
+        niveau.onClick{
           session=@adventure.getLevel(i)
           manager.runGameSession(session)
-        }
+				}
       else
-      n=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/Locked/"+i.to_s+".png")
-  		n.resize(70,65)
-  		n.applyOn(@im)
+        loc=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
+        loc.resize(30,30)
+        loc.applyOn(@lock)
+        @BoxH.pack_start(@lock,expand: false, fill: true, padding: @pad)
       end
-      if i>5+y*5
+      x=x+2
+      if i>4+y*5
           y=y+1
-           x=0
+         x=0
       end
-      x=x+1
-
-    #  @menu.remove(@im)
-	#	@im=Gtk::Box.new(:horizontal, 25)
-	#	@menu.attach(@im,x,x+1,y,y+1)
-    #  n=Text.new(i.to_s,@widthText,@heightText)
-    #  @im.pack_start(n.gtkObject,expand: false, fill: true, padding: @pad)
-	#	n.onClick{
-	#		session=@adventure.getLevel(i)
-	#		manager.runGameSession(session)
-	#	}
     }
-
-		@menuR=Gtk::Box.new(:horizontal, 25)
-		@menu.attach(@menuR,5,6,5,6)
-    retour=Text.new("RETOUR")
-		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
-		retour.onClick{
-			manager.modeScreen.applyOn(@parent)
- 		}
-
+    		@menuR=Gtk::Box.new(:horizontal, 25)
+    		@menu.attach(@menuR,11,12,11,12)
+        retour=Text.new("RETOUR",14)
+    		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
+    		retour.onClick{
+    			manager.modeScreen.applyOn(@parent)
+     		}
 
 
-		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-  end
 
+    		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+		end
 end
