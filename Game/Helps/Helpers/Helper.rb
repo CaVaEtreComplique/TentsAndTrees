@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 
 
@@ -91,8 +91,8 @@ class Helper < FictivHelper
     end
   end
 
-  def cout()
-    return @lastHelp.cout(@helpLevel)
+  def price()
+    return @lastHelp.price(@helpLevel)
   end
 
   def help(game) #called to help the player

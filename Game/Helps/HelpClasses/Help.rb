@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Help.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 
 
@@ -31,6 +31,7 @@ class Help
   # * +helpText+ : The text that will be shown every time the player needs help.
   def initialize()
     @price = 5
+    @textManager = XmlReader.instance
     #Initializes the help text as what it needs to be.
     @helpText = self.getText(@helpLevel)
   end
@@ -53,7 +54,7 @@ class Help
   # Returns the help text.
   # ---------
   def getText(helpLevel)
-    return "Txt not Available"
+      return @textManager.getHelpsTexts("help", 0, 0)
   end
 
   # This method a redefinition of the to_s method, used to print the help text.

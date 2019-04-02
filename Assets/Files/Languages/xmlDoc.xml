@@ -4,7 +4,7 @@
 @Email:  maxime_touze@univ-lemans.fr
 @Filename: xmlDoc.xml
 @Last modified by:   maxime
-@Last modified time: 29-Mar-2019
+@Last modified time: 02-Apr-2019
 -->
 
 
@@ -121,7 +121,7 @@
     </screen>
     <helps>
       <help>
-        <lvl0>Texte non disponibe</lvl0>
+        <lvl0>Texte non disponible</lvl0>
       </help>
       <notfound>
         <lvl0>Aucune aide trouvee</lvl0>
@@ -136,7 +136,56 @@
         <lvl2>La ligne ; donne une case ; obligatoire</lvl2>
         <lvl3>Toutes les possibilités de la ligne ; font que la case ; est a l'état </lvl3>
       </allpossibilitiesrow>
-
+      <toofaroftrees>
+        <lvl1>Une case ne touche pas d'arbre</lvl1>
+        <lvl2>Une case ne touche pas d'arbre et est donc du gazon</lvl2>
+        <lvl3>La case ; ne touche pas d'arbre et est donc du gazon</lvl3>
+      </toofaroftrees>
+      <grasslinkedtree>
+        <lvl1>Un réseau d'arbres est complet</lvl1>
+        <lvl2>Un réseau d'arbres est complet, donc une case qui le touche est de l'herbe</lvl2>
+        <lvl3>La case ; est du gazon car le reseau d'arbre en ; est complet</lvl3>
+      </grasslinkedtree>
+      <unicsolution>
+        <lvl1>Un arbre a une case blanche unique et n'est pas relié à une tente</lvl1>
+        <lvl2>Un arbre a une seule case blanche autour de lui, c'est forcément une tente</lvl2>
+        <lvl3>La case ; est une tent car elle est la solution unique de l'arbre en ; .</lvl3>
+      </unicsolution>
+      <tentbcsoftree>
+        <lvl1>Un arbre oblige un état d'une case</lvl1>
+        <lvl2>Un arbre oblige une case à etre une tente</lvl2>
+        <lvl3>La case ; est une tent car elle touche le reseau d'arbre et tente en ; .</lvl3>
+      </tentbcsoftree>
+      <celltouchatent>
+        <lvl1>Il y a au moins une case qui touche une Tente</lvl1>
+        <lvl2>Les cases qui touchent des tentes sont du gazon</lvl2>
+        <lvl3>La case ; touche une tente case ; donc c est de l herbe.</lvl3>
+      </celltouchatent>
+      <overlap>
+        <lvl1>Deux cellules blanches indiquent l'etat d'une troisième</lvl1>
+        <lvl2>Deux cellules blanches indiquent qu'une autre cellule est du gazon</lvl2>
+        <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
+      </overlap>
+      <allgrassoncolumn>
+        <lvl1>Vous avez placé toutes le gazon d une colonne</lvl1>
+        <lvl2>Vous avez placé toutes le gazon d une colonne, donc toutes les cases blanches sont des tentes</lvl2>
+        <lvl3>Tout le gazon nécessaire a été placé, donc toutes les cellules vide de la colonne ; sont des tentes</lvl3>
+      </allgrassoncolumn>
+      <alltentsoncolumn>
+        <lvl1>Vous avez placé toutes les tentes d'une colonne</lvl1>
+        <lvl2>Vous avez placé toutes les tentes d'une colonne, donc toutes les cellules blanches sont de l'herbe</lvl2>
+        <lvl3>Toutes les tentes nécessaires ont été placées, donc toutes les cellules vides de la colonne ; sont de l'herbe</lvl3>
+      </alltentsoncolumn>
+      <allgrassonrow>
+        <lvl1>Vous avez placé tout le gazon d'une ligne</lvl1>
+        <lvl2>Vous avez placé tout le gazon d'une ligne, donc toutes ses cellules blanches sont des tentes</lvl2>
+        <lvl3>Toute l'herbe nécessaire a été placée, donc toutes les cellules vides de la ligne ; sont des tentes</lvl3>
+      </allgrassonrow>
+      <alltentsonrow>
+        <lvl1>Vous avez placé toutes les tentes d'une ligne</lvl1>
+        <lvl2>Vous avez placé toutes les tentes d'une ligne, donc toutes ses cellules blanches sont de l'herbe</lvl2>
+        <lvl3>Toutes les tentes nécessaires ont été placées,donc toutes les cellules vides de la ligne ; sont de l'herbe</lvl3>
+      </alltentsonrow>
     </helps>
   </french>
 
@@ -252,7 +301,72 @@
 
     </screen>
     <helps>
-      <notfound>No help found</notfound>
+      <help>
+        <lvl0>Text is not available</lvl0>
+      </help>
+      <notfound>
+        <lvl0>No Help Found</lvl0>
+      </notfound>
+      <allpossibilitiescolumn>
+        <lvl1>The column ; donne une possibilité unique pour une case</lvl1>
+        <lvl2>La colonne ; donne une case ; obligatoire</lvl2>
+        <lvl3>Toutes les possibilités de la colonne ; font que la case ; est a l'état </lvl3>
+      </allpossibilitiescolumn>
+      <allpossibilitiesrow>
+        <lvl1>La ligne ; donne une possibilité unique pour une case</lvl1>
+        <lvl2>La ligne ; donne une case ; obligatoire</lvl2>
+        <lvl3>Toutes les possibilités de la ligne ; font que la case ; est a l'état </lvl3>
+      </allpossibilitiesrow>
+      <toofaroftrees>
+        <lvl1>Une case ne touche pas d'arbre</lvl1>
+        <lvl2>Une case ne touche pas d'arbre et est donc du gazon</lvl2>
+        <lvl3>La case ; ne touche pas d'arbre et est donc du gazon</lvl3>
+      </toofaroftrees>
+      <grasslinkedtree>
+        <lvl1>Un réseau d'arbres est complet</lvl1>
+        <lvl2>Un réseau d'arbres est complet, donc une case qui le touche est de l'herbe</lvl2>
+        <lvl3>La case ; est du gazon car le reseau d'arbre en ; est complet</lvl3>
+      </grasslinkedtree>
+      <unicsolution>
+        <lvl1>Un arbre a une case blanche unique et n'est pas relié à une tente</lvl1>
+        <lvl2>Un arbre a une seule case blanche autour de lui, c'est forcément une tente</lvl2>
+        <lvl3>La case ; est une tent car elle est la solution unique de l'arbre en ; .</lvl3>
+      </unicsolution>
+      <tentbcsoftree>
+        <lvl1>Un arbre oblige un état d'une case</lvl1>
+        <lvl2>Un arbre oblige une case à etre une tente</lvl2>
+        <lvl3>La case ; est une tent car elle touche le reseau d'arbre et tente en ; .</lvl3>
+      </tentbcsoftree>
+      <celltouchatent>
+        <lvl1>Il y a au moins une case qui touche une Tente</lvl1>
+        <lvl2>Les cases qui touchent des tentes sont du gazon</lvl2>
+        <lvl3>La case ; touche une tente case ; donc c est de l herbe.</lvl3>
+      </celltouchatent>
+      <overlap>
+        <lvl1>Deux cellules blanches indiquent l'etat d'une troisième</lvl1>
+        <lvl2>Deux cellules blanches indiquent qu'une autre cellule est du gazon</lvl2>
+        <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
+      </overlap>
+      <allgrassoncolumn>
+        <lvl1>You placed all the grass of a column</lvl1>
+        <lvl2>You placed all the grass on a column, so all the white cells are tents</lvl2>
+        <lvl3>All grass needed have been placed, so all the empty cells of the column ; are tents</lvl3>
+      </allgrassoncolumn>
+      <alltentsoncolumn>
+        <lvl1>You placed all the tents of a column</lvl1>
+        <lvl2>You placed all the tents on a column, so all the white cells are grass</lvl2>
+        <lvl3>All tents needed have been placed, so all the empty cells of the column ; are grass</lvl3>
+      </alltentsoncolumn>
+      <allgrassonrow>
+        <lvl1>You placed all the grass of a row</lvl1>
+        <lvl2>You placed all the grass on a row, so all the white cells are tents</lvl2>
+        <lvl3>All grass needed have been placed, so all the empty cells of the row ; are tents</lvl3>
+      </allgrassonrow>
+      <alltentsonrow>
+        <lvl1>You placed all the tents of a row</lvl1>
+        <lvl2>You placed all the tents on a row, so all the white cells are grass</lvl2>
+        <lvl3>All tents needed have been placed, so all the empty cells of the row ; are grass</lvl3>
+      </alltentsonrow>
     </helps>
   </english>
 </languages>

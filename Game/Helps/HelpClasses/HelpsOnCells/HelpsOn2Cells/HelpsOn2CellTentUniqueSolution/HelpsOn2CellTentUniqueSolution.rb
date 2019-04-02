@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOn2CellUniqueSolution.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 31-Mar-2019
 
 
 
@@ -16,15 +16,15 @@ class HelpsOn2CellTentUniqueSolution < HelpOn2Cells
     super(cellTent, cellTree)
   end
 
-  def getText(helpLevel)
+  def getText(helpLevel) #unicsolution
     #returns the text of the help, saying that a cell touch a class and is some grass
     case helpLevel
       when 1
-        return "Un arbre a une case blanche unique et n'est pas relié à une tente"
+        return @textManager.getHelpsTexts("unicsolution", helpLevel, 0)
       when 2
-        return "Un arbre a une seule case blanche autour de lui, c'est forcément une tente"
+        return @textManager.getHelpsTexts("unicsolution", helpLevel, 0)
       when 3
-        return "La case " + @cell.to_s + " est une tent car elle est la solution unique de l'arbre en " + @cell2.to_s
+        return @textManager.getHelpsTexts("unicsolution", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("unicsolution", helpLevel, 1) + @cell2.to_s
       else
           super(helpLevel)
     end

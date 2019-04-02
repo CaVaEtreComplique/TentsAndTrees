@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 02-Apr-2019
 
 
 require File.dirname(__FILE__) + "/../HelpCellsAndColumns"
@@ -45,14 +45,14 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   # column and the state).
   #
   # On level 3, the column, the cell and the state will be given.
-  def getText(helpLevel)
+  def getText(helpLevel) #allpossibilitiescolumn
     case(helpLevel)
       when 1
-        @helpText = "La colonne " + @column[0].column.to_s + " donne une possibilité unique pour une case"
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1)
       when 2
-        @helpText = "La colonne " + @column[0].column.to_s + " donne une case " +  @state.to_s + " obligatoire"
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @state.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2)
       when 3
-        @helpText = "Toutes les possibilités de la colonne " + @column[0].column.to_s + " font que la case " + @cell.to_s + " est a l'état " + @state.to_s
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2) + @state.to_s
       else
           super(helpLevel)
       end
