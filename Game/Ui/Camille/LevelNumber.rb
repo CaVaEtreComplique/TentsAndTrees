@@ -30,7 +30,7 @@ class LevelNumber < Screen
     @gtkObject.attach(@menu,0,1,0,1)
 
     @nbNiveau=25
-    @nbEtoile=3
+    @nbEtoile=5
 		@nbEtoileObtenu=3
     x=0
     y=0
@@ -55,8 +55,15 @@ class LevelNumber < Screen
 
       if(i==1 || i==2)
         niveau.onClick{
-          session=@adventure.getLevel(i)
-          manager.runGameSession(session)
+          if @game != nil
+						if @game.session.partOfAdventure?
+							session=@adventure.getLevel(i,@game.session.overAllStars)
+						else
+							session=@adventure.getLevel(i,Hash.new)
+						end
+					else
+						session=@adventure.getLevel(i,Hash.new)
+					end
 				}
       else
         loc=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
