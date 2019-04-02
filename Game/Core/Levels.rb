@@ -11,15 +11,16 @@ class Levels
 
 	def initialize()
     @levels = {
-			1 =>  AdventureLevel.new(:quickplay, :easy, 1, 3, false),
-			2 => AdventureLevel.new(:timeAttack, :easy, false, 3, 1),
-			3 => AdventureLevel.new(:quickplay, :easy, 0.95, 3, false),
-			4 => AdventureLevel.new(:timeAttack, :easy, false, 3, 2),
-			5 => AdventureLevel.new(:quickplay, :easy, 0.9, 3, false)
+			1 => [:quickplay, :easy, 1, 3, 1,1],
+			2 => [:timeAttack, :easy, 1, 3, 2,2],
+			3 => [:quickplay, :easy, 0.95, 3, 1,3],
+			4 => [:timeAttack, :easy, 1, 3, 2,4],
+			5 => [:quickplay, :easy, 0.9, 3, 1,5]
 		}
 	end
 
-  def getLevel(level)
-    @levels.fetch(level)
+  def getLevel(level,overallStars)
+    levelInfo = @levels.fetch(level)
+		AdventureLevel.new(levelInfo[0], levelInfo[1], levelInfo[2], levelInfo[3], levelInfo[4], overallStars,levelInfo[5])
   end
 end

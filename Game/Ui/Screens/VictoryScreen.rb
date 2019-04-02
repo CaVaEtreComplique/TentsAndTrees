@@ -63,7 +63,7 @@ class VictoryScreen < Screen
         }
       end
     else
-      if @session.partOfAdventure? && @session.gameMode == :timeAttack && @session.finishedGrid == @session.numberOfGrid
+      if @session.partOfAdventure?  && @session.finishedGrid == @session.numberOfGrid
         #Afficher les etoiles à implementer
         @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
         @replay.onClick{
