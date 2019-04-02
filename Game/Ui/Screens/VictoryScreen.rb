@@ -53,7 +53,7 @@ class VictoryScreen < Screen
       if @session.partOfAdventure?
         @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
         @replay.onClick{
-          @manager.modeScreen.applyOn(@parent)
+          @manager.levelNumberScreen.applyOn(@parent)
         }
       else
         @replay.updateLabel(@textManager.getButtonLabel("victory" , "retry"))

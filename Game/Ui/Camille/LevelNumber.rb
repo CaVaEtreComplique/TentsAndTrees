@@ -64,6 +64,7 @@ class LevelNumber < Screen
 					else
 						session=@adventure.getLevel(i,Hash.new)
 					end
+					manager.runGameSession(session)
 				}
       else
         loc=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
