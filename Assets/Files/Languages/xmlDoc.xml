@@ -4,7 +4,7 @@
 @Email:  maxime_touze@univ-lemans.fr
 @Filename: xmlDoc.xml
 @Last modified by:   maxime
-@Last modified time: 31-Mar-2019
+@Last modified time: 02-Apr-2019
 -->
 
 
@@ -348,7 +348,7 @@
         <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
       </overlap>
       <allgrassoncolumn>
-        <lvl1>You placed all the tents of a column</lvl1>
+        <lvl1>You placed all the grass of a column</lvl1>
         <lvl2>You placed all the grass on a column, so all the white cells are tents</lvl2>
         <lvl3>All grass needed have been placed, so all the empty cells of the column ; are tents</lvl3>
       </allgrassoncolumn>
