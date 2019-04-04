@@ -21,33 +21,36 @@ class ListeSave < Screen
 		super(manager.win)
 		screen=Gdk::Screen.default
 		#Variable pour resize le texte
-		@pad=1
-		@widthTitre=screen.width*0.10
-		@heightTitre=screen.height*0.08
-		@widthText=screen.width*0.15
-		@heightText=screen.height*0.04
+		@pad=10
 
-		@gtkObject2=Gtk::Alignment.new(0.5, 0.2, 0, 0)
 		@gtkObject= Gtk::Table.new(3,3)
-		@gtkObject.attach(@gtkObject2,1,2,1,2)
-		@menu=Gtk::Box.new(:vertical,100)
-		@gtkObject2.add(@menu)
+		@menu=Gtk::Box.new(:vertical)
+		@menu2=Gtk::Box.new(:vertical)
+
+
+		@scrol=Gtk::ScrolledWindow.new()
+		@scrol.border_width=10
+		@vp=Gtk::Viewport.new(nil,@scrol.vadjustment)
+		@vp.add(@menu2)
+		@menu2.add(@menu)
+		@scrol.add(@vp)
+		@gtkObject.attach(@scrol,1,2,0,1)
 
 		connect=ConnectDB.new
 
 		tab=connect.getPlayersSave(joueur)
 
 		if(tab.empty?)
-				noSave=Text.new("PAS DE SAUVEGARDE")
+				noSave=Text.new("PAS DE SAUVEGARDE",14)
 				@menu.pack_start(noSave.gtkObject ,expand: false, fill: true, padding: @pad)
 		else
 				tab.each{|i|
-					@menu.pack_start(SaveBlock.new(manager,i,@parent),expand: false, fill: true, padding: @pad)
+					@menu.pack_start(SaveBlock.new(manager,i,@parent),expand: false, fill: true, padding:@pad)
 
 				}
 		end
-		retour=Text.new("RETOUR")
-		@menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
+		retour=Text.new("RETOUR",14)
+		@menu2.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
 			manager.modeScreen.applyOn(@parent)
 		 }
