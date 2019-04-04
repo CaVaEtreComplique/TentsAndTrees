@@ -12,10 +12,10 @@ class Diapo
   attr_accessor :pile, :picindex, :imgLoaded, :image, :box, :window, :time
 
 def initialize(width , height)
-  pic1 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/1SeuleTenteParArbre.png")
-  pic2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/ColonneAZero.png")
-  pic3 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/NombreColoneEtLigne.png")
-  pic4 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/TentePasEnDiagonale.png")
+  pic1 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle1.png")
+  pic2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle2.png")
+  pic3 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle3.png")
+  pic4 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle4.png")
   @pile = [pic1, pic2, pic3, pic4]
   @picindex = 0
   @width = width
