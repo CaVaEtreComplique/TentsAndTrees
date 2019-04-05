@@ -68,19 +68,16 @@ class Parametre < Screen
     super(manager.win)
 			#Variable de l'ecran
     screen=Gdk::Screen.default
-		#Variable pour resize le texte
-	  @pad =10
-		@widthTitre=screen.width*0.10
-    @heightTitre=screen.height*0.08
-    @widthText=screen.width*0.08
-    @heightText=screen.height*0.05
+
+		@pad=screen.height*0.03
+		@police=screen.height*0.04
 
     @gtkObject= Gtk::Table.new(3,3)
-    @menu=Gtk::Box.new(:vertical, 100)
+    @menu=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menu,1,2,1,2)
 
   #Bontons de menu
-    titre=Text.new(@textManager.getScreenTexts("settings" , "title"))
+    titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@police*2)
 		titre.title
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 
@@ -94,7 +91,18 @@ class Parametre < Screen
     langue.append_text(ang)
 
 
-		desins=Text.new("Désincription")
+
+
+
+    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@police)
+    @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
+    appli.onClick{
+      @textManager.language=langue.active_text
+			manager.update
+			manager.mainScreen.applyOn(@parent)
+    }
+
+		desins=Text.new("Désincription",@police)
 		@menu.pack_start(desins.gtkObject ,expand: false, fill: true, padding:@pad)
 		desins.onClick{
 			connect = ConnectDB.new
@@ -105,16 +113,7 @@ class Parametre < Screen
 			Connexion.new
 		}
 
-
-    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"))
-    @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
-    appli.onClick{
-      @textManager.language=langue.active_text
-			manager.update
-			manager.mainScreen.applyOn(@parent)
-    }
-
-    retour=Text.new(@textManager.getButtonLabel("settings" , "back"))
+    retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@police)
     @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		#Renvoie sur la page principale
     retour.onClick{

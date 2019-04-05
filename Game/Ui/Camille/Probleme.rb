@@ -23,7 +23,8 @@ class Probleme
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-	  @pad =8
+		@pad=screen.height*0.03
+		@police=screen.height*0.025
 		w=screen.width
 		h=screen.height
     win = Gtk::Window.new
@@ -39,7 +40,7 @@ class Probleme
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10)
 
-    pb = Text.new("Identifiant indisponible",15)
+    pb = Text.new("Identifiant indisponible",@police)
 		pb.colorChange("red")
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
 

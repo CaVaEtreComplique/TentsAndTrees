@@ -23,7 +23,8 @@ class ProblemeIdent
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-	  @pad =1
+		@pad=screen.height*0.03
+		@police=screen.height*0.02
     win = Gtk::Window.new
 		w=screen.width
 		h=screen.height
@@ -36,9 +37,9 @@ class ProblemeIdent
 		@gtkObject.attach(@menu,1,2,1,2)
 
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
-		@buffer=@buffer.scale(w/4,h/10)
+		@buffer=@buffer.scale(w/4,h/10+100)
 
-    pb = Text.new("Identifiant introuvable \n OU \nmot de passe incorrecte",15)
+    pb = Text.new("Identifiant introuvable \n OU \nmot de passe incorrecte",@police)
 	#	pb2 = Text.new(" OU mot de passe incorrecte",15)
 		pb.colorChange("red")
 	#	pb2.colorChange("red")

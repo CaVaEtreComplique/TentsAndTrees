@@ -25,7 +25,7 @@ class Star
        if(e <= nbEtoileObtenu)
          #s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
 				 sH=sHappy
-				 sH.resize(50,50)
+				 sH.resize(75,75)
 	       sH.applyOn(@star)
 			 else
          #s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
