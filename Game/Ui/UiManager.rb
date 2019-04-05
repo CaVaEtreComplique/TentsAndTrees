@@ -42,13 +42,21 @@ class UiManager
       # Generation des textures
       cellAssets=CellAssets.new(game.nRow, game.nCol)
       # Generation des ecrans de jeu
-      victoryScreen=VictoryScreen.new(self,@session)
+      victoryScreen=getVictoryScreen(@session)
       @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
       ProcessStatus.send("Affichage de l'écran de jeu")
       @gameScreen.applyOn(@win)
       ProcessStatus.send("Lancement de la partie")
       game.run
     }
+  end
+
+  def getVictoryScreen(session)
+    if session.partOfAdventure?
+      AdventureVictoryScreen.new(self,session)
+    else
+      VictoryScreen.new(self,@session)
+    end
   end
 
   def runGameSessionFromSave(save)
