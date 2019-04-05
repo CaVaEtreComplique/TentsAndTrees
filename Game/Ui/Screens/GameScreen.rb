@@ -99,10 +99,13 @@ class GameScreen < Screen
     globalBox.pack_start(removeGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(help.gtkObject, expand: true, fill: false, padding: 10)
 
-    globalAli=Gtk::Alignment.new(1, 1, 0, 1).add(globalBox)
+    globalBoxH = Gtk::Box.new(:horizontal)
+    globalBoxH.add(globalBox)
 
-    @gtkObject.attach(globalAli,3,4,0,1)
-    @gtkObject.attach(@helpResponseUi.gtkObject,3,4,2,3)
+    helpLabelAli  = Gtk::Alignment.new(0.2, 0.3, 0, 0).add(@helpResponseUi.gtkObject)
+
+    @gtkObject.attach(globalBoxH,3,4,0,1)
+    @gtkObject.attach(helpLabelAli,2,4,2,3)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end
@@ -134,7 +137,7 @@ class GameScreen < Screen
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,true)
       @game.delete_observers
-    elsif @game.time <= 0
+    elsif @game.time <=0
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false)
       @game.delete_observers
