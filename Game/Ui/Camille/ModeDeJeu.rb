@@ -3,8 +3,8 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -84,7 +84,7 @@ class ModeDeJeu < Screen
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
     aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@police)
-  	@scrol.add(aventure.gtkObject,@pad)
+  	@scrol.add(aventure.gtkObject	,@pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
 			manager.levelNumberScreen.applyOn(@parent)
@@ -104,11 +104,14 @@ class ModeDeJeu < Screen
     	session.createSave
     	manager.runGameSession(session)
 		}
+
 		tuto=Text.new("tuto",@police)
 		@scrol.add(tuto.gtkObject,@pad)
 	 	tuto.onClick{
-
+			session=TutorialSession.new
+    	manager.runGameSession(session)
 	  }
+
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@police)
 		@scrol.add(save.gtkObject,@pad)
 	 save.onClick{

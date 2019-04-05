@@ -2,8 +2,8 @@
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
-# @Last modified by:   zeigon
-# @Last modified time: 29-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 05-Apr-2019
 
 class UiManager
     attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session
@@ -41,12 +41,21 @@ class UiManager
       game=@session.game
       # Generation des textures
       cellAssets=CellAssets.new(game.nRow, game.nCol)
-      # Generation des ecrans de jeu
-      victoryScreen=getVictoryScreen(@session)
-      @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
-      ProcessStatus.send("Affichage de l'écran de jeu")
-      @gameScreen.applyOn(@win)
-      ProcessStatus.send("Lancement de la partie")
+      if session.gameMode != :tutorial
+        # Generation des ecrans de jeu
+        victoryScreen=getVictoryScreen(@session)
+        @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
+        ProcessStatus.send("Affichage de l'écran de jeu")
+        @gameScreen.applyOn(@win)
+        ProcessStatus.send("Lancement de la partie")
+      else
+        # Generation des ecrans de jeu
+        victoryScreen=getVictoryScreen(@session)
+        @gameScreen=TutorialGameScreen.new(self,game,cellAssets,victoryScreen)
+        ProcessStatus.send("Affichage de l'écran de jeu")
+        @gameScreen.applyOn(@win)
+        ProcessStatus.send("Lancement de la partie")
+      end
       game.run
     }
   end

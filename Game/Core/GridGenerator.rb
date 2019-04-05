@@ -2,7 +2,7 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
-# @Last modified by:   zeigon
+# @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
 
@@ -33,17 +33,17 @@ class GridGenerator
       line=Random.new.rand(701..1100)
     when :random
       line=Random.new.rand(0...1100)
-    when (0...1100).include(difficulty)
-      line=difficulty
+    when :tutorial
+      line=0
     end
 
     # case mode
     # when :timeAttack
-      if (0...100).include?(line)
+      if (0..100).include?(line)
         @associatedTimer=300
-      elsif (101...700).include?(line)
+      elsif (101..700).include?(line)
         @associatedTimer=600
-      elsif (701...1100).include?(line)
+      elsif (701..1100).include?(line)
         @associatedTimer=1800
       end
     # else
