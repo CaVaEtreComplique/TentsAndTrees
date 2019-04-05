@@ -49,10 +49,13 @@ class GameScreen < Screen
       game.resetGrid
       @gridUi.refresh
     }
+
+
     undoButton=Text.new(@textManager.getButtonLabel("ingame" , "undo"))
     undoButton.onClick(){
       @gridUi.undo
     }
+
     redoButton=Text.new(@textManager.getButtonLabel("ingame" , "redo"))
     redoButton.onClick(){
       @gridUi.redo
@@ -63,6 +66,8 @@ class GameScreen < Screen
     @helpResponseUi.weight="normal"
     @helpResponseUi.color="red"
     @helpResponseUi.size=15
+    @helpResponseUi.apply
+    @helpResponseUi.setWrap(true)
     help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
     help.onClick(){
       # Display the help message
@@ -76,7 +81,11 @@ class GameScreen < Screen
       }
     }
 
-    pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
+    # pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
+    pause=Text.new("||" , "pause")
+    pause.weight="ultrabold"
+    pause.size=40
+    pause.apply
       pause.onClick(){
         @game.chrono.stop
         @pauseScreen.applyOn(@parent)
@@ -91,6 +100,7 @@ class GameScreen < Screen
     aliPause=Gtk::Alignment.new(1, 0.2, 0, 0).add(pause.gtkObject)
 
     globalBox = Gtk::Box.new(:vertical)
+    globalBox.width_request=(screen.width*0.3)
     globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
     globalBox.pack_start(@chronoUi.gtkObject, expand: true, fill: false, padding: 10)
     globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
@@ -98,14 +108,14 @@ class GameScreen < Screen
     globalBox.pack_start(newGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(removeGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(help.gtkObject, expand: true, fill: false, padding: 10)
+    # globalBox.pack_start(@helpResponseUi.gtkObject, expand: false, fill: false, padding: 10)
 
-    globalBoxH = Gtk::Box.new(:horizontal)
-    globalBoxH.add(globalBox)
+    globalBoxH = Gtk::Box.new(:horizontal).add(globalBox)
+    globalAli  = Gtk::Alignment.new(0.5, 0, 0, 0).add(globalBoxH)
+    pauseAli  = Gtk::Alignment.new(0.5, 0, 0, 1 ).add(@helpResponseUi.gtkObject)
 
-    helpLabelAli  = Gtk::Alignment.new(0.2, 0.3, 0, 0).add(@helpResponseUi.gtkObject)
-
-    @gtkObject.attach(globalBoxH,3,4,0,1)
-    @gtkObject.attach(helpLabelAli,2,4,2,3)
+    @gtkObject.attach(globalAli,3,4,1,2)
+    @gtkObject.attach(pauseAli,2,4,2,3)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end

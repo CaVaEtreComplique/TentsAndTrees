@@ -2,8 +2,8 @@
 # @Date:   13-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ChronoUi.rb
-# @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 05-Apr-2019
 
 require File.dirname(__FILE__) + "/Text"
 
@@ -36,6 +36,7 @@ class ChronoUi < Text
     @color="black"
     @weight="normal"
     @style="normal"
+		apply
 	end
 
 	# The updateLabel method updates the chronometer button's label in order to

@@ -2,7 +2,7 @@
 # @Date:   10-Feb-2019
 # @Email:  goncalves.quentin.etu@univ-lemans.fr
 # @Filename: AdventureVictoryScreen.rb
-# @Last modified by:   QuentinGoncalves
+# @Last modified by:   zeigon
 # @Last modified time: 05-Apr-2019
 
 
@@ -70,7 +70,9 @@ class AdventureVictoryScreen < Screen
 
       quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
       quit.onClick{
-        @manager.modeScreen.applyOn(@parent)
+  			manager.session.updateSave
+  			manager.updateSave
+      	manager.mainScreen.applyOn(@parent)
       }
       @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
     end
