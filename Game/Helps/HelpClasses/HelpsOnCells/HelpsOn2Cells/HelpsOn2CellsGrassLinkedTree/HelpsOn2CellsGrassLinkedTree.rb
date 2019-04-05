@@ -5,20 +5,61 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
 require File.dirname(__FILE__) + "/../HelpOn2Cells"
 
+##
+# ===== Presentation
+# The HelpsOn2CellsGrassLinkedTree class is inherited from the HelpOn2Cells
+# abstract class. When a part of the grid has a tent for every
+# tree, this help will show a text telling that any empty cell in this part of
+# the grid should be grass. This class is instanciable.
+#
+# ===== Methods
+# This class' methods are its constructor and the getText method from the
+# HelpOn2Cells class.
 class HelpsOn2CellsGrassLinkedTree < HelpOn2Cells
-  #a class for helping when a cell is link to a tree because of only one posibility
-  public_class_method :new #instanciable
+
+  # :nodoc:
+  public_class_method :new
+  # :startdoc:
+
+  ##
+  # ===== Presentation
+  # The class' constructor that is here to initialize the two variables taken in
+  # parameters with the initialize method from the HelpOn2Cells class.
+  #
+  # ===== Parameters
+  # * +cellTent+ : one of the two cells needed, this one is a tent.
+  # * +cellTree+ : The other one of the two cells, this one is a tree.
   def initialize(cellTent, cellTree)
     super(cellTent, cellTree)
   end
 
-  def getText(helpLevel) #grasslinkedtree
-    #returns the text of the help, saying that a cell touch a class and is some grass
-    case helpLevel
+  ##
+  # ===== Presentation
+  # This method fetches the text from the XML file to show the help text.
+  #
+  # ===== Parameters
+  # * +helpLevel+ : The help's importance. The higher the level, the better the advice.
+  #
+  # ===== Returns
+  # This method fetches the help text from the XML file and returns it depending
+  # on the help level.
+  #
+  # ===== Examples
+  # When the help level is at 1, this method fetches the text only without giving
+  # any variable's value :
+  #    return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0)
+  # This will send to the player the following help text :
+  #    "A tree network is complete"
+  #
+  # But when the help level is at 3, this method fetches the text and gives the
+  # two cells values so that the player will know where to act :
+  #    return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 1) + @cell2.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 2)
+  # This ill send to the player the following text, with c1 and c2 being
+  # respectively the coordinates of cell 1 and cell 2 :
+  #    The cell c1 is grass because the tree network on c2 is complete
+  def getText(helpLevel)
       when 1
         return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0)
       when 2
