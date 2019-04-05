@@ -62,6 +62,15 @@ class ConnectDB
       return player
   end
 
+  def updateSave(content, id)
+    puts "UPDATE SAVE is_save = #{id}"
+      stm = @db.prepare "UPDATE Save SET content_save=? WHERE id_save=?";
+      stm.bind_param 1, content;
+       stm.bind_param 2, id;
+       stm.execute;
+  end
+
+
 	# This method tries to find the player in the database with the name and the
   # password provided. The game must be connected to the database.
 	#
@@ -159,13 +168,24 @@ class ConnectDB
    # -------------
 	def save(player, content)
 
+    #puts "player = #{player.id_player}"
+    #puts "content = #{content}"
 		d = DateTime.now
+    s = nil
+    #puts "INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')"
 
-  #  puts "INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, '#{d.strftime("%d/%m/%Y %H:%M")}','#{content}')"
+    puts "CREATE SAVE"
+
 
 		@db.execute("INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)", player.id_player, d.strftime("%d/%m/%Y %H:%M"),content) do |row|
 			puts row
 		end
+
+    @db.execute("SELECT * FROM Save WHERE player_id_save = #{player.id_player} AND date_save='#{d.strftime("%d/%m/%Y %H:%M")}'") do |row|
+      s = SaveDB.new(row[0],row[1],row[2],row[3])
+    end
+    puts s.id_save
+    return s
 
 	end
 
@@ -236,7 +256,6 @@ class ConnectDB
 
 		@db.execute "SELECT * FROM Save WHERE player_id_save = #{player.id_player}" do |row|
 			saves.push(SaveDB.new(row[0],row[1],row[2],row[3]))
-      puts row[0]
 		end
 
 		return saves

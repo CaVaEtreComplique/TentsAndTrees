@@ -85,6 +85,7 @@ class ChoixDiff < Screen
 		 #Renvoie sur la page de jeu en mode partie rapide niveau easy
 		facile.onClick{
 			 session=QuickPlaySession.new(:quickplay, :easy)
+			 session.createSave
 			 manager.runGameSession(session)
 		}
     moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"))
@@ -92,6 +93,7 @@ class ChoixDiff < Screen
 		  #Renvoie sur la page de jeu en mode partie rapide niveau moyen
 		moyen.onClick{
 			 session=QuickPlaySession.new(:quickplay, :medium)
+			 session.createSave
 			 manager.runGameSession(session)
 		}
     diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"))
@@ -99,6 +101,7 @@ class ChoixDiff < Screen
 		  #Renvoie sur la page de jeu en mode partie rapide niveau difficile
 		diff.onClick{
 			 session=QuickPlaySession.new(:quickplay, :hard)
+			 session.createSave
 			 manager.runGameSession(session)
 		}
     retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"))

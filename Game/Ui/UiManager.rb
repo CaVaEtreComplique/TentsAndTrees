@@ -51,6 +51,12 @@ class UiManager
     }
   end
 
+  def runGameSessionFromSave(save)
+    @session = save.content_save
+    @session.setSave(save.id_save)
+    runGameSession(save.content_save)
+  end
+
   def createNewSave
     @session.save
   end

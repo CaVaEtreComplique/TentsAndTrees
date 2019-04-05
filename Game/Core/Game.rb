@@ -94,6 +94,10 @@ class Game
     @chrono=GLib::Timer.new
     @chrono.start
     lastTime=0
+    Signal.trap("TERM") {
+      @session.updateSave
+      exit
+    }
     case @session.gameMode
     when :timeAttack
       @baseTime-=@baseTime-@time
