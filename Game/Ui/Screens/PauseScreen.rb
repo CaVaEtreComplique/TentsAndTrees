@@ -48,10 +48,13 @@ class PauseScreen < Screen
     }
     quit=Text.new(@textManager.getButtonLabel("pause" , "quit"))
       quit.onClick(){
-        manager.createNewSave
         @game.delete_observers
+        manager.session.updateSave
         manager.updateSave
         manager.mainScreen.applyOn(@parent)
+        Signal.trap("TERM") {
+          exit
+        }
     }
 
     diapo = Diapo.new(screen.width*0.45,screen.height*0.45)

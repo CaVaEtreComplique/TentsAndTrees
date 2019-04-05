@@ -101,6 +101,7 @@ class ModeDeJeu < Screen
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
 			 session=TimeAttackSession.new(:timeAttack,:easy)
+			 session.createSave
 			 manager.runGameSession(session)
 		}
 		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"))

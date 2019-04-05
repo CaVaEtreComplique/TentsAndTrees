@@ -102,7 +102,7 @@ class Parametre < Screen
 			connect.deletePlayerHg(Connexion.getJoueur.id_player)
 			connect.deletePlayer(Connexion.getJoueur.id_player)
 			TestGame.hide
-			Connexion.show
+			Connexion.new
 		}
 
 

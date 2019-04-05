@@ -7,7 +7,7 @@
 
 class Session
 
-	attr_reader :game, :gridPick, :time, :score, :gameMode, :difficulty
+	attr_reader :game, :gridPick, :time, :score, :gameMode, :difficulty, :session, :save
 	# attr_writer :score
 
 
@@ -19,8 +19,25 @@ class Session
 		replay(false)
 	end
 
+	def createSave
+		@save = ConnectDB.new.save(Connexion.getJoueur,self.to_yaml()).id_save
+	end
+
 	def partOfAdventure?
 		@partOfAdventure
+	end
+
+	def setSave(save)
+			@save = save
+	end
+
+	def deleteSave
+			ConnectDB.new.deleteSave(self.save)
+	end
+
+	def updateSave
+		self.game.delete_observers
+		ConnectDB.new.updateSave(self.to_yaml(), self.save)
 	end
 
 	def continuable?
@@ -48,10 +65,4 @@ class Session
 
 		self
 	end
-
-	def save
-		@game.delete_observers
-		Save.update(self)
-	end
-
 end
