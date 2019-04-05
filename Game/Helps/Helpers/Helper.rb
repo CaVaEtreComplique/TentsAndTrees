@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
 # @Last modified by:   maxime
-# @Last modified time: 31-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -105,7 +105,7 @@ class Helper < FictivHelper
         helpLevelManagement(helpRes)
         #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
-          puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + "\n"
+          puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + " :: " + helpRes.class.to_s + "\n"
         end
           return helpRes.getRes(@helpLevel)
       end
