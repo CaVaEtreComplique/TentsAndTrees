@@ -187,6 +187,19 @@
         <lvl3>Toutes les tentes nécessaires ont été placées, donc toutes les cellules vides de la ligne ; sont de l'herbe</lvl3>
       </alltentsonrow>
     </helps>
+    <tutorial>
+      <arrival>   </arrival>
+      <level1>
+        <step1>   </step1>
+        <step2>   </step2>
+        <step3>   </step3>
+      </level1>
+      <level2>
+        <step1>   </step1>
+        <step2>   </step2>
+        <step3>   </step3>
+      </level2>
+    </tutorial>
   </french>
 
   <english>
@@ -368,5 +381,18 @@
         <lvl3>You have placed every tent for the row ; so all remaining cells on it are grass</lvl3>
       </alltentsonrow>
     </helps>
+    <tutorial>
+      <arrival>   </arrival>
+      <level1>
+        <step1>   </step1>
+        <step2>   </step2>
+        <step3>   </step3>
+      </level1>
+      <level2>
+        <step1>   </step1>
+        <step2>   </step2>
+        <step3>   </step3>
+      </level2>
+    </tutorial>
   </english>
 </languages>
