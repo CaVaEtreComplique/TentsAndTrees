@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 class Text
@@ -24,6 +24,10 @@ class Text
     @textBox.use_markup = true
     apply
     @gtkObject.add(@eventBox.add(@textBox))
+  end
+  def setWrap(bool)
+    @textBox.wrap=bool
+    self
   end
 
   def title
