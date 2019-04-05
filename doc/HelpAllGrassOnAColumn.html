@@ -232,15 +232,16 @@ tents</p>
           
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllGrassOnAColumn/HelpAllGrassOnAColumn.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#returns the text of the help, saying that &quot;All tents need to be placed, so all the empty cells of the column ° are tents&quot;</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#allgrassoncolumn</span>
+  <span class="ruby-comment">#returns the text of the help, saying that &quot;All tents need to be placed, so all the empty cells of the column ° are tents&quot;</span>
 
   <span class="ruby-keyword">case</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
-      <span class="ruby-ivar">@helpText</span> = <span class="ruby-string">&quot;You placed all the grass of a column&quot;</span>
+      <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allgrassoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
-      <span class="ruby-ivar">@helpText</span> = <span class="ruby-string">&quot;You placed all the grass on a column, so all the white cells are tents&quot;</span>
+      <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allgrassoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
-      <span class="ruby-ivar">@helpText</span> = <span class="ruby-string">&quot;All grass needed have been placed, so all the empty cells of the column &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; are tents&quot;</span>
+      <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allgrassoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allgrassoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>)
     <span class="ruby-keyword">else</span>
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">end</span>

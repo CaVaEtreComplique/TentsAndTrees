@@ -129,6 +129,7 @@
             <pre><span class="ruby-comment"># File Game/Ui/Camille/MotdepasseOublie.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
+              <span class="ruby-ivar">@textManager</span>=<span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
               <span class="ruby-comment">#Variable pour resize le texte</span>
         <span class="ruby-ivar">@pad</span> =<span class="ruby-value">8</span>
   <span class="ruby-identifier">win</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>
@@ -147,11 +148,12 @@
               <span class="ruby-identifier">saisiLogin</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>()
   <span class="ruby-identifier">saisi</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>()
   <span class="ruby-identifier">saisi2</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>()
-  <span class="ruby-identifier">take</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;SAISIR&quot;</span>)
-              <span class="ruby-identifier">name</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Name&quot;</span>)
-              <span class="ruby-identifier">password</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;New Password&quot;</span>)
-              <span class="ruby-identifier">confirmPass</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Confirm Password&quot;</span>)
-              <span class="ruby-identifier">confirm</span> =<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Confirmer&quot;</span>)
+
+  <span class="ruby-identifier">take</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;forgotpass&quot;</span> , <span class="ruby-string">&quot;title&quot;</span>))
+              <span class="ruby-identifier">name</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;forgotpass&quot;</span> , <span class="ruby-string">&quot;name&quot;</span>))
+              <span class="ruby-identifier">password</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;forgotpass&quot;</span> , <span class="ruby-string">&quot;pass&quot;</span>))
+              <span class="ruby-identifier">confirmPass</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;forgotpass&quot;</span> , <span class="ruby-string">&quot;confirmpass&quot;</span>))
+              <span class="ruby-identifier">confirm</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;forgotpass&quot;</span> , <span class="ruby-string">&quot;confirmform&quot;</span>))
 
   <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">take</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
               <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)

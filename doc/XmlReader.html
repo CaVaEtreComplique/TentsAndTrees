@@ -275,7 +275,7 @@ current screen and its key.</p>
         
         <div class="method-heading">
           <span class="method-name">getHelpsTexts</span><span
-            class="method-args">(key, delimiterPosition)</span>
+            class="method-args">(help, helpLevel, delimiterPosition)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -293,9 +293,9 @@ text and put values between it.</p>
           
           <div class="method-source-code" id="getHelpsTexts-source">
             <pre><span class="ruby-comment"># File Game/Core/XmlReader.rb, line 62</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHelpsTexts</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">delimiterPosition</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHelpsTexts</span>(<span class="ruby-identifier">help</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-identifier">delimiterPosition</span>)
     <span class="ruby-identifier">temp</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
-    <span class="ruby-identifier">temp</span> = <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;helps&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">temp</span> = <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;helps&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">help</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;lvl&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpLevel</span>.<span class="ruby-identifier">to_s</span>)
     <span class="ruby-keyword">return</span> <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;;&quot;</span>)[<span class="ruby-identifier">delimiterPosition</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>

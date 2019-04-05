@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: RowsAndColumnsFindTent.rb
 # @Last modified by:   maxime
-# @Last modified time: 27-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -67,7 +67,7 @@ class RowsAndColumnsFindTent < FictivHelper
         end
       end
       nbTent += Count.count(game, :tent, 1, i)
-
+ 
       if nbTent == game.rowClues[i]
 
         if !(cell.nil?) #We find an answer

@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItColumn.rb
 # @Last modified by:   maxime
-# @Last modified time: 02-Apr-2019
+# @Last modified time: 05-Apr-2019
 
 
 require File.dirname(__FILE__) + "/../HelpCellsAndColumns"
@@ -54,7 +54,7 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
       when 3
         @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2) + @state.to_s
       else
-          super(helpLevel)
+          super(helpLevel) 
       end
   end
 end

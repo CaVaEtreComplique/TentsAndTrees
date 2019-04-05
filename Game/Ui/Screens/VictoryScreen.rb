@@ -30,6 +30,9 @@ class VictoryScreen < Screen
 
     quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
     quit.onClick{
+      if !@session.continuable && !@session.partOfAdventure?
+        @session.deleteSave
+      end
       @manager.mainScreen.applyOn(@parent)
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)

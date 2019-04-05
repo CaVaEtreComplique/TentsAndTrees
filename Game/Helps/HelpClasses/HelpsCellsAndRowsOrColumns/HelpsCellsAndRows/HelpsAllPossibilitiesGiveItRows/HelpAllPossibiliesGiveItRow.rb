@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItRow.rb
 # @Last modified by:   maxime
-# @Last modified time: 31-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
@@ -47,9 +47,9 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
       when 2
         @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @column[0].column.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1) +  @state.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 2)
       when 3
-        @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @row[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 2) + @state.to_s
+        @helpText = @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 0) + @column[0].column.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiesrow", helpLevel, 2) + @state.to_s
       else
-          super(helpLevel)
+          super(helpLevel) 
       end
   end
 end

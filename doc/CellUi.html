@@ -206,13 +206,13 @@
 
         <div class="method-description">
           
-          <p>@@cursorIn=Gdk::Cursor.new(:hand1) @@cursorOut=Gdk::Cursor.new(:arrow)</p>
+          
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">assets</span>)
         <span class="ruby-ivar">@row</span> = <span class="ruby-identifier">row</span>
         <span class="ruby-ivar">@col</span> = <span class="ruby-identifier">col</span>
@@ -282,7 +282,7 @@
 
           
           <div class="method-source-code" id="applyAsset-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 101</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">applyAsset</span>(<span class="ruby-identifier">asset</span>)
         <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@gtkObject</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -315,7 +315,7 @@
 
           
           <div class="method-source-code" id="coords-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 109</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coords</span>
         [<span class="ruby-ivar">@row</span>,<span class="ruby-ivar">@col</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -348,7 +348,7 @@
 
           
           <div class="method-source-code" id="coreCell-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 69</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coreCell</span>
         <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">coreCellAt</span>(<span class="ruby-ivar">@row</span>, <span class="ruby-ivar">@col</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -381,7 +381,7 @@
 
           
           <div class="method-source-code" id="dragLeftClicked-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 63</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dragLeftClicked</span>
         <span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">dragLeftChange</span>
         <span class="ruby-identifier">normal</span>
@@ -416,7 +416,7 @@
 
           
           <div class="method-source-code" id="dragable-3F-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 97</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dragable?</span>
         <span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">dragable?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -449,7 +449,7 @@
 
           
           <div class="method-source-code" id="glowing-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 85</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">glowing</span>
         <span class="ruby-identifier">glowingAsset</span> = <span class="ruby-ivar">@assets</span>.<span class="ruby-identifier">cellAssetGlowing</span>(<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">state</span>,<span class="ruby-ivar">@variation</span>,<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">frozen</span>)
         <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">glowingAsset</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">1</span>)
@@ -484,7 +484,7 @@
 
           
           <div class="method-source-code" id="leftClicked-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 51</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leftClicked</span>
         <span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">primaryChange</span>
         <span class="ruby-identifier">normal</span>
@@ -519,7 +519,7 @@
 
           
           <div class="method-source-code" id="normal-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 79</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normal</span>
         <span class="ruby-identifier">normalAsset</span> = <span class="ruby-ivar">@assets</span>.<span class="ruby-identifier">cellAsset</span>(<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">state</span>,<span class="ruby-ivar">@variation</span>,<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">frozen</span>)
         <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">normalAsset</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">1</span>)
@@ -558,7 +558,7 @@
 
           
           <div class="method-source-code" id="outOfBound-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 113</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 110</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">outOfBound</span>
         <span class="ruby-comment"># has to do nothing</span>
 <span class="ruby-keyword">end</span></pre>
@@ -591,7 +591,7 @@
 
           
           <div class="method-source-code" id="sameState-3F-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 93</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sameState?</span>(<span class="ruby-identifier">cell</span>)
         <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">state</span>
 <span class="ruby-keyword">end</span></pre>
@@ -624,7 +624,7 @@
 
           
           <div class="method-source-code" id="select-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 73</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">select</span>
         <span class="ruby-identifier">selectedAsset</span> = <span class="ruby-ivar">@assets</span>.<span class="ruby-identifier">cellAssetSelected</span>(<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">state</span>,<span class="ruby-ivar">@variation</span>,<span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">frozen</span>)
         <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">selectedAsset</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">1</span>)
@@ -659,7 +659,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 105</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
         <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">show</span>
 <span class="ruby-keyword">end</span></pre>
@@ -692,7 +692,7 @@
 
           
           <div class="method-source-code" id="unLeftClicked-source">
-            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 57</span>
+            <pre><span class="ruby-comment"># File Game/Ui/CellUi.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unLeftClicked</span>
         <span class="ruby-identifier">coreCell</span>.<span class="ruby-identifier">primaryUnchange</span>
         <span class="ruby-identifier">normal</span>
