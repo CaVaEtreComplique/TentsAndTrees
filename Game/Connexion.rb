@@ -23,12 +23,15 @@ class Connexion
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
-	  @pad =8
+		@pad=screen.height*0.002
+    @police=screen.height*0.02
+		@h=screen.height*0.4
+		@w=screen.width*0.4
 
 		connect=ConnectDB.new
 		@@joueur=nil
     @@win = Gtk::Window.new
-    @@win.set_default_size(500,400)
+    @@win.set_default_size(@w,@h)
     @@win.set_resizable(false)
 		@@win.decorated=false
     @@win.window_position= :center_always
@@ -41,15 +44,15 @@ class Connexion
 		@gtkObject.attach(@menu,1,2,1,2)
 
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Backgrounds/nature.png")
-		@buffer=@buffer.scale(500,500)
+		@buffer=@buffer.scale(@w,@h+100)
 
     @image=Gtk::EventBox.new()
 
-    log = Text.new("LOGIN")
-    mdp = Text.new("MOT DE PASSE")
-    ident = Text.new("SE CONNECTER")
-		inscription =Text.new("INSCRIPTION")
-		mdpOublie=Text.new("MOT DE PASSE OUBLIE")
+    log = Text.new("LOGIN",@police)
+    mdp = Text.new("MOT DE PASSE",@police)
+    ident = Text.new("SE CONNECTER",@police)
+		inscription =Text.new("INSCRIPTION",@police)
+		mdpOublie=Text.new("MOT DE PASSE OUBLIE",@police)
 
     quitter=Asset.new(File.dirname(__FILE__) + "/../Assets/Icons/cancel.png")
     quitter.resize(20,20)
@@ -60,7 +63,6 @@ class Connexion
 		saisi2.visibility=false
 
     @menu.pack_start(@image,expand: false, fill: true, padding: @pad)
-
     @menu.pack_start(log.gtkObject,expand: false, fill: true, padding: @pad)
     @menu.pack_start(saisi,expand: false, fill: true, padding: @pad)
     @menu.pack_start(mdp.gtkObject,expand: false, fill: true, padding: @pad)
