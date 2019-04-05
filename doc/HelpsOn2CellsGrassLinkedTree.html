@@ -153,7 +153,7 @@ href="HelpOn2Cells.html">HelpOn2Cells</a> class.</p>
 <ul><li>
 <p><code>cellTent</code> : one of the two cells needed, this one is a tent.</p>
 </li><li>
-<p><code>cellTree</code> : The other one of the two cells this one is a tree.</p>
+<p><code>cellTree</code> : The other one of the two cells, this one is a tree.</p>
 </li></ul>
           
           
@@ -234,10 +234,10 @@ two cells values so that the player will know where to act :</p>
 <pre class="ruby"><span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
 </pre>
 
-<p>This ill send to the player the following text, with c1 and c2 being
+<p>This will send to the player the following text, with c1 and c2 being
 respectively the coordinates of cell 1 and cell 2 :</p>
 
-<pre class="ruby"><span class="ruby-constant">The</span> <span class="ruby-identifier">cell</span> <span class="ruby-identifier">c1</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">grass</span> <span class="ruby-identifier">because</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">tree</span> <span class="ruby-identifier">network</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">c2</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">complete</span>
+<pre class="ruby"><span class="ruby-string">&quot;The cell c1 is grass because the tree network on c2 is complete&quot;</span>
 </pre>
           
           
@@ -251,6 +251,7 @@ respectively the coordinates of cell 1 and cell 2 :</p>
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
       <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
@@ -259,7 +260,8 @@ respectively the coordinates of cell 1 and cell 2 :</p>
       <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
     <span class="ruby-keyword">else</span>
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
-  <span class="ruby-keyword">end</span></pre>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

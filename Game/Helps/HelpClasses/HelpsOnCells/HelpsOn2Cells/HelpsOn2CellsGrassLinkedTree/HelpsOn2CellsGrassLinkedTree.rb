@@ -56,9 +56,9 @@ class HelpsOn2CellsGrassLinkedTree < HelpOn2Cells
   # But when the help level is at 3, this method fetches the text and gives the
   # two cells values so that the player will know where to act :
   #    return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 1) + @cell2.to_s + @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 2)
-  # This ill send to the player the following text, with c1 and c2 being
+  # This will send to the player the following text, with c1 and c2 being
   # respectively the coordinates of cell 1 and cell 2 :
-  #    The cell c1 is grass because the tree network on c2 is complete
+  #    "The cell c1 is grass because the tree network on c2 is complete"
   def getText(helpLevel)
      case helpLevel
       when 1
