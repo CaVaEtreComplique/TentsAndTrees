@@ -3,7 +3,7 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   maxime
+# @Last modified by:   Sckylle
 # @Last modified time: 05-Apr-2019
 
 
@@ -105,7 +105,7 @@ class ModeDeJeu < Screen
     	manager.runGameSession(session)
 		}
 
-		tuto=Text.new("tuto",@police)
+		tuto=Text.new(@textManager.getButtonLabel("gamemode" , "tuto"),@police)
 		@scrol.add(tuto.gtkObject,@pad)
 	 	tuto.onClick{
 			session=TutorialSession.new

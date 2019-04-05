@@ -59,6 +59,7 @@
           <adventure>Aventure</adventure>
           <quick>Partie rapide</quick>
           <timeattack>Contre la montre</timeattack>
+          <tuto>Didacticiel</tuto>
           <save>Charger Sauvegarde</save>
           <back>Retour</back>
         </buttons>
@@ -80,6 +81,7 @@
         <texts>
         </texts>
         <buttons>
+          <next>Suivant</next>
           <newguess>Nouvelle Hypothèse</newguess>
           <refuteguess>Réfuter Hypothèse</refuteguess>
           <rz>Remettre la grille à zéro</rz>
@@ -188,16 +190,16 @@
       </alltentsonrow>
     </helps>
     <tutorial>
-      <arrival>   </arrival>
+      <arrival>No text for now</arrival>
       <level1>
-        <step1>   </step1>
-        <step2>   </step2>
-        <step3>   </step3>
+        <step1>No text for now</step1>
+        <step2>No text for now</step2>
+        <step3>No text for now</step3>
       </level1>
       <level2>
-        <step1>   </step1>
-        <step2>   </step2>
-        <step3>   </step3>
+        <step1>No text for now</step1>
+        <step2>No text for now</step2>
+        <step3>No text for now</step3>
       </level2>
     </tutorial>
   </french>
@@ -253,6 +255,7 @@
           <adventure>Adventure</adventure>
           <quick>Quick play</quick>
           <timeattack>TimeAttack</timeattack>
+          <tuto>Tutorial</tuto>
           <save>Load save</save>
           <back>Back</back>
         </buttons>
@@ -274,6 +277,7 @@
         <texts>
         </texts>
         <buttons>
+          <next>Next</next>
           <newguess>New Hypothesis</newguess>
           <refuteguess>Refute Hypothesis</refuteguess>
           <rz>Reset Grid</rz>
@@ -381,17 +385,18 @@
         <lvl3>You have placed every tent for the row ; so all remaining cells on it are grass</lvl3>
       </alltentsonrow>
     </helps>
+
     <tutorial>
-      <arrival>   </arrival>
+      <arrival>Welcome, in this tutorial we cover all the basis of the game</arrival>
       <level1>
-        <step1>   </step1>
-        <step2>   </step2>
-        <step3>   </step3>
+        <step1>No text for now</step1>
+        <step2>No text for now</step2>
+        <step3>No text for now</step3>
       </level1>
       <level2>
-        <step1>   </step1>
-        <step2>   </step2>
-        <step3>   </step3>
+        <step1>No text for now</step1>
+        <step2>No text for now</step2>
+        <step3>No text for now</step3>
       </level2>
     </tutorial>
   </english>
