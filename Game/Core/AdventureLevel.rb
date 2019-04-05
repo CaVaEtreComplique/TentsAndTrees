@@ -9,7 +9,7 @@ require File.dirname(__FILE__) + "/Session"
 
 class AdventureLevel < Session
 
-	attr_reader :game, :gridPick, :time, :score, :difficulty, :stars, :finishedGrid, :numberOfGrid, :overallStars
+	attr_reader :game, :gridPick, :time, :score, :difficulty, :maxStars, :finishedGrid, :numberOfGrid, :overallStars, :levelNumber
 
 
 	def initialize(gameMode, difficulty, scoreMultiplier, maxStars,numberOfGrid, overallStars, levelNumber )
@@ -28,7 +28,11 @@ class AdventureLevel < Session
 		if numberOfGrid == 1
 			false
 		else
-			true
+			if numberOfGrid != @finishedGrid
+				true
+			else
+				false
+			end
 		end
 	end
 

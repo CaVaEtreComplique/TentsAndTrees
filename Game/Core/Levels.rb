@@ -9,6 +9,8 @@ require File.dirname(__FILE__) + "/AdventureLevel"
 
 class Levels
 
+		attr_reader :levels
+
 	def initialize()
     @levels = {
 			1 => [:quickplay, :easy, 1, 3, 1,1],

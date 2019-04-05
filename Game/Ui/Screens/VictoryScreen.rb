@@ -30,9 +30,6 @@ class VictoryScreen < Screen
 
     quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
     quit.onClick{
-      if !@session.continuable && !@session.partOfAdventure?
-        @session.deleteSave
-      end
       @manager.mainScreen.applyOn(@parent)
     }
     vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
@@ -53,32 +50,17 @@ class VictoryScreen < Screen
       @resultText.title
     end
     if !isWon || !@session.continuable?
-      if @session.partOfAdventure?
-        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
-        @replay.onClick{
-          @manager.levelNumberScreen.applyOn(@parent)
-        }
-      else
         @replay.updateLabel(@textManager.getButtonLabel("victory" , "retry"))
         @replay.onClick{
           @session.replay(false)
           @manager.runGameSession(@session)
         }
-      end
     else
-      if @session.partOfAdventure?  && @session.finishedGrid == @session.numberOfGrid
-        #Afficher les etoiles à implementer
-        @replay.updateLabel(@textManager.getButtonLabel("victory" , "levelselection"))
-        @replay.onClick{
-          @manager.levelNumberScreen.applyOn(@parent)
-        }
-      else
         @replay.updateLabel(@textManager.getButtonLabel("victory" , "continue"))
         @replay.onClick{
           @session.replay(true)
           @manager.runGameSession(@session)
         }
-      end
     end
     super(widget)
   end

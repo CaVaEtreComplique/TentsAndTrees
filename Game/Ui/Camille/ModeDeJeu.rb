@@ -87,7 +87,7 @@ class ModeDeJeu < Screen
   	@scrol.add(aventure.gtkObject	,@pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
-			manager.levelNumberScreen.applyOn(@parent)
+			manager.levelNumberScreen.applyOn(@parent,0,Hash.new,0)
 		 }
 
     timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@police)
