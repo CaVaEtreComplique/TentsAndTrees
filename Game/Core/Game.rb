@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
-# @Last modified by:   Maxime
-# @Last modified time: 15-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -41,6 +41,7 @@ class Game
     @moveDone=false
     @baseTime=@session.time
     @time = @baseTime
+    @malus = 0
 	end
 
 	def resetGrid
@@ -82,7 +83,11 @@ class Game
   end
 
   def help
-    return Helper.instance.help(self)
+    helper = Helper.instance
+    res = helper.help(self)
+    @malus += helper.price
+    p helper.price
+    res
   end
 
 	def run
@@ -92,17 +97,19 @@ class Game
     case @session.gameMode
     when :timeAttack
       @baseTime-=@baseTime-@time
+      @malus *=-1
     else
       @baseTime=-@time
     end
 		loop do
-      @time=(@baseTime-(@chrono.elapsed[0]).truncate).abs
+      @time=(@baseTime-@chrono.elapsed[0].truncate).abs + @malus
 			if @moveDone || @time!=lastTime
         lastTime=@time
 				changed                 # notify observers
 				notify_observers()
         @moveDone=false
 			end
+      @malus=@malus.abs
 			sleep(0.1)
 		end
 	end

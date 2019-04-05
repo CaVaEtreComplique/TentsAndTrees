@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
 # @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -26,13 +26,15 @@ class GridGenerator
     ProcessStatus.send("Choix de la grille")
     case difficulty
     when :easy
-      line=Random.new.rand(0...100)
+      line=Random.new.rand(0..100)
     when :medium
-      line=Random.new.rand(101...700)
+      line=Random.new.rand(101..700)
     when :hard
-      line=Random.new.rand(701...1100)
+      line=Random.new.rand(701..1100)
     when :random
       line=Random.new.rand(0...1100)
+    when (0...1100).include(difficulty)
+      line=difficulty
     end
 
     # case mode

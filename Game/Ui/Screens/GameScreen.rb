@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -134,7 +134,7 @@ class GameScreen < Screen
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,true)
       @game.delete_observers
-    elsif @game.time.truncate <=0
+    elsif @game.time.truncate <0
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false)
       @game.delete_observers
