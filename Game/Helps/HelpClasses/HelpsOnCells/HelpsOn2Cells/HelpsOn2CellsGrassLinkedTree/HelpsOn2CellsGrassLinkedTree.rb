@@ -60,6 +60,7 @@ class HelpsOn2CellsGrassLinkedTree < HelpOn2Cells
   # respectively the coordinates of cell 1 and cell 2 :
   #    The cell c1 is grass because the tree network on c2 is complete
   def getText(helpLevel)
+     case helpLevel
       when 1
         return @textManager.getHelpsTexts("grasslinkedtree", helpLevel, 0)
       when 2
