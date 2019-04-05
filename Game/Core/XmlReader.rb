@@ -80,6 +80,10 @@ class XmlReader
     return @xmlHash.fetch("languages").fetch(@language).fetch("loadingmessages").fetch(key)
   end
 
+  def getRules(number)
+    return @xmlHash.fetch("languages").fetch(@language).fetch("rules").fetch("rule" + number.to_s)
+  end
+
   ##
   # The buttonMaxString method returns the length of the longest label of a
   # button in a screen.

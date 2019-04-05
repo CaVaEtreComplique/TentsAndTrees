@@ -17,6 +17,7 @@ class PauseScreen < Screen
     super(manager.win)
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
+    @bjr = Gtk::Alignment.new(0.5, 0, 0, 0)
 
     @game=game
     @gameScreen=gameScreen
@@ -57,17 +58,18 @@ class PauseScreen < Screen
         }
     }
 
-    diapo = Diapo.new(screen.width*0.45,screen.height*0.45)
-    diapo.box.signal_connect("button_press_event"){diapo.nuImage}
+    diapo = Diapo.new(screen.width*0.45,screen.height*0.45,@textManager)
+    diapo.nextButton.signal_connect("button_press_event"){diapo.nextImage}
+    diapo.previousButton.signal_connect("button_press_event"){diapo.previousImage}
+    @bjr.add(diapo.box)
+
 
     globalBox=Gtk::Box.new(:vertical)
     globalBox.pack_start(resume.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(quit.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(diapo.box, expand: false, fill: false, padding: 100)
-
-    Gtk::Alignment.new(0.5, 0.2, 0, 0)
+    globalBox.pack_start(@bjr, expand: false, fill: false, padding: 100)
     @gtkObject.attach(globalBox,0,3,0,1)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
