@@ -67,7 +67,7 @@ class RowsAndColumnsFindTent < FictivHelper
         end
       end
       nbTent += Count.count(game, :tent, 1, i)
-
+ 
       if nbTent == game.rowClues[i]
 
         if !(cell.nil?) #We find an answer
