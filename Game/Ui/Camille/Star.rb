@@ -17,16 +17,24 @@ end
 class Star
   attr_reader :stars
   def initialize(nbEtoile,nbEtoileObtenu)
+		sHappy=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
+		sSad=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
     @stars=Gtk::Box.new(:horizontal,25)
     (1.. nbEtoile).each { |e|
        @star=Gtk::EventBox.new()
        if(e <= nbEtoileObtenu)
-         s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
-       else
-         s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
-       end
-       s.resize(15,15)
-       s.applyOn(@star)
+         #s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
+				 sH=sHappy
+				 sH.resize(50,50)
+	       sH.applyOn(@star)
+			 else
+         #s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
+				 sS=sSad
+				 sS.resize(75,75)
+	       sS.applyOn(@star)
+			 end
+    #   s.resize(50,50)
+    #   s.applyOn(@star)
        @stars.add(@star)
      }
    end

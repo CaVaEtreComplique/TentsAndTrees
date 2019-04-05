@@ -65,47 +65,52 @@ class ModeDeJeu < Screen
   def initialize(manager) #:nodoc:
 		super(manager.win)
     screen=Gdk::Screen.default
-		#Variable pour resize le texte
-		@pad =1
-		@widthTitre=screen.width*0.10
-    @heightTitre=screen.height*0.08
-    @widthText=screen.width*0.3
-    @heightText=screen.height*0.03
 
-
-    #Menu principal
+		@pad=screen.height*0.03
+    @police=screen.height*0.04
 
 		@gtkObject= Gtk::Table.new(3,3)
-    @menu=Gtk::Box.new(:vertical, 100)
-    @gtkObject.attach(@menu,1,2,1,2)
-  #Bontons de menu
-		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"))
-		titre.title
-		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
+		@scrol=ScrollableArea.new
+		@boxV=Gtk::Box.new(:vertical)
 
-    aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
-  	@menu.pack_start(aventure.gtkObject ,expand: false, fill: true, padding: @pad)
+		@gtkObject.attach(@boxV,0,1,1,2)
+
+	#	@scrol.menu.add(@scrol.menu)
+  #Bontons de menu
+		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"),@police*2)
+		titre.title
+		@boxV.pack_start(titre.gtkObject ,expand: false, fill: false, padding: @pad)
+
+		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
+
+    aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@police)
+  	@scrol.add(aventure.gtkObject,@pad)
 		#renvoie la page de jeu du monde aventure
 		aventure.onClick{
 			manager.levelNumberScreen.applyOn(@parent)
 		 }
 
-    timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
-		@menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
+    timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@police)
+		@scrol.add(timeA.gtkObject,@pad)
 		#Renvoie vers la page choix des niveaux
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }
-    clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
-		@menu.pack_start(clm.gtkObject ,expand: false, fill: true, padding: @pad)
+    clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@police)
+		@scrol.add(clm.gtkObject,@pad)
 		#Lance une partie contre la montre en mode easy
 		clm.onClick{
-			 session=TimeAttackSession.new(:timeAttack,:easy)
-			 session.createSave
-			 manager.runGameSession(session)
+    	session=TimeAttackSession.new(:timeAttack,:easy)
+    	session.createSave
+    	manager.runGameSession(session)
 		}
-		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"))
-	 @menu.pack_start(save.gtkObject ,expand: false, fill: true, padding: 10)
+		tuto=Text.new("tuto",@police)
+		@scrol.add(tuto.gtkObject,@pad)
+	 	tuto.onClick{
+
+	  }
+		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@police)
+		@scrol.add(save.gtkObject,@pad)
 	 save.onClick{
 		 #save = Save.load(29)
 		 #session = save.content_save
@@ -113,8 +118,8 @@ class ModeDeJeu < Screen
 		 manager.listeSaveScreen.applyOn(@parent)
 		}
 
-    retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"))
-   @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: 10)
+    retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
+  	@boxV.pack_start(retour.gtkObject ,expand: false, fill: false, padding: @pad)
 	 #Renvoie vers la page principale
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
