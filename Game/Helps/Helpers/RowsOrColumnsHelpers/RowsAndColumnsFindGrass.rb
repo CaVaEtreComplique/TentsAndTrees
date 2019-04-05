@@ -135,7 +135,7 @@ class RowsAndColumnsFindGrass < FictivHelper
                   if cell.row - 1 >= 0
                     return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
                   end
-                end
+                end 
               end
               odd = true
               zone.each do |cell|

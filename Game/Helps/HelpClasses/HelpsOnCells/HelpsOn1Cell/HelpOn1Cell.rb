@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOn1Cell.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 require File.dirname(__FILE__) + "/../HelpOnCells"
 
@@ -21,4 +21,4 @@ class HelpOn1Cell < HelpOnCells
     return super(helpLevel)
   end
 
-end 
+end

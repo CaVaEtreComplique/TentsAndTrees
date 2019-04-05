@@ -54,7 +54,7 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
       when 3
         @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2) + @state.to_s
       else
-          super(helpLevel)
+          super(helpLevel) 
       end
   end
 end
