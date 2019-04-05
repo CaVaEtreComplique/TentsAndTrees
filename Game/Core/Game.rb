@@ -100,11 +100,11 @@ class Game
     case @session.gameMode
     when :timeAttack
       @baseTime-=@baseTime-@time
-      @malus *=-1
     else
       @baseTime=-@time
     end
 		loop do
+      @malus *=-1 if@session.gameMode==:timeAttack
       @time=(@baseTime-@chrono.elapsed[0].truncate).abs + @malus
 			if @moveDone || @time!=lastTime
         lastTime=@time
@@ -112,7 +112,7 @@ class Game
 				notify_observers()
         @moveDone=false
 			end
-      @malus=@malus.abs
+      @malus=@malus.abs if@session.gameMode==:timeAttack
 			sleep(0.1)
 		end
 	end

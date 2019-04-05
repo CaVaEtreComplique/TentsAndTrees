@@ -134,7 +134,7 @@ class GameScreen < Screen
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,true)
       @game.delete_observers
-    elsif @game.time.truncate <0
+    elsif @game.time <= 0
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false)
       @game.delete_observers
