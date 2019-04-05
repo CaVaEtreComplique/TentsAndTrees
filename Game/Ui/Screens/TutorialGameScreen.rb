@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + "/../HelpUi"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
 class TutorialGameScreen < Screen
-  @@states = [:intro, :unlockHelps, :unlockPause, :unlockUndoRedo, :unlockFreezer]
+  @@states = [:intro, :unlockPause, :unlockGrid, :unlockUndo, :unlockRedo, :unlockFreezer, :unlockUnFreezer, :unlockReset, :unlockHelps]
 
   attr_reader :gridUi
 
@@ -72,7 +72,7 @@ class TutorialGameScreen < Screen
 
     @pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
 
-    nextStape =Text.new(@textManager.getButtonLabel("ingame" , "pause"))
+    nextStape =Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStape.onClick(){
         goToNextStape()
       }
