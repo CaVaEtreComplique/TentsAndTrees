@@ -20,6 +20,9 @@ require File.dirname(__FILE__) + "/../HelpOnCells"
 # ===== Methods
 # This class overrides the initialize, cellsList and '==' methods from
 # helpOnCells.
+#
+# ===== Variables
+# * +cell2+ : This class adds a new cell to the one given in HelpOnCells.
 class HelpOn2Cells < HelpOnCells
 
    # :nodoc:

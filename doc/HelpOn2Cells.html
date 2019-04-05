@@ -58,6 +58,7 @@
   <ul class="link-list" role="directory">
     <li><a href="#class-HelpOn2Cells-label-Presentation">Presentation</a>
     <li><a href="#class-HelpOn2Cells-label-Methods">Methods</a>
+    <li><a href="#class-HelpOn2Cells-label-Variables">Variables</a>
   </ul>
 </div>
 
@@ -118,6 +119,12 @@ return two cells.</p>
 
 <p>This class overrides the initialize, cellsList and &#39;==&#39; methods
 from helpOnCells.</p>
+
+<h5 id="class-HelpOn2Cells-label-Variables">Variables<span><a href="#class-HelpOn2Cells-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell2</code> : This class adds a new cell to the one given in <a
+href="HelpOnCells.html">HelpOnCells</a>.</p>
+</li></ul>
 
   </section>
 
@@ -184,7 +191,7 @@ created in this class.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 43</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>)
   <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
@@ -251,7 +258,7 @@ as the one taken in parameters.</p>
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 92</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell2</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -316,7 +323,7 @@ the previous texts didn&#39;t help the player enough.</p>
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 70</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">list</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)

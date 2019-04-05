@@ -122,8 +122,30 @@
 
         <div class="method-description">
           
-          <p>This method&#39;s constructor assigns a value to the @cell variable and
-calls constructor from the <a href="Help.html">Help</a> class.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the three variables taken in
+attributes as described below :</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell1</code> : The first cell needed for the help, here it already
+exists in the parent class so we do not need to create it.</p>
+</li><li>
+<p><code>cell2</code> and <code>cell3</code> : The second and third cells
+needed for the help, these are created in this class.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-Example">Example<span><a href="#method-c-new-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Here is what this method does :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>, <span class="ruby-identifier">cell3</span>)
+   <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
+   <span class="ruby-ivar">@cell3</span> = <span class="ruby-identifier">cell3</span>
+   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
+<span class="ruby-keyword">end</span>
+</pre>
           
           
             <div class="method-calls-super">
@@ -134,7 +156,7 @@ calls constructor from the <a href="Help.html">Help</a> class.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb, line 17</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>, <span class="ruby-identifier">cell3</span>)
   <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
   <span class="ruby-ivar">@cell3</span> = <span class="ruby-identifier">cell3</span>

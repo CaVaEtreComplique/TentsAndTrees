@@ -1,6 +1,6 @@
-Fri, 05 Apr 2019 15:36:47 +0200
+Fri, 05 Apr 2019 15:56:32 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Fri, 05 Apr 2019 10:56:35 +0200
-./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Fri, 05 Apr 2019 14:06:45 +0200
+./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Fri, 05 Apr 2019 15:48:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Fri, 05 Apr 2019 15:21:37 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree.rb	Fri, 05 Apr 2019 15:29:49 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb	Fri, 05 Apr 2019 15:29:52 +0200
@@ -8,7 +8,7 @@ Fri, 05 Apr 2019 15:36:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb	Fri, 05 Apr 2019 11:14:04 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpOn1Cell.rb	Fri, 05 Apr 2019 11:00:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpsOnACellOverlap/HelpsOnACellOverlap.rb	Fri, 05 Apr 2019 10:13:45 +0200
-./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb	Fri, 05 Apr 2019 10:13:45 +0200
+./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb	Fri, 05 Apr 2019 15:55:53 +0200
 ./Game/Helps/HelpClasses/Help.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpNotFound/HelpNotFound.rb	Fri, 05 Apr 2019 09:09:59 +0200
 ./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllGrassOnAColumn/HelpAllGrassOnAColumn.rb	Fri, 05 Apr 2019 10:13:45 +0200
