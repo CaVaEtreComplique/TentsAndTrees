@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpsOnACellIsTentBecauseOfTree-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpsOnACellIsTentBecauseOfTree-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -73,8 +82,6 @@
     
     <li class="calls-super" ><a href="#method-c-new">::new</a>
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
     <li class="calls-super" ><a href="#method-i-getText">#getText</a>
     
   </ul>
@@ -90,6 +97,19 @@
 
   <section class="description">
     
+<h5 id="class-HelpsOnACellIsTentBecauseOfTree-label-Presentation">Presentation<span><a href="#class-HelpsOnACellIsTentBecauseOfTree-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a
+href="HelpsOnACellIsTentBecauseOfTree.html">HelpsOnACellIsTentBecauseOfTree</a>
+class is inherited from the <a href="HelpOn2Cells.html">HelpOn2Cells</a>
+abstract class. It shows a help text to the player when a cell nearby a
+tree “network” has to be a tent. This class is instanciable.</p>
+
+<h5 id="class-HelpsOnACellIsTentBecauseOfTree-label-Methods">Methods<span><a href="#class-HelpsOnACellIsTentBecauseOfTree-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class has an inherited constructor from the <a
+href="HelpOn2Cells.html">HelpOn2Cells</a> class and the getText method.</p>
+
   </section>
 
   
@@ -113,7 +133,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(cell1, cell2)</span>
+            class="method-args">(cellTent, cellTree)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -124,27 +144,16 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class&#39; constructor initializes the two variables taken in
-attributes as described below :</p>
+<p>The class&#39; constructor that is here to initialize the two variables
+taken in parameters with the initialize method from the <a
+href="HelpOn2Cells.html">HelpOn2Cells</a> class.</p>
 
-<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-c-new-label-Parameters">Parameters<span><a href="#method-c-new-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>cell1</code> : The first cell needed for the help, here it already
-exists in the parent class so we do not need to create it.</p>
+<p><code>cellTent</code> : one of the two cells needed, this one is a tent.</p>
 </li><li>
-<p><code>cell2</code> : The second cell needed for the help, this one is
-created in this class.</p>
+<p><code>cellTree</code> : The other one of the two cells, this one is a tree.</p>
 </li></ul>
-
-<h5 id="method-c-new-label-Example">Example<span><a href="#method-c-new-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>Here is what this method does :</p>
-
-<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>)
-   <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
-   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
-<span class="ruby-keyword">end</span>
-</pre>
           
           
             <div class="method-calls-super">
@@ -155,46 +164,7 @@ created in this class.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>)
-  <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
-  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(cellTent, cellTree)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>a class for helping when a cell is link to a tree</p>
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="HelpOn2Cells.html#method-c-new">HelpOn2Cells.new</a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb, line 15</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cellTent</span>, <span class="ruby-identifier">cellTree</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cellTent</span>, <span class="ruby-identifier">cellTree</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -229,7 +199,44 @@ created in this class.</p>
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-getText-label-Presentation">Presentation<span><a href="#method-i-getText-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method fetches the text from the XML file to show the help text.</p>
+
+<h5 id="method-i-getText-label-Parameters">Parameters<span><a href="#method-i-getText-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance. The higher the level,
+the better the advice.</p>
+</li></ul>
+
+<h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method fetches the help text from the XML file and returns it
+depending on the help level.</p>
+
+<h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>When the help level is at 1, this method fetches the text only without
+giving any variable&#39;s value :</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;tentbcsoftree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+</pre>
+
+<p>This will send to the player the following help text :</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;A tree gives an obvious state for a cell&quot;</span>
+</pre>
+
+<p>But when the help level is at 3, this method fetches the text and gives the
+two cells values so that the player will know where to act :</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;tentbcsoftree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;tentbcsoftree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span>
+</pre>
+
+<p>This will send to the player the following text, with c1 and c2 being
+respectively the coordinates of cell 1 and cell 2 :</p>
+
+<pre>The cell c1 is a tent because it is nearby the tents and trees network in c2 .</pre>
           
           
             <div class="method-calls-super">
@@ -240,9 +247,8 @@ created in this class.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#tentbcsoftree</span>
-  <span class="ruby-comment">#returns the text of the help, saying that a cell touch a class and is some grass</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
       <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;tentbcsoftree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)

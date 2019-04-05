@@ -29,7 +29,7 @@ class HelpsOn2CellsGrassLinkedTree < HelpOn2Cells
   # parameters with the initialize method from the HelpOn2Cells class.
   #
   # ===== Parameters
-  # * +cellTent+ : one of the two cells needed, this one is a tent.
+  # * +cellTent+ : One of the two cells needed, this one is a tent.
   # * +cellTree+ : The other one of the two cells, this one is a tree.
   def initialize(cellTent, cellTree)
     super(cellTent, cellTree)
