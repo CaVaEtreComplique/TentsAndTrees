@@ -29,18 +29,14 @@ class Star
 		 (1.. nbEtoile).each { |e|
 				@star=Gtk::EventBox.new()
 				if(e <= nbEtoileObtenu)
-					#s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
 				 sH= @sHappy
 				 sH.resize(75,75)
 				 sH.applyOn(@star)
 			 else
-					#s=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
 				 sS=@sSad
 				 sS.resize(75,75)
 				 sS.applyOn(@star)
 			 end
-		 #   s.resize(50,50)
-		 #   s.applyOn(@star)
 				@stars.add(@star)
 			}
 			@stars.show_all
