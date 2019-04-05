@@ -29,11 +29,17 @@ class LevelNumber < Screen
     @menu= Gtk::Table.new(12,12)
     @gtkObject.attach(@menu,0,1,0,1)
 
-    @nbNiveau=25
-    @nbEtoile=5
-		@nbEtoileObtenu=3
+    @nbNiveau=5
+		@nbEtoileObtenu=0
     x=0
     y=0
+		@overAllStars = 2
+		if @game != nil
+			if @game.session.partOfAdventure?
+				@overAllStars = @game.session.calculateOverallStars
+			end
+		end
+
     (1.. @nbNiveau).each { |i|
         @im=Gtk::Box.new(:horizontal, 25)
 				@menu.attach(@im,x,x+1,y,y+1)
@@ -49,20 +55,16 @@ class LevelNumber < Screen
 
 				@lock=Gtk::EventBox.new()
 				@stars=Gtk::Box.new(:horizontal,25)
-				s=Star.new(@nbEtoile,@nbEtoileObtenu)
+				s=Star.new(@adventure.getLevelMaxStars(i),@nbEtoileObtenu)
 				@BoxV.pack_start(s.stars,expand: false, fill: true, padding: @pad)
 
-
-      if(i==1 || i==2)
+			if @adventure.lvlAvailable?(i,@overAllStars)
         niveau.onClick{
+					session=@adventure.getLevel(i,Hash.new)
           if @game != nil
 						if @game.session.partOfAdventure?
 							session=@adventure.getLevel(i,@game.session.overAllStars)
-						else
-							session=@adventure.getLevel(i,Hash.new)
 						end
-					else
-						session=@adventure.getLevel(i,Hash.new)
 					end
 					manager.runGameSession(session)
 				}

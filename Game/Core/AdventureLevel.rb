@@ -104,7 +104,7 @@ class AdventureLevel < Session
 		else
 			@overallStars[@levelNumber]=@actualStars
 		end
-		return @actualStarse
+		return @actualStars
   end
 
 	def calculateOverallStars
