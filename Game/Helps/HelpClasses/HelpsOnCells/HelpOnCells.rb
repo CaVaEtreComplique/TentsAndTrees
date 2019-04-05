@@ -8,20 +8,35 @@
 require File.dirname(__FILE__) + "/../Help"
 
 ##
-# The HelpOnCells class is an abstract class inherited from the Help class that
-# is a model for all the classes that will help the player without knowing a row
-# or a column. It only knows the initialization method that creates a cell from
-# parameters and initializes the class with the initialize method from the Help
-# class.
+# ===== Presentation
+# The HelpOnCells class is inherited from the Help class and its direct children
+# are HelpOn1Cell, HelpOn2Cells and HelpOn3Cells.
+#
+# ===== Methods
+# This class knows its constructor, the cellsList method and the '==' method. All
+# these methods are overrides from the Help class.
 class HelpOnCells < Help
-#:nodoc:
 
+   # :nodoc:
   attr_reader :cell
+  # :startdoc:
 
+  ##
+  # This method's constructor assigns a value to the @cell variable and calls
+  # constructor from the Help class.
   def initialize(cell)
     @cell = cell
     super()
   end
+
+  ##
+  # This method adds to the help list the value of the cell.
+  # ===== Parameters
+  # * +helpLevel+ : The help's importance needed. Here, the cell is pushed only in case of lvl 3 help
+  #
+  # ===== Returns
+  # This method returns the help list.
+  # ----------
   def cellsList(helpLevel)
     list = super(helpLevel)
     if(helpLevel == 3)
@@ -30,7 +45,16 @@ class HelpOnCells < Help
     return list
   end
 
+  ##
+  # This method compares this help with another one.
+  # ===== Parameters
+  # * +otherHelp+ : The help we want to compare the current object to.
+  #
+  # ===== Returns
+  # This method returns the boolean value of this operation :
+  #      super(otherHelp) && @cell == otherHelp.cell
+  # ----------
   def ==(otherHelp)
-    return(super(otherHelp)  && @cell == otherHelp.cell )
+    return(super(otherHelp) && @cell == otherHelp.cell)
   end
 end
