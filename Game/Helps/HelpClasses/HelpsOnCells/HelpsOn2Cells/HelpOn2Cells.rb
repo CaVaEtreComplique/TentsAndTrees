@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpOn2Cells.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -23,7 +23,7 @@ class HelpOn2Cells < HelpOnCells #Abstract class
     if(helpLevel == 3)
        list.push(@cell2)
     end
-    return list 
+    return list
   end
 
   def ==(otherHelp)

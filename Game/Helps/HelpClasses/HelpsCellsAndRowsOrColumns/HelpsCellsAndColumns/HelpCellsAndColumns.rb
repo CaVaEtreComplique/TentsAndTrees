@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: HelpCellsAndColumns.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -12,7 +12,7 @@ require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 ##
 # The HelpCellsAndColumns class is an abstract class inherited from the abstract
 # class HelpCellsAndRowsOrColumns. This abstract class will determine a model
-# for every help class that needs to know a cell and a column. 
+# for every help class that needs to know a cell and a column.
 #
 # This class' direct child is the HelpAllPossibilitiesGiveItColumn class.
 class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
