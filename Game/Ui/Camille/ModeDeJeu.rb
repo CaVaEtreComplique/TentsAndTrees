@@ -70,7 +70,7 @@ class ModeDeJeu < Screen
     @police=screen.height*0.04
 
 		@gtkObject= Gtk::Table.new(3,3)
-		@scrol=ScrollableArea.new
+		@scrol=ScrollableArea.new(:vertical)
 		@boxV=Gtk::Box.new(:vertical)
 
 		@gtkObject.attach(@boxV,0,1,1,2)
