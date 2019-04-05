@@ -51,8 +51,6 @@ class ListeSave < Screen
 			manager.modeScreen.applyOn(@parent)
 		 }
 
-
-
 		 @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 	end
 end

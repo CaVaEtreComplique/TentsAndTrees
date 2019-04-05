@@ -25,23 +25,20 @@ class SaveBlock < Gtk::Box
       @menu=Gtk::Box.new(:horizontal)
 
       id=Text.new(save.id_save.to_s,@police)
-      @menu.pack_start(id.gtkObject ,expand: true, fill: true, padding: @pad)
+			d=Text.new(save.date_save,@police)
+			c=Text.new("CHARGER",@police)
+			delete=Text.new("Supprimer",@police)
 
-      #d=Button.new(:horizontal,save.date_save.to_s)
-      d=Text.new(save.date_save,@police)
+      @menu.pack_start(id.gtkObject ,expand: true, fill: true, padding: @pad)
       @menu.pack_start(d.gtkObject ,expand: true, fill: true, padding: @pad)
-    #  md=Text.new(save.content_save.gameMode,0.5,0.3)
-    #  @menu.pack_start(md.gtkObject ,expand: true, fill: true, padding: @pad)
-      c=Text.new("CHARGER",@police)
       @menu.pack_start(c.gtkObject ,expand: false, fill: true, padding: @pad)
-      c.onClick{
+			@menu.pack_start(delete.gtkObject ,expand: false, fill: true, padding: @pad)
+
+			c.onClick{
           manager.runGameSessionFromSave(Save.load(save.id_save))
 
        }
-
-			 delete=Text.new("Supprimer",@police)
-       @menu.pack_start(delete.gtkObject ,expand: false, fill: true, padding: @pad)
-       delete.onClick{
+      delete.onClick{
 				 	 connect=ConnectDB.new
 					 connect.deleteSave(save.id_save)
 				 	 manager.updateSave

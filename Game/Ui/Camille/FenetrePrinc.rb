@@ -69,44 +69,34 @@ class FenetrePrinc < Screen
 
     titre=Text.new(@textManager.getScreenTexts("main" , "title"),@police*2)
     titre.title
-    #add sur gtkObject
-    @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
-
     jouer=Text.new(@textManager.getButtonLabel("main" , "play"),@police)
-    #add sur gtkObject
+    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"),@police)
+    regle=Text.new(@textManager.getButtonLabel("main" , "rules"),@police)
+    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"),@police)
+    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"),@police)
+
+    @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
-    #Renvoie vers la page Mode de jeu
+    @menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
+    @menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
+
+
     jouer.onClick{
         manager.modeScreen.applyOn(@parent)
     }
-
-    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"),@police)
-    #add sur gtkObject
-    @menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
-    #Renvoie vers la page parametre
     parametre.onClick{
         manager.paramScreen.applyOn(@parent)
     }
-    regle=Text.new(@textManager.getButtonLabel("main" , "rules"),@police)
-    #add sur gtkObject
-    @menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
-    #Renvoie vers le diaporama des regles
     regle.onClick{
      }
-
-    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"),@police)
-    #add sur gtkObject
-    @menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
-    #Renvoie vers la page des meilleurs scores
     meilleurScore.onClick{
      }
-
-    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"),@police)
-    #add sur gtkObject
-    @menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
     quitter.onClick(){
         Gtk.main_quit
     }
+
     #image de fond
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 

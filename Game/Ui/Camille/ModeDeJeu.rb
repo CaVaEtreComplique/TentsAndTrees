@@ -75,55 +75,44 @@ class ModeDeJeu < Screen
 
 		@gtkObject.attach(@boxV,0,1,1,2)
 
-	#	@scrol.menu.add(@scrol.menu)
-  #Bontons de menu
+
+
 		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"),@police*2)
-		titre.title
+		aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@police)
+		timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@police)
+		clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@police)
+		tuto=Text.new(@textManager.getButtonLabel("gamemode" , "tuto"),@police)
+		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@police)
+		retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
+
 		@boxV.pack_start(titre.gtkObject ,expand: false, fill: false, padding: @pad)
-
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
-
-    aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@police)
   	@scrol.add(aventure.gtkObject	,@pad)
-		#renvoie la page de jeu du monde aventure
-		aventure.onClick{
-			manager.levelNumberScreen.applyOn(@parent,0,Hash.new,0)
-		 }
-
-    timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@police)
 		@scrol.add(timeA.gtkObject,@pad)
-		#Renvoie vers la page choix des niveaux
+		@scrol.add(clm.gtkObject,@pad)
+		@scrol.add(tuto.gtkObject,@pad)
+		@scrol.add(save.gtkObject,@pad)
+		@boxV.pack_start(retour.gtkObject ,expand: false, fill: false, padding: @pad)
+
+
+		aventure.onClick{
+			manager.levelNumberScreen.applyOn(@parent)
+		 }
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }
-    clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@police)
-		@scrol.add(clm.gtkObject,@pad)
-		#Lance une partie contre la montre en mode easy
 		clm.onClick{
     	session=TimeAttackSession.new(:timeAttack,:easy)
     	session.createSave
     	manager.runGameSession(session)
 		}
-
-		tuto=Text.new(@textManager.getButtonLabel("gamemode" , "tuto"),@police)
-		@scrol.add(tuto.gtkObject,@pad)
-	 	tuto.onClick{
+    tuto.onClick{
 			session=TutorialSession.new
     	manager.runGameSession(session)
 	  }
-
-		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@police)
-		@scrol.add(save.gtkObject,@pad)
 	 save.onClick{
-		 #save = Save.load(29)
-		 #session = save.content_save
-		 #manager.runGameSession(session)
 		 manager.listeSaveScreen.applyOn(@parent)
 		}
-
-    retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
-  	@boxV.pack_start(retour.gtkObject ,expand: false, fill: false, padding: @pad)
-	 #Renvoie vers la page principale
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
     }

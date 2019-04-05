@@ -75,35 +75,30 @@ class Parametre < Screen
     @gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menu,1,2,1,2)
+		 langue=Gtk::ComboBoxText.new
+		fr ="french"
+		ang="english"
 
-  #Bontons de menu
     titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@police*2)
 		titre.title
+		appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@police)
+		desins=Text.new("Désincription",@police)
+		retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@police)
+
+
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
+		@menu.add(langue=Gtk::ComboBoxText.new)
+		@menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
+		@menu.pack_start(desins.gtkObject ,expand: false, fill: true, padding:@pad)
+		@menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 
-    #Menu deroulant des langues
-    fr ="french"
-    ang="english"
-    langue=Gtk::ComboBoxText.new
-  #  @menu.pack_start(langue.gtkObject ,expand: false, fill: true, padding: 10)
-    @menu.add(langue=Gtk::ComboBoxText.new)
-    langue.append_text(fr)
-    langue.append_text(ang)
-
-
-
-
-
-    appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@police)
-    @menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
+		langue.append_text(fr)
+		langue.append_text(ang)
     appli.onClick{
       @textManager.language=langue.active_text
 			manager.update
 			manager.mainScreen.applyOn(@parent)
     }
-
-		desins=Text.new("Désincription",@police)
-		@menu.pack_start(desins.gtkObject ,expand: false, fill: true, padding:@pad)
 		desins.onClick{
 			connect = ConnectDB.new
 			connect.deletePlayerSave(Connexion.getJoueur.id_player)
@@ -112,10 +107,6 @@ class Parametre < Screen
 			TestGame.hide
 			Connexion.new
 		}
-
-    retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@police)
-    @menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
-		#Renvoie sur la page principale
     retour.onClick{
         manager.mainScreen.applyOn(@parent)
     }
