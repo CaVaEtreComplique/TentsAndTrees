@@ -52,8 +52,8 @@ class PauseScreen < Screen
         manager.session.updateSave
         manager.updateSave
         manager.mainScreen.applyOn(@parent)
-        Signal.trap("TERM") {
-          exit
+        ["TERM", "INT", "QUIT"].each{ |sig|
+          Signal.trap(sig) { exit }
         }
     }
 
