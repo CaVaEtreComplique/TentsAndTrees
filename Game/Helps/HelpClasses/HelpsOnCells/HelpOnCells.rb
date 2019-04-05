@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + "/../Help"
 #
 # ===== Methods
 # This class knows its constructor, the cellsList method and the '==' method. All
-# these methods are overrides from the Help class.
+# these methods are overloads of the Help class.
 class HelpOnCells < Help
 
    # :nodoc:

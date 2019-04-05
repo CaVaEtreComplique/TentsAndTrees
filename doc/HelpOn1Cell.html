@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpOn1Cell-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpOn1Cell-label-Examples+-3A">Examples :</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -76,12 +85,30 @@
 
   <section class="description">
     
-<p>The <a href="HelpOn1Cell.html">HelpOn1Cell</a> class is an abstract class
-inherited from the <a href="HelpOnCells.html">HelpOnCells</a> class. It is
-a model for all the help classes that will only need to know one cell. This
-class only knows the initialize method and it just calls the initialize
-method from <a href="HelpOnCells.html">HelpOnCells</a> with a cell in
-parameters.</p>
+<h4 id="class-HelpOn1Cell-label-Presentation">Presentation<span><a href="#class-HelpOn1Cell-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <a href="HelpOn1Cell.html">HelpOn1Cell</a> class is inherited from the
+<a href="HelpOnCells.html">HelpOnCells</a> class and its only direct child
+is the <a href="HelpCellTooFarOfTrees.html">HelpCellTooFarOfTrees</a>
+class. This class consists of overrides of the parent class. Its two
+methods are the class&#39; constructor and the cellsList method and they
+just call the parent method with their attributes.</p>
+
+<h5 id="class-HelpOn1Cell-label-Examples+-3A">Examples :<span><a href="#class-HelpOn1Cell-label-Examples+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The cellsList method :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-keyword">return</span> <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+<span class="ruby-keyword">end</span>
+</pre>
 
   </section>
 
