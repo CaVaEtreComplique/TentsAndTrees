@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Parametre - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Parametre-label-Presentation">Presentation</a>
+    <li><a href="#class-Parametre-label-Variables">Variables</a>
+    <li><a href="#class-Parametre-label-Implementation">Implementation</a>
+    <li><a href="#class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">Here is how the language choice is implemented on this screen :</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Screen.html">Screen</a>
+  
+</div>
+
+    
+    
+    
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Parametre">
+  <h1 id="class-Parametre" class="class">
+    class Parametre
+  </h1>
+
+  <section class="description">
+    
+<h2 id="class-Parametre-label-Presentation">Presentation<span><a href="#class-Parametre-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="Parametre.html">Parametre</a> is an inherited class from the <a
+href="Screen.html">Screen</a> class. This class only needs to be
+initialized and applied, so the only method is the initializer. It creates
+and implements the language choice menu from the game by creating its
+buttons.</p>
+
+<h2 id="class-Parametre-label-Variables">Variables<span><a href="#class-Parametre-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <a href="Parametre.html">Parametre</a> class creates the title size,
+text size and the padding variables with :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@pad</span> =<span class="ruby-value">10</span>
+<span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
+<span class="ruby-ivar">@heightTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.08</span>
+<span class="ruby-ivar">@widthText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.08</span>
+<span class="ruby-ivar">@heightText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.05</span>
+</pre>
+
+<p>This class also inherits the screen variable from the <a
+href="Screen.html">Screen</a> class.</p>
+
+<p>The gtkObject is the table where the menu (a vertical box) is added to
+create the menu buttons.</p>
+
+<h2 id="class-Parametre-label-Implementation">Implementation<span><a href="#class-Parametre-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h5 id="class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">Here is how the language choice is implemented on this screen :<span><a href="#class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>First</strong> we create the variables :</p>
+
+<pre class="ruby"><span class="ruby-identifier">fr</span> =<span class="ruby-string">&quot;Francais&quot;</span>
+<span class="ruby-identifier">ang</span>=<span class="ruby-string">&quot;Anglais&quot;</span>
+<span class="ruby-identifier">langue</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBoxText</span>.<span class="ruby-identifier">new</span>
+</pre>
+
+<p>The langue variable is a combo box, making it easier for the player to
+choose.</p>
+
+<p><strong>Next</strong> we add our combo box to the menu</p>
+
+<pre class="ruby"><span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">langue</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBoxText</span>.<span class="ruby-identifier">new</span>)
+</pre>
+
+<p><strong>Then</strong> we add the action each possibility of the box does
+when it is clicked :</p>
+
+<pre class="ruby"><span class="ruby-identifier">langue</span>.<span class="ruby-identifier">append_text</span>(<span class="ruby-identifier">fr</span>)
+<span class="ruby-identifier">langue</span>.<span class="ruby-identifier">append_text</span>(<span class="ruby-identifier">ang</span>)
+</pre>
+
+<p>Here we created a combo box with two possible languages, French and
+English. The other buttons are created by doing this aswell.</p>
+
+<p><strong>Finally</strong>, when all of the buttons are done we add a
+background picture with :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
