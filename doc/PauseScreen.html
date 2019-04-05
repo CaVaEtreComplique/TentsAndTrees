@@ -165,10 +165,13 @@
   }
   <span class="ruby-identifier">quit</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;pause&quot;</span> , <span class="ruby-string">&quot;quit&quot;</span>))
     <span class="ruby-identifier">quit</span>.<span class="ruby-identifier">onClick</span>(){
-      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">createNewSave</span>
       <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">delete_observers</span>
+      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">updateSave</span>
       <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>
       <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+      [<span class="ruby-string">&quot;TERM&quot;</span>, <span class="ruby-string">&quot;INT&quot;</span>, <span class="ruby-string">&quot;QUIT&quot;</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">sig</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Signal</span>.<span class="ruby-identifier">trap</span>(<span class="ruby-identifier">sig</span>) { <span class="ruby-identifier">exit</span> }
+      }
   }
 
   <span class="ruby-identifier">diapo</span> = <span class="ruby-constant">Diapo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>,<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>)

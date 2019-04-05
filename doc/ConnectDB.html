@@ -101,6 +101,8 @@
     
     <li ><a href="#method-i-save">#save</a>
     
+    <li ><a href="#method-i-updateSave">#updateSave</a>
+    
   </ul>
 </div>
 
@@ -217,7 +219,7 @@ href="Player.html">Player</a> we want to add</p>
 
           
           <div class="method-source-code" id="createPlayer-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 106</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 115</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createPlayer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>)
 
             <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO Player(name_player, password_player) VALUES(&#39;#{name}&#39;,&#39;#{Digest::SHA1.hexdigest(password)}&#39;)&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -262,7 +264,7 @@ href="Player.html">Player</a> we want to add</p>
 
           
           <div class="method-source-code" id="deletePlayer-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 199</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 219</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayer</span>(<span class="ruby-identifier">id</span>)
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Player WHERE player_id = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
                       <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -298,7 +300,7 @@ href="Player.html">Player</a> we want to add</p>
 
           
           <div class="method-source-code" id="deletePlayerHg-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 192</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 212</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerHg</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM HighScores WHERE id_player_highScores = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -334,7 +336,7 @@ href="Player.html">Player</a> we want to add</p>
 
           
           <div class="method-source-code" id="deletePlayerSave-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 207</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 227</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerSave</span>(<span class="ruby-identifier">id</span>)
 
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE player_id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -385,7 +387,7 @@ database.</p>
 
           
           <div class="method-source-code" id="deleteSave-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 184</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 204</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -434,7 +436,7 @@ to the database.</p>
 
           
           <div class="method-source-code" id="getGamemodes-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 317</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 336</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getGamemodes</span>()
 
   <span class="ruby-identifier">gm</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -496,7 +498,7 @@ must be connected to the database.</p>
 
           
           <div class="method-source-code" id="getHighScoresByGamemodeDiff-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 292</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 311</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHighScoresByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">diff</span>)
 
         <span class="ruby-identifier">hg</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -616,19 +618,18 @@ href="Player.html">Player</a>. The game must be connected to the database.</p>
 
           
           <div class="method-source-code" id="getPlayersSave-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 233</span>
-  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayersSave</span>(<span class="ruby-identifier">player</span>)
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayersSave</span>(<span class="ruby-identifier">player</span>)
 
-          <span class="ruby-identifier">saves</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">saves</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 
-          <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Save WHERE player_id_save = #{player.id_player}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-                  <span class="ruby-identifier">saves</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
-<span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
-          <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Save WHERE player_id_save = #{player.id_player}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">saves</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
+        <span class="ruby-keyword">end</span>
 
-          <span class="ruby-keyword">return</span> <span class="ruby-identifier">saves</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">saves</span>
 
-  <span class="ruby-keyword">end</span></pre>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -675,7 +676,7 @@ connected to the database.</p>
 
           
           <div class="method-source-code" id="getSaveByID-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 261</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 280</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getSaveByID</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-identifier">save</span> = <span class="ruby-keyword">nil</span>
@@ -730,7 +731,7 @@ want to check</p>
 
           
           <div class="method-source-code" id="isPlayerExist-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 134</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 143</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isPlayerExist</span>(<span class="ruby-identifier">name</span>)
 
   <span class="ruby-identifier">player</span> = <span class="ruby-keyword">nil</span>
@@ -793,7 +794,7 @@ can be found in the database</p>
 
           
           <div class="method-source-code" id="playerConnect-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 81</span>
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">playerConnect</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>)
 
         <span class="ruby-identifier">pl</span> = <span class="ruby-keyword">nil</span>
@@ -893,18 +894,66 @@ save</p>
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 160</span>
-      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">content</span>)
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 169</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">content</span>)
 
-              <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
+<span class="ruby-comment">#puts &quot;player = #{player.id_player}&quot;</span>
+<span class="ruby-comment">#puts &quot;content = #{content}&quot;</span>
+            <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-comment">#puts &quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, &#39;#{d.strftime(&quot;%d/%m/%Y %H:%M&quot;)}&#39;,&#39;#{content}&#39;)&quot;</span>
 
-<span class="ruby-comment">#  puts &quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, &#39;#{d.strftime(&quot;%d/%m/%Y %H:%M&quot;)}&#39;,&#39;#{content}&#39;)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;CREATE SAVE&quot;</span>
 
-              <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)&quot;</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id_player</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%d/%m/%Y %H:%M&quot;</span>),<span class="ruby-identifier">content</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-                      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
-              <span class="ruby-keyword">end</span>
 
-      <span class="ruby-keyword">end</span></pre>
+            <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)&quot;</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id_player</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%d/%m/%Y %H:%M&quot;</span>),<span class="ruby-identifier">content</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+                    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SELECT * FROM Save WHERE player_id_save = #{player.id_player} AND date_save=&#39;#{d.strftime(&quot;%d/%m/%Y %H:%M&quot;)}&#39;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>])
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">id_save</span>
+<span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
+
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-updateSave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">updateSave</span><span
+            class="method-args">(content, id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="updateSave-source">
+            <pre><span class="ruby-comment"># File Game/Core/DB/ConnectDB.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;UPDATE SAVE is_save = #{id}&quot;</span>
+    <span class="ruby-identifier">stm</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">prepare</span> <span class="ruby-string">&quot;UPDATE Save SET content_save=? WHERE id_save=?&quot;</span>;
+    <span class="ruby-identifier">stm</span>.<span class="ruby-identifier">bind_param</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">content</span>;
+     <span class="ruby-identifier">stm</span>.<span class="ruby-identifier">bind_param</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">id</span>;
+     <span class="ruby-identifier">stm</span>.<span class="ruby-identifier">execute</span>;
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

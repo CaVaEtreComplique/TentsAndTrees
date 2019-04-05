@@ -139,13 +139,25 @@
   <span class="ruby-ivar">@pad</span>=<span class="ruby-value">1</span>
 
   <span class="ruby-ivar">@gtkObject</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
-  <span class="ruby-ivar">@menu</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">12</span>,<span class="ruby-value">12</span>)
-  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@menu</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>)
+  <span class="ruby-comment">#@menu= Gtk::Box.new(:vertical)</span>
+
+              <span class="ruby-comment"># @scrol=Gtk::ScrolledWindow.new()</span>
+              <span class="ruby-comment"># @scrol.border_width=10</span>
+              <span class="ruby-comment"># @vp=Gtk::Viewport.new(nil,@scrol.vadjustment)</span>
+              <span class="ruby-comment"># @vp.add(@menu)</span>
+              <span class="ruby-comment"># @scrol.add(@vp)</span>
+
+
+              <span class="ruby-ivar">@scrol</span>=<span class="ruby-constant">ScrollableArea</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+              <span class="ruby-ivar">@boxV</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+              <span class="ruby-identifier">a</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0.5</span>,<span class="ruby-value">1</span>)
+              <span class="ruby-identifier">a</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@boxV</span>)
+              <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">a</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
+      <span class="ruby-comment">#      @gtkObject.attach(@boxV,0,1,1,2)</span>
+              <span class="ruby-ivar">@boxV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 
   <span class="ruby-ivar">@nbNiveau</span>=<span class="ruby-value">5</span>
               <span class="ruby-ivar">@nbEtoileObtenu</span>=<span class="ruby-value">0</span>
-  <span class="ruby-identifier">x</span>=<span class="ruby-value">0</span>
-  <span class="ruby-identifier">y</span>=<span class="ruby-value">0</span>
               <span class="ruby-ivar">@overAllStars</span> = <span class="ruby-value">2</span>
               <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
                       <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">partOfAdventure?</span>
@@ -155,17 +167,16 @@
 
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span> <span class="ruby-ivar">@nbNiveau</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
       <span class="ruby-ivar">@im</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-value">25</span>)
-                              <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@im</span>,<span class="ruby-identifier">x</span>,<span class="ruby-identifier">x</span><span class="ruby-value">+1</span>,<span class="ruby-identifier">y</span>,<span class="ruby-identifier">y</span><span class="ruby-value">+1</span>)
-
+                              <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@im</span>)
+                              <span class="ruby-identifier">al</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0.5</span>,<span class="ruby-value">1</span>)
                               <span class="ruby-ivar">@BoxH</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
                               <span class="ruby-ivar">@BoxV</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>,<span class="ruby-value">25</span>)
                               <span class="ruby-ivar">@im</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@BoxV</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 
                               <span class="ruby-ivar">@BoxV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@BoxH</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 
-                              <span class="ruby-identifier">niveau</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>,<span class="ruby-value">40</span>)
+                              <span class="ruby-identifier">niveau</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>,<span class="ruby-value">120</span>)
                            <span class="ruby-ivar">@BoxH</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">niveau</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-
                               <span class="ruby-ivar">@lock</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>()
                               <span class="ruby-ivar">@stars</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
                               <span class="ruby-identifier">s</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">getLevelMaxStars</span>(<span class="ruby-identifier">i</span>),<span class="ruby-ivar">@nbEtoileObtenu</span>)
@@ -183,20 +194,16 @@
                               }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">loc</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Characters/lock.png&quot;</span>)
-      <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">30</span>,<span class="ruby-value">30</span>)
+      <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">100</span>,<span class="ruby-value">100</span>)
       <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@lock</span>)
       <span class="ruby-ivar">@BoxH</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@lock</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
     <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">x</span>=<span class="ruby-identifier">x</span><span class="ruby-value">+2</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span><span class="ruby-operator">&gt;</span><span class="ruby-value">4</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span><span class="ruby-operator">*</span><span class="ruby-value">5</span>
-        <span class="ruby-identifier">y</span>=<span class="ruby-identifier">y</span><span class="ruby-value">+1</span>
-       <span class="ruby-identifier">x</span>=<span class="ruby-value">0</span>
-    <span class="ruby-keyword">end</span>
-  }
+              }
   <span class="ruby-ivar">@menuR</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-value">25</span>)
-              <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@menuR</span>,<span class="ruby-value">11</span>,<span class="ruby-value">12</span>,<span class="ruby-value">11</span>,<span class="ruby-value">12</span>)
-              <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;RETOUR&quot;</span>,<span class="ruby-value">14</span>)
-  <span class="ruby-ivar">@menuR</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">retour</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+              <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@menuR</span>)
+
+              <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;RETOUR&quot;</span>,<span class="ruby-value">25</span>)
+  <span class="ruby-ivar">@menuR</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">retour</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-value">10</span>)
       <span class="ruby-identifier">retour</span>.<span class="ruby-identifier">onClick</span>{
                       <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span><span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span>
                               <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">createNewSave</span>
