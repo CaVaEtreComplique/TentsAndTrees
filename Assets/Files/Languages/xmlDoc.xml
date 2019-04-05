@@ -190,7 +190,9 @@
       </alltentsonrow>
     </helps>
     <tutorial>
-      <arrival>No text for now</arrival>
+      <outside>
+        <intro>No text for now</intro>
+      </outside>
       <level1>
         <step1>No text for now</step1>
         <step2>No text for now</step2>
@@ -387,7 +389,9 @@
     </helps>
 
     <tutorial>
-      <arrival>Welcome, in this tutorial we cover all the basis of the game</arrival>
+      <outside>
+        <intro>Welcome, in this tutorial we cover all the basis of the game</intro>
+      </outside>
       <level1>
         <step1>No text for now</step1>
         <step2>No text for now</step2>

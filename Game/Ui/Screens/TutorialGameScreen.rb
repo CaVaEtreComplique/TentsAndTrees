@@ -66,7 +66,7 @@ class TutorialGameScreen < Screen
     @helpResponseUi.weight="normal"
     @helpResponseUi.color="red"
     @helpResponseUi.size=15
-    @help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
+    @help=Text.new(@textManager.getTutorialTexts("outside" , "intro"))
 
 
 

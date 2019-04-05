@@ -66,6 +66,14 @@ class XmlReader
   end
 
   ##
+  # The getTutorialTexts method fetches a text according to the current
+  # tutorial level and its step.
+  #
+  def getTutorialTexts(currentLevel, step)
+    return @xmlHash.fetch("languages").fetch(@language).fetch("tutorial").fetch(currentLevel).fetch(step)
+  end
+
+  ##
   # The getLoadingMessages method fetches a loading text message according to the key
   #
   def getLoadingMessages(key)
