@@ -96,7 +96,7 @@ class ModeDeJeu < Screen
 
 
 		aventure.onClick{
-			manager.levelNumberScreen.applyOn(@parent)
+			manager.levelNumberScreen.applyOn(@parent,0,Hash.new,0)
 		 }
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
