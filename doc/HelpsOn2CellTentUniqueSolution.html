@@ -228,15 +228,15 @@ posibility</p>
           
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#unicsolution</span>
   <span class="ruby-comment">#returns the text of the help, saying that a cell touch a class and is some grass</span>
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Un arbre a une case blanche unique et n&#39;est pas relié à une tente&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;unicsolution&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Un arbre a une seule case blanche autour de lui, c&#39;est forcément une tente&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;unicsolution&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;La case &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; est une tent car elle est la solution unique de l&#39;arbre en &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;unicsolution&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;unicsolution&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span>
     <span class="ruby-keyword">else</span>
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">end</span>

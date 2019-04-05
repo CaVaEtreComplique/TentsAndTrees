@@ -129,11 +129,11 @@
             <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 12</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
 <span class="ruby-ivar">@levels</span> = {
-                    <span class="ruby-value">1</span> <span class="ruby-operator">=&gt;</span>  <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-keyword">false</span>),
-                    <span class="ruby-value">2</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:timeAttack</span>, <span class="ruby-value">:easy</span>, <span class="ruby-keyword">false</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>),
-                    <span class="ruby-value">3</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">0.95</span>, <span class="ruby-value">3</span>, <span class="ruby-keyword">false</span>),
-                    <span class="ruby-value">4</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:timeAttack</span>, <span class="ruby-value">:easy</span>, <span class="ruby-keyword">false</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>),
-                    <span class="ruby-value">5</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">0.9</span>, <span class="ruby-value">3</span>, <span class="ruby-keyword">false</span>)
+                    <span class="ruby-value">1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>],
+                    <span class="ruby-value">2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:timeAttack</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>,<span class="ruby-value">2</span>],
+                    <span class="ruby-value">3</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">0.95</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">3</span>],
+                    <span class="ruby-value">4</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:timeAttack</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>,<span class="ruby-value">4</span>],
+                    <span class="ruby-value">5</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">0.9</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">5</span>]
             }
     <span class="ruby-keyword">end</span></pre>
           </div>
@@ -158,7 +158,7 @@
         
         <div class="method-heading">
           <span class="method-name">getLevel</span><span
-            class="method-args">(level)</span>
+            class="method-args">(level,overallStars)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -174,8 +174,9 @@
           
           <div class="method-source-code" id="getLevel-source">
             <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevel</span>(<span class="ruby-identifier">level</span>)
-  <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">level</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevel</span>(<span class="ruby-identifier">level</span>,<span class="ruby-identifier">overallStars</span>)
+  <span class="ruby-identifier">levelInfo</span> = <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">level</span>)
+              <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">4</span>], <span class="ruby-identifier">overallStars</span>,<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">5</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
           

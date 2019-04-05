@@ -228,15 +228,15 @@ posibility</p>
           
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#grasslinkedtree</span>
   <span class="ruby-comment">#returns the text of the help, saying that a cell touch a class and is some grass</span>
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Un réseau d&#39;arbres est complet&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Un réseau d&#39;arbres est complet, doncune case qui le touche est de l&#39;herbe&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;La case &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; est du gazon car le reseau d&#39;arbre en  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; est complet&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;grasslinkedtree&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
     <span class="ruby-keyword">else</span>
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">end</span>

@@ -11,7 +11,7 @@
 
 <languages>
   <french>
-    <language>Francais</language>
+    <language>Français</language>
 
     <loadingmessages>
       <loading>Chargement en cours</loading>
@@ -24,8 +24,8 @@
         </texts>
         <buttons>
           <play>Jouer</play>
-          <settings>Parametres</settings>
-          <rules>Regles</rules>
+          <settings>Paramètres</settings>
+          <rules>Règles</rules>
           <score>Meilleurs Scores</score>
           <exit>Quitter</exit>
         </buttons>
@@ -33,7 +33,7 @@
 
       <settings>
         <texts>
-          <title>Parametres</title>
+          <title>Paramètres</title>
         </texts>
         <buttons>
           <apply>Appliquer</apply>
@@ -45,8 +45,8 @@
         <texts>
           <title>Saisir</title>
           <name>Pseudo</name>
-          <pass>Nouveau mot de pass</pass>
-          <confirmpass>Confirmer le mot de pass</confirmpass>
+          <pass>Nouveau mot de passe</pass>
+          <confirmpass>Confirmer le mot de passe</confirmpass>
           <confirmform>Valider</confirmform>
         </texts>
       </forgotpass>
@@ -80,11 +80,11 @@
         <texts>
         </texts>
         <buttons>
-          <newguess>Nouvelle Hypothese</newguess>
-          <refuteguess>Refuter Hypothese</refuteguess>
-          <rz>Remettre la grille a zero</rz>
+          <newguess>Nouvelle Hypothèse</newguess>
+          <refuteguess>Réfuter Hypothèse</refuteguess>
+          <rz>Remettre la grille à zéro</rz>
           <undo>Annuler</undo>
-          <redo>Retablir</redo>
+          <redo>Rétablir</redo>
           <help>Aide</help>
           <pause>Pause</pause>
         </buttons>
@@ -95,9 +95,9 @@
         </texts>
         <buttons>
           <resume>Reprendre</resume>
-          <disabletracker>Desactiver le traceur</disabletracker>
+          <disabletracker>Désactiver le traceur</disabletracker>
           <enabletracker>Activer le traceur</enabletracker>
-          <disableindicators>Desactiver les Indicateurs</disableindicators>
+          <disableindicators>Désactiver les indicateurs</disableindicators>
           <enableindicators>Activer les indicateurs</enableindicators>
           <quit>Quitter</quit>
         </buttons>
@@ -106,35 +106,35 @@
       <victory>
         <texts>
           <win>VICTOIRE</win>
-          <lose>Defaite</lose>
+          <lose>Défaite</lose>
           <score>Score </score>
-          <errscore>Score non charge</errscore>
+          <errscore>Score non chargé</errscore>
         </texts>
         <buttons>
           <continue>Continuer</continue>
-          <levelselection>Selection Niveaux</levelselection>
+          <levelselection>Sélection Niveaux</levelselection>
           <retry>Rejouer</retry>
           <quit>Quitter</quit>
         </buttons>
       </victory>
-
     </screen>
+
     <helps>
       <help>
         <lvl0>Texte non disponible</lvl0>
       </help>
       <notfound>
-        <lvl0>Aucune aide trouvee</lvl0>
+        <lvl0>Aucune aide trouvée</lvl0>
       </notfound>
       <allpossibilitiescolumn>
         <lvl1>La colonne ; donne une possibilité unique pour une case</lvl1>
         <lvl2>La colonne ; donne une case ; obligatoire</lvl2>
-        <lvl3>Toutes les possibilités de la colonne ; font que la case ; est a l'état </lvl3>
+        <lvl3>Toutes les possibilités de la colonne ; font que la case ; est à l'état </lvl3>
       </allpossibilitiescolumn>
       <allpossibilitiesrow>
         <lvl1>La ligne ; donne une possibilité unique pour une case</lvl1>
         <lvl2>La ligne ; donne une case ; obligatoire</lvl2>
-        <lvl3>Toutes les possibilités de la ligne ; font que la case ; est a l'état </lvl3>
+        <lvl3>Toutes les possibilités de la ligne ; font que la case ; est à l'état </lvl3>
       </allpossibilitiesrow>
       <toofaroftrees>
         <lvl1>Une case ne touche pas d'arbre</lvl1>
@@ -149,26 +149,26 @@
       <unicsolution>
         <lvl1>Un arbre a une case blanche unique et n'est pas relié à une tente</lvl1>
         <lvl2>Un arbre a une seule case blanche autour de lui, c'est forcément une tente</lvl2>
-        <lvl3>La case ; est une tent car elle est la solution unique de l'arbre en ; .</lvl3>
+        <lvl3>La case ; est une tente car elle est la solution unique de l'arbre en ; .</lvl3>
       </unicsolution>
       <tentbcsoftree>
         <lvl1>Un arbre oblige un état d'une case</lvl1>
-        <lvl2>Un arbre oblige une case à etre une tente</lvl2>
-        <lvl3>La case ; est une tent car elle touche le reseau d'arbre et tente en ; .</lvl3>
+        <lvl2>Un arbre oblige une case à être une tente</lvl2>
+        <lvl3>La case ; est une tente car elle touche le réseau d'arbres et tentes en ; .</lvl3>
       </tentbcsoftree>
       <celltouchatent>
-        <lvl1>Il y a au moins une case qui touche une Tente</lvl1>
+        <lvl1>Il y a au moins une case qui touche une tente</lvl1>
         <lvl2>Les cases qui touchent des tentes sont du gazon</lvl2>
-        <lvl3>La case ; touche une tente case ; donc c est de l herbe.</lvl3>
+        <lvl3>La case ; touche une tente case ; donc c'est de l'herbe.</lvl3>
       </celltouchatent>
       <overlap>
-        <lvl1>Deux cellules blanches indiquent l'etat d'une troisième</lvl1>
+        <lvl1>Deux cellules blanches indiquent l'état d'une troisième</lvl1>
         <lvl2>Deux cellules blanches indiquent qu'une autre cellule est du gazon</lvl2>
         <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
       </overlap>
       <allgrassoncolumn>
-        <lvl1>Vous avez placé toutes le gazon d une colonne</lvl1>
-        <lvl2>Vous avez placé toutes le gazon d une colonne, donc toutes les cases blanches sont des tentes</lvl2>
+        <lvl1>Vous avez placé tout le gazon d'une colonne</lvl1>
+        <lvl2>Vous avez placé tout le gazon d'une colonne, donc toutes les cases blanches sont des tentes</lvl2>
         <lvl3>Tout le gazon nécessaire a été placé, donc toutes les cellules vide de la colonne ; sont des tentes</lvl3>
       </allgrassoncolumn>
       <alltentsoncolumn>
@@ -184,7 +184,7 @@
       <alltentsonrow>
         <lvl1>Vous avez placé toutes les tentes d'une ligne</lvl1>
         <lvl2>Vous avez placé toutes les tentes d'une ligne, donc toutes ses cellules blanches sont de l'herbe</lvl2>
-        <lvl3>Toutes les tentes nécessaires ont été placées,donc toutes les cellules vides de la ligne ; sont de l'herbe</lvl3>
+        <lvl3>Toutes les tentes nécessaires ont été placées, donc toutes les cellules vides de la ligne ; sont de l'herbe</lvl3>
       </alltentsonrow>
     </helps>
   </french>
@@ -225,7 +225,7 @@
           <title>Fill</title>
           <name>Name</name>
           <pass>New password</pass>
-          <confirmpass>Confirm pass</confirmpass>
+          <confirmpass>Confirm password</confirmpass>
           <confirmform>Let's play</confirmform>
         </texts>
       </forgotpass>
@@ -298,74 +298,74 @@
           <quit>Exit</quit>
         </buttons>
       </victory>
-
     </screen>
+
     <helps>
       <help>
-        <lvl0>Text is not available</lvl0>
+        <lvl0>Text unavailable</lvl0>
       </help>
       <notfound>
-        <lvl0>No Help Found</lvl0>
+        <lvl0>No help can be found</lvl0>
       </notfound>
       <allpossibilitiescolumn>
-        <lvl1>The column ; donne une possibilité unique pour une case</lvl1>
-        <lvl2>La colonne ; donne une case ; obligatoire</lvl2>
-        <lvl3>Toutes les possibilités de la colonne ; font que la case ; est a l'état </lvl3>
+        <lvl1>There is only one possible state for a cell on the column </lvl1>
+        <lvl2>On the column ; the cell ; has only one possible state</lvl2>
+        <lvl3>All the possibilities from the column ; give the cell ; the state </lvl3>
       </allpossibilitiescolumn>
       <allpossibilitiesrow>
-        <lvl1>La ligne ; donne une possibilité unique pour une case</lvl1>
-        <lvl2>La ligne ; donne une case ; obligatoire</lvl2>
-        <lvl3>Toutes les possibilités de la ligne ; font que la case ; est a l'état </lvl3>
+        <lvl1>There is only one possible state for a cell on the row </lvl1>
+        <lvl2>On the column ; the cell ; has only one possible state</lvl2>
+        <lvl3>All the possibilities from the column ; give the cell ; the state </lvl3>
       </allpossibilitiesrow>
       <toofaroftrees>
-        <lvl1>Une case ne touche pas d'arbre</lvl1>
-        <lvl2>Une case ne touche pas d'arbre et est donc du gazon</lvl2>
-        <lvl3>La case ; ne touche pas d'arbre et est donc du gazon</lvl3>
+        <lvl1>A cell does not touch a tree</lvl1>
+        <lvl2>A cell does not touch a tree and therefore is grass</lvl2>
+        <lvl3>The cell ; does not touch a tree and therefore is grass</lvl3>
       </toofaroftrees>
       <grasslinkedtree>
-        <lvl1>Un réseau d'arbres est complet</lvl1>
-        <lvl2>Un réseau d'arbres est complet, donc une case qui le touche est de l'herbe</lvl2>
-        <lvl3>La case ; est du gazon car le reseau d'arbre en ; est complet</lvl3>
+        <lvl1>A tree network is complete</lvl1>
+        <lvl2>A tree network is complete, therefore a cell touching it is grass</lvl2>
+        <lvl3>The cell ; is grass because the tree network on ; is complete</lvl3>
       </grasslinkedtree>
       <unicsolution>
-        <lvl1>Un arbre a une case blanche unique et n'est pas relié à une tente</lvl1>
-        <lvl2>Un arbre a une seule case blanche autour de lui, c'est forcément une tente</lvl2>
-        <lvl3>La case ; est une tent car elle est la solution unique de l'arbre en ; .</lvl3>
+        <lvl1>A tree is without a tent and has an unique white cell nearby</lvl1>
+        <lvl2>A tree has only one white cell around it, it obviously is a tent</lvl2>
+        <lvl3>The cell ; is a tent because it is the only solution for the tree on ; .</lvl3>
       </unicsolution>
       <tentbcsoftree>
-        <lvl1>Un arbre oblige un état d'une case</lvl1>
-        <lvl2>Un arbre oblige une case à etre une tente</lvl2>
-        <lvl3>La case ; est une tent car elle touche le reseau d'arbre et tente en ; .</lvl3>
+        <lvl1>A tree gives an obvious state for a cell</lvl1>
+        <lvl2>A tree makes a cell a tent</lvl2>
+        <lvl3>The cell ; is a tent because it is nearby the tents and trees network in ; .</lvl3>
       </tentbcsoftree>
       <celltouchatent>
-        <lvl1>Il y a au moins une case qui touche une Tente</lvl1>
-        <lvl2>Les cases qui touchent des tentes sont du gazon</lvl2>
-        <lvl3>La case ; touche une tente case ; donc c est de l herbe.</lvl3>
+        <lvl1>There is at least one cell nearby a tent</lvl1>
+        <lvl2>The cells nearby tents must be grass</lvl2>
+        <lvl3>The cell ; is nearby the tent on ; so it must be grass</lvl3>
       </celltouchatent>
       <overlap>
-        <lvl1>Deux cellules blanches indiquent l'etat d'une troisième</lvl1>
-        <lvl2>Deux cellules blanches indiquent qu'une autre cellule est du gazon</lvl2>
-        <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
+        <lvl1>Two white cells leave only one possible state for a third one</lvl1>
+        <lvl2>Two white cells mean the third one is grass</lvl2>
+        <lvl3>The cell ; is nearby the two white cells ; and ; and therefore is grass</lvl3>
       </overlap>
       <allgrassoncolumn>
-        <lvl1>You placed all the grass of a column</lvl1>
-        <lvl2>You placed all the grass on a column, so all the white cells are tents</lvl2>
-        <lvl3>All grass needed have been placed, so all the empty cells of the column ; are tents</lvl3>
+        <lvl1>You have placed all of a column's grass</lvl1>
+        <lvl2>A column has all of its grass placed so the remaining empty cells are tents</lvl2>
+        <lvl3>All of the grass of the column ; have been placed so the remaining empty cells are tents</lvl3>
       </allgrassoncolumn>
       <alltentsoncolumn>
-        <lvl1>You placed all the tents of a column</lvl1>
-        <lvl2>You placed all the tents on a column, so all the white cells are grass</lvl2>
-        <lvl3>All tents needed have been placed, so all the empty cells of the column ; are grass</lvl3>
+        <lvl1>A column has all its tents placed</lvl1>
+        <lvl2>A column has all its tents placed, so the remaining cells on it are grass</lvl2>
+        <lvl3>All the tents on the column ; have been placed so the remaining cells are grass</lvl3>
       </alltentsoncolumn>
       <allgrassonrow>
-        <lvl1>You placed all the grass of a row</lvl1>
-        <lvl2>You placed all the grass on a row, so all the white cells are tents</lvl2>
-        <lvl3>All grass needed have been placed, so all the empty cells of the row ; are tents</lvl3>
+        <lvl1>You have placed all of a row's grass</lvl1>
+        <lvl2>You have placed all of a row's grass, so the remaining cells are tents</lvl2>
+        <lvl3>The remaining cells of the row ; are tents because all of this row's grass has been placed</lvl3>
       </allgrassonrow>
       <alltentsonrow>
-        <lvl1>You placed all the tents of a row</lvl1>
-        <lvl2>You placed all the tents on a row, so all the white cells are grass</lvl2>
-        <lvl3>All tents needed have been placed, so all the empty cells of the row ; are grass</lvl3>
+        <lvl1>You have placed every tent for a row</lvl1>
+        <lvl2>You have placed every tent for a row, so the remaining cells are grass</lvl2>
+        <lvl3>You have placed every tent for the row ; so all remaining cells on it are grass</lvl3>
       </alltentsonrow>
     </helps>
   </english>

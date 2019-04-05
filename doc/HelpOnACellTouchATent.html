@@ -227,15 +227,15 @@ needs help.</p>
           
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#celltouchatent</span>
   <span class="ruby-comment">#returns the text of the help, saying that a cell touch a class and is some grass</span>
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Il y a au moins une case qui touche une Tente&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Les cases qui touchent des tentes sont du gazon&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;La case &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; touche une tente case &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span> <span class="ruby-string">&quot; donc c est de l herbe&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
     <span class="ruby-keyword">else</span>
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">end</span>
