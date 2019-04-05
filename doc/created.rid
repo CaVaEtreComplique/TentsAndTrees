@@ -1,11 +1,11 @@
-Fri, 05 Apr 2019 11:00:50 +0200
+Fri, 05 Apr 2019 11:14:07 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Fri, 05 Apr 2019 10:56:35 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent.rb	Fri, 05 Apr 2019 10:13:45 +0200
-./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb	Fri, 05 Apr 2019 10:13:45 +0200
+./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb	Fri, 05 Apr 2019 11:14:04 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpOn1Cell.rb	Fri, 05 Apr 2019 11:00:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpsOnACellOverlap/HelpsOnACellOverlap.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb	Fri, 05 Apr 2019 10:13:45 +0200

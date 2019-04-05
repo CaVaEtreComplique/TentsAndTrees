@@ -5,21 +5,54 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
 require File.dirname(__FILE__) + "/../HelpOn1Cell"
 
+##
+# ===== Presentation
+# The HelpCellTooFarOfTrees class is inherited from the HelpOn1Cell class. This
+# class is used to help the player finding a white cell which isn't near a tree.
+# This class is instanciable.
+# ===== Methods
+# This class' methods are the constructor, which just calls the parent class'
+# constructor, and the getText method.
 class HelpCellTooFarOfTrees < HelpOn1Cell
-  #Help the player to find a white cell whitch isn't adjacent a tree
+  # :nodoc:
+  public_class_method :new
+  # :startdoc:
 
-  public_class_method :new #Instanciable
+  ##
+  # The initialize method just calls the initialize method from HelpOn1Cell with
+  # the cell taken in parameters.
+  # ===== Example :
+  #   def initialize(cell)
+  #     super(cell)
+  #   end
   def initialize(cell)
-    #the cell don't touch a tree
     super(cell)
   end
 
-  def getText(helpLevel) #toofaroftrees
-    #returns the text of the help, saying that the cell is grass
+  ##
+  # ===== Presentation
+  # The getText method returns the help text saying that the cell must be grass.
+  # This text is taken in an XML file so that the text depends on the language
+  # chosen by the player.
+  # ===== Parameters
+  # * +helpLevel+ : The help's importance.
+  # ===== Returns
+  # Depending on the help level, the text given will not be the same. The higher
+  # the level is, the more precise and expensive the help is.
+  # ===== Examples
+  #   case helpLevel
+  #    when 1
+  #       @helpText = @textManager.getHelpsTexts("toofaroftrees", helpLevel, 0)
+  #    when 2
+  #        @helpText = @textManager.getHelpsTexts("toofaroftrees", helpLevel, 0)
+  #    when 3
+  #        @helpText = @textManager.getHelpsTexts("toofaroftrees", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("toofaroftrees", helpLevel, 1)
+  #     else
+  #        super(helpLevel)
+  #    end
+  def getText(helpLevel)
     case helpLevel
     when 1
         @helpText = @textManager.getHelpsTexts("toofaroftrees", helpLevel, 0)
