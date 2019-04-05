@@ -26,13 +26,25 @@ class LevelNumber < Screen
     @pad=1
 
     @gtkObject= Gtk::Table.new(3,3)
-    @menu= Gtk::Table.new(12,12)
-    @gtkObject.attach(@menu,0,1,0,1)
+    #@menu= Gtk::Box.new(:vertical)
+
+		# @scrol=Gtk::ScrolledWindow.new()
+		# @scrol.border_width=10
+		# @vp=Gtk::Viewport.new(nil,@scrol.vadjustment)
+		# @vp.add(@menu)
+		# @scrol.add(@vp)
+
+
+		@scrol=ScrollableArea.new(:vertical)
+		@boxV=Gtk::Box.new(:horizontal)
+		a=Gtk::Alignment.new(0.5,0,0.5,1)
+		a.add(@boxV)
+		@gtkObject.attach(a,0,1,1,2)
+	#	@gtkObject.attach(@boxV,0,1,1,2)
+		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
     @nbNiveau=5
 		@nbEtoileObtenu=0
-    x=0
-    y=0
 		@overAllStars = 2
 		if @game != nil
 			if @game.session.partOfAdventure?
@@ -42,17 +54,16 @@ class LevelNumber < Screen
 
     (1.. @nbNiveau).each { |i|
         @im=Gtk::Box.new(:horizontal, 25)
-				@menu.attach(@im,x,x+1,y,y+1)
-
+				@scrol.add(@im)
+				al=Gtk::Alignment.new(0.5,0,0.5,1)
 				@BoxH=Gtk::Box.new(:horizontal,25)
 				@BoxV=Gtk::Box.new(:vertical,25)
 				@im.pack_start(@BoxV,expand: false, fill: true, padding: @pad)
 
 				@BoxV.pack_start(@BoxH,expand: false, fill: true, padding: @pad)
 
-				niveau=Text.new(i.to_s,40)
+				niveau=Text.new( i.to_s,120)
 			 	@BoxH.pack_start(niveau.gtkObject,expand: false, fill: true, padding: @pad)
-
 				@lock=Gtk::EventBox.new()
 				@stars=Gtk::Box.new(:horizontal,25)
 				s=Star.new(@adventure.getLevelMaxStars(i),@nbEtoileObtenu)
@@ -70,20 +81,16 @@ class LevelNumber < Screen
 				}
       else
         loc=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
-        loc.resize(30,30)
+        loc.resize(100,100)
         loc.applyOn(@lock)
         @BoxH.pack_start(@lock,expand: false, fill: true, padding: @pad)
       end
-      x=x+2
-      if i>4+y*5
-          y=y+1
-         x=0
-      end
-    }
+		}
     @menuR=Gtk::Box.new(:horizontal, 25)
-		@menu.attach(@menuR,11,12,11,12)
-		retour=Text.new("RETOUR",14)
-    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
+		@scrol.add(@menuR)
+
+		retour=Text.new("RETOUR",25)
+    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:10)
   	retour.onClick{
 			if @game!=nil
 				manager.createNewSave
