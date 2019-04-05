@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: RowsAndColumnsFindGrass.rb
 # @Last modified by:   maxime
-# @Last modified time: 27-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -50,7 +50,7 @@ class RowsAndColumnsFindGrass < FictivHelper
                 return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column + 1), game.correction.cols[i], "grass") if game.cellAt(cell.row, cell.column + 1).isAWhite?
               end
               if(cell.column - 1 >= 0)
-                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
+                return HelpAllPossibilitiesGiveItRow.new(game.cellAt(cell.row, cell.column - 1), game.correction.cols[i], "grass") if game.cellAt(cell.row, cell.column - 1).isAWhite?
               end
             end
           end
