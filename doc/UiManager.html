@@ -75,9 +75,13 @@
     
     <li ><a href="#method-i-createNewSave">#createNewSave</a>
     
+    <li ><a href="#method-i-getVictoryScreen">#getVictoryScreen</a>
+    
     <li ><a href="#method-i-run">#run</a>
     
     <li ><a href="#method-i-runGameSession">#runGameSession</a>
+    
+    <li ><a href="#method-i-runGameSessionFromSave">#runGameSessionFromSave</a>
     
     <li ><a href="#method-i-update">#update</a>
     
@@ -320,9 +324,46 @@ by:   zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="createNewSave-source">
-            <pre><span class="ruby-comment"># File Game/Ui/UiManager.rb, line 54</span>
+            <pre><span class="ruby-comment"># File Game/Ui/UiManager.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createNewSave</span>
   <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getVictoryScreen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getVictoryScreen</span><span
+            class="method-args">(session)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getVictoryScreen-source">
+            <pre><span class="ruby-comment"># File Game/Ui/UiManager.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getVictoryScreen</span>(<span class="ruby-identifier">session</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">partOfAdventure?</span>
+    <span class="ruby-constant">AdventureVictoryScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-identifier">session</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">VictoryScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-ivar">@session</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -396,13 +437,48 @@ by:   zeigon @Last modified time: 29-Mar-2019</p>
     <span class="ruby-comment"># Generation des textures</span>
     <span class="ruby-identifier">cellAssets</span>=<span class="ruby-constant">CellAssets</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>, <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>)
     <span class="ruby-comment"># Generation des ecrans de jeu</span>
-    <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-constant">VictoryScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-ivar">@session</span>)
+    <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-identifier">getVictoryScreen</span>(<span class="ruby-ivar">@session</span>)
     <span class="ruby-ivar">@gameScreen</span>=<span class="ruby-constant">GameScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-identifier">game</span>,<span class="ruby-identifier">cellAssets</span>,<span class="ruby-identifier">victoryScreen</span>)
     <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Affichage de l&#39;écran de jeu&quot;</span>)
     <span class="ruby-ivar">@gameScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
     <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Lancement de la partie&quot;</span>)
     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">run</span>
   }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-runGameSessionFromSave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runGameSessionFromSave</span><span
+            class="method-args">(save)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runGameSessionFromSave-source">
+            <pre><span class="ruby-comment"># File Game/Ui/UiManager.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runGameSessionFromSave</span>(<span class="ruby-identifier">save</span>)
+  <span class="ruby-ivar">@session</span> = <span class="ruby-identifier">save</span>.<span class="ruby-identifier">content_save</span>
+  <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">setSave</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">id_save</span>)
+  <span class="ruby-identifier">runGameSession</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">content_save</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

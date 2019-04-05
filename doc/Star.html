@@ -147,16 +147,24 @@
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Game/Ui/Camille/Star.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">nbEtoile</span>,<span class="ruby-identifier">nbEtoileObtenu</span>)
+              <span class="ruby-identifier">sHappy</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/star.png&quot;</span>)
+              <span class="ruby-identifier">sSad</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/starSad.png&quot;</span>)
   <span class="ruby-ivar">@stars</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span> <span class="ruby-identifier">nbEtoile</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
      <span class="ruby-ivar">@star</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>()
      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">nbEtoileObtenu</span>)
-       <span class="ruby-identifier">s</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/star.png&quot;</span>)
-     <span class="ruby-keyword">else</span>
-       <span class="ruby-identifier">s</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/starSad.png&quot;</span>)
-     <span class="ruby-keyword">end</span>
-     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">15</span>,<span class="ruby-value">15</span>)
-     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@star</span>)
+       <span class="ruby-comment">#s=Asset.new(File.dirname(__FILE__) + &quot;/../../../Assets/star.png&quot;)</span>
+                               <span class="ruby-identifier">sH</span>=<span class="ruby-identifier">sHappy</span>
+                               <span class="ruby-identifier">sH</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">50</span>,<span class="ruby-value">50</span>)
+             <span class="ruby-identifier">sH</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@star</span>)
+                       <span class="ruby-keyword">else</span>
+       <span class="ruby-comment">#s=Asset.new(File.dirname(__FILE__) + &quot;/../../../Assets/starSad.png&quot;)</span>
+                               <span class="ruby-identifier">sS</span>=<span class="ruby-identifier">sSad</span>
+                               <span class="ruby-identifier">sS</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">75</span>,<span class="ruby-value">75</span>)
+             <span class="ruby-identifier">sS</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@star</span>)
+                       <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#   s.resize(50,50)</span>
+  <span class="ruby-comment">#   s.applyOn(@star)</span>
      <span class="ruby-ivar">@stars</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@star</span>)
    }
  <span class="ruby-keyword">end</span></pre>
