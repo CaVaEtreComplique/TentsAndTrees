@@ -73,6 +73,8 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
     <li ><a href="#method-i-getText">#getText</a>
     
     <li ><a href="#method-i-helpFound-3F">#helpFound?</a>
@@ -143,8 +145,47 @@ needs help.</p>
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/Help.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-ivar">@price</span> = <span class="ruby-value">5</span>
+  <span class="ruby-ivar">@textManager</span> = <span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
   <span class="ruby-comment">#Initializes the help text as what it needs to be.</span>
   <span class="ruby-ivar">@helpText</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getText</span>(<span class="ruby-ivar">@helpLevel</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Help.html#method-c-new">Help.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
+  <span class="ruby-keyword">super</span>()
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -188,9 +229,10 @@ href="Help.html">Help</a> class.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Aucune aide trouvée&quot;</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#notfound</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;notfound&quot;</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

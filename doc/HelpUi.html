@@ -96,7 +96,7 @@
     
 <p>@Author: Corentin Petit &lt;zeigon&gt; @Date:   18-Mar-2019 @Email: 
 corentin.petit.etu@univ-lemans.fr @Filename: HelpUi.rb @Last modified by:  
-zeigon @Last modified time: 25-Mar-2019</p>
+zeigon @Last modified time: 29-Mar-2019</p>
 
   </section>
 
@@ -160,9 +160,13 @@ zeigon @Last modified time: 25-Mar-2019</p>
             <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 16</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
             <span class="ruby-ivar">@gtkObject</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">DrawingArea</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-ivar">@size</span>=<span class="ruby-value">140</span>
-            <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">set_size_request</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-ivar">@size</span>)
-
+            <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">set_size_request</span>((<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.3</span>), (<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.3</span>))
+            <span class="ruby-ivar">@label</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-ivar">@label</span>.<span class="ruby-identifier">style</span>=<span class="ruby-string">&quot;italic&quot;</span>
+<span class="ruby-ivar">@label</span>.<span class="ruby-identifier">weight</span>=<span class="ruby-string">&quot;normal&quot;</span>
+<span class="ruby-ivar">@label</span>.<span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;red&quot;</span>
+<span class="ruby-ivar">@label</span>.<span class="ruby-identifier">size</span>=<span class="ruby-value">12</span>
+            <span class="ruby-comment"># @gtkObject.add(@label)</span>
             <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">signal_connect</span> <span class="ruby-string">&quot;draw&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_widget</span>, <span class="ruby-identifier">cr</span><span class="ruby-operator">|</span>
   <span class="ruby-identifier">onDrawSignal</span>(<span class="ruby-identifier">cr</span>)
 <span class="ruby-keyword">end</span>
@@ -208,7 +212,7 @@ zeigon @Last modified time: 25-Mar-2019</p>
 
           
           <div class="method-source-code" id="clean-source">
-            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clean</span>
         <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@surface</span>
         <span class="ruby-comment"># initialize the surface to white</span>
@@ -216,6 +220,7 @@ zeigon @Last modified time: 25-Mar-2019</p>
         <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">set_source_rgba</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
         <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">paint</span>
         <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">destroy</span>
+        <span class="ruby-ivar">@label</span>.<span class="ruby-identifier">updateLabel</span> <span class="ruby-string">&quot;&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -246,7 +251,7 @@ zeigon @Last modified time: 25-Mar-2019</p>
 
           
           <div class="method-source-code" id="onConfigureEventSignal-source">
-            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 41</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onConfigureEventSignal</span>(<span class="ruby-identifier">da</span>)
 <span class="ruby-ivar">@surface</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@surface</span>
 <span class="ruby-ivar">@surface</span> = <span class="ruby-identifier">da</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">create_similar_surface</span>(<span class="ruby-constant">Cairo</span><span class="ruby-operator">::</span><span class="ruby-constant">CONTENT_COLOR</span>, <span class="ruby-identifier">da</span>.<span class="ruby-identifier">allocated_width</span>, <span class="ruby-identifier">da</span>.<span class="ruby-identifier">allocated_height</span>)
@@ -283,7 +288,7 @@ zeigon @Last modified time: 25-Mar-2019</p>
 
           
           <div class="method-source-code" id="onDrawSignal-source">
-            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 34</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onDrawSignal</span>(<span class="ruby-identifier">cr</span>)
 <span class="ruby-comment"># Redraw the screen from the</span>
 <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">set_source</span>(<span class="ruby-ivar">@surface</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
@@ -319,17 +324,11 @@ zeigon @Last modified time: 25-Mar-2019</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 54</span>
+            <pre><span class="ruby-comment"># File Game/Ui/HelpUi.rb, line 59</span>
        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>(<span class="ruby-identifier">message</span>=<span class="ruby-string">&quot;&quot;</span>)
                <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@surface</span>
                <span class="ruby-identifier">clean</span>
-               <span class="ruby-identifier">cr</span> = <span class="ruby-constant">Cairo</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@surface</span>)
-   <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">select_font_face</span> <span class="ruby-string">&quot;Arial&quot;</span>, <span class="ruby-constant">Cairo</span><span class="ruby-operator">::</span><span class="ruby-constant">FONT_SLANT_NORMAL</span>, <span class="ruby-constant">Cairo</span><span class="ruby-operator">::</span><span class="ruby-constant">FONT_WEIGHT_NORMAL</span>
-   <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">set_font_size</span> <span class="ruby-value">18</span>
-   <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">move_to</span> <span class="ruby-value">5</span>, <span class="ruby-value">60</span>
-               <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">show_text</span> <span class="ruby-identifier">message</span>
-               <span class="ruby-identifier">cr</span>.<span class="ruby-identifier">destroy</span>
-               <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">queue_draw</span>
+               <span class="ruby-ivar">@label</span>.<span class="ruby-identifier">updateLabel</span> <span class="ruby-identifier">message</span>
    <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

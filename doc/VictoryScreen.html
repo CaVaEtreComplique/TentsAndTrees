@@ -216,7 +216,7 @@
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">partOfAdventure?</span>
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;levelselection&quot;</span>))
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
-        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
       }
     <span class="ruby-keyword">else</span>
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;retry&quot;</span>))
@@ -226,13 +226,14 @@
       }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">partOfAdventure?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">gameMode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:timeAttack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">finishedGrid</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">numberOfGrid</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">partOfAdventure?</span>  <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">finishedGrid</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">numberOfGrid</span>
       <span class="ruby-comment">#Afficher les etoiles à implementer</span>
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;levelselection&quot;</span>))
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
         <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
       }
     <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;continue&quot;</span>))
       <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
         <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">replay</span>(<span class="ruby-keyword">true</span>)
         <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">runGameSession</span>(<span class="ruby-ivar">@session</span>)

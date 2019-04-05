@@ -75,6 +75,8 @@
     
     <li ><a href="#method-i-apply">#apply</a>
     
+    <li ><a href="#method-i-colorChange">#colorChange</a>
+    
     <li ><a href="#method-i-onClick">#onClick</a>
     
     <li ><a href="#method-i-title">#title</a>
@@ -114,6 +116,19 @@ zeigon @Last modified time: 29-Mar-2019</p>
         <h3>Attributes</h3>
       </header>
 
+      
+      <div id="attribute-i-color" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">color</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
       
       <div id="attribute-i-gtkObject" class="method-detail">
         <div class="method-heading attribute-method-heading">
@@ -181,7 +196,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(label, size=15)</span>
+            class="method-args">(label, size=30)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -190,14 +205,14 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
         <div class="method-description">
           
-          <p>@@cursorIn=Gdk::Cursor.new(:hand1) @@cursorOut=Gdk::Cursor.new(:arrow)</p>
+          
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">label</span>, <span class="ruby-identifier">size</span>=<span class="ruby-value">15</span>)
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">label</span>, <span class="ruby-identifier">size</span>=<span class="ruby-value">30</span>)
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">label</span>
   <span class="ruby-ivar">@gtkObject</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0.2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
   <span class="ruby-ivar">@eventBox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>
@@ -248,9 +263,43 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="apply-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 68</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>
   <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span style=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@style</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; weight=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@weight</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; foreground=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@color</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; font_desc=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@font</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@size</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@label</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&lt;/span&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-colorChange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">colorChange</span><span
+            class="method-args">(couleur)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="colorChange-source">
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colorChange</span>(<span class="ruby-identifier">couleur</span>)
+  <span class="ruby-ivar">@color</span>=<span class="ruby-identifier">couleur</span>
+  <span class="ruby-identifier">apply</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -281,7 +330,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="onClick-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 44</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onClick</span>(<span class="ruby-identifier">block</span>=<span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;enter_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSORIN</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
@@ -334,7 +383,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="title-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 31</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">title</span>
   <span class="ruby-ivar">@weight</span> = <span class="ruby-string">&quot;ultrabold&quot;</span>
   <span class="ruby-ivar">@font</span> = <span class="ruby-string">&quot;Sans&quot;</span>
@@ -370,7 +419,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="updateLabel-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 38</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Buttons/Text.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateLabel</span>(<span class="ruby-identifier">newLabel</span>)
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">newLabel</span>
   <span class="ruby-identifier">apply</span>
