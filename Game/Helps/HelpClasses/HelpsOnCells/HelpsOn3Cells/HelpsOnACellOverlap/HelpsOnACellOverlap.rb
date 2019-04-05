@@ -3,7 +3,7 @@
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellOverlap.rb
 # @Last modified by:   maxime
-# @Last modified time: 31-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 
 
@@ -19,7 +19,7 @@ class HelpsOnACellOverlap < HelpOn3Cells
 
   def getText(helpLevel) #overlap
     #returns the text of the help, saying that a cell touch a class and is some grass
-    case helpText
+    case helpLevel
       when 1
         return @textManager.getHelpsTexts("overlap", helpLevel, 0)
       when 2
@@ -28,6 +28,6 @@ class HelpsOnACellOverlap < HelpOn3Cells
         return @textManager.getHelpsTexts("overlap", helpLevel, 0) + @cell.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 1) + @cell2.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 2) + @cell3.to_s + @textManager.getHelpsTexts("overlap", helpLevel, 3)
       else
           super(helpLevel)
-    end
+      end
   end
 end

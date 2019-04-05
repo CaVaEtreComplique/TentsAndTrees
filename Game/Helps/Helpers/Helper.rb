@@ -69,12 +69,12 @@ class Helper < FictivHelper
     #initialize with all helpers
     @helps = Array.new
 
-    @helps.push(CellTouchATentHelper.new)       # Fill the cells near a Tent with grass
-    @helps.push(RowsAndColumnsTentsHelper.new)  # Fill a row/column whith tents when it has all this grass
-    @helps.push(RowsAndColumnsGrassHelper.new)  # Fill a row/column whith grass when it has all this tents
-    @helps.push(CellDontTouchTreeHelper.new)    # Help when a cell dont touch a tree, it will be a grass
-    @helps.push(RowsAndColumnsFindTent.new)     # RowsAndColumnsFindTent help you to find Tent in a row or columns
-    @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
+    #@helps.push(CellTouchATentHelper.new)       # Fill the cells near a Tent with grass
+    #@helps.push(RowsAndColumnsTentsHelper.new)  # Fill a row/column whith tents when it has all this grass
+    #@helps.push(RowsAndColumnsGrassHelper.new)  # Fill a row/column whith grass when it has all this tents
+    #@helps.push(CellDontTouchTreeHelper.new)    # Help when a cell dont touch a tree, it will be a grass
+    #@helps.push(RowsAndColumnsFindTent.new)     # RowsAndColumnsFindTent help you to find Tent in a row or columns
+    #@helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
     @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
     @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
 
