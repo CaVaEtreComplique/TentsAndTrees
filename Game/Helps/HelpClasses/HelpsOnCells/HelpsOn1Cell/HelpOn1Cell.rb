@@ -8,15 +8,28 @@
 require File.dirname(__FILE__) + "/../HelpOnCells"
 
 ##
-# The HelpOn1Cell class is an abstract class inherited from the HelpOnCells
-# class. It is a model for all the help classes that will only need to know one
-# cell. This class only knows the initialize method and it just calls the
-# initialize method from HelpOnCells with a cell in parameters.
+# ==== Presentation
+# The HelpOn1Cell class is inherited from the HelpOnCells class and its only
+# direct child is the HelpCellTooFarOfTrees class. This class consists of
+# overrides of the parent class. Its two methods are the class' constructor
+# and the cellsList method and they just call the parent method with their
+# attributes.
+# ===== Examples :
+# The class' constructor :
+#   def initialize(cell)
+#     super(cell)
+#   end
+#
+# The cellsList method :
+#  def cellsList(helpLevel)
+#     return super(helpLevel)
+#  end
 class HelpOn1Cell < HelpOnCells
    #:nodoc:
   def initialize(cell)
     super(cell)
   end
+
   def cellsList(helpLevel)
     return super(helpLevel)
   end

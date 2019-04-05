@@ -1,12 +1,12 @@
-Fri, 05 Apr 2019 10:41:25 +0200
-./Game/Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Fri, 05 Apr 2019 10:41:23 +0200
+Fri, 05 Apr 2019 11:00:50 +0200
+./Game/Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Fri, 05 Apr 2019 10:56:35 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb	Fri, 05 Apr 2019 10:13:45 +0200
-./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpOn1Cell.rb	Fri, 05 Apr 2019 10:13:45 +0200
+./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpOn1Cell.rb	Fri, 05 Apr 2019 11:00:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpsOnACellOverlap/HelpsOnACellOverlap.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn3Cells/HelpOn3Cells.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/Help.rb	Fri, 05 Apr 2019 10:13:45 +0200
@@ -23,7 +23,7 @@ Fri, 05 Apr 2019 10:41:25 +0200
 ./Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb	Fri, 05 Apr 2019 10:13:45 +0200
-./Game/Helps/Helpers/Helper.rb	Fri, 05 Apr 2019 09:09:59 +0200
+./Game/Helps/Helpers/Helper.rb	Fri, 05 Apr 2019 10:42:33 +0200
 ./Game/Helps/Helpers/FictivHelper.rb	Fri, 15 Mar 2019 11:06:29 +0100
 ./Game/Helps/Helpers/CellsHelpers/CellDontTouchTreeHelper.rb	Fri, 15 Mar 2019 11:06:29 +0100
 ./Game/Helps/Helpers/CellsHelpers/CellIsAGrass.rb	Fri, 15 Mar 2019 11:32:31 +0100
@@ -40,7 +40,7 @@ Fri, 05 Apr 2019 10:41:25 +0200
 ./Game/Helps/Count.rb	Fri, 15 Mar 2019 11:06:29 +0100
 ./Game/Core/QuickPlaySession.rb	Fri, 29 Mar 2019 13:33:07 +0100
 ./Game/Core/XmlReader.rb	Fri, 05 Apr 2019 09:09:59 +0200
-./Game/Core/Game.rb	Fri, 15 Mar 2019 15:40:13 +0100
+./Game/Core/Game.rb	Fri, 05 Apr 2019 10:52:40 +0200
 ./Game/Core/Save.rb	Mon, 18 Mar 2019 14:49:20 +0100
 ./Game/Core/Cell.rb	Mon, 18 Mar 2019 16:20:11 +0100
 ./Game/Core/Levels.rb	Fri, 05 Apr 2019 09:15:26 +0200
@@ -52,10 +52,10 @@ Fri, 05 Apr 2019 10:41:25 +0200
 ./Game/Core/DB/HighScore.rb	Fri, 08 Mar 2019 14:53:22 +0100
 ./Game/Core/DB/SaveContent.rb	Fri, 15 Mar 2019 10:19:33 +0100
 ./Game/Core/DB/Gamemode.rb	Fri, 08 Mar 2019 14:49:35 +0100
-./Game/Core/DB/db.sqlite	Fri, 05 Apr 2019 09:11:37 +0200
+./Game/Core/DB/db.sqlite	Fri, 05 Apr 2019 10:52:40 +0200
 ./Game/Core/DB/ConnectDB.rb	Fri, 29 Mar 2019 14:50:09 +0100
 ./Game/Core/Guess.rb	Fri, 15 Mar 2019 11:57:21 +0100
-./Game/Core/GridGenerator.rb	Mon, 18 Mar 2019 14:49:20 +0100
+./Game/Core/GridGenerator.rb	Fri, 05 Apr 2019 10:52:40 +0200
 ./Game/Core/Grid.rb	Mon, 18 Mar 2019 16:05:03 +0100
 ./Game/Core/Session.rb	Fri, 29 Mar 2019 13:33:07 +0100
 ./Game/Core/TimeAttackSession.rb	Fri, 29 Mar 2019 13:33:07 +0100
@@ -71,7 +71,7 @@ Fri, 05 Apr 2019 10:41:25 +0200
 ./Game/Ui/AssetsClass/Asset.rb	Fri, 08 Mar 2019 13:38:50 +0100
 ./Game/Ui/AssetsClass/CellAsset.rb	Fri, 01 Mar 2019 14:15:21 +0100
 ./Game/Ui/Constants.rb	Fri, 01 Mar 2019 14:15:21 +0100
-./Game/Ui/Screens/GameScreen.rb	Fri, 05 Apr 2019 09:09:59 +0200
+./Game/Ui/Screens/GameScreen.rb	Fri, 05 Apr 2019 10:52:40 +0200
 ./Game/Ui/Screens/Screen.rb	Fri, 08 Mar 2019 16:03:43 +0100
 ./Game/Ui/Screens/HighScoresScreen.rb	Fri, 29 Mar 2019 13:55:24 +0100
 ./Game/Ui/Screens/PauseScreen.rb	Fri, 29 Mar 2019 13:33:19 +0100
