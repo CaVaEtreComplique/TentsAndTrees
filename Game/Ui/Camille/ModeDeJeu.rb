@@ -3,7 +3,7 @@
 # @Date:   25-Jan-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
-# @Last modified by:   Sckylle
+# @Last modified by:   zeigon
 # @Last modified time: 05-Apr-2019
 
 
@@ -97,7 +97,9 @@ class ModeDeJeu < Screen
 
 		aventure.onClick{
 			manager.levelNumberScreen.applyOn(@parent,0,Hash.new,0)
+    	session.createSave
 		 }
+
     timeA.onClick{
 			 manager.diffchScreen.applyOn(@parent)
     }

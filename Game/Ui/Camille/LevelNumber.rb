@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Last modified time: 05-Apr-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
@@ -77,14 +77,12 @@ class LevelNumber < Screen
     @menuR=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@menuR)
 
-		retour=Text.new("RETOUR",@police)
+		retour=Text.new("Quitter",@police)
     @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:10)
   	retour.onClick{
-			if @game!=nil
-				manager.createNewSave
-				manager.updateSave
-			end
-    	manager.modeScreen.applyOn(@parent)
+			manager.session.updateSave
+			manager.updateSave
+    	manager.mainScreen.applyOn(@parent)
 		}
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 	end
