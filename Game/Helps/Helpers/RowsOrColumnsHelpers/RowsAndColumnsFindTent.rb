@@ -71,7 +71,7 @@ class RowsAndColumnsFindTent < FictivHelper
       if nbTent == game.rowClues[i]
 
         if !(cell.nil?) #We find an answer
-          return HelpAllPossibilitiesGiveItColumn.new(cell, game.correction.cols[i], "tent")
+          return HelpAllPossibilitiesGiveItColumn.new(cell, game.correction.rows[i], "tent")
         end
 
       end
