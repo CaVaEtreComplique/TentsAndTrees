@@ -138,23 +138,20 @@
   <span class="ruby-ivar">@menu</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
 
   <span class="ruby-identifier">id</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">id_save</span>.<span class="ruby-identifier">to_s</span>,<span class="ruby-ivar">@police</span>)
-  <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">id</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+                    <span class="ruby-identifier">d</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">date_save</span>,<span class="ruby-ivar">@police</span>)
+                    <span class="ruby-identifier">c</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;CHARGER&quot;</span>,<span class="ruby-ivar">@police</span>)
+                    <span class="ruby-identifier">delete</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Supprimer&quot;</span>,<span class="ruby-ivar">@police</span>)
 
-  <span class="ruby-comment">#d=Button.new(:horizontal,save.date_save.to_s)</span>
-  <span class="ruby-identifier">d</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">date_save</span>,<span class="ruby-ivar">@police</span>)
+  <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">id</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
   <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">d</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-<span class="ruby-comment">#  md=Text.new(save.content_save.gameMode,0.5,0.3)</span>
-<span class="ruby-comment">#  @menu.pack_start(md.gtkObject ,expand: true, fill: true, padding: @pad)</span>
-  <span class="ruby-identifier">c</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;CHARGER&quot;</span>,<span class="ruby-ivar">@police</span>)
   <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">c</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">onClick</span>{
+                    <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">delete</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+
+                    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">onClick</span>{
       <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">runGameSessionFromSave</span>(<span class="ruby-constant">Save</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">id_save</span>))
 
    }
-
-                     <span class="ruby-identifier">delete</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Supprimer&quot;</span>,<span class="ruby-ivar">@police</span>)
-   <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">delete</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-   <span class="ruby-identifier">delete</span>.<span class="ruby-identifier">onClick</span>{
+  <span class="ruby-identifier">delete</span>.<span class="ruby-identifier">onClick</span>{
                                  <span class="ruby-identifier">connect</span>=<span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>
                                      <span class="ruby-identifier">connect</span>.<span class="ruby-identifier">deleteSave</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">id_save</span>)
                                  <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>

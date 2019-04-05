@@ -103,6 +103,27 @@
     
 
     
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-levels" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">levels</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
@@ -130,7 +151,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 12</span>
+            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 14</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
 <span class="ruby-ivar">@levels</span> = {
                     <span class="ruby-value">1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>],
@@ -185,7 +206,7 @@
 
           
           <div class="method-source-code" id="getLevel-source">
-            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevel</span>(<span class="ruby-identifier">level</span>,<span class="ruby-identifier">overallStars</span>)
   <span class="ruby-identifier">levelInfo</span> = <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">level</span>)
               <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">4</span>], <span class="ruby-identifier">overallStars</span>,<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">5</span>])
@@ -219,7 +240,7 @@
 
           
           <div class="method-source-code" id="getLevelMaxStars-source">
-            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevelMaxStars</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-identifier">levelInfo</span>= <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>]
@@ -253,7 +274,7 @@
 
           
           <div class="method-source-code" id="lvlAvailable-3F-source">
-            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 40</span>
+            <pre><span class="ruby-comment"># File Game/Core/Levels.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>, <span class="ruby-identifier">overAllStars</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@neededStars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">overAllStars</span>
                 <span class="ruby-keyword">false</span>

@@ -165,6 +165,32 @@
         </div>
       </div>
       
+      <div id="attribute-i-levelNumber" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">levelNumber</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maxStars" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maxStars</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-numberOfGrid" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">numberOfGrid</span><span
@@ -194,19 +220,6 @@
       <div id="attribute-i-score" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">score</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-stars" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">stars</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
@@ -313,7 +326,7 @@
 
           
           <div class="method-source-code" id="calculateOverallStars-source">
-            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 110</span>
+            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateOverallStars</span>
         <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>;
         <span class="ruby-ivar">@overallStars</span>.<span class="ruby-identifier">each_value</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
@@ -350,7 +363,7 @@
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 39</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
 <span class="ruby-keyword">case</span> <span class="ruby-ivar">@gameMode</span>
 <span class="ruby-keyword">when</span> <span class="ruby-value">:timeAttack</span>
@@ -392,7 +405,7 @@
 
           
           <div class="method-source-code" id="calculateStars-source">
-            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 57</span>
+            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateStars</span>
               <span class="ruby-keyword">if</span> <span class="ruby-ivar">@maxStars</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
                       <span class="ruby-keyword">if</span> <span class="ruby-ivar">@score</span> <span class="ruby-operator">&gt;</span><span class="ruby-value">0.45</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
@@ -479,7 +492,11 @@
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
                 <span class="ruby-keyword">false</span>
         <span class="ruby-keyword">else</span>
-                <span class="ruby-keyword">true</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@finishedGrid</span>
+                        <span class="ruby-keyword">true</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-keyword">false</span>
+                <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -511,7 +528,7 @@
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 48</span>
+            <pre><span class="ruby-comment"># File Game/Core/AdventureLevel.rb, line 52</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
 <span class="ruby-keyword">case</span> <span class="ruby-ivar">@gameMode</span>
 <span class="ruby-keyword">when</span> <span class="ruby-value">:timeAttack</span>
