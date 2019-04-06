@@ -35,10 +35,9 @@ def initialize(width , height, textManager)
   @page = Text.new((@picindex+1).to_s + "/" + @pile.length.to_s)
   @hBox = Gtk::Box.new(:horizontal)
   @rule = Text.new(@textManager.getRules(@picindex+1))
-  @box.pack_start(@page.gtkObject, expand: false, fill: false, padding: 0)
+  @box.pack_start(@page.gtkObject, expand: false, fill: false, padding: 20)
   @box.add(@hBox)
   @box.pack_start(@rule.gtkObject, expand: false, fill: false, padding: 0)
-  puts "1"
   self.getImage
   @hBox.add(@previousButton)
   @hBox.add(@image)

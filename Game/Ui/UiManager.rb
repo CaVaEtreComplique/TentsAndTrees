@@ -6,7 +6,7 @@
 # @Last modified time: 05-Apr-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session
+    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen,:ruleScreen, :session
 
   def initialize(window,player)
     ProcessStatus.new
@@ -23,6 +23,7 @@ class UiManager
     @diffchScreen=ChoixDiff.new(self)
     @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
     @levelNumberScreen=LevelNumber.new(self)
+    @ruleScreen =RuleScreen.new(self)
   end
 
   def updateSave

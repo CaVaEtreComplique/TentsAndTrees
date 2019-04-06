@@ -1,13 +1,13 @@
 
-# @Author: VAIDIE Camille <CamilleVAIDIE>
+# @Author: GONCALVES Quentin <QuentinGoncalves>
 # @Date:   25-Jan-2019
-# @Email:  camille.vaidie.etu@univ-lemans.fr
-# @Filename: FenetrePrinc.rb
-# @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Email:  quentin.goncalves.etu@univ-lemans.fr
+# @Filename: RuleScreen.rb
+# @Last modified by:   QuentinGoncalves
+# @Last modified time: 06-Apr-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/ModeDeJeu"
+require File.dirname(__FILE__) + "/Diapo"
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
@@ -16,12 +16,12 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 
 ##
 #==Presentation
-#FenetrePrinc is an inherited class from the Screen class. This class only needs
+#RuleScreen is an inherited class from the Screen class. This class only needs
 #to be initialized and applied, so the only method is the initializer. It
 #creates and implements the main menu from the game by creating its buttons.
 #
 #==Variables
-#The FenetrePrinc class creates the title size, text
+#The RuleScreen class creates the title size, text
 #size and the padding variables with :
 #   @pad=30
 #   @widthTitre=screen.width*0.10
@@ -55,7 +55,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
 
-class FenetrePrinc < Screen
+class RuleScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
     screen=Gdk::Screen.default
@@ -64,38 +64,24 @@ class FenetrePrinc < Screen
     @police=screen.height*0.04
 
     @gtkObject= Gtk::Table.new(3,3)
-    @menuV=Gtk::Box.new(:vertical)
-    @gtkObject.attach(@menuV,1,2,0,1)
+    @allign=Gtk::Alignment.new(0.5, 0, 0, 0)
+    @vBox= Gtk::Box.new(:vertical)
+    @diapo = Diapo.new(screen.width*0.6,screen.height*0.6,@textManager)
+    @retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
 
-    titre=Text.new(@textManager.getScreenTexts("main" , "title"),@police*2)
-    titre.title
-    jouer=Text.new(@textManager.getButtonLabel("main" , "play"),@police)
-    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"),@police)
-    regle=Text.new(@textManager.getButtonLabel("main" , "rules"),@police)
-    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"),@police)
-    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"),@police)
+    @allign.add(@diapo.box)
+    @vBox.add(@allign)
+    @vBox.pack_start(@retour.gtkObject, expand: false, fill: false, padding: @pad*3)
+    @gtkObject.attach(@vBox,1,2,1,2)
 
-    @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
-    @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
-    @menuV.pack_start(parametre.gtkObject ,expand: false, fill: true, padding: @pad)
-    @menuV.pack_start(regle.gtkObject ,expand: false, fill: true, padding: @pad)
-    @menuV.pack_start(meilleurScore.gtkObject ,expand: false, fill: true, padding: @pad)
-    @menuV.pack_start(quitter.gtkObject ,expand: false, fill: true, padding: @pad)
-
-
-    jouer.onClick{
-        manager.modeScreen.applyOn(@parent)
+    @diapo.nextButton.signal_connect("button_press_event"){
+      @diapo.nextImage
     }
-    parametre.onClick{
-        manager.paramScreen.applyOn(@parent)
+    @diapo.previousButton.signal_connect("button_press_event"){
+      @diapo.previousImage
     }
-    regle.onClick{
-        manager.ruleScreen.applyOn(@parent)
-     }
-    meilleurScore.onClick{
-     }
-    quitter.onClick(){
-        Gtk.main_quit
+    @retour.onClick(){
+      manager.mainScreen.applyOn(@parent)
     }
 
     #image de fond
