@@ -69,7 +69,7 @@ class PauseScreen < Screen
     globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: 10)
     globalBox.pack_start(quit.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(@bjr, expand: false, fill: false, padding: 100)
+    globalBox.pack_start(@bjr, expand: false, fill: false, padding: 50)
     @gtkObject.attach(globalBox,0,3,0,1)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
