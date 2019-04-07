@@ -10,12 +10,22 @@
 
 
 <languages>
-  <french>
+  <français>
+
     <language>Français</language>
 
     <loadingmessages>
       <loading>Chargement en cours</loading>
+      <initgame>Initialisation de la Partie</initgame>
+      <initgrid>Initialisation de la grille de jeu</initgrid>
+      <gridpick>Choix de la grille</gridpick>
+      <griddata>Récupération des données de la grille</griddata>
       <textures>Chargement des textures</textures>
+      <screenadaptator>Adaptation de textures de la grille à lécran</screenadaptator>
+      <indicatorload>Chargement des indices</indicatorload>
+      <cellload>Chargement des cases</cellload>
+      <showgame>Affichage de l'écran de jeu</showgame>
+      <lauchgame>Lancement de la partie</lauchgame>
     </loadingmessages>
 
     <rules>
@@ -44,10 +54,19 @@
           <title>Paramètres</title>
         </texts>
         <buttons>
+          <unregister>Désinscription</unregister>
           <apply>Appliquer</apply>
           <back>Retour</back>
         </buttons>
       </settings>
+
+        <rule>
+          <texts>
+          </texts>
+          <buttons>
+            <back>Retour</back>
+          </buttons>
+        </rule>
 
       <forgotpass>
         <texts>
@@ -212,14 +231,24 @@
         <step3>No text for now</step3>
       </level2>
     </tutorial>
-  </french>
+  </français>
 
   <english>
+
     <language>English</language>
 
     <loadingmessages>
       <loading>Loading...</loading>
-      <textures>Textures loading</textures>
+      <initgame>Initialization of the game</initgame>
+      <initgrid>Initialization of the grid</initgrid>
+      <gridpick>Picking grid</gridpick>
+      <griddata>Getting data of the grid</griddata>
+      <textures>Loading textures</textures>
+      <screenadaptator>Textures adapting to the screen</screenadaptator>
+      <indicatorload>Loading indicators</indicatorload>
+      <cellload>Loading cells</cellload>
+      <showgame>Showing game screen</showgame>
+      <lauchgame>Running game</lauchgame>
     </loadingmessages>
 
     <rules>
@@ -248,10 +277,19 @@
           <title>Settings</title>
         </texts>
         <buttons>
+          <unregister>Unregister</unregister>
           <apply>Apply</apply>
           <back>Back</back>
         </buttons>
       </settings>
+
+      <rule>
+        <texts>
+        </texts>
+        <buttons>
+          <back>Back</back>
+        </buttons>
+      </rule>
 
       <forgotpass>
         <texts>

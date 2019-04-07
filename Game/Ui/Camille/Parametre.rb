@@ -44,16 +44,16 @@ end
 #*First* we create the variables :
 #      fr ="Francais"
 #      ang="Anglais"
-#      langue=Gtk::ComboBoxText.new
+#      languageButton=Gtk::ComboBoxText.new
 #
-#The langue variable is a combo box, making it easier for the player to choose.
+#The languageButton variable is a combo box, making it easier for the player to choose.
 #
 #*Next* we add our combo box to the menu
-#      @menu.add(langue=Gtk::ComboBoxText.new)
+#      @menu.add(languageButton=Gtk::ComboBoxText.new)
 #
 #*Then* we add the action each possibility of the box does when it is clicked :
-#      langue.append_text(fr)
-#      langue.append_text(ang)
+#      languageButton.append_text(fr)
+#      languageButton.append_text(ang)
 #
 #Here we created a combo box with two possible languages, French and English.
 #The other buttons are created by doing this aswell.
@@ -75,27 +75,32 @@ class Parametre < Screen
     @gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menu,1,2,1,2)
-		 langue=Gtk::ComboBoxText.new
-		fr ="french"
-		ang="english"
+		 languageButton=Gtk::ComboBoxText.new
+		# fr ="french"
+		# ang="english"
 
     titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@police*2)
 		titre.title
 		appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@police)
-		desins=Text.new("Désincription",@police)
+		desins=Text.new(@textManager.getButtonLabel("settings" , "unregister"),@police)
 		retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@police)
 
 
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
-		@menu.add(langue=Gtk::ComboBoxText.new)
+		@menu.add(languageButton=Gtk::ComboBoxText.new)
 		@menu.pack_start(appli.gtkObject ,expand: false, fill: true, padding:@pad)
 		@menu.pack_start(desins.gtkObject ,expand: false, fill: true, padding:@pad)
 		@menu.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 
-		langue.append_text(fr)
-		langue.append_text(ang)
+		# languageButton.append_text(fr)
+		# languageButton.append_text(ang)
+		language = @textManager.getLanguages
+		language.each{ |v|
+			languageButton.append_text(v)
+		}
+
     appli.onClick{
-      @textManager.language=langue.active_text
+      @textManager.language=languageButton.active_text.downcase
 			manager.update
 			manager.mainScreen.applyOn(@parent)
     }

@@ -90,10 +90,18 @@ class XmlReader
   #
   def buttonMaxString(currentScreen)
     longest = Array.new
-    @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").each_values{
+    @xmlHash.fetch("languages").fetch(@language).fetch("screen").fetch(currentScreen).fetch("buttons").each_value{
     |v| longest.push(v) }
     longest.sort_by!(&:length).reverse!
     return longest[0]
   end
+
+  def getLanguages
+    tab = Array.new
+    @xmlHash.fetch("languages").each_value{ |v|
+      tab.push(v.fetch("language"))
+    }
+    return tab
+    end
 
 end

@@ -67,10 +67,10 @@ class RuleScreen < Screen
     @allign=Gtk::Alignment.new(0.5, 0, 0, 0)
     @vBox= Gtk::Box.new(:vertical)
     @diapo = Diapo.new(screen.width*0.6,screen.height*0.6,@textManager)
-    @retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
+    @retour=Text.new(@textManager.getButtonLabel("rule" , "back"),@police)
 
     @allign.add(@diapo.box)
-    @vBox.add(@allign)
+    @vBox.pack_start(@allign,expand: false, fill: false, padding: @pad)
     @vBox.pack_start(@retour.gtkObject, expand: false, fill: false, padding: @pad*3)
     @gtkObject.attach(@vBox,1,2,1,2)
 
