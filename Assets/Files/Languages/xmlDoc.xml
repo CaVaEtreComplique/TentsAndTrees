@@ -10,7 +10,7 @@
 
 
 <languages>
-  <français>
+  <Français>
 
     <language>Français</language>
 
@@ -231,9 +231,9 @@
         <step3>No text for now</step3>
       </level2>
     </tutorial>
-  </français>
+  </Français>
 
-  <english>
+  <English>
 
     <language>English</language>
 
@@ -457,5 +457,5 @@
         <step3>No text for now</step3>
       </level2>
     </tutorial>
-  </english>
+  </English>
 </languages>

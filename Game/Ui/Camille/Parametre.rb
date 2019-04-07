@@ -100,9 +100,11 @@ class Parametre < Screen
 		}
 
     appli.onClick{
-      @textManager.language=languageButton.active_text.downcase
-			manager.update
-			manager.mainScreen.applyOn(@parent)
+			if languageButton.active_text != @textManager.language && languageButton.active_text != nil
+	     	@textManager.language=languageButton.active_text
+				manager.update
+				manager.mainScreen.applyOn(@parent)
+			end
     }
 		desins.onClick{
 			connect = ConnectDB.new

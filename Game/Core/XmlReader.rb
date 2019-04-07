@@ -25,6 +25,7 @@ class XmlReader
   include Singleton
   #:nodoc:
   attr_writer :language
+  attr_reader :language
   #:startdoc:
 
   ##
@@ -35,7 +36,7 @@ class XmlReader
   def initialize()
     xmlDoc = Nokogiri::XML(File.read("../Assets/Files/Languages/xmlDoc.xml"))
     @xmlHash = Hash.from_xml(xmlDoc.to_s)
-    @language = "english"
+    @language = "English"
   end
 
   ##
