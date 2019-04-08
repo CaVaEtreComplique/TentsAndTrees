@@ -5,8 +5,6 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
 require_all(__FILE__)
 ##
 # The help class is an abstract class. It is the general parent of all the other
