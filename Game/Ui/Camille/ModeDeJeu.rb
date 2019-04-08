@@ -4,7 +4,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 08-Apr-2019
 
 
 
@@ -96,7 +96,8 @@ class ModeDeJeu < Screen
 
 
 		aventure.onClick{
-			manager.levelNumberScreen.applyOn(@parent,0,Hash.new,0)
+			session = Levels.new
+			manager.runAdventureSession(session)
     	session.createSave
 		 }
 

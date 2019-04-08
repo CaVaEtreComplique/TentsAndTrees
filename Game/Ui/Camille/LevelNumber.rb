@@ -3,7 +3,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 08-Apr-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
@@ -21,7 +21,7 @@ class LevelNumber < Screen
 		super(manager.win)
 
 		#Chargement de la campagne
-		@adventure = Levels.new
+		@adventure = manager.session
     screen=Gdk::Screen.default
 		@pad=screen.height*0.03
 		@police=screen.height*0.04
@@ -80,7 +80,7 @@ class LevelNumber < Screen
 		retour=Text.new("Quitter",@police)
     @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:10)
   	retour.onClick{
-			manager.session.updateSave
+			@adventure.updateSave
 			manager.updateSave
     	manager.mainScreen.applyOn(@parent)
 		}

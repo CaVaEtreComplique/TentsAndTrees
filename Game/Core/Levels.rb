@@ -2,12 +2,12 @@
 # @Date:   18-Mar-2019
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: Levels.rb
-# @Last modified by:   QuentinGoncalves
-# @Last modified time: 18-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 08-Apr-2019
 
 require File.dirname(__FILE__) + "/AdventureLevel"
 
-class Levels
+class Levels < Session
 
 		attr_reader :levels
 
@@ -26,7 +26,13 @@ class Levels
 			4 => 5,
 			5 => 8
 		}
+		super(:adventure, :none, false)
 
+	end
+
+	def replay(none)
+		# This shit has no reaason to have a replay. Overwriting this method w/ nothing allows
+		# less code dup than redifining it in all other sessions
 	end
 
   def getLevel(level,overallStars)
@@ -46,5 +52,5 @@ class Levels
 			true
 		end
 	end
-
+	
 end

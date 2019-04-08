@@ -2,11 +2,11 @@
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
-# @Last modified by:   maxime
-# @Last modified time: 05-Apr-2019
+# @Last modified by:   zeigon
+# @Last modified time: 08-Apr-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen,:ruleScreen, :session
+    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session
 
   def initialize(window,player)
     ProcessStatus.new
@@ -22,8 +22,6 @@ class UiManager
     @paramScreen=Parametre.new(self)
     @diffchScreen=ChoixDiff.new(self)
     @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
-    @levelNumberScreen=LevelNumber.new(self)
-    @ruleScreen =RuleScreen.new(self)
   end
 
   def updateSave
@@ -61,6 +59,12 @@ class UiManager
     }
   end
 
+  def runAdventureSession(session)
+    @session=session
+    @levelNumberScreen=LevelNumber.new(self)
+    @levelNumberScreen.applyOn(@win,0,Hash.new,0)
+  end
+
   def getVictoryScreen(session)
     if session.partOfAdventure?
       AdventureVictoryScreen.new(self,session)
@@ -72,7 +76,12 @@ class UiManager
   def runGameSessionFromSave(save)
     @session = save.content_save
     @session.setSave(save.id_save)
-    runGameSession(save.content_save)
+    case session.gameMode
+    when :adventure
+      runAdventureSession(@session)
+    else
+      runGameSession(@session)
+    end
   end
 
   def createNewSave

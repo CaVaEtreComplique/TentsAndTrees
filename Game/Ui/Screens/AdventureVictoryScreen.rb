@@ -3,7 +3,7 @@
 # @Email:  goncalves.quentin.etu@univ-lemans.fr
 # @Filename: AdventureVictoryScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 08-Apr-2019
 
 
 require 'gtk3'
@@ -65,12 +65,13 @@ class AdventureVictoryScreen < Screen
       @replay=Text.new(@textManager.getButtonLabel("victory" , "levelselection"))
       @replay.onClick{
         @manager.levelNumberScreen.applyOn(@parent,@session.calculateOverallStars, @session.overallStars,@session.levelNumber)
+    		@session.updateSave
       }
       @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
 
       quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
       quit.onClick{
-  			manager.session.updateSave
+  			@session.updateSave
   			manager.updateSave
       	manager.mainScreen.applyOn(@parent)
       }
