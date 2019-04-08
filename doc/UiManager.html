@@ -449,7 +449,7 @@ by:   zeigon @Last modified time: 08-Apr-2019</p>
         
         <div class="method-heading">
           <span class="method-name">runGameSession</span><span
-            class="method-args">(session)</span>
+            class="method-args">(session,partOfAdventure=false)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -465,24 +465,24 @@ by:   zeigon @Last modified time: 08-Apr-2019</p>
           
           <div class="method-source-code" id="runGameSession-source">
             <pre><span class="ruby-comment"># File Game/Ui/UiManager.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runGameSession</span>(<span class="ruby-identifier">session</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runGameSession</span>(<span class="ruby-identifier">session</span>,<span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
   <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
     <span class="ruby-ivar">@loadScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
-    <span class="ruby-ivar">@session</span>=<span class="ruby-identifier">session</span>
+    <span class="ruby-ivar">@session</span>=<span class="ruby-identifier">session</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">partOfAdventure</span>
     <span class="ruby-ivar">@loadScreen</span>.<span class="ruby-identifier">run</span>
-    <span class="ruby-identifier">game</span>=<span class="ruby-ivar">@session</span>.<span class="ruby-identifier">game</span>
+    <span class="ruby-identifier">game</span>=<span class="ruby-identifier">session</span>.<span class="ruby-identifier">game</span>
     <span class="ruby-comment"># Generation des textures</span>
     <span class="ruby-identifier">cellAssets</span>=<span class="ruby-constant">CellAssets</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>, <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>)
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">gameMode</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:tutorial</span>
       <span class="ruby-comment"># Generation des ecrans de jeu</span>
-      <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-identifier">getVictoryScreen</span>(<span class="ruby-ivar">@session</span>)
+      <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-identifier">getVictoryScreen</span>(<span class="ruby-identifier">session</span>)
       <span class="ruby-ivar">@gameScreen</span>=<span class="ruby-constant">GameScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-identifier">game</span>,<span class="ruby-identifier">cellAssets</span>,<span class="ruby-identifier">victoryScreen</span>)
       <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Affichage de l&#39;écran de jeu&quot;</span>)
       <span class="ruby-ivar">@gameScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
       <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Lancement de la partie&quot;</span>)
     <span class="ruby-keyword">else</span>
       <span class="ruby-comment"># Generation des ecrans de jeu</span>
-      <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-identifier">getVictoryScreen</span>(<span class="ruby-ivar">@session</span>)
+      <span class="ruby-identifier">victoryScreen</span>=<span class="ruby-identifier">getVictoryScreen</span>(<span class="ruby-identifier">session</span>)
       <span class="ruby-ivar">@gameScreen</span>=<span class="ruby-constant">TutorialGameScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-identifier">game</span>,<span class="ruby-identifier">cellAssets</span>,<span class="ruby-identifier">victoryScreen</span>)
       <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Affichage de l&#39;écran de jeu&quot;</span>)
       <span class="ruby-ivar">@gameScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
