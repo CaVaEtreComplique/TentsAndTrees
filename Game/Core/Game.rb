@@ -42,6 +42,7 @@ class Game
     @baseTime=@session.time
     @time = @baseTime
     @malus = 0
+    @curr, @min, @max = 1,1,3
 	end
 
 	def resetGrid
@@ -83,14 +84,22 @@ class Game
   end
 
   def help
-    helper = Helper.instance
-    res = helper.help(self)
-    @malus += helper.price
-    p helper.price
+    res = @helper.help(self)
+    @malus += @helper.price
     res
   end
 
+  def clearHelper
+    @helper=nil
+  end
+
+  def manageHelp(curr, min, max)
+    @curr, @min, @max = curr, min, max
+    @helper = Helper.instance(curr, min, max)
+  end
+
 	def run
+    @helper = Helper.new(@curr, @min, @max)
     @chrono=GLib::Timer.new
     @chrono.start
     lastTime=0

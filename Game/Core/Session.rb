@@ -37,6 +37,7 @@ class Session
 
 	def updateSave
 		self.game.delete_observers
+		self.game.clearHelper
 		ConnectDB.new.updateSave(self.to_yaml(), self.save)
 	end
 
@@ -49,7 +50,7 @@ class Session
 	end
 
 	def setTime
-		
+
 	end
 
 	def replay(continue)
