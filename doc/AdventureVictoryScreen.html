@@ -228,12 +228,15 @@
     <span class="ruby-ivar">@replay</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;levelselection&quot;</span>))
     <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
       <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>,<span class="ruby-ivar">@session</span>.<span class="ruby-identifier">calculateOverallStars</span>, <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">overallStars</span>,<span class="ruby-ivar">@session</span>.<span class="ruby-identifier">levelNumber</span>)
+              <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">updateSave</span>
     }
     <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">20</span>)
 
     <span class="ruby-identifier">quit</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;quit&quot;</span>))
     <span class="ruby-identifier">quit</span>.<span class="ruby-identifier">onClick</span>{
-      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+                      <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">updateSave</span>
+                      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>
+      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
     }
     <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">quit</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-value">20</span>)
   <span class="ruby-keyword">end</span>

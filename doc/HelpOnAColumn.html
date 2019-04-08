@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpOnAColumn-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpOnAColumn-label-Examples+-3A">Examples :</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -71,8 +80,6 @@
 
   <ul class="link-list" role="directory">
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
     <li class="calls-super" ><a href="#method-i-cellsList">#cellsList</a>
     
   </ul>
@@ -88,6 +95,28 @@
 
   <section class="description">
     
+<h4 id="class-HelpOnAColumn-label-Presentation">Presentation<span><a href="#class-HelpOnAColumn-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <a href="HelpOnAColumn.html">HelpOnAColumn</a> abstract class is
+inherited from the <a
+href="HelpOnRowsAndColumn.html">HelpOnRowsAndColumn</a> abstract class and
+its direct children are <a
+href="HelpAllGrassOnAColumn.html">HelpAllGrassOnAColumn</a> and <a
+href="HelpAllTentsOnAColumn.html">HelpAllTentsOnAColumn</a>. This is the
+main help when only a column is needed to help the player.</p>
+
+<p>Its two methods are the class&#39; constructor and the cellsList method.
+The class&#39; constructor only calls the constructor of the parent class.</p>
+
+<h5 id="class-HelpOnAColumn-label-Examples+-3A">Examples :<span><a href="#class-HelpOnAColumn-label-Examples+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">column</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">column</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   
@@ -101,52 +130,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(column)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>helps player when we need to give a column</p>
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="HelpOnRowsAndColumn.html#method-c-new">HelpOnRowsAndColumn.new</a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpOnAColumn.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">column</span>)
-  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">column</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
@@ -166,7 +149,36 @@
 
         <div class="method-description">
           
-          
+          <h6 id="method-i-cellsList-label-Presentation">Presentation<span><a href="#method-i-cellsList-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p>The cellsList method from this class overrides this method from the <a
+href="HelpOnRowsAndColumn.html">HelpOnRowsAndColumn</a> class.</p>
+
+<h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance, the higher the level
+is, the more helpful and precise it is and the more expensive it is.</p>
+</li></ul>
+
+<h5 id="method-i-cellsList-label-Returns">Returns<span><a href="#method-i-cellsList-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the cells list, the help level decides whether the cell
+should be in it or not. This method is here so that when the player needs
+help the text shown gives the cell&#39;s position, but only if the previous
+texts didn&#39;t help the player enough.</p>
+
+<h5 id="method-i-cellsList-label-Example">Example<span><a href="#method-i-cellsList-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
+     <span class="ruby-ivar">@column</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+       <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">cell</span>)
+     }
+   <span class="ruby-keyword">end</span>
+   <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span>
+</pre>
           
           
             <div class="method-calls-super">
@@ -177,16 +189,14 @@
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpOnAColumn.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpOnAColumn.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
-
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
     <span class="ruby-ivar">@column</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">cell</span>)
      }
    <span class="ruby-keyword">end</span>
-
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Parametre - RDoc Documentation</title>
+<title>class RuleScreen - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -56,10 +56,10 @@
   <h3>Table of Contents</h3>
 
   <ul class="link-list" role="directory">
-    <li><a href="#class-Parametre-label-Presentation">Presentation</a>
-    <li><a href="#class-Parametre-label-Variables">Variables</a>
-    <li><a href="#class-Parametre-label-Implementation">Implementation</a>
-    <li><a href="#class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">Here is how the language choice is implemented on this screen :</a>
+    <li><a href="#class-RuleScreen-label-Presentation">Presentation</a>
+    <li><a href="#class-RuleScreen-label-Variables">Variables</a>
+    <li><a href="#class-RuleScreen-label-Implementation">Implementation</a>
+    <li><a href="#class-RuleScreen-label-Here+is+how+a+button+is+implemented+on+the+main+menu+-3A">Here is how a button is implemented on the main menu :</a>
   </ul>
 </div>
 
@@ -80,67 +80,64 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Parametre">
-  <h1 id="class-Parametre" class="class">
-    class Parametre
+<main role="main" aria-labelledby="class-RuleScreen">
+  <h1 id="class-RuleScreen" class="class">
+    class RuleScreen
   </h1>
 
   <section class="description">
     
-<h2 id="class-Parametre-label-Presentation">Presentation<span><a href="#class-Parametre-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h2 id="class-RuleScreen-label-Presentation">Presentation<span><a href="#class-RuleScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p><a href="Parametre.html">Parametre</a> is an inherited class from the <a
+<p><a href="RuleScreen.html">RuleScreen</a> is an inherited class from the <a
 href="Screen.html">Screen</a> class. This class only needs to be
 initialized and applied, so the only method is the initializer. It creates
-and implements the language choice menu from the game by creating its
-buttons.</p>
+and implements the main menu from the game by creating its buttons.</p>
 
-<h2 id="class-Parametre-label-Variables">Variables<span><a href="#class-Parametre-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h2 id="class-RuleScreen-label-Variables">Variables<span><a href="#class-RuleScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>The <a href="Parametre.html">Parametre</a> class creates the title size,
+<p>The <a href="RuleScreen.html">RuleScreen</a> class creates the title size,
 text size and the padding variables with :</p>
 
-<pre class="ruby"><span class="ruby-ivar">@pad</span> =<span class="ruby-value">10</span>
+<pre class="ruby"><span class="ruby-ivar">@pad</span>=<span class="ruby-value">30</span>
 <span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
 <span class="ruby-ivar">@heightTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.08</span>
-<span class="ruby-ivar">@widthText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.08</span>
-<span class="ruby-ivar">@heightText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.05</span>
+<span class="ruby-ivar">@widthText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.15</span>
+<span class="ruby-ivar">@heightText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.04</span>
 </pre>
 
 <p>This class also inherits the screen variable from the <a
 href="Screen.html">Screen</a> class.</p>
 
-<p>The gtkObject is the table where the menu (a vertical box) is added to
+<p>The gtkObject is the table where the menuV (a vertical box) is added to
 create the menu buttons.</p>
 
-<h2 id="class-Parametre-label-Implementation">Implementation<span><a href="#class-Parametre-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h2 id="class-RuleScreen-label-Implementation">Implementation<span><a href="#class-RuleScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<h5 id="class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">Here is how the language choice is implemented on this screen :<span><a href="#class-Parametre-label-Here+is+how+the+language+choice+is+implemented+on+this+screen+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="class-RuleScreen-label-Here+is+how+a+button+is+implemented+on+the+main+menu+-3A">Here is how a button is implemented on the main menu :<span><a href="#class-RuleScreen-label-Here+is+how+a+button+is+implemented+on+the+main+menu+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><strong>First</strong> we create the variables :</p>
+<p><strong>First</strong> we add some text to the button :</p>
 
-<pre class="ruby"><span class="ruby-identifier">fr</span> =<span class="ruby-string">&quot;Francais&quot;</span>
-<span class="ruby-identifier">ang</span>=<span class="ruby-string">&quot;Anglais&quot;</span>
-<span class="ruby-identifier">languageButton</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBoxText</span>.<span class="ruby-identifier">new</span>
+<pre class="ruby"><span class="ruby-identifier">jouer</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;jouer&quot;</span>,<span class="ruby-ivar">@widthText</span>,<span class="ruby-ivar">@heightText</span>)
 </pre>
 
-<p>The languageButton variable is a combo box, making it easier for the player
-to choose.</p>
+<p><strong>Next</strong> we add the button we just created in the VBox
+(gtkObject) :</p>
 
-<p><strong>Next</strong> we add our combo box to the menu</p>
-
-<pre class="ruby"><span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">languageButton</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBoxText</span>.<span class="ruby-identifier">new</span>)
+<pre class="ruby"><span class="ruby-ivar">@menuV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">jouer</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 </pre>
 
-<p><strong>Then</strong> we add the action each possibility of the box does
-when it is clicked :</p>
+<p><strong>Then</strong> we add the action the button does when it is clicked
+:</p>
 
-<pre class="ruby"><span class="ruby-identifier">languageButton</span>.<span class="ruby-identifier">append_text</span>(<span class="ruby-identifier">fr</span>)
-<span class="ruby-identifier">languageButton</span>.<span class="ruby-identifier">append_text</span>(<span class="ruby-identifier">ang</span>)
+<pre class="ruby"><span class="ruby-identifier">jouer</span>.<span class="ruby-identifier">onClick</span>{
+   <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+}
 </pre>
 
-<p>Here we created a combo box with two possible languages, French and
-English. The other buttons are created by doing this aswell.</p>
+<p>Here we created a button entitled “jouer” that leads to the game mode menu
+<a href="ModeDeJeu.html">ModeDeJeu</a>. The other buttons are created by
+doing this aswell.</p>
 
 <p><strong>Finally</strong>, when all of the buttons are done we add a
 background picture with :</p>

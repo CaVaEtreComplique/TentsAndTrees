@@ -79,13 +79,31 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
 
 <p>&lt;languages&gt;</p>
 
-<pre>&lt;french&gt;
+<pre>&lt;Français&gt;
+
   &lt;language&gt;Français&lt;/language&gt;
 
   &lt;loadingmessages&gt;
     &lt;loading&gt;Chargement en cours&lt;/loading&gt;
+    &lt;initgame&gt;Initialisation de la Partie&lt;/initgame&gt;
+    &lt;initgrid&gt;Initialisation de la grille de jeu&lt;/initgrid&gt;
+    &lt;gridpick&gt;Choix de la grille&lt;/gridpick&gt;
+    &lt;griddata&gt;Récupération des données de la grille&lt;/griddata&gt;
     &lt;textures&gt;Chargement des textures&lt;/textures&gt;
+    &lt;screenadaptator&gt;Adaptation de textures de la grille à lécran&lt;/screenadaptator&gt;
+    &lt;indicatorload&gt;Chargement des indices&lt;/indicatorload&gt;
+    &lt;cellload&gt;Chargement des cases&lt;/cellload&gt;
+    &lt;showgame&gt;Affichage de l&#39;écran de jeu&lt;/showgame&gt;
+    &lt;lauchgame&gt;Lancement de la partie&lt;/lauchgame&gt;
   &lt;/loadingmessages&gt;
+
+  &lt;rules&gt;
+    &lt;rule1&gt;Le nombre des tentes de chaque ligne et de chaque collone est indiqué&lt;/rule1&gt;
+    &lt;rule2&gt;Un arbre ne peut être associer qu&#39;à une seule tente&lt;/rule2&gt;
+    &lt;rule3&gt;Un arbre ne peut avoir de tente associer en diagonale&lt;/rule3&gt;
+    &lt;rule4&gt;Une tente ne peut pas toucher une autre tente&lt;/rule4&gt;
+  &lt;/rules&gt;
+
   &lt;screen&gt;
     &lt;main&gt;
       &lt;texts&gt;
@@ -105,10 +123,19 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
         &lt;title&gt;Paramètres&lt;/title&gt;
       &lt;/texts&gt;
       &lt;buttons&gt;
+        &lt;unregister&gt;Désinscription&lt;/unregister&gt;
         &lt;apply&gt;Appliquer&lt;/apply&gt;
         &lt;back&gt;Retour&lt;/back&gt;
       &lt;/buttons&gt;
     &lt;/settings&gt;
+
+      &lt;rule&gt;
+        &lt;texts&gt;
+        &lt;/texts&gt;
+        &lt;buttons&gt;
+          &lt;back&gt;Retour&lt;/back&gt;
+        &lt;/buttons&gt;
+      &lt;/rule&gt;
 
     &lt;forgotpass&gt;
       &lt;texts&gt;
@@ -259,7 +286,9 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
     &lt;/alltentsonrow&gt;
   &lt;/helps&gt;
   &lt;tutorial&gt;
-    &lt;arrival&gt;No text for now&lt;/arrival&gt;
+    &lt;outside&gt;
+      &lt;intro&gt;No text for now&lt;/intro&gt;
+    &lt;/outside&gt;
     &lt;level1&gt;
       &lt;step1&gt;No text for now&lt;/step1&gt;
       &lt;step2&gt;No text for now&lt;/step2&gt;
@@ -271,15 +300,33 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
       &lt;step3&gt;No text for now&lt;/step3&gt;
     &lt;/level2&gt;
   &lt;/tutorial&gt;
-&lt;/french&gt;
+&lt;/Français&gt;
 
-&lt;english&gt;
+&lt;English&gt;
+
   &lt;language&gt;English&lt;/language&gt;
 
   &lt;loadingmessages&gt;
     &lt;loading&gt;Loading...&lt;/loading&gt;
-    &lt;textures&gt;Textures loading&lt;/textures&gt;
+    &lt;initgame&gt;Initialization of the game&lt;/initgame&gt;
+    &lt;initgrid&gt;Initialization of the grid&lt;/initgrid&gt;
+    &lt;gridpick&gt;Picking grid&lt;/gridpick&gt;
+    &lt;griddata&gt;Getting data of the grid&lt;/griddata&gt;
+    &lt;textures&gt;Loading textures&lt;/textures&gt;
+    &lt;screenadaptator&gt;Textures adapting to the screen&lt;/screenadaptator&gt;
+    &lt;indicatorload&gt;Loading indicators&lt;/indicatorload&gt;
+    &lt;cellload&gt;Loading cells&lt;/cellload&gt;
+    &lt;showgame&gt;Showing game screen&lt;/showgame&gt;
+    &lt;lauchgame&gt;Running game&lt;/lauchgame&gt;
   &lt;/loadingmessages&gt;
+
+  &lt;rules&gt;
+    &lt;rule1&gt;The total of tents in a column is shown&lt;/rule1&gt;
+    &lt;rule2&gt;A tree must be associate with only one tent&lt;/rule2&gt;
+    &lt;rule3&gt;A tree can&#39;t have a tent associate in diagonal&lt;/rule3&gt;
+    &lt;rule4&gt;Two tents can&#39;t touch each other&lt;/rule4&gt;
+  &lt;/rules&gt;
+
   &lt;screen&gt;
     &lt;main&gt;
       &lt;texts&gt;
@@ -299,10 +346,19 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
         &lt;title&gt;Settings&lt;/title&gt;
       &lt;/texts&gt;
       &lt;buttons&gt;
+        &lt;unregister&gt;Unregister&lt;/unregister&gt;
         &lt;apply&gt;Apply&lt;/apply&gt;
         &lt;back&gt;Back&lt;/back&gt;
       &lt;/buttons&gt;
     &lt;/settings&gt;
+
+    &lt;rule&gt;
+      &lt;texts&gt;
+      &lt;/texts&gt;
+      &lt;buttons&gt;
+        &lt;back&gt;Back&lt;/back&gt;
+      &lt;/buttons&gt;
+    &lt;/rule&gt;
 
     &lt;forgotpass&gt;
       &lt;texts&gt;
@@ -454,7 +510,9 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
   &lt;/helps&gt;
 
   &lt;tutorial&gt;
-    &lt;arrival&gt;Welcome, in this tutorial we cover all the basis of the game&lt;/arrival&gt;
+    &lt;outside&gt;
+      &lt;intro&gt;Welcome, in this tutorial we cover all the basis of the game&lt;/intro&gt;
+    &lt;/outside&gt;
     &lt;level1&gt;
       &lt;step1&gt;No text for now&lt;/step1&gt;
       &lt;step2&gt;No text for now&lt;/step2&gt;
@@ -466,7 +524,7 @@ maxime @Last modified time: 02-Apr-2019 –&gt;</p>
       &lt;step3&gt;No text for now&lt;/step3&gt;
     &lt;/level2&gt;
   &lt;/tutorial&gt;
-&lt;/english&gt;</pre>
+&lt;/English&gt;</pre>
 
 <p>&lt;/languages&gt;</p>
 </main>
