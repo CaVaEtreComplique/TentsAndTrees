@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Cell.rb
-# @Last modified by:   zeigon
-# @Last modified time: 01-Mar-2019
+# @Last modified by:   maxime
+# @Last modified time: 08-Apr-2019
 
 
 ##
@@ -168,6 +168,6 @@ class Cell
 
 	#:nodoc:
 	def to_s
-		return "["+@column.to_s+";"+@row.to_s+"]"
+		return "["+(@column+1).to_s+";"+(@row+1).to_s+"]"
 	end
 end
