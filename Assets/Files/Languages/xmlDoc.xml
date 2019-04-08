@@ -4,7 +4,7 @@
 @Email:  maxime_touze@univ-lemans.fr
 @Filename: xmlDoc.xml
 @Last modified by:   maxime
-@Last modified time: 02-Apr-2019
+@Last modified time: 08-Apr-2019
 -->
 
 
@@ -446,16 +446,16 @@
       <outside>
         <intro>Welcome, in this tutorial we cover all the basis of the game</intro>
       </outside>
-      <level1>
-        <step1>No text for now</step1>
-        <step2>No text for now</step2>
-        <step3>No text for now</step3>
-      </level1>
-      <level2>
-        <step1>No text for now</step1>
-        <step2>No text for now</step2>
-        <step3>No text for now</step3>
-      </level2>
+      <level>
+        <step0>Bienvenue dans le niveau didacticiel, pour continuer, clickez sur "Suivant".</step0>
+        <step1>Pour apprendre les aides, clickez sur pause. Une fois que vous avez lut les règles, clickez sur "suivant" pour continuer le didacticiel.</step1>
+        <step2>Maintenant que vous connaissez les règles, vous pouvez placer des tentes et des arbres sur la grille à l'aide du click gauche.</step2>
+        <step3>Lorsque vous vous etes trompé, vous pouvez annuler votre dernier changement avec le bouton "Undo".</step3>
+        <step4>Vous avez trop clické sur "Undo"? Pas de soucis, clickez sur "Redo" pour remettre la dernière action effacée avec "Undo".</step4>
+        <step5>Si vous avez des doutes, utilisez les hypothèses à l'aide du bouton "Nouvelle hypothèse". Si vous etes parti sur une fausse piste, vous pouvez l'annuler avec le bouton "Refuter hypothèse".</step5>
+        <step6>Lorsque vous etes perdu, vous pouvez recommencer la grille à zéro en clickant sur "Reset".</step6>
+        <step7>C'est à vous de jouer! Finissez la grille. Si vous avez besoin d'aide, n'hésitez pas à clicker sur le bouton "aide".</step7>
+      </level>
     </tutorial>
   </English>
 </languages>
