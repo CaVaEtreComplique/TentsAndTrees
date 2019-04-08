@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 08-Apr-2019
 
 
 class Text
@@ -56,12 +56,10 @@ class Text
     }
     @eventBox.signal_connect("button_release_event") { |_, event|
       if event.button==Click::LEFT
+        @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
+        @color="black"
+        apply
         yield
-        if !@eventBox.mapped?
-          @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-          @color="black"
-          apply
-        end
       end
     }
     self
