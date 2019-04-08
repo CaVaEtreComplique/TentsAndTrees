@@ -21,9 +21,6 @@ require File.dirname(__FILE__) + "/../GameDecorated"
 
 class Helper < FictivHelper
   #needed to be initialized at the start
-
-  include Singleton
-
   ##MODS for displaying only on game screen ( @@ONLY_UI_MOD ) or on the terminal as well ( @@DEBUG_MOD )
   @@DEBUG_MOD=1
   @@ONLY_UI_MOD=0
@@ -43,30 +40,13 @@ class Helper < FictivHelper
     return aHelpLevel
   end
 
-  def initialize(uniqHelpLevel)
-    this.initialize(uniqHelpLevel, uniqHelpLevel)
-  end
 
-  def initialize(helpLevelMin, helpLevelMax)
-    if(helpLevelMin<helpLevelMax)
-      self.initialize(helpLevelMax, helpLevelMin)
-    else
-      this.initialize()
 
-      helpLevelMin = helpsLevelsLimits(helpLevelMin)
-      helpLevelMax = helpsLevelsLimits(helpLevelMax)
+  def initialize(helplvl=1,lvlmin=1,lvlmax=3)
 
-      @helpLevel = helpLevelMin
-      @helpLevelMin = helpLevelMin
-      @helpLevelMax = helpLevelMax
-    end
-  end
-
-  def initialize
-
-    @helpLevel = 1
-    @helpLevelMin = 1
-    @helpLevelMax = 3
+    @helpLevel = helplvl
+    @helpLevelMin = lvlmin
+    @helpLevelMax = lvlmax
 
     @lastHelp = HelpNotFound.new
 

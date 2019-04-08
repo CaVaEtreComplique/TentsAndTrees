@@ -8,7 +8,6 @@
 
 #An abstract class whitch define what's a Halper
 class FictivHelper
-  private_class_method :new
   def help(game)
   end
 end
