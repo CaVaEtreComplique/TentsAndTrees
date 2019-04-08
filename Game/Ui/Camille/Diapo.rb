@@ -2,8 +2,8 @@
 # @Date:   18-Mar-2019
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: Diapo.rb
-# @Last modified by:   QuentinGoncalves
-# @Last modified time: 23-Mar-2019
+# @Last modified by:   zeigon
+# @Last modified time: 08-Apr-2019
 
 
 require 'gtk3'
@@ -36,13 +36,30 @@ def initialize(width , height, textManager)
   @hBox = Gtk::Box.new(:horizontal)
   @rule = Text.new(@textManager.getRules(@picindex+1))
   @box.pack_start(@page.gtkObject, expand: false, fill: false, padding: 20)
-  @box.add(@hBox)
+  @ali  = Gtk::Alignment.new(0.5, 0, 0, 0).add(@hBox)
+  @box.add(@ali)
   @box.pack_start(@rule.gtkObject, expand: false, fill: false, padding: 0)
   self.getImage
   @hBox.add(@previousButton)
   @hBox.add(@image)
   @hBox.add(@nextButton)
   @time = true
+
+
+  @previousButton.signal_connect("enter_notify_event") { |widget, event|
+    @previousButton.window.set_cursor(Click::CURSORIN) unless @previousButton.window == nil
+  }
+  @previousButton.signal_connect("leave_notify_event") { |widget, event|
+    @previousButton.window.set_cursor(Click::CURSOROUT) unless @previousButton.window == nil
+  }
+
+  @nextButton.signal_connect("enter_notify_event") { |widget, event|
+    @nextButton.window.set_cursor(Click::CURSORIN) unless @nextButton.window == nil
+  }
+  @nextButton.signal_connect("leave_notify_event") { |widget, event|
+    @nextButton.window.set_cursor(Click::CURSOROUT) unless @nextButton.window == nil
+  }
+
 end
 
 def nextImage
