@@ -3,7 +3,7 @@
 # @Email:  quentin.goncalves.etu@univ-lemans.fr
 # @Filename: XmlReader.rb
 # @Last modified by:   maxime
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 08-Apr-2019
 
 require 'nokogiri'
 require 'active_support/core_ext/hash/conversions'
@@ -71,7 +71,7 @@ class XmlReader
   # tutorial level and its step.
   #
   def getTutorialTexts(currentLevel, step)
-    return @xmlHash.fetch("languages").fetch(@language).fetch("tutorial").fetch(currentLevel).fetch(step)
+    return @xmlHash.fetch("languages").fetch(@language).fetch("tutorial").fetch(currentLevel).fetch("step" + step.to_s)
   end
 
   ##
