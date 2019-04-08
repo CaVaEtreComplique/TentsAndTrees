@@ -2,7 +2,7 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpAllPossibilitiesGiveItColumn.rb
-# @Last modified by:   maxime
+# @Last modified by:   Sckylle
 # @Last modified time: 05-Apr-2019
 
 
