@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 08-Apr-2019
 
 
 
@@ -112,10 +112,10 @@ class GameScreen < Screen
 
     globalBoxH = Gtk::Box.new(:horizontal).add(globalBox)
     globalAli  = Gtk::Alignment.new(0.5, 0, 0, 0).add(globalBoxH)
-    pauseAli  = Gtk::Alignment.new(0.5, 0, 0, 1 ).add(@helpResponseUi.gtkObject)
+    helpCRAli  = Gtk::Alignment.new(0.5, 0, 0, 1 ).add(@helpResponseUi.gtkObject)
 
     @gtkObject.attach(globalAli,3,4,1,2)
-    @gtkObject.attach(pauseAli,2,4,2,3)
+    @gtkObject.attach(helpCRAli,2,4,2,3)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end
