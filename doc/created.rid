@@ -1,4 +1,4 @@
-Mon, 08 Apr 2019 15:00:57 +0200
+Mon, 08 Apr 2019 15:06:48 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Mon, 08 Apr 2019 13:38:55 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Fri, 05 Apr 2019 15:48:47 +0200
 ./Game/Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Fri, 05 Apr 2019 15:21:37 +0200
@@ -15,8 +15,8 @@ Mon, 08 Apr 2019 15:00:57 +0200
 ./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpOnAColumn.rb	Mon, 08 Apr 2019 14:02:30 +0200
 ./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllTentsOnAColumn/HelpAllTentsOnAColumn.rb	Mon, 08 Apr 2019 14:39:05 +0200
 ./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb	Mon, 08 Apr 2019 13:48:12 +0200
-./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllGrassOnARow/HelpAllGrassOnARow.rb	Mon, 08 Apr 2019 15:00:54 +0200
-./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow.rb	Fri, 05 Apr 2019 10:13:45 +0200
+./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllGrassOnARow/HelpAllGrassOnARow.rb	Mon, 08 Apr 2019 15:03:36 +0200
+./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow.rb	Mon, 08 Apr 2019 15:06:45 +0200
 ./Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpOneRow.rb	Mon, 08 Apr 2019 14:54:51 +0200
 ./Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb	Fri, 05 Apr 2019 10:13:45 +0200
 ./Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb	Fri, 05 Apr 2019 10:13:45 +0200

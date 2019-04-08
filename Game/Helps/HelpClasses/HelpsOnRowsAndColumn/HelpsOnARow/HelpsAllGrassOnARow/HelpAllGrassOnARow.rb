@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + "/../HelpOneRow"
 # the player knows when all the grass is placed.
 #
 # ===== Variables
-# * +column+ : The column that has all its grass placed.
+# * +row+ : The row that has all its grass placed.
 #
 # ===== Methods
 # This class knows its constructor and the getText method. The constructor only
