@@ -22,7 +22,7 @@ class HelpOnCells < Help
   # :startdoc:
 
   ##
-  # This method's constructor assigns a value to the @cell variable and calls
+  # This class' constructor assigns a value to the @cell variable and calls
   # constructor from the Help class.
   def initialize(cell)
     @cell = cell
