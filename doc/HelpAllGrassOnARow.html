@@ -122,14 +122,17 @@
 
         <div class="method-description">
           
-          <p>The class&#39; constructor. This method takes no parameters and initializes
-two variables :</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor assigns a value to the @column and @row
+variables and calls the constructor from the <a href="Help.html">Help</a>
+class.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>price</code> : An integer giving the cost of each help. Here, it is
-initialized at 5.</p>
-</li><li>
-<p><code>helpText</code> : The text that will be shown every time the player
-needs help.</p>
+<p><code>rowOrColumn</code> : The row or the column we want to work with. Both
+@row and @column variables will take its value so we can work either on a
+row or on a column</p>
 </li></ul>
           
           
@@ -141,7 +144,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">rowOrColumn</span>)
   <span class="ruby-ivar">@column</span> = <span class="ruby-identifier">rowOrColumn</span>
   <span class="ruby-ivar">@row</span> = <span class="ruby-identifier">rowOrColumn</span>

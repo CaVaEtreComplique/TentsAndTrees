@@ -75,7 +75,9 @@
     
     <li ><a href="#method-i-getImage">#getImage</a>
     
-    <li ><a href="#method-i-nuImage">#nuImage</a>
+    <li ><a href="#method-i-nextImage">#nextImage</a>
+    
+    <li ><a href="#method-i-previousImage">#previousImage</a>
     
   </ul>
 </div>
@@ -120,9 +122,9 @@
         </div>
       </div>
       
-      <div id="attribute-i-image" class="method-detail">
+      <div id="attribute-i-hBox" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">image</span><span
+          <span class="method-name">hBox</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -133,9 +135,9 @@
         </div>
       </div>
       
-      <div id="attribute-i-imgLoaded" class="method-detail">
+      <div id="attribute-i-nextButton" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">imgLoaded</span><span
+          <span class="method-name">nextButton</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -146,9 +148,9 @@
         </div>
       </div>
       
-      <div id="attribute-i-picindex" class="method-detail">
+      <div id="attribute-i-previousButton" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">picindex</span><span
+          <span class="method-name">previousButton</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -159,35 +161,9 @@
         </div>
       </div>
       
-      <div id="attribute-i-pile" class="method-detail">
+      <div id="attribute-i-rule" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">pile</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-time" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">time</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-window" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">window</span><span
+          <span class="method-name">rule</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -212,7 +188,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(width , height)</span>
+            class="method-args">(width , height, textManager)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -228,18 +204,55 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">width</span> , <span class="ruby-identifier">height</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">width</span> , <span class="ruby-identifier">height</span>, <span class="ruby-identifier">textManager</span>)
   <span class="ruby-identifier">pic1</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/regle1.png&quot;</span>)
   <span class="ruby-identifier">pic2</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/regle2.png&quot;</span>)
   <span class="ruby-identifier">pic3</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/regle3.png&quot;</span>)
   <span class="ruby-identifier">pic4</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/regle4.png&quot;</span>)
+
+  <span class="ruby-identifier">tempNext</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/nextButton.png&quot;</span>)
+  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/regle/previousButton.png&quot;</span>)
+  <span class="ruby-identifier">tempNext</span> = <span class="ruby-identifier">tempNext</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
+  <span class="ruby-identifier">nextButton</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-identifier">tempNext</span>)
+  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-identifier">tempPrevious</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
+  <span class="ruby-identifier">previousButton</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-identifier">tempPrevious</span>)
+
+  <span class="ruby-ivar">@textManager</span>=<span class="ruby-identifier">textManager</span>
   <span class="ruby-ivar">@pile</span> = [<span class="ruby-identifier">pic1</span>, <span class="ruby-identifier">pic2</span>, <span class="ruby-identifier">pic3</span>, <span class="ruby-identifier">pic4</span>]
+  <span class="ruby-ivar">@nextButton</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">nextButton</span>)
+  <span class="ruby-ivar">@previousButton</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">previousButton</span>)
   <span class="ruby-ivar">@picindex</span> = <span class="ruby-value">0</span>
   <span class="ruby-ivar">@width</span> = <span class="ruby-identifier">width</span>
   <span class="ruby-ivar">@height</span> = <span class="ruby-identifier">height</span>
+  <span class="ruby-ivar">@box</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-ivar">@page</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>((<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-ivar">@hBox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+  <span class="ruby-ivar">@rule</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getRules</span>(<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>))
+  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@page</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">20</span>)
+  <span class="ruby-ivar">@ali</span>  = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@hBox</span>)
+  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@ali</span>)
+  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">0</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getImage</span>
-  <span class="ruby-ivar">@box</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@previousButton</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@nextButton</span>)
   <span class="ruby-ivar">@time</span> = <span class="ruby-keyword">true</span>
+
+
+  <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;enter_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSORIN</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  }
+  <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;leave_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSOROUT</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@previousButton</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  }
+
+  <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;enter_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSORIN</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  }
+  <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;leave_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSOROUT</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@nextButton</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  }
+
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -278,7 +291,7 @@
 
           
           <div class="method-source-code" id="getImage-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getImage</span>
   <span class="ruby-ivar">@imgLoaded</span> = <span class="ruby-ivar">@pile</span>[<span class="ruby-ivar">@picindex</span>]
   <span class="ruby-ivar">@imgLoaded</span> = <span class="ruby-ivar">@imgLoaded</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-ivar">@width</span>,<span class="ruby-ivar">@height</span>)
@@ -295,10 +308,10 @@
       </div>
 
     
-      <div id="method-i-nuImage" class="method-detail ">
+      <div id="method-i-nextImage" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">nuImage</span><span
+          <span class="method-name">nextImage</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -313,14 +326,68 @@
           
 
           
-          <div class="method-source-code" id="nuImage-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nuImage</span>
-  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@image</span>)
+          <div class="method-source-code" id="nextImage-source">
+            <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nextImage</span>
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@previousButton</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@nextButton</span>)
   <span class="ruby-ivar">@picindex</span> = <span class="ruby-ivar">@picindex</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-  <span class="ruby-ivar">@picindex</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@picindex</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@picindex</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-ivar">@picindex</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getImage</span>
-  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">updateLabel</span>((<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@previousButton</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@nextButton</span>)
+  <span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getRules</span>(<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>))
+  <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-previousImage" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">previousImage</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="previousImage-source">
+            <pre><span class="ruby-comment"># File Game/Ui/Camille/Diapo.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">previousImage</span>
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@previousButton</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@nextButton</span>)
+  <span class="ruby-ivar">@picindex</span> = <span class="ruby-ivar">@picindex</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@picindex</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+    <span class="ruby-ivar">@picindex</span> = <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span><span class="ruby-value">-1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getImage</span>
+  <span class="ruby-ivar">@page</span>.<span class="ruby-identifier">updateLabel</span>((<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@pile</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@previousButton</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@image</span>)
+  <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@nextButton</span>)
+  <span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getRules</span>(<span class="ruby-ivar">@picindex</span><span class="ruby-value">+1</span>))
   <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

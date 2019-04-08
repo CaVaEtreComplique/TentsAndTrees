@@ -136,7 +136,7 @@
               <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
 
               <span class="ruby-comment">#Chargement de la campagne</span>
-              <span class="ruby-ivar">@adventure</span> = <span class="ruby-constant">Levels</span>.<span class="ruby-identifier">new</span>
+              <span class="ruby-ivar">@adventure</span> = <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">session</span>
   <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
               <span class="ruby-ivar">@pad</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.03</span>
               <span class="ruby-ivar">@police</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.04</span>
@@ -192,14 +192,12 @@
   <span class="ruby-ivar">@menuR</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-value">25</span>)
               <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@menuR</span>)
 
-              <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;RETOUR&quot;</span>,<span class="ruby-ivar">@police</span>)
+              <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Quitter&quot;</span>,<span class="ruby-ivar">@police</span>)
   <span class="ruby-ivar">@menuR</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">retour</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-value">10</span>)
       <span class="ruby-identifier">retour</span>.<span class="ruby-identifier">onClick</span>{
-                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span><span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span>
-                              <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">createNewSave</span>
-                              <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>
-                      <span class="ruby-keyword">end</span>
-      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+                      <span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">updateSave</span>
+                      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>
+      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
               }
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
       <span class="ruby-keyword">end</span></pre>
@@ -245,7 +243,7 @@
 
           
           <div class="method-source-code" id="applyOn-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Camille/LevelNumber.rb, line 92</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Camille/LevelNumber.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">applyOn</span>(<span class="ruby-identifier">widget</span>, <span class="ruby-identifier">overAllStars</span>, <span class="ruby-identifier">adventureInfo</span>,<span class="ruby-identifier">levelnumber</span>)
 
         <span class="ruby-ivar">@overAllStars</span> = <span class="ruby-identifier">overAllStars</span>

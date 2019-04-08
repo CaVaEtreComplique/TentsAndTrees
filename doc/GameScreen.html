@@ -200,10 +200,13 @@
     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">resetGrid</span>
     <span class="ruby-ivar">@gridUi</span>.<span class="ruby-identifier">refresh</span>
   }
+
+
   <span class="ruby-identifier">undoButton</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;ingame&quot;</span> , <span class="ruby-string">&quot;undo&quot;</span>))
   <span class="ruby-identifier">undoButton</span>.<span class="ruby-identifier">onClick</span>(){
     <span class="ruby-ivar">@gridUi</span>.<span class="ruby-identifier">undo</span>
   }
+
   <span class="ruby-identifier">redoButton</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;ingame&quot;</span> , <span class="ruby-string">&quot;redo&quot;</span>))
   <span class="ruby-identifier">redoButton</span>.<span class="ruby-identifier">onClick</span>(){
     <span class="ruby-ivar">@gridUi</span>.<span class="ruby-identifier">redo</span>
@@ -214,6 +217,8 @@
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">weight</span>=<span class="ruby-string">&quot;normal&quot;</span>
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;red&quot;</span>
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">size</span>=<span class="ruby-value">15</span>
+  <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">apply</span>
+  <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">setWrap</span>(<span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">help</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;ingame&quot;</span> , <span class="ruby-string">&quot;help&quot;</span>))
   <span class="ruby-identifier">help</span>.<span class="ruby-identifier">onClick</span>(){
     <span class="ruby-comment"># Display the help message</span>
@@ -227,7 +232,11 @@
     }
   }
 
-  <span class="ruby-identifier">pause</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;ingame&quot;</span> , <span class="ruby-string">&quot;pause&quot;</span>))
+  <span class="ruby-comment"># pause=Text.new(@textManager.getButtonLabel(&quot;ingame&quot; , &quot;pause&quot;))</span>
+  <span class="ruby-identifier">pause</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;||&quot;</span> , <span class="ruby-string">&quot;pause&quot;</span>)
+  <span class="ruby-identifier">pause</span>.<span class="ruby-identifier">weight</span>=<span class="ruby-string">&quot;ultrabold&quot;</span>
+  <span class="ruby-identifier">pause</span>.<span class="ruby-identifier">size</span>=<span class="ruby-value">40</span>
+  <span class="ruby-identifier">pause</span>.<span class="ruby-identifier">apply</span>
     <span class="ruby-identifier">pause</span>.<span class="ruby-identifier">onClick</span>(){
       <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">stop</span>
       <span class="ruby-ivar">@pauseScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
@@ -242,6 +251,7 @@
   <span class="ruby-identifier">aliPause</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>, <span class="ruby-value">0.2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">add</span>(<span class="ruby-identifier">pause</span>.<span class="ruby-identifier">gtkObject</span>)
 
   <span class="ruby-identifier">globalBox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">width_request</span>=(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.3</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">aliPause</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">3</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@chronoUi</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">aliURB</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">3</span>)
@@ -249,14 +259,14 @@
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">newGuess</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">3</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">removeGuess</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">3</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">help</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
+  <span class="ruby-comment"># globalBox.pack_start(@helpResponseUi.gtkObject, expand: false, fill: false, padding: 10)</span>
 
-  <span class="ruby-identifier">globalBoxH</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
-  <span class="ruby-identifier">globalBoxH</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">globalBox</span>)
+  <span class="ruby-identifier">globalBoxH</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>).<span class="ruby-identifier">add</span>(<span class="ruby-identifier">globalBox</span>)
+  <span class="ruby-identifier">globalAli</span>  = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">add</span>(<span class="ruby-identifier">globalBoxH</span>)
+  <span class="ruby-identifier">helpCRAli</span>  = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span> ).<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">gtkObject</span>)
 
-  <span class="ruby-identifier">helpLabelAli</span>  = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.2</span>, <span class="ruby-value">0.3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">gtkObject</span>)
-
-  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">globalBoxH</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>)
-  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">helpLabelAli</span>,<span class="ruby-value">2</span>,<span class="ruby-value">4</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">globalAli</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">helpCRAli</span>,<span class="ruby-value">2</span>,<span class="ruby-value">4</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">4</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@gridUi</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -297,7 +307,7 @@
 
           
           <div class="method-source-code" id="gridAltered-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 113</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gridAltered</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">helpDisplayed?</span>
     <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">updateLabel</span> <span class="ruby-string">&quot;&quot;</span>
@@ -339,7 +349,7 @@
 
           
           <div class="method-source-code" id="helpDisplayed-3F-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 126</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 136</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpDisplayed?</span>
   <span class="ruby-ivar">@helpDisplayed</span>
 <span class="ruby-keyword">end</span></pre>
@@ -372,7 +382,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 130</span>
+            <pre><span class="ruby-comment"># File Game/Ui/Screens/GameScreen.rb, line 140</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">active?</span>
     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">stop</span>
