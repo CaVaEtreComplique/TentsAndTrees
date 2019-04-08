@@ -32,24 +32,24 @@ class UiManager
     @mainScreen.applyOn(@win)
   end
 
-  def runGameSession(session)
+  def runGameSession(session,partOfAdventure=false)
     Thread.new {
       @loadScreen.applyOn(@win)
-      @session=session
+      @session=session unless partOfAdventure
       @loadScreen.run
-      game=@session.game
+      game=session.game
       # Generation des textures
       cellAssets=CellAssets.new(game.nRow, game.nCol)
       if session.gameMode != :tutorial
         # Generation des ecrans de jeu
-        victoryScreen=getVictoryScreen(@session)
+        victoryScreen=getVictoryScreen(session)
         @gameScreen=GameScreen.new(self,game,cellAssets,victoryScreen)
         ProcessStatus.send("Affichage de l'écran de jeu")
         @gameScreen.applyOn(@win)
         ProcessStatus.send("Lancement de la partie")
       else
         # Generation des ecrans de jeu
-        victoryScreen=getVictoryScreen(@session)
+        victoryScreen=getVictoryScreen(session)
         @gameScreen=TutorialGameScreen.new(self,game,cellAssets,victoryScreen)
         ProcessStatus.send("Affichage de l'écran de jeu")
         @gameScreen.applyOn(@win)
