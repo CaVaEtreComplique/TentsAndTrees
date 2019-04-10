@@ -36,6 +36,7 @@ class Session
 	end
 
 	def updateSave
+		# if self
 		self.game.delete_observers
 		self.game.clearHelper
 		ConnectDB.new.updateSave(self.to_yaml(), self.save)

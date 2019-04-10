@@ -2,8 +2,8 @@
 # @Date:   08-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
-# @Last modified by:   maxime
-# @Last modified time: 08-Apr-2019
+# @Last modified by:   zeigon
+# @Last modified time: 10-Apr-2019
 
 
 
@@ -66,11 +66,12 @@ class TutorialGameScreen < Screen
     @rank =0
 
     @nextResponseUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
-    nextStape =Text.new(@textManager.getButtonLabel("ingame" , "next"))
-      nextStape.onClick(){
+    nextStep =Text.new(@textManager.getButtonLabel("ingame" , "next"))
+      nextStep.onClick(){
         if(@rank <7)
           @rank = @rank + 1
-          goToNextStape()
+          goToNextStep()
+          @nextResponseUI.updateLabel("")
           @nextResponseUI.updateLabel(@textManager.getTutorialTexts("level" , @rank))
         end
       }
@@ -82,7 +83,6 @@ class TutorialGameScreen < Screen
       @nextResponseUI.size=17
       @nextResponseUI.apply
       @nextResponseUI.setWrap(true)
-
 
 ##################################################################
 
@@ -96,7 +96,8 @@ class TutorialGameScreen < Screen
     globalBox.width_request=(screen.width*0.3)
     globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
 
-    nextBox = Gtk::Box.new(:vertical)
+    nextBox = Gtk::Box.new(:vertical).add(@nextResponseUI.gtkObject).add(nextStep.gtkObject)
+    nextAli  = Gtk::Alignment.new(0.5, 1, 0, 0).add(nextBox)
 
     globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@resetGrid.gtkObject, expand: true, fill: false, padding: 3)
@@ -104,22 +105,16 @@ class TutorialGameScreen < Screen
     globalBox.pack_start(@removeGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@help.gtkObject, expand: true, fill: false, padding: 10)
 
-    nextBox.pack_start(nextStape.gtkObject, expand: true, fill: false, padding: 10)
-
     globalBoxH = Gtk::Box.new(:horizontal).add(globalBox)
     globalAli  = Gtk::Alignment.new(0.5, 0, 0, 0).add(globalBoxH)
     helpCRAli  = Gtk::Alignment.new(0.5, 0, 0, 1).add(@helpResponseUi.gtkObject)
-    nextAli    = Gtk::Alignment.new(1, 0, 0, 0).add(nextBox)
-    nextCRAli  = Gtk::Alignment.new(0, 0, 0, 0).add(@nextResponseUI.gtkObject)
-    nextHBox = Gtk::Box.new(:horizontal)
-    nextHBox.pack_start(nextCRAli, expand: true, fill: false, padding: 2)
-    nextHBox.pack_start(nextAli, expand: true, fill: false, padding: 2)
 
-    @gtkObject.attach(globalAli,3,4,1,2)
-    @gtkObject.attach(helpCRAli,2,4,2,3)
-    @gtkObject.attach(nextHBox,0,4,3,4)
+    @gtkObject.attach(globalAli,3,4,0,1)
+    @gtkObject.attach(helpCRAli,2,4,1,2)
+    # @gtkObject.attach(@nextResponseUI.gtkObject,2,4,2,3)
+    @gtkObject.attach(nextAli,2,4,3,4)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
-    @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
+    @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
   end
 
   def gridAltered
@@ -139,7 +134,7 @@ class TutorialGameScreen < Screen
     @helpDisplayed
   end
 
-  def goToNextStape
+  def goToNextStep
     case @stape
       when :unlockReset
         @stape = :unlockHelps

@@ -68,6 +68,7 @@ class Text
   def apply
     @textBox.set_markup("<span style='"+@style.to_s+"' weight='"+@weight.to_s+"' foreground='"+@color.to_s+"' font_desc='"+@font.to_s+" "+@size.to_s+"'>"+@label+"</span>")
   end
+  
   def colorChange(couleur)
     @color=couleur
     apply
