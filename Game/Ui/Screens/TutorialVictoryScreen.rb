@@ -17,13 +17,12 @@ class TutorialVictoryScreen < Screen
     @gtkObject=Gtk::Table.new(3,3)
     vBox=Gtk::Box.new(:vertical)
     @session=session
-
-    @scoreText=Text.new(@textManager.getTutorialTexts("victory" , 0))
+    @responseText = Text.new(@textManager.getTutorialTexts("victory" , 0))
     @resultText=Text.new(@textManager.getScreenTexts("victory" , "win"))
     @resultText.title
 
     vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
-    vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
+    vBox.pack_start(@responseText.gtkObject, expand: false, fill: true, padding: 40)
 
     @replay=Text.new(@textManager.getButtonLabel("victory" , "retry"))
 
@@ -43,7 +42,6 @@ class TutorialVictoryScreen < Screen
 
   def applyOn(widget,sScore,isWon)
     screen = Gdk::Screen.default
-    @score=sScore
     if !isWon
       @resultText.updateLabel(@textManager.getScreenTexts("victory" , "lose"))
       @resultText.title
