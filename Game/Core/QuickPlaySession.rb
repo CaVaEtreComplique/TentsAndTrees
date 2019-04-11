@@ -24,6 +24,10 @@ class QuickPlaySession < Session
 		end
 	end
 
+	def isTutorial?
+		return false
+	end
+
 	def setTime
 			@time=0
 	end

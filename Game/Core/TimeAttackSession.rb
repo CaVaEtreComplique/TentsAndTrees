@@ -26,6 +26,10 @@ class TimeAttackSession < Session
 		end
 	end
 
+	def isTutorial?
+		return false
+	end
+
 	def setTime
 		@time=@gridPick.associatedTimer
 	end

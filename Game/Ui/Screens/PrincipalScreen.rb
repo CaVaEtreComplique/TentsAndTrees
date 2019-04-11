@@ -92,13 +92,9 @@ class PrincipalScreen < Screen
     regle.onClick{
         manager.ruleScreen.applyOn(@parent)
      }
+     
     meilleurScore.onClick{
-<<<<<<< HEAD:Game/Ui/Camille/FenetrePrinc.rb
         manager.highScoresScreen.applyOn(@parent)
-=======
-      #manager.hightScoreScreen.applyOn(@parent)
-
->>>>>>> 2de33b7f8eab50c43c779f2a20cf3e459f153eac:Game/Ui/Screens/PrincipalScreen.rb
      }
     quitter.onClick(){
         Gtk.main_quit
