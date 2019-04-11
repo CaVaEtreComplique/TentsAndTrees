@@ -9,7 +9,7 @@
 
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/../Screens/Screen"
+require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
 def require_all(_dir)
@@ -61,7 +61,7 @@ end
 #    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
 
-class ModeDeJeu < Screen
+class GameModeScreen < Screen
   def initialize(manager) #:nodoc:
 		super(manager.win)
     screen=Gdk::Screen.default

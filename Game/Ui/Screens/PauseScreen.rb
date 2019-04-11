@@ -9,7 +9,7 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
-require File.dirname(__FILE__) + "/../Camille/Diapo"
+require File.dirname(__FILE__) + "/../Diapo"
 
 class PauseScreen < Screen
 

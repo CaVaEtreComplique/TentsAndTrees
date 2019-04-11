@@ -12,13 +12,13 @@ class Diapo
   attr_accessor :hBox, :nextButton, :previousButton, :rule, :box
 
 def initialize(width , height, textManager)
-  pic1 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle1.png")
-  pic2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle2.png")
-  pic3 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle3.png")
-  pic4 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/regle4.png")
+  pic1 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle1.png")
+  pic2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle2.png")
+  pic3 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle3.png")
+  pic4 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle4.png")
 
-  tempNext = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/nextButton.png")
-  tempPrevious = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/regle/previousButton.png")
+  tempNext = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/nextButton.png")
+  tempPrevious = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/previousButton.png")
   tempNext = tempNext.scale(width*0.2,height*0.2)
   nextButton = Gtk::Image.new(pixbuf: tempNext)
   tempPrevious = tempPrevious.scale(width*0.2,height*0.2)

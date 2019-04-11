@@ -36,7 +36,7 @@ class ProblemeIdent
 		@gtkObject= Gtk::Table.new(3,3)
 		@gtkObject.attach(@menu,1,2,1,2)
 
-		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
+		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10+100)
 
     pb = Text.new("Identifiant introuvable \n OU \nmot de passe incorrecte",@police)
