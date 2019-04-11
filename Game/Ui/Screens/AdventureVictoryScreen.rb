@@ -14,7 +14,8 @@ class AdventureVictoryScreen < Screen
   def initialize(manager,session)
     @manager=manager
     super(@manager.win)
-    screen = Gdk::Screen.default
+    screen = Constants::SCREEN
+		@pad=Constants::BUTTON_PADDING
     @gtkObject=Gtk::Table.new(3,3)
     @vBox=Gtk::Box.new(:vertical)
     @session=session
@@ -30,8 +31,8 @@ class AdventureVictoryScreen < Screen
     newlab = @textManager.getScreenTexts("victory" , "score")+@score.to_s
     @scoreText=Text.new(newlab)
 
-    @vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
-    @vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
+    @vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: @pad)
+    @vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: @pad)
     if !isWon
       @resultText.updateLabel(@textManager.getScreenTexts("victory" , "lose"))
       @resultText.title
@@ -49,13 +50,13 @@ class AdventureVictoryScreen < Screen
           @manager.runGameSession(@session,true)
         }
 
-        @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
+        @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: @pad)
 
         quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
         quit.onClick{
           @manager.levelNumberScreen.applyOn(@parent)
         }
-        @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
+        @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:@pad)
     else
       s=Star.new(@manager.session.levelInfo[3],@manager.session.calculateStars)
       @bjr.add(s.stars)
@@ -66,7 +67,7 @@ class AdventureVictoryScreen < Screen
         @manager.levelNumberScreen.applyOn(@parent)
     		@manager.session.updateSave
       }
-      @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
+      @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding:@pad)
 
       quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
       quit.onClick{
@@ -74,7 +75,7 @@ class AdventureVictoryScreen < Screen
   			@manager.updateSave
       	@manager.mainScreen.applyOn(@parent)
       }
-      @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
+      @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:@pad)
     end
     super(widget)
   end

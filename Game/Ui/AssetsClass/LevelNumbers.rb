@@ -19,6 +19,7 @@ end
 class LevelNumbers
   attr_reader :im
   def initialize(manager,adventure ,adventureInfo)
+		@pad=Constants::BUTTON_PADDING
 		@im=Gtk::Box.new(:vertical, 25)
     (1.. 5).each { |i|
       @ic=LevelNumber.new(i,manager,adventure ,adventureInfo)

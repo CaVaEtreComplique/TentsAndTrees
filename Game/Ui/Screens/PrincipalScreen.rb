@@ -58,22 +58,20 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 class PrincipalScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
-    screen=Gdk::Screen.default
-    #Variable pour resize le texte
-    @pad=screen.height*0.03
-    @police=screen.height*0.04
+    screen = Constants::SCREEN
+		@pad=Constants::BUTTON_PADDING
 
     @gtkObject= Gtk::Table.new(3,3)
     @menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menuV,1,2,0,1)
 
-    titre=Text.new(@textManager.getScreenTexts("main" , "title"),@police*2)
+    titre=Text.new(@textManager.getScreenTexts("main" , "title"))
     titre.title
-    jouer=Text.new(@textManager.getButtonLabel("main" , "play"),@police)
-    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"),@police)
-    regle=Text.new(@textManager.getButtonLabel("main" , "rules"),@police)
-    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"),@police)
-    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"),@police)
+    jouer=Text.new(@textManager.getButtonLabel("main" , "play"))
+    parametre=Text.new(@textManager.getButtonLabel("main" , "settings"))
+    regle=Text.new(@textManager.getButtonLabel("main" , "rules"))
+    meilleurScore=Text.new(@textManager.getButtonLabel("main" , "score"))
+    quitter=Text.new(@textManager.getButtonLabel("main" , "exit"))
 
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
     @menuV.pack_start(jouer.gtkObject ,expand: false, fill: true, padding: @pad)
@@ -92,7 +90,7 @@ class PrincipalScreen < Screen
     regle.onClick{
         manager.ruleScreen.applyOn(@parent)
      }
-     
+
     meilleurScore.onClick{
         manager.highScoresScreen.applyOn(@parent)
      }

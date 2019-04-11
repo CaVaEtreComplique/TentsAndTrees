@@ -67,10 +67,8 @@ class ParametreScreen < Screen
 
     super(manager.win)
 			#Variable de l'ecran
-    screen=Gdk::Screen.default
-
-		@pad=screen.height*0.03
-		@police=screen.height*0.04
+		screen = Constants::SCREEN
+		@pad=Constants::BUTTON_PADDING
 
     @gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical)
@@ -79,11 +77,11 @@ class ParametreScreen < Screen
 		# fr ="french"
 		# ang="english"
 
-    titre=Text.new(@textManager.getScreenTexts("settings" , "title"),@police*2)
+    titre=Text.new(@textManager.getScreenTexts("settings" , "title"))
 		titre.title
-		appli=Text.new(@textManager.getButtonLabel("settings" , "apply"),@police)
-		desins=Text.new(@textManager.getButtonLabel("settings" , "unregister"),@police)
-		retour=Text.new(@textManager.getButtonLabel("settings" , "back"),@police)
+		appli=Text.new(@textManager.getButtonLabel("settings" , "apply"))
+		desins=Text.new(@textManager.getButtonLabel("settings" , "unregister"))
+		retour=Text.new(@textManager.getButtonLabel("settings" , "back"))
 
 
 		@menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)

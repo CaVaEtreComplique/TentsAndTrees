@@ -62,6 +62,7 @@
 
         <rule>
           <texts>
+            <title>Règles</title>
           </texts>
           <buttons>
             <back>Retour</back>
@@ -285,6 +286,7 @@
 
       <rule>
         <texts>
+          <title>Rules</title>
         </texts>
         <buttons>
           <back>Back</back>

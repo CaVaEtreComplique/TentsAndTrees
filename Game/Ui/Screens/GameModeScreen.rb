@@ -64,10 +64,10 @@ end
 class GameModeScreen < Screen
   def initialize(manager) #:nodoc:
 		super(manager.win)
-    screen=Gdk::Screen.default
+		screen = Constants::SCREEN
 
-		@pad=screen.height*0.03
-    @police=screen.height*0.04
+		@pad=Constants::BUTTON_PADDING
+
 
 		@gtkObject= Gtk::Table.new(3,3)
 		@scrol=ScrollableArea.new(:vertical)
@@ -77,13 +77,13 @@ class GameModeScreen < Screen
 
 
 
-		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"),@police*2)
-		aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@police)
-		timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@police)
-		clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@police)
-		tuto=Text.new(@textManager.getButtonLabel("gamemode" , "tuto"),@police)
-		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"),@police)
-		retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"),@police)
+		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"))
+		aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
+		timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
+		clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
+		tuto=Text.new(@textManager.getButtonLabel("gamemode" , "tuto"))
+		save=Text.new(@textManager.getButtonLabel("gamemode" , "save"))
+		retour=Text.new(@textManager.getButtonLabel("gamemode" , "back"))
 
 		@boxV.pack_start(titre.gtkObject ,expand: false, fill: false, padding: @pad)
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
@@ -96,7 +96,7 @@ class GameModeScreen < Screen
 
 
 		aventure.onClick{
-			session = Levels.new
+			session = AdventureSession.new
 			manager.runAdventureSession(session)
     	session.createSave
 		 }

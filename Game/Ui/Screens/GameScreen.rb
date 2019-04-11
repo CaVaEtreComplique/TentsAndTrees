@@ -21,6 +21,7 @@ class GameScreen < Screen
 
   def initialize(manager,game,cellAssets,victoryScreen)
     super(manager.win)
+    @pad=Constants::BUTTON_PADDING
     (@game=game).add_observer(self)
     @victoryScreen = victoryScreen
     @pauseScreen = PauseScreen.new(self,manager,@game)

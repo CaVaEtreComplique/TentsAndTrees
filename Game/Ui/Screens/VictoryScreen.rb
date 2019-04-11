@@ -14,7 +14,8 @@ class VictoryScreen < Screen
   def initialize(manager,session)
     @manager=manager
     super(@manager.win)
-    screen = Gdk::Screen.default
+    screen = Constants::SCREEN
+   @pad=Constants::BUTTON_PADDING
     @gtkObject=Gtk::Table.new(3,3)
     vBox=Gtk::Box.new(:vertical)
     @session=session
@@ -22,17 +23,17 @@ class VictoryScreen < Screen
     @scoreText=Text.new(@textManager.getScreenTexts("victory" , "errscore"))
     @resultText=Text.new(@textManager.getScreenTexts("victory" , "win"))
     @resultText.title
-    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
-    vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: 40)
+    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding:@pad)
+    vBox.pack_start(@scoreText.gtkObject, expand: false, fill: true, padding: @pad)
 
     @replay=Text.new(@textManager.getButtonLabel("victory" , "retry"))
-    vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
+    vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: @pad)
 
     quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
     quit.onClick{
       @manager.mainScreen.applyOn(@parent)
     }
-    vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
+    vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:@pad)
 
 
     Gtk::Alignment.new(0.5, 0.2, 0, 0)

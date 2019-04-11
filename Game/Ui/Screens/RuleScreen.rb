@@ -58,20 +58,22 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 class RuleScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
-    screen=Gdk::Screen.default
+    screen=Constants::SCREEN
     #Variable pour resize le texte
-    @pad=screen.height*0.03
-    @police=screen.height*0.04
+    @pad=Constants::BUTTON_PADDING
 
     @gtkObject= Gtk::Table.new(3,3)
     @allign=Gtk::Alignment.new(0.5, 0, 0, 0)
     @vBox= Gtk::Box.new(:vertical)
     @diapo = Diapo.new(screen.width*0.6,screen.height*0.6,@textManager)
-    @retour=Text.new(@textManager.getButtonLabel("rule" , "back"),@police)
+    @regle=Text.new(@textManager.getScreenTexts("rule" , "title"))
+    @retour=Text.new(@textManager.getButtonLabel("rule" , "back"))
 
+    @vBox.pack_start(@regle.gtkObject, expand: false, fill: false, padding: @pad)
     @allign.add(@diapo.box)
     @vBox.pack_start(@allign,expand: false, fill: false, padding: @pad)
-    @vBox.pack_start(@retour.gtkObject, expand: false, fill: false, padding: @pad*3)
+    @regle.title
+    @vBox.pack_start(@retour.gtkObject, expand: false, fill: false, padding: @pad)
     @gtkObject.attach(@vBox,1,2,1,2)
 
     @diapo.nextButton.signal_connect("button_press_event"){
