@@ -170,4 +170,13 @@ class Cell
 	def to_s
 		return "["+(@column+1).to_s+";"+(@row+1).to_s+"]"
 	end
+
+	def getVisualRankColumn()
+		return @column + 1
+	end
+
+	def getVisualRankRow()
+		return @row + 1
+	end
+
 end

@@ -6,7 +6,7 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/../AssetsClass/Asset"
+require File.dirname(__FILE__) + "/Asset"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -17,8 +17,8 @@ end
 class Star
   attr_reader :stars
   def initialize(nbEtoile,nbEtoileObtenu)
-		@sHappy=Asset.new(File.dirname(__FILE__) + "/../../../Assets/star.png")
-		@sSad=Asset.new(File.dirname(__FILE__) + "/../../../Assets/starSad.png")
+		@sHappy=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/star.png")
+		@sSad=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/starSad.png")
     @stars=Gtk::Box.new(:horizontal,25)
 		refresh(nbEtoile,nbEtoileObtenu)
    end

@@ -7,8 +7,8 @@
 # @Last modified time: 06-Apr-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/Diapo"
-require File.dirname(__FILE__) + "/../Screens/Screen"
+require File.dirname(__FILE__) + "/../Diapo"
+require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
 

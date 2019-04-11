@@ -7,8 +7,8 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/ModeDeJeu"
-require File.dirname(__FILE__) + "/../Screens/Screen"
+require File.dirname(__FILE__) + "/GameModeScreen"
+require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 require File.dirname(__FILE__) + "/../Buttons/Text"
 
@@ -55,7 +55,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
 
-class FenetrePrinc < Screen
+class PrincipalScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
     screen=Gdk::Screen.default
@@ -93,6 +93,8 @@ class FenetrePrinc < Screen
         manager.ruleScreen.applyOn(@parent)
      }
     meilleurScore.onClick{
+      #manager.hightScoreScreen.applyOn(@parent)
+
      }
     quitter.onClick(){
         Gtk.main_quit
