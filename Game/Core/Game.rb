@@ -117,7 +117,7 @@ class Game
     end
 		loop do
       @malus *=-1 if@session.gameMode==:timeAttack
-      @time=(@baseTime-@chrono.elapsed[0].truncate).abs + @malus
+      @time=(@baseTime-@chrono.elapsed[0]).abs + @malus
 			if @moveDone || @time!=lastTime
         lastTime=@time
 				changed                 # notify observers
