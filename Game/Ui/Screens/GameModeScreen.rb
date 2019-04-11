@@ -105,7 +105,7 @@ class GameModeScreen < Screen
 			 manager.diffchScreen.applyOn(@parent)
     }
 		clm.onClick{
-    	session=TimeAttackSession.new(:timeAttack,:easy)
+    	session=TimeAttackSession.new(:easy)
     	session.createSave
     	manager.runGameSession(session)
 		}

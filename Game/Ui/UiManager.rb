@@ -63,7 +63,7 @@ class UiManager
   def runAdventureSession(session)
     @session=session
     @levelNumberScreen=LevelSelectionScreen.new(self)
-    @levelNumberScreen.applyOn(@win,0,Hash.new,0)
+    @levelNumberScreen.applyOn(@win)
   end
 
   def getVictoryScreen(session)

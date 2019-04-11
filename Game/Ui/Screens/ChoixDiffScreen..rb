@@ -84,17 +84,17 @@ class ChoixDiffScreen < Screen
 
 
 		facile.onClick{
-			 session=QuickPlaySession.new(:quickplay, :easy)
+			 session=QuickPlaySession.new(:easy)
 			 session.createSave
 			 manager.runGameSession(session)
 		}
 		moyen.onClick{
-			 session=QuickPlaySession.new(:quickplay, :medium)
+			 session=QuickPlaySession.new(:medium)
 			 session.createSave
 			 manager.runGameSession(session)
 		}
 		diff.onClick{
-			 session=QuickPlaySession.new(:quickplay, :hard)
+			 session=QuickPlaySession.new(:hard)
 			 session.createSave
 			 manager.runGameSession(session)
 		}

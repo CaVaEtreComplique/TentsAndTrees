@@ -7,8 +7,6 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
-require File.dirname(__FILE__) + "/../AssetsClass/LevelNumbers"
-
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -21,7 +19,7 @@ class LevelSelectionScreen < Screen
 attr_reader :adventure, :adventureInfo, :overAllStars
   def initialize(manager)
 		super(manager.win)
-
+		@manager = manager
 		#Chargement de la campagne
 		@adventure = manager.session
 		screen=Gdk::Screen.default
@@ -36,15 +34,14 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@gtkObject.attach(a,0,1,1,2)
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
-		@nbNiveau=@adventure.levels.length
-		@overAllStars = 5
-		@adventureInfo=Hash.new
+		@nbNiveau=@adventure.adventureInfo.levels.length
+		@overAllStars = @adventure.overAllStars
 		l=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
 
     @b=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@b)
 
-		@icones=LevelNumbers.new(manager,@adventure ,@adventureInfo)
+		@icones=LevelNumbers.new(manager,@adventure ,@adventure.overAllStarsHash)
 		@b.pack_start(@icones.im,expand: false, fill: true, padding: @pad)
     @menuR=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@menuR)
@@ -59,13 +56,9 @@ attr_reader :adventure, :adventureInfo, :overAllStars
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 	end
 
-	def applyOn(widget, overAllStars, adventureInfo,levelnumber)
+	def applyOn(widget)
 
-		@overAllStars = 0
-		@adventureInfo = adventureInfo
-		if @adventureInfo.include?(1)
-			@icones.refresh(@parent,@adventure,@adventureInfo)
-		end
+		@icones.refresh(@manager,@adventure,@adventure.overAllStarsHash)
 		super(widget)
 	end
 end
