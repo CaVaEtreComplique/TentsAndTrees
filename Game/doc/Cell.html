@@ -118,13 +118,11 @@
     
 <h4 id="class-Cell-label-Presentation">Presentation<span><a href="#class-Cell-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="Cell.html">Cell</a> class is the core class of every cell in
-the game.</p>
+<p>The <a href="Cell.html"><code>Cell</code></a> class is the core class of every cell in the game.</p>
 
 <h4 id="class-Cell-label-Variables">Variables<span><a href="#class-Cell-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>states</code> - This class knows a list of all the possible states
-for a cell like this :</p>
+<p><code>states</code> - This class knows a list of all the possible states for a cell like this :</p>
 
 <pre class="ruby"><span class="ruby-identifier">@@states</span> = [<span class="ruby-value">:white</span>, <span class="ruby-value">:grass</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">:tree</span>, <span class="ruby-value">:lockedTree</span>]
 </pre>
@@ -132,11 +130,9 @@ for a cell like this :</p>
 
 <p>This means every cell in the game has one of these states.</p>
 <ul><li>
-<p><code>state</code> - The cell&#39;s state, it must be one of the values
-given in the <code>states</code> list above.</p>
+<p><code>state</code> - The cell&#39;s state, it must be one of the values given in the <code>states</code> list above.</p>
 </li><li>
-<p><code>frozen</code> - A boolean which is set to true when the cell is
-frozen. In the case of a frozen cell, the cell cannot be modified.</p>
+<p><code>frozen</code> - A boolean which is set to true when the cell is frozen. In the case of a frozen cell, the cell cannot be modified.</p>
 </li><li>
 <p><code>row</code> - The cell&#39;s row on the grid.</p>
 </li><li>
@@ -192,9 +188,7 @@ frozen. In the case of a frozen cell, the cell cannot be modified.</p>
 <p><code>row</code> and <code>column</code> - The cell&#39;s coordinates.</p>
 </li></ul>
 
-<p>The values in the parameters determine the default values of each variable
-if there is nothing mentionned in the parenthesis when the method is
-called. By default, the cell is white, unfrozen and at the coordinates 0,0.</p>
+<p>The values in the parameters determine the default values of each variable if there is nothing mentionned in the parenthesis when the method is called. By default, the cell is white, unfrozen and at the coordinates 0,0.</p>
           
           
 
@@ -238,8 +232,7 @@ called. By default, the cell is white, unfrozen and at the coordinates 0,0.</p>
 
         <div class="method-description">
           
-          <p>The == method is used to compare two cells, it returns true if the
-cells&#39; states are equal.</p>
+          <p>The == method is used to compare two cells, it returns true if the cells&#39; states are equal.</p>
 
 <h4 id="method-i-3D-3D-label-Parameter">Parameter<span><a href="#method-i-3D-3D-label-Parameter">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
@@ -280,8 +273,7 @@ cells&#39; states are equal.</p>
 
         <div class="method-description">
           
-          <p>The biRotative? is an alias method to the isATree? method. It returns true
-if the cell&#39;s state is a tree or a locked tree.</p>
+          <p>The biRotative? is an alias method to the isATree? method. It returns true if the cell&#39;s state is a tree or a locked tree.</p>
 <hr>
           
           
@@ -319,11 +311,7 @@ if the cell&#39;s state is a tree or a locked tree.</p>
 
         <div class="method-description">
           
-          <p>The dragLeftChange method is a boolean method that returns false if the
-cell is frozen. If not, the cell&#39;s state varies between white and
-grass. This method is used in the case where the player holds down the left
-mouse click on a row or a column in order to put grass on every cell where
-the mouse hovers.</p>
+          <p>The dragLeftChange method is a boolean method that returns false if the cell is frozen. If not, the cell&#39;s state varies between white and grass. This method is used in the case where the player holds down the left mouse click on a row or a column in order to put grass on every cell where the mouse hovers.</p>
 <hr>
           
           
@@ -534,11 +522,7 @@ the mouse hovers.</p>
 
         <div class="method-description">
           
-          <p>The primaryChange method is a boolean method returning false if the cell is
-frozen. This method changes the state of a cell if it&#39;s not a tree in
-order to follow the pattern white=&gt;grass=&gt;tent=&gt;white at each
-mouse left click. If the cell is a tree, the pattern is
-tree=&gt;lockedTree=&gt;tree.</p>
+          <p>The primaryChange method is a boolean method returning false if the cell is frozen. This method changes the state of a cell if it&#39;s not a tree in order to follow the pattern white=&gt;grass=&gt;tent=&gt;white at each mouse left click. If the cell is a tree, the pattern is tree=&gt;lockedTree=&gt;tree.</p>
 <hr>
           
           
@@ -586,9 +570,7 @@ tree=&gt;lockedTree=&gt;tree.</p>
 
         <div class="method-description">
           
-          <p>The primaryUnchange method uses the same system as the primaryChange method
-but is used in the case of an undo, so the patterns are reversed, becoming
-white=&gt;tent=&gt;grass=&gt;white.</p>
+          <p>The primaryUnchange method uses the same system as the primaryChange method but is used in the case of an undo, so the patterns are reversed, becoming white=&gt;tent=&gt;grass=&gt;white.</p>
 <hr>
           
           
@@ -631,7 +613,7 @@ white=&gt;tent=&gt;grass=&gt;white.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

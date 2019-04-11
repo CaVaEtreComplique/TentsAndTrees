@@ -59,7 +59,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link"><a href="Session.html">Session</a>
   
 </div>
 
@@ -71,13 +71,15 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
     
     <li ><a href="#method-i-getLevel">#getLevel</a>
     
     <li ><a href="#method-i-getLevelMaxStars">#getLevelMaxStars</a>
     
     <li ><a href="#method-i-lvlAvailable-3F">#lvlAvailable?</a>
+    
+    <li ><a href="#method-i-replay">#replay</a>
     
   </ul>
 </div>
@@ -103,6 +105,27 @@
     
 
     
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-levels" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">levels</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
@@ -127,10 +150,15 @@
           
           
           
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Session.html#method-c-new"><code>Session::new</code></a>
+            </div>
+          
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 12</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 14</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
 <span class="ruby-ivar">@levels</span> = {
                     <span class="ruby-value">1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>],
@@ -146,6 +174,7 @@
                     <span class="ruby-value">4</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">5</span>,
                     <span class="ruby-value">5</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">8</span>
             }
+            <span class="ruby-keyword">super</span>(<span class="ruby-value">:adventure</span>, <span class="ruby-value">:none</span>, <span class="ruby-keyword">false</span>)
 
     <span class="ruby-keyword">end</span></pre>
           </div>
@@ -185,7 +214,7 @@
 
           
           <div class="method-source-code" id="getLevel-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevel</span>(<span class="ruby-identifier">level</span>,<span class="ruby-identifier">overallStars</span>)
   <span class="ruby-identifier">levelInfo</span> = <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">level</span>)
               <span class="ruby-constant">AdventureLevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">4</span>], <span class="ruby-identifier">overallStars</span>,<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">5</span>])
@@ -219,7 +248,7 @@
 
           
           <div class="method-source-code" id="getLevelMaxStars-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevelMaxStars</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-identifier">levelInfo</span>= <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>]
@@ -253,13 +282,47 @@
 
           
           <div class="method-source-code" id="lvlAvailable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 40</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>, <span class="ruby-identifier">overAllStars</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@neededStars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">overAllStars</span>
                 <span class="ruby-keyword">false</span>
         <span class="ruby-keyword">else</span>
                 <span class="ruby-keyword">true</span>
         <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replay" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replay</span><span
+            class="method-args">(none)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="replay-source">
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">none</span>)
+        <span class="ruby-comment"># This shit has no reaason to have a replay. Overwriting this method w/ nothing allows</span>
+        <span class="ruby-comment"># less code dup than redifining it in all other sessions</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -279,7 +342,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

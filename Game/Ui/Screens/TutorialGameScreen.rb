@@ -57,7 +57,6 @@ class TutorialGameScreen < Screen
     @helpResponseUi.apply
     @helpResponseUi.setWrap(true)
     @help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
-    #@help=Text.new(@textManager.getTutorialTexts("outside" , "intro")) //Test du XML
 
     @pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
 
@@ -66,17 +65,17 @@ class TutorialGameScreen < Screen
     @rank =0
 
     @nextResponseUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
+    @rank = @rank+1
     nextStep =Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStep.onClick(){
-        if(@rank <7)
-          @rank = @rank + 1
+        if(@rank <= 7)
           goToNextStep()
           @nextResponseUI.updateLabel("")
           @nextResponseUI.updateLabel(@textManager.getTutorialTexts("level" , @rank))
+          @rank = @rank + 1
         end
       }
 
-      @rank = @rank + 1
       @nextResponseUI.style="italic"
       @nextResponseUI.weight="normal"
       @nextResponseUI.color="red"
@@ -237,10 +236,7 @@ class TutorialGameScreen < Screen
       @pauseScreen.applyOn(@parent)
     end
     if @game.currentGuess.grid==@game.correction
-      @victoryScreen.applyOn(@parent,@game.calculateScore,true)
-      @game.delete_observers
-    elsif @game.time <= 0
-      @victoryScreen.applyOn(@parent,@game.calculateScore,false)
+      @victoryScreen.applyOn(@parent,0,true)
       @game.delete_observers
     end
   end

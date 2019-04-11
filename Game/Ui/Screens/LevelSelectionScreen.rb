@@ -7,6 +7,8 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
+require File.dirname(__FILE__) + "/../AssetsClass/LevelNumbers"
+
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -59,7 +61,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 
 	def applyOn(widget, overAllStars, adventureInfo,levelnumber)
 
-		@overAllStars = 3
+		@overAllStars = 0
 		@adventureInfo = adventureInfo
 		if @adventureInfo.include?(1)
 			@icones.refresh(@parent,@adventure,@adventureInfo)

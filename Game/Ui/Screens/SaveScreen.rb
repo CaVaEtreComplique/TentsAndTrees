@@ -8,6 +8,7 @@
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
+require File.dirname(__FILE__) + "/../SaveBlockUi"
 require File.dirname(__FILE__) + "/../../Core/DB/ConnectDB"
 
 def require_all(_dir)
@@ -16,7 +17,7 @@ def require_all(_dir)
 	}
 end
 
-class ListeSave < Screen
+class SaveScreen < Screen
 	def initialize(manager,joueur)
 		super(manager.win)
 		screen=Gdk::Screen.default
@@ -40,7 +41,7 @@ class ListeSave < Screen
 				@scrol.add(noSave.gtkObject)
 		else
 				tab.each{|i|
-				@scrol.add(SaveBlock.new(manager,i,@parent))
+				@scrol.add(SaveBlockUi.new(manager,i,@parent))
 				}
 		end
 		retour=Text.new("RETOUR",@police)

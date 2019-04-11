@@ -90,16 +90,9 @@
 
   <section class="description">
     
-<p>The <a href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>
-is an abstract class inherited from the <a href="Help.html">Help</a> class
-and it will lead all the next specific help classes to help the player when
-a move can be done on a cell and a row or on a cell and a column. It
-contains a constructor, a redefinition of the &#39;==&#39;method and a
-redefinition of the cellsList method from <a href="Help.html">Help</a>.</p>
+<p>The <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> is an abstract class inherited from the <a href="Help.html"><code>Help</code></a> class and it will lead all the next specific help classes to help the player when a move can be done on a cell and a row or on a cell and a column. It contains a constructor, a redefinition of the &#39;==&#39;method and a redefinition of the cellsList method from <a href="Help.html"><code>Help</code></a>.</p>
 
-<p>This abstract class&#39; direct children are the abstract classes <a
-href="HelpCellsAndRows.html">HelpCellsAndRows</a> and <a
-href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
+<p>This abstract class&#39; direct children are the abstract classes <a href="HelpCellsAndRows.html"><code>HelpCellsAndRows</code></a> and <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a>.</p>
 
   </section>
 
@@ -133,36 +126,30 @@ href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
 
         <div class="method-description">
           
-          <p>This class&#39; constructor needs 2 attributes and instanciates 3
-variables.</p>
+          <p>This class&#39; constructor needs 2 attributes and instanciates 3 variables.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>cell</code> - A cell we would need to get helped on.</p>
 </li><li>
-<p><code>rowOrColumn</code> - A row or a column we would need to get helped
-on.</p>
+<p><code>rowOrColumn</code> - A row or a column we would need to get helped on.</p>
 </li></ul>
 
 <h5 id="method-c-new-label-Variables">Variables<span><a href="#method-c-new-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>cell</code> - Takes the value of the cell in attributes.</p>
 </li><li>
-<p><code>row</code> - This variable takes the value of the rowOrColumn in
-attributes.</p>
+<p><code>row</code> - This variable takes the value of the rowOrColumn in attributes.</p>
 </li><li>
-<p><code>column</code> - This variable takes the value of the rowOrColumn in
-attributes.</p>
+<p><code>column</code> - This variable takes the value of the rowOrColumn in attributes.</p>
 </li></ul>
 
-<p>The fact that 2 variables take the same value is because the method should
-only take two parameters, the helps given afterwards will either contain a
-row or a column, they can&#39;t contain both. They will also act on a cell.</p>
+<p>The fact that 2 variables take the same value is because the method should only take two parameters, the helps given afterwards will either contain a row or a column, they can&#39;t contain both. They will also act on a cell.</p>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-c-new">Help.new</a>
+              <a href="Help.html#method-c-new"><code>Help::new</code></a>
             </div>
           
 
@@ -206,8 +193,7 @@ row or a column, they can&#39;t contain both. They will also act on a cell.</p>
 
         <div class="method-description">
           
-          <p>This method is a redefinition of this method in the <a
-href="Help.html">Help</a> class.</p>
+          <p>This method is a redefinition of this method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-3D-3D-label-Attributes">Attributes<span><a href="#method-i-3D-3D-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -216,10 +202,7 @@ href="Help.html">Help</a> class.</p>
 
 <h5 id="method-i-3D-3D-label-Returns">Returns<span><a href="#method-i-3D-3D-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns a boolean that is set to true if the &#39;==&#39;
-method in the <a href="Help.html">Help</a> class returns true AND the
-column, the cell and the row of the other help are matching with this
-class&#39; variables, as you can see here :</p>
+<p>This method returns a boolean that is set to true if the &#39;==&#39; method in the <a href="Help.html"><code>Help</code></a> class returns true AND the column, the cell and the row of the other help are matching with this class&#39; variables, as you can see here :</p>
 
 <pre class="ruby"><span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">row</span>)
 </pre>
@@ -260,20 +243,16 @@ class&#39; variables, as you can see here :</p>
 
         <div class="method-description">
           
-          <p>The cellsList method is a redefinition from cellsList method in the <a
-href="Help.html">Help</a> class.</p>
+          <p>The cellsList method is a redefinition from cellsList method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>helpLevel</code> : The help&#39;s importance, in order to tell the
-price.</p>
+<p><code>helpLevel</code> : The help&#39;s importance, in order to tell the price.</p>
 </li></ul>
 
 <h5 id="method-i-cellsList-label-Returns">Returns<span><a href="#method-i-cellsList-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns an array with all the important cells needed for the
-help. Here specifically, it returns the level 3 helps, as you can see here
-:</p>
+<p>This method returns an array with all the important cells needed for the help. Here specifically, it returns the level 3 helps, as you can see here :</p>
 
 <pre class="ruby"><span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
    <span class="ruby-identifier">list</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">cell</span>)
@@ -283,7 +262,7 @@ help. Here specifically, it returns the level 3 helps, as you can see here
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-i-cellsList">Help#cellsList</a>
+              <a href="Help.html#method-i-cellsList"><code>Help#cellsList</code></a>
             </div>
           
 
@@ -315,7 +294,7 @@ help. Here specifically, it returns the level 3 helps, as you can see here
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -79,6 +79,10 @@
     
     <li ><a href="#method-i-onClick">#onClick</a>
     
+    <li ><a href="#method-i-setBackground">#setBackground</a>
+    
+    <li ><a href="#method-i-setWrap">#setWrap</a>
+    
     <li ><a href="#method-i-title">#title</a>
     
     <li ><a href="#method-i-updateLabel">#updateLabel</a>
@@ -96,9 +100,7 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   10-Feb-2019 @Email: 
-corentin.petit.etu@univ-lemans.fr @Filename: Text.rb @Last modified by:  
-zeigon @Last modified time: 29-Mar-2019</p>
+<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   10-Feb-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: Text.rb @Last modified by:   zeigon @Last modified time: 11-Apr-2019</p>
 
   </section>
 
@@ -120,6 +122,19 @@ zeigon @Last modified time: 29-Mar-2019</p>
       <div id="attribute-i-color" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">color</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-font" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">font</span><span
             class="attribute-access-type">[W]</span>
         </div>
 
@@ -263,9 +278,9 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="apply-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 66</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>
-  <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span style=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@style</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; weight=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@weight</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; foreground=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@color</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39; font_desc=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@font</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@size</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@label</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;&lt;/span&gt;&quot;</span>)
+  <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span style=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@style</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; weight=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@weight</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; foreground=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@color</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; font_desc=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@font</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@size</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@label</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -296,7 +311,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="colorChange-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 69</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colorChange</span>(<span class="ruby-identifier">couleur</span>)
   <span class="ruby-ivar">@color</span>=<span class="ruby-identifier">couleur</span>
   <span class="ruby-identifier">apply</span>
@@ -330,7 +345,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="onClick-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 42</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onClick</span>(<span class="ruby-identifier">block</span>=<span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;enter_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSORIN</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
@@ -344,14 +359,85 @@ zeigon @Last modified time: 29-Mar-2019</p>
   }
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;button_release_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">button</span><span class="ruby-operator">==</span><span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">LEFT</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>{
+        <span class="ruby-identifier">sleep</span>(<span class="ruby-value">0.5</span>)
+        <span class="ruby-keyword">if</span>  <span class="ruby-operator">!</span><span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">mapped?</span>
+          <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSOROUT</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+          <span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;black&quot;</span>
+          <span class="ruby-identifier">apply</span>
+        <span class="ruby-keyword">end</span>
+      }
       <span class="ruby-keyword">yield</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">mapped?</span>
-        <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSOROUT</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
-        <span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;black&quot;</span>
-        <span class="ruby-identifier">apply</span>
-      <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setBackground" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setBackground</span><span
+            class="method-args">(r,g,b,a)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setBackground-source">
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setBackground</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">a</span>)
+  <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">override_background_color</span>(<span class="ruby-value">:normal</span>,<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">RGBA</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">a</span>))
+  <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setWrap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setWrap</span><span
+            class="method-args">(bool)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setWrap-source">
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setWrap</span>(<span class="ruby-identifier">bool</span>)
+  <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">wrap</span>=<span class="ruby-identifier">bool</span>
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -383,12 +469,32 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="title-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">title</span>
   <span class="ruby-ivar">@weight</span> = <span class="ruby-string">&quot;ultrabold&quot;</span>
-  <span class="ruby-ivar">@font</span> = <span class="ruby-string">&quot;Sans&quot;</span>
+  <span class="ruby-ivar">@font</span> = <span class="ruby-string">&quot;arial&quot;</span>
+  <span class="ruby-ivar">@color</span> = <span class="ruby-string">&quot;white&quot;</span>
   <span class="ruby-ivar">@size</span> = <span class="ruby-value">50</span>
   <span class="ruby-identifier">apply</span>
+
+  <span class="ruby-identifier">underText</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@label</span>)
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">size</span>=<span class="ruby-value">52</span>
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">font</span>=<span class="ruby-string">&quot;arial&quot;</span>
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;black&quot;</span>
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">weight</span>=<span class="ruby-string">&quot;bold&quot;</span>
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">style</span>=<span class="ruby-string">&quot;normal&quot;</span>
+  <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">apply</span>
+
+
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)
+  }
+  <span class="ruby-identifier">table</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
+  <span class="ruby-identifier">table</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@eventBox</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">table</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">underText</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>)
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">table</span>)
+
+  <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -419,7 +525,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
           
           <div class="method-source-code" id="updateLabel-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 36</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateLabel</span>(<span class="ruby-identifier">newLabel</span>)
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">newLabel</span>
   <span class="ruby-identifier">apply</span>
@@ -443,7 +549,7 @@ zeigon @Last modified time: 29-Mar-2019</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

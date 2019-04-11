@@ -7,41 +7,75 @@ require File.dirname(__FILE__) + "/Gamemode.rb"
 require 'digest/sha1'
 require 'yaml'
 
+##
+# ===== Presentation
+# The ConnectDB class is the main database class and the only one that can reach
+# it. Its methods manage everything in the database.
+#
+# ===== Variables
+# * +db+ : The only variable, the game's database itself.
+#
+# ===== Methods
+# This class' methods are all described below.
+#
+# ===== Sidenote
+# The execute command found in code like for example
+#    @db.execute "SELECT * FROM Player WHERE player_id = #{id}"
+# is here to send an SQL request to the database. Here for example, the request is
+#    SELECT * FROM Player WHERE player_id = #{id}
+#
+# The prepare command found in code like for example
+#    stm = @db.prepare "UPDATE Save SET content_save=? WHERE id_save=?";
+# is here in order to declare a SQL request before doing it, which will then be
+# applied with the execute command.
+#
+# The bind_param command found in codelike for example
+#    stm.bind_param 1, content;
+# is here to apply different parameters to the SQL request that has been prepared.
 class ConnectDB
 
-  @db #The database of the game
+  @db
 
   ##
-  # Constructor of ConnectDB. Connects the game to the database.
+  # ===== Presentation
+  # This class' constructor initializes the db variable with the database in
+  # order to connect the game to the database.
   #
-  # =====Examples
-  #
+  # ===== How to use
+  # To create a db variable in order to connect to the database :
   #    db = ConnectDB.new()
   def initialize
    #Opens a SQLite 3 database file
     @db = SQLite3::Database.new 'Core/DB/db.sqlite'
   end
 
+   ##
+   # ===== Presentation
 	# This method retrieves the Player that matches the given id. The game must
    # be connected to the database.
    #
 	# ===== Attributes
 	# * +id+ - The ID of the Player we're looking for.
 	#
-	# ===== Return
+	# ===== Returns
 	# The Player we're looking for or nil if the ID doesn't match any Player in
    # the database.
 	#
-   # ===== Examples
-   #
+   # ===== How to use
+   # To get the first player in the database :
    #    db = ConnectDB.new()
 	#    db.getPlayer(1)
+   #
+   # ===== Examples
+   # To find some high score :
+   #  @db.execute "SELECT * FROM Player WHERE player_id = #{id}" do |row|
+   #    player = Player.new(row[0],row[1],row[2])
+   #  end
    # -----------
   def getPlayer(id)
 
     player = nil
 
-    # Find some records
     @db.execute "SELECT * FROM Player WHERE player_id = #{id}" do |row|
       player = Player.new(row[0],row[1],row[2])
     end
@@ -50,6 +84,31 @@ class ConnectDB
 
   end
 
+  ##
+  # ===== Presentation
+  # This method is used when the player wants to update his/her password. When
+  # the player can't remember it, a window opens and invites the player to give
+  # a new login, a new password and to confirm the password. This method manages
+  # this.
+  #
+  # ===== Attributes
+  # * +login+ : The player's login.
+  # * +mdp+ : The player's new password
+  #
+  # ===== Returns
+  # This method returns the player.
+  #
+  # ===== Examples
+  # The first SQL request updates the player's password in the database :
+  #   @db.execute "UPDATE Player SET password_player='#{Digest::SHA1.hexdigest(mdp)}' WHERE name_player='#{login}'" do |row|
+  #      puts row
+  #   end
+  #
+  # The second SQL request takes the given player from the database in order to
+  # return it and log him/her in :
+  #   @db.execute "SELECT * FROM Player WHERE name_player = '#{login}' AND password_player='#{Digest::SHA1.hexdigest(mdp)}'" do |row|
+  #      player = Player.new(row[0],row[1],row[2])
+  #   end
   def playerUpdate(login, mdp)
     player = nil
       @db.execute "UPDATE Player SET password_player='#{Digest::SHA1.hexdigest(mdp)}' WHERE name_player='#{login}'" do |row|
@@ -62,30 +121,52 @@ class ConnectDB
       return player
   end
 
+  ##
+  # ===== Presentation
+  # The updateSave method updates the current player's save in order to keep
+  # his/her progression in the database.
+  #
+  # ===== Attributes
+  # * +content+ : The current Session.
+  # * +id+ : The save's id.
+  #
+  # ===== Examples
+  # The SQL request is prepared before being executed because the content would
+  # be an unrecognized token if executed directly :
+  #    stm = @db.prepare "UPDATE Save SET content_save=? WHERE id_save=?";
+  #    stm.bind_param 1, content;
+  #    stm.bind_param 2, id;
+  #    stm.execute;
   def updateSave(content, id)
     puts "UPDATE SAVE is_save = #{id}"
-      stm = @db.prepare "UPDATE Save SET content_save=? WHERE id_save=?";
-      stm.bind_param 1, content;
-       stm.bind_param 2, id;
-       stm.execute;
+    stm = @db.prepare "UPDATE Save SET content_save=? WHERE id_save=?";
+    stm.bind_param 1, content;
+    stm.bind_param 2, id;
+    stm.execute;
   end
 
-
-	# This method tries to find the player in the database with the name and the
+  ##
+  # This method tries to find the player in the database with the name and the
   # password provided. The game must be connected to the database.
-	#
-	# ===== Attributes
-	# * +name+ - The name of the Player we're looking for
-	# * +password+ - The password of the Player we're looking for
-	#
-	# ===== Return
-	# The Player we're looking for or nil if no one can be found in the database
-	#
-	# ===== Examples
-	#
-	#   db = ConnectDB.new()
-	# 	 db.playerConnect("aze","azeaze")
   #
+  # ===== Attributes
+  # * +name+ - The name of the player we're looking for
+  # * +password+ - The password of the player we're looking for
+  #
+  # ===== Return
+  # The player we're looking for or nil if no one can be found in the database
+  #
+  # ===== How to Use
+  #    db = ConnectDB.new()
+  # 	 db.playerConnect("aze","azeaze")
+  #
+  # ===== Examples
+  # The following SQL request will be sent :
+  #    @db.execute "SELECT * FROM Player WHERE name_player = '#{name}' AND password_player = '#{Digest::SHA1.hexdigest(password)}'"
+  # This will return the results in a pl variable. If the request fails, pl equals nil.
+  # Else, the pl variable will be a new Player with the results of the request as
+  # parameters.
+  #    pl = Player.new(row[0],row[1],row[2])
   # -------
 	def playerConnect(name, password)
 
@@ -99,19 +180,34 @@ class ConnectDB
 
 	end
 
+   ##
+   # ===== Presentation
 	# This method adds a player in the database with the name and the password
-  # provided. The game must be connected to the database.
+   # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
-	# * +name+ - The name of the Player we want to add
-	# * +password+ - The password of the Player we want to add
+	# * +name+ - The name of the player we want to add
+	# * +password+ - The password of the player we want to add
 	#
-	# ===== Examples
-	#
+   # ===== Returns
+   # This method returns the informations about the Player that has been added
+   # in the database.
+   #
+	# ===== How to Use
 	#   db = ConnectDB.new()
 	# 	 db.createPlayer("aze","azeaze")
-  #
-  # -------------
+   #
+   # ===== Examples
+   # The following request will add the player in the database :
+   #    @db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')"
+   # Then a "player" variable will be created and instanciated to nil. This player
+   # variable will become the player that has been added in the databae. To make it,
+   # this variable becomes a new Player and will take for parameters the results
+   # of the following request :
+   #   @db.execute "SELECT * FROM Player WHERE name_player='#{name}'"
+   # This will then create the player like this :
+   #   player = Player.new(row[0],row[1],row[2])
+   # -------------
 	def createPlayer(name, password)
 
 		@db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')" do |row|
@@ -128,17 +224,29 @@ class ConnectDB
 
 	end
 
-  # This method check if the name of the Player already exists in the database
+  ##
+  # ===== Presentation
+  # This method checks if the name of the Player already exists in the database
   # The game must be connected to the database.
   #
   # ===== Attributes
   # * +name+ - The name of the Player we want to check
   #
-  # ===== Examples
+  # ===== Returns
+  # This method returns the player if it exists or nil if the request failed or
+  # returned nothing.
   #
-  #   db = ConnectDB.new()
+  # ===== How to Use
+  #    db = ConnectDB.new()
   # 	 db.isPlayerExist("aze")
   #
+  # ===== Examples
+  # This method will execute the following SQL request :
+  #    @db.execute "SELECT * FROM Player WHERE name_player='#{name}'"
+  # It will then return a player variable instanciated like this :
+  #    player = Player.new(row[0],row[1],row[2])
+  # But if the request failed or returned nothing, the player variable will
+  # be equal to nil.
   # -------------
   def isPlayerExist(name)
 
@@ -152,22 +260,29 @@ class ConnectDB
 
   end
 
-	# This method creates a Save in the database with the content and the Player
+   ##
+   # ===== Presentation
+	# This method creates a save in the database with the content and the Player
    # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
-	# * +player+ - The Player who wants to save
-	# * +content+ - The content of the save
+	# * +player+ - The Player who wants to save.
+	# * +content+ - The save's content.
 	#
-	# ===== Examples
-	#
+   # ===== Returns
+   # This method returns the save that just has been created, or nil if the request
+   # failed.
+   #
+	# ===== How to Use
 	#   db = ConnectDB.new()
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.save(pl, "Things to save")
    #
+   # ===== Examples
+   # 
    # -------------
 	def save(player, content)
-
+    # :nodoc:
     #puts "player = #{player.id_player}"
     #puts "content = #{content}"
 		d = DateTime.now
@@ -188,6 +303,7 @@ class ConnectDB
     return s
 
 	end
+   # :startdoc:
 
    # This method deletes a Save in the database with the ID of the Save. The
    # game must be connected to the database.
@@ -334,6 +450,7 @@ class ConnectDB
    #
   # ===== Examples
   #
+<<<<<<< HEAD
   #   db = ConnectDB.new()
   # 	 gm = Gamemode.new(1,"Gamemode name")
    #   diff = Difficulty.new(1,"Easy")
@@ -397,6 +514,17 @@ class ConnectDB
     @db.execute("UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}") do |row|
       puts row
     end
+=======
+  #    db = ConnectDB.new()
+  # 	 db.getGamemodes()
+  #
+  # ---------
+  def getGamemodes()
+    gm = Array.new
+		@db.execute "SELECT * FROM Gamemode" do |row|
+			hg.push(new Gamemode())
+		end
+    return gm
+>>>>>>> 2de33b7f8eab50c43c779f2a20cf3e459f153eac
   end
-
 end

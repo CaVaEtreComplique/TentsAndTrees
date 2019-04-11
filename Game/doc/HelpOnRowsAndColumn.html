@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpOnRowsAndColumn-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpOnRowsAndColumn-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -88,6 +97,14 @@
 
   <section class="description">
     
+<h5 id="class-HelpOnRowsAndColumn-label-Presentation">Presentation<span><a href="#class-HelpOnRowsAndColumn-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="HelpOnRowsAndColumn.html"><code>HelpOnRowsAndColumn</code></a> abstract class is inherited from the <a href="Help.html"><code>Help</code></a> class and its direct children are <a href="HelpOnAColumn.html"><code>HelpOnAColumn</code></a> and <a href="HelpOneRow.html"><code>HelpOneRow</code></a>.</p>
+
+<h5 id="class-HelpOnRowsAndColumn-label-Methods">Methods<span><a href="#class-HelpOnRowsAndColumn-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class knows its constructor and the &#39;==&#39; method. All these methods are overloads of the <a href="Help.html"><code>Help</code></a> class.</p>
+
   </section>
 
   
@@ -98,40 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-column" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">column</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        <p>abstract class help gave when the player need a row or a column</p>
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-row" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">row</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        <p>abstract class help gave when the player need a row or a column</p>
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -154,18 +137,25 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor assigns a value to the @column and @row variables and calls the constructor from the <a href="Help.html"><code>Help</code></a> class.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>rowOrColumn</code> : The row or the column we want to work with. Both @row and @column variables will take its value so we can work either on a row or on a column</p>
+</li></ul>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-c-new">Help.new</a>
+              <a href="Help.html#method-c-new"><code>Help::new</code></a>
             </div>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">rowOrColumn</span>)
   <span class="ruby-ivar">@column</span> = <span class="ruby-identifier">rowOrColumn</span>
   <span class="ruby-ivar">@row</span> = <span class="ruby-identifier">rowOrColumn</span>
@@ -202,7 +192,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-3D-3D-label-Presentation">Presentation<span><a href="#method-i-3D-3D-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The == method compares this help with another one.</p>
+
+<h5 id="method-i-3D-3D-label-Parameters">Parameters<span><a href="#method-i-3D-3D-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>otherHelp</code> : The help we want to compare the current object to.</p>
+</li></ul>
+
+<h5 id="method-i-3D-3D-label-Returns">Returns<span><a href="#method-i-3D-3D-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the boolean value of this operation :</p>
+
+<pre class="ruby"><span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">row</span>
+</pre>
           
           
             <div class="method-calls-super">
@@ -213,7 +217,7 @@
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 24</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnRowsAndColumn/HelpOnRowsAndColumn.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">row</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -235,7 +239,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

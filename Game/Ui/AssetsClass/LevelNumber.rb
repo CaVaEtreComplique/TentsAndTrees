@@ -6,8 +6,7 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/../AssetsClass/Asset"
-require File.dirname(__FILE__) + "/LevelNumber"
+require File.dirname(__FILE__) + "/Asset"
 
 
 def require_all(_dir)

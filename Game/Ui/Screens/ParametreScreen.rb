@@ -7,7 +7,7 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/ModeDeJeu"
+require File.dirname(__FILE__) + "/../Screens/GameModeScreen"
 require File.dirname(__FILE__) + "/../Screens/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
@@ -61,7 +61,7 @@ end
 #*Finally*, when all of the buttons are done we add a background picture with :
 #       @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
-class Parametre < Screen
+class ParametreScreen < Screen
 	#:nodoc:
   def initialize(manager)
 

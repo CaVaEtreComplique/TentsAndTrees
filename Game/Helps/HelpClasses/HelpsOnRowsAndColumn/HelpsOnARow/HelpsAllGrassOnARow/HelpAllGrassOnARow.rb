@@ -67,7 +67,7 @@ class HelpAllGrassOnARow < HelpOneRow
       when 2
         @helpText = @textManager.getHelpsTexts("allgrassonrow", helpLevel, 0)
       when 3
-        @helpText = @textManager.getHelpsTexts("allgrassonrow", helpLevel, 0) + @row[0].column.to_s + @textManager.getHelpsTexts("allgrassonrow", helpLevel, 1)
+        @helpText = @textManager.getHelpsTexts("allgrassonrow", helpLevel, 0) + @row[0].getVisualRankColumn.to_s + @textManager.getHelpsTexts("allgrassonrow", helpLevel, 1)
       else
           super(helpLevel)
       end

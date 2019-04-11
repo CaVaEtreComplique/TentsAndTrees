@@ -17,16 +17,24 @@ class UiManager
 
   def update
     @loadScreen=LoadingScreen.new(self)
+<<<<<<< HEAD
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)
     @highScoresScreen=HighScoresScreen.new(self)
     @paramScreen=Parametre.new(self)
     @diffchScreen=ChoixDiff.new(self)
     @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
+=======
+    @mainScreen=PrincipalScreen.new(self)
+    @modeScreen=GameModeScreen.new(self)
+    @paramScreen=ParametreScreen.new(self)
+    @diffchScreen=ChoixDiffScreen.new(self)
+    @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
+>>>>>>> 2de33b7f8eab50c43c779f2a20cf3e459f153eac
   end
 
   def updateSave
-    @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
+    @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
   end
 
   def run
@@ -69,7 +77,9 @@ class UiManager
   def getVictoryScreen(session)
     if session.partOfAdventure?
       AdventureVictoryScreen.new(self,session)
-    else
+    else if session.isTutorial?
+      TutorialVictoryScreen.new(self,@session)
+    end
       VictoryScreen.new(self,@session)
     end
   end

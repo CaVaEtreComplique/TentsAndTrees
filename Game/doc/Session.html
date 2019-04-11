@@ -77,13 +77,19 @@
     
     <li ><a href="#method-i-continuable-3F">#continuable?</a>
     
+    <li ><a href="#method-i-createSave">#createSave</a>
+    
+    <li ><a href="#method-i-deleteSave">#deleteSave</a>
+    
     <li ><a href="#method-i-partOfAdventure-3F">#partOfAdventure?</a>
     
     <li ><a href="#method-i-replay">#replay</a>
     
-    <li ><a href="#method-i-save">#save</a>
+    <li ><a href="#method-i-setSave">#setSave</a>
     
     <li ><a href="#method-i-setTime">#setTime</a>
+    
+    <li ><a href="#method-i-updateSave">#updateSave</a>
     
   </ul>
 </div>
@@ -98,9 +104,7 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;zeigon&gt; @Date:   01-Mar-2019 @Email: 
-corentin.petit.etu@univ-lemans.fr @Filename: Session.rb @Last modified by: 
-QuentinGoncalves @Last modified time: 19-Mar-2019</p>
+<p>@Author: Corentin Petit &lt;zeigon&gt; @Date:   01-Mar-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: Session.rb @Last modified by:   zeigon @Last modified time: 08-Apr-2019</p>
 
   </section>
 
@@ -171,9 +175,35 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
         </div>
       </div>
       
+      <div id="attribute-i-save" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">save</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-score" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">score</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-session" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">session</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
@@ -271,7 +301,7 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -304,9 +334,75 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 26</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
         <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-createSave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">createSave</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="createSave-source">
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createSave</span>
+        <span class="ruby-ivar">@save</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">save</span>(<span class="ruby-constant">Connexion</span>.<span class="ruby-identifier">getJoueur</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_yaml</span>()).<span class="ruby-identifier">id_save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deleteSave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deleteSave</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deleteSave-source">
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>
+                <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">deleteSave</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -337,7 +433,7 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
           
           <div class="method-source-code" id="partOfAdventure-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">partOfAdventure?</span>
         <span class="ruby-ivar">@partOfAdventure</span>
 <span class="ruby-keyword">end</span></pre>
@@ -370,7 +466,7 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
           
           <div class="method-source-code" id="replay-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">continue</span>)
         <span class="ruby-comment"># Generation de la grille</span>
         <span class="ruby-ivar">@gridPick</span> = <span class="ruby-constant">GridGenerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@difficulty</span>)
@@ -395,11 +491,11 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
       </div>
 
     
-      <div id="method-i-save" class="method-detail ">
+      <div id="method-i-setSave" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">save</span><span
-            class="method-args">()</span>
+          <span class="method-name">setSave</span><span
+            class="method-args">(save)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -413,11 +509,10 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
           
 
           
-          <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save</span>
-        <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">delete_observers</span>
-        <span class="ruby-constant">Save</span>.<span class="ruby-identifier">update</span>(<span class="ruby-keyword">self</span>)
+          <div class="method-source-code" id="setSave-source">
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setSave</span>(<span class="ruby-identifier">save</span>)
+                <span class="ruby-ivar">@save</span> = <span class="ruby-identifier">save</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -448,8 +543,45 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-updateSave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">updateSave</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="updateSave-source">
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>
+        <span class="ruby-comment"># if self</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">delete_observers</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">clearHelper</span>
+        <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">updateSave</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_yaml</span>(), <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -469,7 +601,7 @@ QuentinGoncalves @Last modified time: 19-Mar-2019</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

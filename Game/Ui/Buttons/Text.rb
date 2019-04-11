@@ -9,7 +9,7 @@
 class Text
 
   attr_reader :size, :gtkObject
-  attr_writer :weight, :style, :size, :color
+  attr_writer :weight, :style, :size, :color, :font
 
   def initialize(label, size=30)
     @label=label
@@ -37,9 +37,29 @@ class Text
 
   def title
     @weight = "ultrabold"
-    @font = "Sans"
+    @font = "arial"
+    @color = "white"
     @size = 50
     apply
+
+    underText = Text.new(@label)
+    underText.size=52
+    underText.font="arial"
+    underText.color="black"
+    underText.weight="bold"
+    underText.style="normal"
+    underText.apply
+
+
+    @gtkObject.each { |child|
+      @gtkObject.remove(child)
+    }
+    table=Gtk::Table.new(3,3)
+    table.attach(@eventBox, 1, 2, 1, 2)
+    table.attach(underText.gtkObject, 0, 3, 0, 3)
+    @gtkObject.add(table)
+
+    self
   end
 
   def updateLabel(newLabel)
@@ -49,6 +69,7 @@ class Text
   end
 
   def onClick(block=nil)
+    temp=@color
     @eventBox.signal_connect("enter_notify_event") { |widget, event|
       @eventBox.window.set_cursor(Click::CURSORIN) unless @eventBox.window == nil
       @color="orange"
@@ -56,7 +77,7 @@ class Text
     }
     @eventBox.signal_connect("leave_notify_event") { |widget, event|
       @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-      @color="black"
+      @color=temp
       apply
     }
     @eventBox.signal_connect("button_release_event") { |_, event|
@@ -65,7 +86,7 @@ class Text
           sleep(0.5)
           if  !@eventBox.mapped?
             @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-            @color="black"
+            @color=temp
             apply
           end
         }

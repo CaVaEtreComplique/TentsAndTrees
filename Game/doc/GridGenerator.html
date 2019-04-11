@@ -86,9 +86,7 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   09-Feb-2019 @Email: 
-corentin.petit.etu@univ-lemans.fr @Filename: GridGenerator.rb @Last
-modified by:   zeigon @Last modified time: 01-Mar-2019</p>
+<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   09-Feb-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: GridGenerator.rb @Last modified by:   maxime @Last modified time: 05-Apr-2019</p>
 
   </section>
 
@@ -223,22 +221,24 @@ modified by:   zeigon @Last modified time: 01-Mar-2019</p>
   <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Choix de la grille&quot;</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">difficulty</span>
   <span class="ruby-keyword">when</span> <span class="ruby-value">:easy</span>
-    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">100</span>)
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>)
   <span class="ruby-keyword">when</span> <span class="ruby-value">:medium</span>
-    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">101</span><span class="ruby-operator">...</span><span class="ruby-value">700</span>)
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">101</span><span class="ruby-operator">..</span><span class="ruby-value">700</span>)
   <span class="ruby-keyword">when</span> <span class="ruby-value">:hard</span>
-    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">701</span><span class="ruby-operator">...</span><span class="ruby-value">1100</span>)
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">701</span><span class="ruby-operator">..</span><span class="ruby-value">1100</span>)
   <span class="ruby-keyword">when</span> <span class="ruby-value">:random</span>
     <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">1100</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:tutorial</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-value">0</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-comment"># case mode</span>
   <span class="ruby-comment"># when :timeAttack</span>
-    <span class="ruby-keyword">if</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
       <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">300</span>
-    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">101</span><span class="ruby-operator">...</span><span class="ruby-value">700</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">101</span><span class="ruby-operator">..</span><span class="ruby-value">700</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
       <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">600</span>
-    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">701</span><span class="ruby-operator">...</span><span class="ruby-value">1100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">701</span><span class="ruby-operator">..</span><span class="ruby-value">1100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
       <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">1800</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-comment"># else</span>
@@ -280,7 +280,7 @@ modified by:   zeigon @Last modified time: 01-Mar-2019</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

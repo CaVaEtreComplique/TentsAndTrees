@@ -14,7 +14,7 @@ end
 
 require 'gtk3'
 require_all("Ui")
-require File.dirname(__FILE__) + "/../../Core/DB/ConnectDB"
+require File.dirname(__FILE__) + "/../../../Core/DB/ConnectDB"
 
 
 
@@ -32,7 +32,7 @@ class MotdepasseOublie
     win.set_resizable(false)
 		win.decorated=false
     win.window_position= :center_always
-		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Icons/tent.jpeg")
+		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Icons/tent.jpeg")
 
 
     connect=ConnectDB.new
@@ -47,7 +47,7 @@ class MotdepasseOublie
 		confirmPass = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmpass"))
 		confirm = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmform"))
 
-		quitter=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/cancel.png")
+		quitter=Asset.new(File.dirname(__FILE__) + "/../../../../Assets/Icons/cancel.png")
     quitter.resize(20,20)
 		quitter.applyOn(@image)
 
@@ -79,7 +79,7 @@ class MotdepasseOublie
 
 
 
-		buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/nature.png")
+		buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Backgrounds/nature.png")
 		buffer=buffer.scale(w*0.4,h*0.7)
 		chose = Gtk::Table.new(3,3)
 		chose.attach(@menu,1,2,1,2)

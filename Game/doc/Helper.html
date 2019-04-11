@@ -63,18 +63,7 @@
   
 </div>
 
-    <div id="includes-section" class="nav-section">
-  <h3>Included Modules</h3>
-
-  <ul class="link-list">
-  
-  
-    <li><span class="include">Singleton</span>
-  
-  
-  </ul>
-</div>
-
+    
     
     <!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
@@ -128,7 +117,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(helpLevelMin, helpLevelMax)</span>
+            class="method-args">(helplvl=1,lvlmin=1,lvlmax=3)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -143,20 +132,27 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 46</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">helpLevelMin</span>, <span class="ruby-identifier">helpLevelMax</span>)
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevelMin</span><span class="ruby-operator">&lt;</span><span class="ruby-identifier">helpLevelMax</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">helpLevelMax</span>, <span class="ruby-identifier">helpLevelMin</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">initialize</span>()
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">helplvl</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">lvlmin</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">lvlmax</span>=<span class="ruby-value">3</span>)
 
-    <span class="ruby-identifier">helpLevelMin</span> = <span class="ruby-identifier">helpsLevelsLimits</span>(<span class="ruby-identifier">helpLevelMin</span>)
-    <span class="ruby-identifier">helpLevelMax</span> = <span class="ruby-identifier">helpsLevelsLimits</span>(<span class="ruby-identifier">helpLevelMax</span>)
+  <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-identifier">helplvl</span>
+  <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">lvlmin</span>
+  <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">lvlmax</span>
 
-    <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-identifier">helpLevelMin</span>
-    <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">helpLevelMin</span>
-    <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">helpLevelMax</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@lastHelp</span> = <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-comment">#initialize with all helpers</span>
+  <span class="ruby-ivar">@helps</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellTouchATentHelper</span>.<span class="ruby-identifier">new</span>)       <span class="ruby-comment"># Fill the cells near a Tent with grass</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsTentsHelper</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># Fill a row/column whith tents when it has all this grass</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsGrassHelper</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># Fill a row/column whith grass when it has all this tents</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellDontTouchTreeHelper</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># Help when a cell dont touch a tree, it will be a grass</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsFindTent</span>.<span class="ruby-identifier">new</span>)     <span class="ruby-comment"># RowsAndColumnsFindTent help you to find Tent in a row or columns</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsFindGrass</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># RowsAndColumnsFindGrass help you to find grass in a row or columns</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellWhiteOverlap</span>.<span class="ruby-identifier">new</span>)           <span class="ruby-comment"># Help when all possibilities give a grass cell</span>
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">AllTreesHaveTentsHelper</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># Place a tent for a tree that don&#39;t has his tent</span>
+
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -195,7 +191,7 @@
 
           
           <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 98</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>) <span class="ruby-comment">#called to help the player</span>
   <span class="ruby-comment">#game.beginGuess</span>
 
@@ -250,7 +246,7 @@
 
           
           <div class="method-source-code" id="helpLevelManagement-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 83</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpLevelManagement</span>(<span class="ruby-identifier">aHelp</span>)
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">aHelp</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@lastHelp</span>)
     <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@helpLevelMax</span>)
@@ -290,7 +286,7 @@
 
           
           <div class="method-source-code" id="helpsLevelsLimits-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 36</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpsLevelsLimits</span>(<span class="ruby-identifier">aHelpLevel</span>)
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">aHelpLevel</span><span class="ruby-operator">&lt;</span><span class="ruby-value">1</span>)
     <span class="ruby-identifier">aHelpLevel</span> =<span class="ruby-value">1</span>
@@ -329,7 +325,7 @@
 
           
           <div class="method-source-code" id="price-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 94</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>()
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lastHelp</span>.<span class="ruby-identifier">price</span>(<span class="ruby-ivar">@helpLevel</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -351,7 +347,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -6,9 +6,8 @@
 # @Last modified time: 28-Mar-2019
 
 require 'gtk3'
-require File.dirname(__FILE__) + "/../Screens/Screen"
-require File.dirname(__FILE__) + "/../Buttons/Button"
-require File.dirname(__FILE__) + "/../../Core/DB/ConnectDB"
+require File.dirname(__FILE__) + "/Buttons/Button"
+require File.dirname(__FILE__) + "/../Core/DB/ConnectDB"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -16,7 +15,7 @@ def require_all(_dir)
 	}
 end
 
-class SaveBlock < Gtk::Box
+class SaveBlockUi < Gtk::Box
 	def initialize(manager,save, parent)
     super(:horizontal)
 		@pad=screen.height*0.03

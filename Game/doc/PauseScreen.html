@@ -123,7 +123,7 @@
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Screen.html#method-c-new">Screen.new</a>
+              <a href="Screen.html#method-c-new"><code>Screen::new</code></a>
             </div>
           
 
@@ -134,6 +134,7 @@
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
   <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
   <span class="ruby-ivar">@gtkObject</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
+  <span class="ruby-ivar">@bjr</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
 
   <span class="ruby-ivar">@game</span>=<span class="ruby-identifier">game</span>
   <span class="ruby-ivar">@gameScreen</span>=<span class="ruby-identifier">gameScreen</span>
@@ -165,23 +166,27 @@
   }
   <span class="ruby-identifier">quit</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;pause&quot;</span> , <span class="ruby-string">&quot;quit&quot;</span>))
     <span class="ruby-identifier">quit</span>.<span class="ruby-identifier">onClick</span>(){
-      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">createNewSave</span>
       <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">delete_observers</span>
+      <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">updateSave</span>
       <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">updateSave</span>
       <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+      [<span class="ruby-string">&quot;TERM&quot;</span>, <span class="ruby-string">&quot;INT&quot;</span>, <span class="ruby-string">&quot;QUIT&quot;</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">sig</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Signal</span>.<span class="ruby-identifier">trap</span>(<span class="ruby-identifier">sig</span>) { <span class="ruby-identifier">exit</span> }
+      }
   }
 
-  <span class="ruby-identifier">diapo</span> = <span class="ruby-constant">Diapo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>,<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>)
-  <span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">box</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;button_press_event&quot;</span>){<span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">nuImage</span>}
+  <span class="ruby-identifier">diapo</span> = <span class="ruby-constant">Diapo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>,<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.45</span>,<span class="ruby-ivar">@textManager</span>)
+  <span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">nextButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;button_press_event&quot;</span>){<span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">nextImage</span>}
+  <span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">previousButton</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;button_press_event&quot;</span>){<span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">previousImage</span>}
+  <span class="ruby-ivar">@bjr</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">box</span>)
+
 
   <span class="ruby-identifier">globalBox</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">resume</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">toogleTracer</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">toogleCountIndicators</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
   <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">quit</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">10</span>)
-  <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">diapo</span>.<span class="ruby-identifier">box</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">100</span>)
-
-  <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0.2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">globalBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@bjr</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span> <span class="ruby-value">50</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">globalBox</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -203,7 +208,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

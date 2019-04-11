@@ -101,9 +101,15 @@
     
     <li ><a href="#method-i-getHelpsTexts">#getHelpsTexts</a>
     
+    <li ><a href="#method-i-getLanguages">#getLanguages</a>
+    
     <li ><a href="#method-i-getLoadingMessages">#getLoadingMessages</a>
     
+    <li ><a href="#method-i-getRules">#getRules</a>
+    
     <li ><a href="#method-i-getScreenTexts">#getScreenTexts</a>
+    
+    <li ><a href="#method-i-getTutorialTexts">#getTutorialTexts</a>
     
   </ul>
 </div>
@@ -120,10 +126,7 @@
     
 <h4 id="class-XmlReader-label-Presentation">Presentation<span><a href="#class-XmlReader-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="XmlReader.html">XmlReader</a> class is here to read every
-necessary information inside the XML file. The XML file contains all the
-language data such as every word or phrase in the game in French and
-English. This reader gets the informations and applies them to the game.</p>
+<p>The <a href="XmlReader.html"><code>XmlReader</code></a> class is here to read every necessary information inside the XML file. The XML file contains all the language data such as every word or phrase in the game in French and English. This reader gets the informations and applies them to the game.</p>
 
 <h4 id="class-XmlReader-label-Variables">Variables<span><a href="#class-XmlReader-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
@@ -167,19 +170,17 @@ English. This reader gets the informations and applies them to the game.</p>
 
         <div class="method-description">
           
-          <p>The initialization method reads the XML document, which is converted into a
-HashTable indented by element. Here is also defined the game&#39;s
-language.</p>
+          <p>The initialization method reads the XML document, which is converted into a HashTable indented by element. Here is also defined the game&#39;s language.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-identifier">xmlDoc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;../Assets/Files/Languages/xmlDoc.xml&quot;</span>))
   <span class="ruby-ivar">@xmlHash</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">from_xml</span>(<span class="ruby-identifier">xmlDoc</span>.<span class="ruby-identifier">to_s</span>)
-  <span class="ruby-ivar">@language</span> = <span class="ruby-string">&quot;english&quot;</span>
+  <span class="ruby-ivar">@language</span> = <span class="ruby-string">&quot;English&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -212,17 +213,16 @@ language.</p>
 
         <div class="method-description">
           
-          <p>The buttonMaxString method returns the length of the longest label of a
-button in a screen.</p>
+          <p>The buttonMaxString method returns the length of the longest label of a button in a screen.</p>
           
           
 
           
           <div class="method-source-code" id="buttonMaxString-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 79</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">buttonMaxString</span>(<span class="ruby-identifier">currentScreen</span>)
   <span class="ruby-identifier">longest</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;screen&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentScreen</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;buttons&quot;</span>).<span class="ruby-identifier">each_values</span>{
+  <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;screen&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentScreen</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;buttons&quot;</span>).<span class="ruby-identifier">each_value</span>{
   <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">longest</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">v</span>) }
   <span class="ruby-identifier">longest</span>.<span class="ruby-identifier">sort_by!</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:length</span>).<span class="ruby-identifier">reverse!</span>
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">longest</span>[<span class="ruby-value">0</span>]
@@ -250,14 +250,13 @@ button in a screen.</p>
 
         <div class="method-description">
           
-          <p>The getButtonLabel method fetches the label of a button according to the
-current screen and its key.</p>
+          <p>The getButtonLabel method fetches the label of a button according to the current screen and its key.</p>
           
           
 
           
           <div class="method-source-code" id="getButtonLabel-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getButtonLabel</span>(<span class="ruby-identifier">currentScreen</span>, <span class="ruby-identifier">key</span>)
    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;screen&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentScreen</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;buttons&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -284,20 +283,55 @@ current screen and its key.</p>
 
         <div class="method-description">
           
-          <p>The getHelpTexts method fetches a text according to a key and the position
-of a delimiter (here we use “;”). This way it is possible to divide the
-text and put values between it.</p>
+          <p>The getHelpTexts method fetches a text according to a key and the position of a delimiter (here we use “;”). This way it is possible to divide the text and put values between it.</p>
           
           
 
           
           <div class="method-source-code" id="getHelpsTexts-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 62</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHelpsTexts</span>(<span class="ruby-identifier">help</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-identifier">delimiterPosition</span>)
     <span class="ruby-identifier">temp</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
     <span class="ruby-identifier">temp</span> = <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;helps&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">help</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;lvl&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpLevel</span>.<span class="ruby-identifier">to_s</span>)
     <span class="ruby-keyword">return</span> <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;;&quot;</span>)[<span class="ruby-identifier">delimiterPosition</span>]
 <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getLanguages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getLanguages</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getLanguages-source">
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLanguages</span>
+  <span class="ruby-identifier">tab</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">each_value</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tab</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;language&quot;</span>))
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tab</span>
+  <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -321,16 +355,48 @@ text and put values between it.</p>
 
         <div class="method-description">
           
-          <p>The getLoadingMessages method fetches a loading text message according to
-the key</p>
+          <p>The getLoadingMessages method fetches a loading text message according to the key</p>
           
           
 
           
           <div class="method-source-code" id="getLoadingMessages-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 71</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLoadingMessages</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;loadingmessages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getRules" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getRules</span><span
+            class="method-args">(number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getRules-source">
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getRules</span>(<span class="ruby-identifier">number</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;rules&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;rule&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_s</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -355,16 +421,48 @@ the key</p>
 
         <div class="method-description">
           
-          <p>The getScreentexts method fetches a text according to the current screen
-and its key.</p>
+          <p>The getScreentexts method fetches a text according to the current screen and its key.</p>
           
           
 
           
           <div class="method-source-code" id="getScreenTexts-source">
-            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 53</span>
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getScreenTexts</span>(<span class="ruby-identifier">currentScreen</span>, <span class="ruby-identifier">key</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;screen&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentScreen</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;texts&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getTutorialTexts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getTutorialTexts</span><span
+            class="method-args">(currentLevel, step)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The getTutorialTexts method fetches a text according to the current tutorial level and its step.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="getTutorialTexts-source">
+            <pre><span class="ruby-comment"># File Core/XmlReader.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getTutorialTexts</span>(<span class="ruby-identifier">currentLevel</span>, <span class="ruby-identifier">step</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;tutorial&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentLevel</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;step&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">step</span>.<span class="ruby-identifier">to_s</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -384,7 +482,7 @@ and its key.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -100,19 +100,13 @@
 
   <section class="description">
     
-<p>The help class is an abstract class. It is the general parent of all the
-other help classes in the game. To see the help classes tree, see below :</p>
+<p>The help class is an abstract class. It is the general parent of all the other help classes in the game. To see the help classes tree, see below :</p>
 
-<p><img src="https://i.imgur.com/n9RkykC.png" /></p>
+<p><img src="https://i.imgur.com/yE9dgIb.png" /></p>
 
 <p>The classes in blue are abstract while the ones in green are concrete.</p>
 
-<p>This class&#39; direct children are the <a
-href="HelpNotFound.html">HelpNotFound</a> class and the abstract classes <a
-href="HelpOnRowsAndColumn.html">HelpOnRowsAndColumn</a>, <a
-href="HelpOnCells.html">HelpOnCells</a> and <a
-href="HelpCellsAndRowsOrColumns.html">HelpCellsAndRowsOrColumns</a>. This
-class knows the methods below :</p>
+<p>This class&#39; direct children are the <a href="HelpNotFound.html"><code>HelpNotFound</code></a> class and the abstract classes <a href="HelpOnRowsAndColumn.html"><code>HelpOnRowsAndColumn</code></a>, <a href="HelpOnCells.html"><code>HelpOnCells</code></a> and <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a>. This class knows the methods below :</p>
 
   </section>
 
@@ -146,21 +140,18 @@ class knows the methods below :</p>
 
         <div class="method-description">
           
-          <p>The class&#39; constructor. This method takes no parameters and initializes
-two variables :</p>
+          <p>The class&#39; constructor. This method takes no parameters and initializes two variables :</p>
 <ul><li>
-<p><code>price</code> : An integer giving the cost of each help. Here, it is
-initialized at 5.</p>
+<p><code>price</code> : An integer giving the cost of each help. Here, it is initialized at 5.</p>
 </li><li>
-<p><code>helpText</code> : The text that will be shown every time the player
-needs help.</p>
+<p><code>helpText</code> : The text that will be shown every time the player needs help.</p>
 </li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 32</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-ivar">@price</span> = <span class="ruby-value">5</span>
   <span class="ruby-ivar">@textManager</span> = <span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
@@ -212,7 +203,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 97</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">class</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -246,7 +237,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 78</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -280,7 +271,7 @@ needs help.</p>
 
           
           <div class="method-source-code" id="getRes-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 70</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getRes</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">getText</span>(<span class="ruby-identifier">helpLevel</span>))
@@ -309,8 +300,7 @@ needs help.</p>
 
         <div class="method-description">
           
-          <p>This method fetches the help text for a given help level. It is used to
-initialize the @helpText variable in the class&#39; constructor.</p>
+          <p>This method fetches the help text for a given help level. It is used to initialize the @helpText variable in the class&#39; constructor.</p>
 
 <h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -321,7 +311,7 @@ initialize the @helpText variable in the class&#39; constructor.</p>
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 56</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;help&quot;</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -359,7 +349,7 @@ initialize the @helpText variable in the class&#39; constructor.</p>
 
           
           <div class="method-source-code" id="helpFound-3F-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 47</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpFound?</span>()
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>
@@ -393,15 +383,14 @@ initialize the @helpText variable in the class&#39; constructor.</p>
 <pre class="ruby"><span class="ruby-ivar">@price</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">helpLevel</span>
 </pre>
 
-<p>The @price variable (initialized at 5) times the help level, so the prices
-go higher as the help gets higher and the game gets easier.</p>
+<p>The @price variable (initialized at 5) times the help level, so the prices go higher as the help gets higher and the game gets easier.</p>
 <hr>
           
           
 
           
           <div class="method-source-code" id="price-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 88</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@price</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">helpLevel</span>
 <span class="ruby-keyword">end</span></pre>
@@ -428,9 +417,7 @@ go higher as the help gets higher and the game gets easier.</p>
 
         <div class="method-description">
           
-          <p>This method a redefinition of the <a
-href="Help.html#method-i-to_s">#to_s</a> method, used to print the help
-text.</p>
+          <p>This method a redefinition of the <a href="Help.html#method-i-to_s"><code>to_s</code></a> method, used to print the help text.</p>
 
 <h5 id="method-i-to_s-label-Returns">Returns<span><a href="#method-i-to_s-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -441,7 +428,7 @@ text.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 64</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@helpText</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -463,7 +450,7 @@ text.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

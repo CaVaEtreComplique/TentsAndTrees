@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpCellTooFarOfTrees-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpCellTooFarOfTrees-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -73,8 +82,6 @@
     
     <li class="calls-super" ><a href="#method-c-new">::new</a>
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
     <li class="calls-super" ><a href="#method-i-getText">#getText</a>
     
   </ul>
@@ -90,6 +97,14 @@
 
   <section class="description">
     
+<h5 id="class-HelpCellTooFarOfTrees-label-Presentation">Presentation<span><a href="#class-HelpCellTooFarOfTrees-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="HelpCellTooFarOfTrees.html"><code>HelpCellTooFarOfTrees</code></a> class is inherited from the <a href="HelpOn1Cell.html"><code>HelpOn1Cell</code></a> class. This class is used to help the player finding a white cell which isn&#39;t near a tree. This class is instanciable.</p>
+
+<h5 id="class-HelpCellTooFarOfTrees-label-Methods">Methods<span><a href="#class-HelpCellTooFarOfTrees-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; methods are the constructor, which just calls the parent class&#39; constructor, and the getText method.</p>
+
   </section>
 
   
@@ -122,61 +137,26 @@
 
         <div class="method-description">
           
-          <p>This method&#39;s constructor assigns a value to the @cell variable and
-calls constructor from the <a href="Help.html">Help</a> class.</p>
+          <p>The initialize method just calls the initialize method from <a href="HelpOn1Cell.html"><code>HelpOn1Cell</code></a> with the cell taken in parameters.</p>
+
+<h5 id="method-c-new-label-Example+-3A">Example :<span><a href="#method-c-new-label-Example+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>)
+<span class="ruby-keyword">end</span>
+</pre>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="HelpOnCells.html#method-c-new">HelpOnCells.new</a>
+              <a href="HelpOnCells.html#method-c-new"><code>HelpOnCells::new</code></a>
             </div>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb, line 27</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>)
-  <span class="ruby-ivar">@cell</span> = <span class="ruby-identifier">cell</span>
-  <span class="ruby-keyword">super</span>()
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(cell)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p><a href="Help.html">Help</a> the player to find a white cell whitch
-isn&#39;t adjacent a tree</p>
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="HelpOnCells.html#method-c-new">HelpOnCells.new</a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>)
-  <span class="ruby-comment">#the cell don&#39;t touch a tree</span>
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -210,20 +190,44 @@ isn&#39;t adjacent a tree</p>
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-getText-label-Presentation">Presentation<span><a href="#method-i-getText-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The getText method returns the help text saying that the cell must be grass. This text is taken in an XML file so that the text depends on the language chosen by the player.</p>
+
+<h5 id="method-i-getText-label-Parameters">Parameters<span><a href="#method-i-getText-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance.</p>
+</li></ul>
+
+<h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Depending on the help level, the text given will not be the same. The higher the level is, the more precise and expensive the help is.</p>
+
+<h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
+ <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;toofaroftrees&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+ <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+     <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;toofaroftrees&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+ <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+     <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;toofaroftrees&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;toofaroftrees&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>)
+  <span class="ruby-keyword">else</span>
+     <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+ <span class="ruby-keyword">end</span>
+</pre>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-i-getText">Help#getText</a>
+              <a href="Help.html#method-i-getText"><code>Help#getText</code></a>
             </div>
           
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#toofaroftrees</span>
-  <span class="ruby-comment">#returns the text of the help, saying that the cell is grass</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn1Cell/HelpsCellTooFarOfTrees/HelpCellTooFarOfTrees.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
   <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
       <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;toofaroftrees&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
@@ -253,7 +257,7 @@ isn&#39;t adjacent a tree</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

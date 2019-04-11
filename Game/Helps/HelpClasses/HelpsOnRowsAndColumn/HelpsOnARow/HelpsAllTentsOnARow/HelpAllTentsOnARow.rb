@@ -67,7 +67,7 @@ class HelpAllTentsOnARow < HelpOneRow
       when 2
         @helpText = @textManager.getHelpsTexts("alltentsonrow", helpLevel, 0)
       when 3
-        @helpText = @textManager.getHelpsTexts("alltentsonrow", helpLevel, 0) + @row[0].column.to_s + @helpText = @textManager.getHelpsTexts("alltentsonrow", helpLevel, 1)
+        @helpText = @textManager.getHelpsTexts("alltentsonrow", helpLevel, 0) + @row[0].getVisualRankColumn.to_s + @helpText = @textManager.getHelpsTexts("alltentsonrow", helpLevel, 1)
       else
           super(helpLevel)
       end
