@@ -60,21 +60,20 @@ end
 class ChoixDiffScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
-    screen=Gdk::Screen.default
+     screen = Constants::SCREEN
 		#Variable pour resize le texte
-		@pad=screen.height*0.03
-    @police=screen.height*0.04
+		@pad=Constants::BUTTON_PADDING
 
     @gtkObject= Gtk::Table.new(3,3)
     @menu=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menu,1,2,0,1)
 
-    titre=Text.new(@textManager.getScreenTexts("difficulty" , "title"),@police*2)
+    titre=Text.new(@textManager.getScreenTexts("difficulty" , "title"))
 		titre.title
-		facile=Text.new(@textManager.getButtonLabel("difficulty" , "easy"),@police)
-		moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"),@police)
-		diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"),@police)
-		retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"),@police)
+		facile=Text.new(@textManager.getButtonLabel("difficulty" , "easy"))
+		moyen=Text.new(@textManager.getButtonLabel("difficulty" , "normal"))
+		diff=Text.new(@textManager.getButtonLabel("difficulty" , "hard"))
+		retour=Text.new(@textManager.getButtonLabel("difficulty" , "back"))
 
     @menu.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 		@menu.pack_start(facile.gtkObject ,expand: false, fill: true, padding: @pad)

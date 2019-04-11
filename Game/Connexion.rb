@@ -15,16 +15,18 @@ end
 require 'gtk3'
 require_all("Ui")
 require File.dirname(__FILE__) + "/TestGame"
+require File.dirname(__FILE__) + "/Ui/Constants"
 require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
 
 
 class Connexion
 
   def initialize()
-    screen=Gdk::Screen.default
+    screen=Constants::SCREEN
 		#Variable pour resize le texte
 		@pad=screen.height*0.002
-    @police=screen.height*0.02
+		@police=screen.height*0.016
+
 		@h=screen.height*0.4
 		@w=screen.width*0.4
 

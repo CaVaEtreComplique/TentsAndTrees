@@ -20,15 +20,17 @@ end
 class SaveScreen < Screen
 	def initialize(manager,joueur)
 		super(manager.win)
-		screen=Gdk::Screen.default
-		#Variable pour resize le texte
-		@pad=screen.height*0.03
-    @police=screen.height*0.04
+		screen = Constants::SCREEN
+		@pad=Constants::BUTTON_PADDING
 
 		@gtkObject= Gtk::Table.new(3,3)
-		@menuR=Gtk::Box.new(:horizontal)
 		@scrol=ScrollableArea.new(:vertical)
+		@menuR=Gtk::Box.new(:horizontal)
 		@boxV=Gtk::Box.new(:vertical)
+		sauvegarde=Text.new("Sauvegarde")
+		sauvegarde.title
+		@boxV.pack_start(sauvegarde.gtkObject ,expand: false, fill: true, padding:@pad)
+
 		@gtkObject.attach(@boxV,0,1,1,2)
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
@@ -37,15 +39,15 @@ class SaveScreen < Screen
 		tab=connect.getPlayersSave(joueur)
 
 		if(tab.empty?)
-				noSave=Text.new("PAS DE SAUVEGARDE",@police)
+				noSave=Text.new("PAS DE SAUVEGARDE")
 				@scrol.add(noSave.gtkObject)
 		else
 				tab.each{|i|
 				@scrol.add(SaveBlockUi.new(manager,i,@parent))
 				}
 		end
-		retour=Text.new("RETOUR",@police)
-		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:10)
+		retour=Text.new("RETOUR")
+		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
 		@boxV.add(@menuR)
 	#	@scrol.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)
 		retour.onClick{
