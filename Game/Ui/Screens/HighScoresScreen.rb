@@ -41,7 +41,7 @@ class HighScoresScreen < Screen
     quickPlayLabel=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
     adventureLabel=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
     #add sur gtkObject
-    @gtkObject.attach(titre.gtkObject ,0,2,0,2)
+    @menuBase.add(titre.gtkObject)
 
     @boxHighScore=Gtk::Box.new(:vertical)
 
@@ -64,6 +64,8 @@ class HighScoresScreen < Screen
 
     @boxHighScore.pack_start(@boxHGTA,expand: true, fill: true, padding: @pad)
 
+
+    @menuBase.add(@menuV)
     #image de fond
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 

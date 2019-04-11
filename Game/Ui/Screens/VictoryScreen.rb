@@ -42,14 +42,13 @@ class VictoryScreen < Screen
 
   def applyOn(widget,sScore,isWon)
     screen = Gdk::Screen.default
-    @score=sScore
+    @score=sScore.truncate
 
     j=Connexion.getJoueur()
     db = ConnectDB.new()
     ["TERM", "INT", "QUIT"].each{ |sig|
       Signal.trap(sig) { Gtk.main_quit }
     }
-    puts @session.difficulty
     hg = db.getPlayerHighScoreByGamemodeDiff(@session.gameMode, @session.difficulty, j)
     if(hg == nil)
         db.addHighScore(@session.gameMode, @session.difficulty, j, @score)
