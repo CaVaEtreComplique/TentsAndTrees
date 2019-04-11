@@ -278,9 +278,11 @@ class ConnectDB
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.save(pl, "Things to save")
    #
+   # ===== Examples
+   # 
    # -------------
 	def save(player, content)
-
+    # :nodoc:
     #puts "player = #{player.id_player}"
     #puts "content = #{content}"
 		d = DateTime.now
@@ -301,6 +303,7 @@ class ConnectDB
     return s
 
 	end
+   # :startdoc:
 
    # This method deletes a Save in the database with the ID of the Save. The
    # game must be connected to the database.
