@@ -103,7 +103,7 @@ class Game
     @chrono=GLib::Timer.new
     @chrono.start
     lastTime=0
-    ["TERM", "INT", "QUIT"].each{ |sig|
+    ["TERM", "INT"].each{ |sig|
       Signal.trap(sig) { exit }
     }
     case @session.gameMode

@@ -57,7 +57,6 @@ class TutorialGameScreen < Screen
     @helpResponseUi.apply
     @helpResponseUi.setWrap(true)
     @help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
-    #@help=Text.new(@textManager.getTutorialTexts("outside" , "intro")) //Test du XML
 
     @pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
 
@@ -67,10 +66,8 @@ class TutorialGameScreen < Screen
 
     @nextResponseUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
     @rank = @rank+1
-    p @rank.to_s
     nextStep =Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStep.onClick(){
-        p @rank.to_s
         if(@rank <= 7)
           goToNextStep()
           @nextResponseUI.updateLabel("")
