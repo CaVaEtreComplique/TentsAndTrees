@@ -68,7 +68,9 @@ class UiManager
   def getVictoryScreen(session)
     if session.partOfAdventure?
       AdventureVictoryScreen.new(self,session)
-    else
+    else if session.isTutorial?
+      TutorialVictoryScreen.new(self,@session)
+    end
       VictoryScreen.new(self,@session)
     end
   end

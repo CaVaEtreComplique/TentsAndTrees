@@ -20,6 +20,11 @@ class TutorialSession < Session
 	end
 
 	def calculateScore
+		return 42
+	end
+
+	def isTutorial?
+		return true
 	end
 
 	def setTime
