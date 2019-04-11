@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class AdventureLevel - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Session.html">Session</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-calculateOverallStars">#calculateOverallStars</a>
+    
+    <li ><a href="#method-i-calculateScore">#calculateScore</a>
+    
+    <li ><a href="#method-i-calculateStars">#calculateStars</a>
+    
+    <li ><a href="#method-i-continuable-3F">#continuable?</a>
+    
+    <li ><a href="#method-i-setTime">#setTime</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-AdventureLevel">
+  <h1 id="class-AdventureLevel" class="class">
+    class AdventureLevel
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-difficulty" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">difficulty</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-finishedGrid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">finishedGrid</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-game" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">game</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-gridPick" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">gridPick</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-levelNumber" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">levelNumber</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maxStars" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maxStars</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-numberOfGrid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">numberOfGrid</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-overallStars" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">overallStars</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-score" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">score</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">time</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(gameMode, difficulty, scoreMultiplier, maxStars,numberOfGrid, overallStars, levelNumber )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Session.html#method-c-new"><code>Session::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 15</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">scoreMultiplier</span>, <span class="ruby-identifier">maxStars</span>,<span class="ruby-identifier">numberOfGrid</span>, <span class="ruby-identifier">overallStars</span>, <span class="ruby-identifier">levelNumber</span> )
+            <span class="ruby-keyword">super</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>,<span class="ruby-keyword">true</span>)
+<span class="ruby-ivar">@scoreMultiplier</span> = <span class="ruby-identifier">scoreMultiplier</span>
+            <span class="ruby-ivar">@maxStars</span> = <span class="ruby-identifier">maxStars</span>
+            <span class="ruby-ivar">@numberOfGrid</span> = <span class="ruby-identifier">numberOfGrid</span>
+            <span class="ruby-ivar">@finishedGrid</span> =<span class="ruby-value">0</span>
+<span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">0</span>
+            <span class="ruby-ivar">@overallStars</span> = <span class="ruby-identifier">overallStars</span>
+            <span class="ruby-ivar">@levelNumber</span> = <span class="ruby-identifier">levelNumber</span>
+            <span class="ruby-ivar">@maxScore</span>=<span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-calculateOverallStars" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculateOverallStars</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculateOverallStars-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateOverallStars</span>
+        <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>;
+        <span class="ruby-ivar">@overallStars</span>.<span class="ruby-identifier">each_value</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">res</span><span class="ruby-operator">+=</span><span class="ruby-identifier">v</span>
+         }
+         <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-calculateScore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculateScore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculateScore-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 39</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
+<span class="ruby-keyword">case</span> <span class="ruby-ivar">@gameMode</span>
+<span class="ruby-keyword">when</span> <span class="ruby-value">:timeAttack</span>
+                            <span class="ruby-ivar">@finishedGrid</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+                            <span class="ruby-ivar">@maxScore</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span><span class="ruby-operator">/</span><span class="ruby-ivar">@numberOfGrid</span>
+    <span class="ruby-ivar">@score</span><span class="ruby-operator">+=</span> (<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">time</span><span class="ruby-operator">*</span><span class="ruby-ivar">@scoreMultiplier</span>)<span class="ruby-operator">/</span><span class="ruby-ivar">@numberOfGrid</span>
+<span class="ruby-keyword">when</span> <span class="ruby-value">:quickplay</span>
+                            <span class="ruby-ivar">@finishedGrid</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+                            <span class="ruby-ivar">@maxScore</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span><span class="ruby-operator">/</span><span class="ruby-ivar">@numberOfGrid</span>
+    <span class="ruby-ivar">@score</span> <span class="ruby-operator">+=</span> ([<span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span><span class="ruby-operator">-</span><span class="ruby-ivar">@game</span>.<span class="ruby-identifier">time</span>,<span class="ruby-value">0</span>].<span class="ruby-identifier">max</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@scoreMultiplier</span>)<span class="ruby-operator">/</span><span class="ruby-ivar">@numberOfGrid</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-calculateStars" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculateStars</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculateStars-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateStars</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@maxStars</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@score</span> <span class="ruby-operator">&gt;</span><span class="ruby-value">0.45</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">3</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.45</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">2</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.25</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">1</span>
+                      <span class="ruby-keyword">else</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">0</span>
+                      <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@maxStars</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@score</span> <span class="ruby-operator">&gt;</span><span class="ruby-value">0.47</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">4</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">3</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.35</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">2</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.3</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">1</span>
+                      <span class="ruby-keyword">else</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">0</span>
+                      <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@maxStars</span> <span class="ruby-operator">==</span> <span class="ruby-value">5</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@score</span> <span class="ruby-operator">&gt;</span><span class="ruby-value">0.5</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">5</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.45</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">4</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">3</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.37</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">2</span>
+                      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@score</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0.33</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
+                              <span class="ruby-ivar">@actualStars</span> = <span class="ruby-value">1</span>
+                      <span class="ruby-keyword">else</span>
+                              <span class="ruby-ivar">@actualStars</span>=<span class="ruby-value">0</span>
+                      <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@overallStars</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@levelNumber</span>)
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@overallStars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@levelNumber</span>)<span class="ruby-operator">&lt;</span><span class="ruby-ivar">@actualStars</span>
+                              <span class="ruby-ivar">@overallStars</span>[<span class="ruby-ivar">@levelNumber</span>]=<span class="ruby-ivar">@actualStars</span>
+                      <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">else</span>
+                      <span class="ruby-ivar">@overallStars</span>[<span class="ruby-ivar">@levelNumber</span>]=<span class="ruby-ivar">@actualStars</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">return</span> <span class="ruby-ivar">@actualStars</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-continuable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">continuable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="continuable-3F-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@finishedGrid</span>
+                        <span class="ruby-keyword">true</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-keyword">false</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setTime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setTime</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setTime-source">
+            <pre><span class="ruby-comment"># File Core/AdventureLevel.rb, line 52</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
+<span class="ruby-keyword">case</span> <span class="ruby-ivar">@gameMode</span>
+<span class="ruby-keyword">when</span> <span class="ruby-value">:timeAttack</span>
+    <span class="ruby-ivar">@time</span>=<span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span>
+<span class="ruby-keyword">when</span> <span class="ruby-value">:quickplay</span>
+    <span class="ruby-ivar">@time</span>=<span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GridGenerator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GridGenerator">
+  <h1 id="class-GridGenerator" class="class">
+    class GridGenerator
+  </h1>
+
+  <section class="description">
+    
+<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   09-Feb-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: GridGenerator.rb @Last modified by:   maxime @Last modified time: 05-Apr-2019</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-answers" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">answers</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-associatedTimer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">associatedTimer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-cols" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cols</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nCols" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nCols</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nRows" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nRows</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rows" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rows</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(difficulty =:random)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Core/GridGenerator.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">difficulty</span> =<span class="ruby-value">:random</span>)
+  <span class="ruby-comment"># Une ligne par grille et une rille par ligne (il y a 1100 lignes)</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/Files/FichierDeGrilles.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span>)
+  <span class="ruby-identifier">gridBase</span>=<span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Choix de la grille&quot;</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">difficulty</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:easy</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:medium</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">101</span><span class="ruby-operator">..</span><span class="ruby-value">700</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:hard</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">701</span><span class="ruby-operator">..</span><span class="ruby-value">1100</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:random</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">1100</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:tutorial</span>
+    <span class="ruby-identifier">line</span>=<span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># case mode</span>
+  <span class="ruby-comment"># when :timeAttack</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+      <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">300</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">101</span><span class="ruby-operator">..</span><span class="ruby-value">700</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+      <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">600</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-value">701</span><span class="ruby-operator">..</span><span class="ruby-value">1100</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">line</span>)
+      <span class="ruby-ivar">@associatedTimer</span>=<span class="ruby-value">1800</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># else</span>
+  <span class="ruby-comment">#   @associatedTimer=0</span>
+  <span class="ruby-comment"># end</span>
+
+  <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Récupération des données de la grille&quot;</span>)
+  <span class="ruby-identifier">gridPick</span>=<span class="ruby-identifier">gridBase</span>[<span class="ruby-identifier">line</span>]
+  <span class="ruby-identifier">grid</span>=<span class="ruby-identifier">gridPick</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;;&#39;</span>)
+  <span class="ruby-ivar">@nRows</span>=<span class="ruby-identifier">grid</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@nCols</span>=<span class="ruby-identifier">grid</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@rows</span>=<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@cols</span>=<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@answers</span>=<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">grid</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">//</span>,).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@cols</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_i</span>)
+  }
+  <span class="ruby-ivar">@cols</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">grid</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">l</span>,<span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">l</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_i</span>)
+      <span class="ruby-ivar">@answers</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">l</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">//</span>))
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
