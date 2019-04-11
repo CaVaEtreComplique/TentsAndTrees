@@ -22,29 +22,38 @@ class HighScoresScreen < Screen
     @widthText=screen.width*0.15
     @heightText=screen.height*0.04
 
+    @menuBase = Gtk::Box.new(:vertical)
     @gtkObject= Gtk::Table.new(4,9)
-    @menuV=Gtk::Box.new(:vertical)
-    @gtkObject.attach(@menuV,1,2,0,1)
+    @menuV=Gtk::Box.new(:horizontal)
+    @gtkObject.attach(@menuBase,1,2,0,1)
+
+    db = ConnectDB.new()
+
+    db.getPlayerHighScoreByGamemodeDiff("timeAttack","easy",Connexion.getJoueur)
 
     titre=Text.new(@textManager.getButtonLabel("main" , "score"))
+
+    timeAttackArea = Gtk::Box.new(:horizontal)
+    quickplayArea = Gtk::Box.new(:horizontal)
+    adventureArea = Gtk::Box.new(:horizontal)
 
     timeAttackLabel=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
     quickPlayLabel=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
     adventureLabel=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
     #add sur gtkObject
-    @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
+    @gtkObject.attach(titre.gtkObject ,0,2,0,2)
 
     @boxHighScore=Gtk::Box.new(:vertical)
 
     @boxLabel=Gtk::Box.new(:horizontal)
-    @gtkObject.attach(@menuV,0,5,0,2)
-    @menuV.add(@boxLabel)
-    @menuV.add(@boxHighScore)
+    @menuV.add(timeAttackArea)
+    @menuV.add(quickplayArea)
+    @menuV.add(adventureArea)
     #@boxHighScore.pack_start(@boxLabel,expand: true, fill: true, padding: @pad)
 
-    @boxLabel.pack_start(timeAttackLabel.gtkObject,expand: true, fill:true, padding: @pad)
-    @boxLabel.pack_start(quickPlayLabel.gtkObject,expand: true, fill:true, padding: @pad)
-    @boxLabel.pack_start(adventureLabel.gtkObject,expand: true, fill:true, padding: @pad)
+    timeAttackArea.pack_start(timeAttackLabel.gtkObject,expand: true, fill:true, padding: @pad)
+    quickplayArea.pack_start(quickPlayLabel.gtkObject,expand: true, fill:true, padding: @pad)
+    adventureArea.pack_start(adventureLabel.gtkObject,expand: true, fill:true, padding: @pad)
 
     @boxHGTA = Gtk::Box.new(:vertical)
     @rowTA = Gtk::Box.new(:horizontal)

@@ -15,7 +15,8 @@ class PauseScreen < Screen
 
   def initialize(gameScreen,manager,game)
     super(manager.win)
-    screen = Gdk::Screen.default
+    screen = Constants::SCREEN
+    @pad=Constants::BUTTON_PADDING/3
     @gtkObject=Gtk::Table.new(3,3)
     @bjr = Gtk::Alignment.new(0.5, 0, 0, 0)
 
@@ -65,11 +66,11 @@ class PauseScreen < Screen
 
 
     globalBox=Gtk::Box.new(:vertical)
-    globalBox.pack_start(resume.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(quit.gtkObject, expand: false, fill: false, padding: 10)
-    globalBox.pack_start(@bjr, expand: false, fill: false, padding: 50)
+    globalBox.pack_start(resume.gtkObject, expand: false, fill: false, padding: @pad)
+    globalBox.pack_start(toogleTracer.gtkObject, expand: false, fill: false, padding: @pad)
+    globalBox.pack_start(toogleCountIndicators.gtkObject, expand: false, fill: false, padding: @pad)
+    globalBox.pack_start(quit.gtkObject, expand: false, fill: false, padding: @pad)
+    globalBox.pack_start(@bjr, expand: false, fill: false, padding:@pad)
     @gtkObject.attach(globalBox,0,3,0,1)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end

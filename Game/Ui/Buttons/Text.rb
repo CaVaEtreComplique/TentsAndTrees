@@ -5,13 +5,15 @@
 # @Last modified by:   zeigon
 # @Last modified time: 11-Apr-2019
 
+require File.dirname(__FILE__) + "/../Constants"
+
 
 class Text
 
   attr_reader :size, :gtkObject
   attr_writer :weight, :style, :size, :color, :font
 
-  def initialize(label, size=30)
+  def initialize(label, size=Constants::BUTTON_SIZE)
     @label=label
     @gtkObject=Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @eventBox = Gtk::EventBox.new
@@ -39,11 +41,11 @@ class Text
     @weight = "ultrabold"
     @font = "arial"
     @color = "white"
-    @size = 50
+    @size = Constants::TITTLE_SIZE
     apply
 
     underText = Text.new(@label)
-    underText.size=52
+    underText.size=Constants::TITTLE_SIZE+2
     underText.font="arial"
     underText.color="black"
     underText.weight="bold"

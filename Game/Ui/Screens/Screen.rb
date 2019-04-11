@@ -9,13 +9,15 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../../Core/XmlReader"
+require File.dirname(__FILE__) + "/../Constants"
+
 
 class Screen
   @gtkObject
   @backgroundPath
 
   def initialize(parent)
-    screen = Gdk::Screen.default
+    screen = Constants::SCREEN
     @parent=parent
   	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/4.png")
     @buffer=@buffer.scale(screen.width,screen.height)

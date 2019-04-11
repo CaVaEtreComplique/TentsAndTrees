@@ -279,7 +279,12 @@ class ConnectDB
 	# 	 db.save(pl, "Things to save")
    #
    # ===== Examples
-   #
+   # The following request inserts the save in the database with the player, the
+   # saving time and the save content :
+   #    @db.execute("INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)", player.id_player, d.strftime("%d/%m/%Y %H:%M"),content)
+   # It then executes a request to get the save that just got inserted to return
+   # it :
+   #    @db.execute("SELECT * FROM Save WHERE player_id_save = #{player.id_player} AND date_save='#{d.strftime("%d/%m/%Y %H:%M")}'")
    # -------------
 	def save(player, content)
     # :nodoc:
@@ -305,17 +310,21 @@ class ConnectDB
 	end
    # :startdoc:
 
+   ##
+   # ===== Presentation
    # This method deletes a Save in the database with the ID of the Save. The
    # game must be connected to the database.
 	#
 	# ===== Attributes
 	# * +id+ - The ID of the save we want to delete.
    #
-	# ===== Examples
-	#
+	# ===== How to Use
 	#   db = ConnectDB.new()
 	# 	 db.deleteSave((ID of the save))
    #
+   # ===== Examples
+   # The following request will delete the save with the id taken in parameters
+   #    @db.execute "DELETE FROM Save WHERE id_save = #{id}"
    # --------------
 	def deleteSave(id)
 
@@ -325,6 +334,8 @@ class ConnectDB
 
 	end
 
+   ##
+   # CONTINUER A PARTIR D'ICI
   def deletePlayerHg(id)
     @db.execute "DELETE FROM HighScores WHERE id_player_highScores = #{id}" do |row|
       puts row

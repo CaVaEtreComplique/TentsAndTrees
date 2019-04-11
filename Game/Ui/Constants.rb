@@ -9,4 +9,9 @@
 
 module Constants
 	SPACING = 1
+	SCREEN=Gdk::Screen.default
+	BUTTON_PADDING=SCREEN.height*0.03
+	BUTTON_SIZE=SCREEN.height*0.04
+	TITTLE_SIZE=SCREEN.height*0.08
+	MESSAGE_SIZE=SCREEN.height*0.02
 end

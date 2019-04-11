@@ -22,9 +22,8 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@manager = manager
 		#Chargement de la campagne
 		@adventure = manager.session
-		screen=Gdk::Screen.default
-		@pad=screen.height*0.03
-		@police=screen.height*0.04
+		screen = Constants::SCREEN
+		@pad=Constants::BUTTON_PADDING
 
 		@gtkObject = Gtk::Table.new(3,3)
 		@scrol=ScrollableArea.new(:vertical)
@@ -46,8 +45,8 @@ attr_reader :adventure, :adventureInfo, :overAllStars
     @menuR=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@menuR)
 
-		retour=Text.new("Quitter",@police)
-    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:10)
+		retour=Text.new("Quitter")
+    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
   	retour.onClick{
 			manager.session.updateSave
 			manager.updateSave

@@ -40,9 +40,10 @@ class Session
 	end
 
 	def updateSave
-		# if self
-		self.game.delete_observers
-		self.game.clearHelper
+		if @gameMode != :adventure
+			self.game.delete_observers
+			self.game.clearHelper
+		end
 		ConnectDB.new.updateSave(self.to_yaml(), self.save)
 	end
 
