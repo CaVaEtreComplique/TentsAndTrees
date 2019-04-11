@@ -27,6 +27,10 @@ class Session
 		@partOfAdventure
 	end
 
+	def isTutorial?
+		return false
+	end
+
 	def setSave(save)
 			@save = save
 	end
