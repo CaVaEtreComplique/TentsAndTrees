@@ -69,6 +69,7 @@ class Text
   end
 
   def onClick(block=nil)
+    temp=@color
     @eventBox.signal_connect("enter_notify_event") { |widget, event|
       @eventBox.window.set_cursor(Click::CURSORIN) unless @eventBox.window == nil
       @color="orange"
@@ -76,7 +77,7 @@ class Text
     }
     @eventBox.signal_connect("leave_notify_event") { |widget, event|
       @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-      @color="black"
+      @color=temp
       apply
     }
     @eventBox.signal_connect("button_release_event") { |_, event|
@@ -85,7 +86,7 @@ class Text
           sleep(0.5)
           if  !@eventBox.mapped?
             @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-            @color="black"
+            @color=temp
             apply
           end
         }
