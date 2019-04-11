@@ -3,10 +3,11 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 11-Apr-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
+require File.dirname(__FILE__) + "/../Screens/Screen"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|

@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Game.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 11-Apr-2019
 
 
 
@@ -117,7 +117,7 @@ class Game
     end
 		loop do
       @malus *=-1 if@session.gameMode==:timeAttack
-      @time=(@baseTime-@chrono.elapsed[0].truncate).abs + @malus
+      @time=(@baseTime-@chrono.elapsed[0]).abs + @malus
 			if @moveDone || @time!=lastTime
         lastTime=@time
 				changed                 # notify observers
