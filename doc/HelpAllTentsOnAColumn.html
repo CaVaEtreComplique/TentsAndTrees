@@ -99,10 +99,7 @@
     
 <h5 id="class-HelpAllTentsOnAColumn-label-Presentation">Presentation<span><a href="#class-HelpAllTentsOnAColumn-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="HelpAllTentsOnAColumn.html">HelpAllTentsOnAColumn</a> class is
-inherited from the <a href="HelpOnAColumn.html">HelpOnAColumn</a> abstract
-class. It is used when all the tents on a column are placed so that the
-player knows that the remaining cells on the column are grass.</p>
+<p>The <a href="HelpAllTentsOnAColumn.html"><code>HelpAllTentsOnAColumn</code></a> class is inherited from the <a href="HelpOnAColumn.html"><code>HelpOnAColumn</code></a> abstract class. It is used when all the tents on a column are placed so that the player knows that the remaining cells on the column are grass.</p>
 
 <h5 id="class-HelpAllTentsOnAColumn-label-Variables">Variables<span><a href="#class-HelpAllTentsOnAColumn-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -111,13 +108,11 @@ player knows that the remaining cells on the column are grass.</p>
 
 <h5 id="class-HelpAllTentsOnAColumn-label-Methods">Methods<span><a href="#class-HelpAllTentsOnAColumn-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class knows its constructor and the getText method. The constructor
-only calls the parent class&#39; constructor.</p>
+<p>This class knows its constructor and the getText method. The constructor only calls the parent class&#39; constructor.</p>
 
 <h5 id="class-HelpAllTentsOnAColumn-label-Examples">Examples<span><a href="#class-HelpAllTentsOnAColumn-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This is the class&#39; constructor. As said before, it only calls the
-parent constructor with the given parameters :</p>
+<p>This is the class&#39; constructor. As said before, it only calls the parent constructor with the given parameters :</p>
 
 <pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">column</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">column</span>)
@@ -162,19 +157,16 @@ parent constructor with the given parameters :</p>
 
 <h5 id="method-i-getText-label-Parameters">Parameters<span><a href="#method-i-getText-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>helpLevel</code> : The help&#39;s importance. The higher the level,
-the better the advice.</p>
+<p><code>helpLevel</code> : The help&#39;s importance. The higher the level, the better the advice.</p>
 </li></ul>
 
 <h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method fetches the help text from the XML file and returns it
-depending on the help level.</p>
+<p>This method fetches the help text from the XML file and returns it depending on the help level.</p>
 
 <h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>When the help level is at 1, this method fetches the text only without
-giving any variable&#39;s value :</p>
+<p>When the help level is at 1, this method fetches the text only without giving any variable&#39;s value :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;alltentsoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
 </pre>
@@ -184,8 +176,7 @@ giving any variable&#39;s value :</p>
 <pre class="ruby"><span class="ruby-string">&quot;A column has all its tents placed&quot;</span>
 </pre>
 
-<p>But when the help level is at 3, this method fetches the text and gives the
-column&#39;s value so that the player will know where to act :</p>
+<p>But when the help level is at 3, this method fetches the text and gives the column&#39;s value so that the player will know where to act :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;alltentsoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;alltentsoncolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>)
 </pre>
@@ -198,7 +189,7 @@ column&#39;s value so that the player will know where to act :</p>
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-i-getText">Help#getText</a>
+              <a href="Help.html#method-i-getText"><code>Help#getText</code></a>
             </div>
           
 
@@ -235,7 +226,7 @@ column&#39;s value so that the player will know where to act :</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

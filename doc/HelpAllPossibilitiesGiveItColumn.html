@@ -88,13 +88,7 @@
 
   <section class="description">
     
-<p>The <a
-href="HelpAllPossibilitiesGiveItColumn.html">HelpAllPossibilitiesGiveItColumn</a>
-class is inherited from the <a
-href="HelpCellsAndColumns.html">HelpCellsAndColumns</a> class and helps
-when all the possibilities of the column can determine a cell&#39;s state.
-This class knows its initialization method and the getText method that
-sends text to the player when he/she needs help.</p>
+<p>The <a href="HelpAllPossibilitiesGiveItColumn.html"><code>HelpAllPossibilitiesGiveItColumn</code></a> class is inherited from the <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a> class and helps when all the possibilities of the column can determine a cell&#39;s state. This class knows its initialization method and the getText method that sends text to the player when he/she needs help.</p>
 
   </section>
 
@@ -128,10 +122,7 @@ sends text to the player when he/she needs help.</p>
 
         <div class="method-description">
           
-          <p>The initialize method gives to the state variable a value from the
-method&#39;s parameters and initializes the cell and the column in
-parameters with the method from <a
-href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
+          <p>The initialize method gives to the state variable a value from the method&#39;s parameters and initializes the cell and the column in parameters with the method from <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a>.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -139,14 +130,13 @@ href="HelpCellsAndColumns.html">HelpCellsAndColumns</a>.</p>
 </li><li>
 <p><code>column</code> : The column the player needs help with.</p>
 </li><li>
-<p><code>state</code> : The obvious state for the cell, in order to show it to
-the player.</p>
+<p><code>state</code> : The obvious state for the cell, in order to show it to the player.</p>
 </li></ul>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="HelpCellsAndColumns.html#method-c-new">HelpCellsAndColumns.new</a>
+              <a href="HelpCellsAndColumns.html#method-c-new"><code>HelpCellsAndColumns::new</code></a>
             </div>
           
 
@@ -192,25 +182,21 @@ the player.</p>
 
 <h5 id="method-i-getText-label-Attributes">Attributes<span><a href="#method-i-getText-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>helpLevel</code> : Depending on this attribute, the help will be more
-or less precise.</p>
+<p><code>helpLevel</code> : Depending on this attribute, the help will be more or less precise.</p>
 </li></ul>
 
 <h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>If the help&#39;s level is 1, this method will tell the player that the
-given row leaves only one state possible for one of the cells (without
-giving the cell, only telling the row).</p>
+<p>If the help&#39;s level is 1, this method will tell the player that the given row leaves only one state possible for one of the cells (without giving the cell, only telling the row).</p>
 
-<p>On level 2, this method will tell the player the column and the state for
-one of the cells (without telling the cell, only the column and the state).</p>
+<p>On level 2, this method will tell the player the column and the state for one of the cells (without telling the cell, only the column and the state).</p>
 
 <p>On level 3, the column, the cell and the state will be given.</p>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Help.html#method-i-getText">Help#getText</a>
+              <a href="Help.html#method-i-getText"><code>Help#getText</code></a>
             </div>
           
 
@@ -218,15 +204,16 @@ one of the cells (without telling the cell, only the column and the state).</p>
           <div class="method-source-code" id="getText-source">
             <pre><span class="ruby-comment"># File Game/Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#allpossibilitiescolumn</span>
+
   <span class="ruby-keyword">case</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
-      <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>)
+      <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
       <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
     <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
       <span class="ruby-ivar">@helpText</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@column</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;allpossibilitiescolumn&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">to_s</span>
     <span class="ruby-keyword">else</span>
-        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>) 
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
     <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -247,7 +234,7 @@ one of the cells (without telling the cell, only the column and the state).</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

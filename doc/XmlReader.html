@@ -126,10 +126,7 @@
     
 <h4 id="class-XmlReader-label-Presentation">Presentation<span><a href="#class-XmlReader-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="XmlReader.html">XmlReader</a> class is here to read every
-necessary information inside the XML file. The XML file contains all the
-language data such as every word or phrase in the game in French and
-English. This reader gets the informations and applies them to the game.</p>
+<p>The <a href="XmlReader.html"><code>XmlReader</code></a> class is here to read every necessary information inside the XML file. The XML file contains all the language data such as every word or phrase in the game in French and English. This reader gets the informations and applies them to the game.</p>
 
 <h4 id="class-XmlReader-label-Variables">Variables<span><a href="#class-XmlReader-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
@@ -173,9 +170,7 @@ English. This reader gets the informations and applies them to the game.</p>
 
         <div class="method-description">
           
-          <p>The initialization method reads the XML document, which is converted into a
-HashTable indented by element. Here is also defined the game&#39;s
-language.</p>
+          <p>The initialization method reads the XML document, which is converted into a HashTable indented by element. Here is also defined the game&#39;s language.</p>
           
           
 
@@ -218,8 +213,7 @@ language.</p>
 
         <div class="method-description">
           
-          <p>The buttonMaxString method returns the length of the longest label of a
-button in a screen.</p>
+          <p>The buttonMaxString method returns the length of the longest label of a button in a screen.</p>
           
           
 
@@ -256,8 +250,7 @@ button in a screen.</p>
 
         <div class="method-description">
           
-          <p>The getButtonLabel method fetches the label of a button according to the
-current screen and its key.</p>
+          <p>The getButtonLabel method fetches the label of a button according to the current screen and its key.</p>
           
           
 
@@ -290,9 +283,7 @@ current screen and its key.</p>
 
         <div class="method-description">
           
-          <p>The getHelpTexts method fetches a text according to a key and the position
-of a delimiter (here we use “;”). This way it is possible to divide the
-text and put values between it.</p>
+          <p>The getHelpTexts method fetches a text according to a key and the position of a delimiter (here we use “;”). This way it is possible to divide the text and put values between it.</p>
           
           
 
@@ -364,8 +355,7 @@ text and put values between it.</p>
 
         <div class="method-description">
           
-          <p>The getLoadingMessages method fetches a loading text message according to
-the key</p>
+          <p>The getLoadingMessages method fetches a loading text message according to the key</p>
           
           
 
@@ -431,8 +421,7 @@ the key</p>
 
         <div class="method-description">
           
-          <p>The getScreentexts method fetches a text according to the current screen
-and its key.</p>
+          <p>The getScreentexts method fetches a text according to the current screen and its key.</p>
           
           
 
@@ -465,8 +454,7 @@ and its key.</p>
 
         <div class="method-description">
           
-          <p>The getTutorialTexts method fetches a text according to the current
-tutorial level and its step.</p>
+          <p>The getTutorialTexts method fetches a text according to the current tutorial level and its step.</p>
           
           
 
@@ -474,7 +462,7 @@ tutorial level and its step.</p>
           <div class="method-source-code" id="getTutorialTexts-source">
             <pre><span class="ruby-comment"># File Game/Core/XmlReader.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getTutorialTexts</span>(<span class="ruby-identifier">currentLevel</span>, <span class="ruby-identifier">step</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;tutorial&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentLevel</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">step</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@xmlHash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;languages&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@language</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;tutorial&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">currentLevel</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;step&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">step</span>.<span class="ruby-identifier">to_s</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -494,7 +482,7 @@ tutorial level and its step.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

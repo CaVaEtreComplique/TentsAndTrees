@@ -102,28 +102,17 @@
     
 <h5 id="class-HelpOn2Cells-label-Presentation">Presentation<span><a href="#class-HelpOn2Cells-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="HelpOn2Cells.html">HelpOn2Cells</a> class is an abstract class
-inherited from <a href="HelpOnCells.html">HelpOnCells</a>. Its direct
-children are <a
-href="HelpsOn2CellsGrassLinkedTree.html">HelpsOn2CellsGrassLinkedTree</a>,
-<a
-href="HelpsOn2CellTentUniqueSolution.html">HelpsOn2CellTentUniqueSolution</a>,
-<a
-href="HelpsOnACellIsTentBecauseOfTree.html">HelpsOnACellIsTentBecauseOfTree</a>
-and <a href="HelpOnACellTouchATent.html">HelpOnACellTouchATent</a>.</p>
+<p>The <a href="HelpOn2Cells.html"><code>HelpOn2Cells</code></a> class is an abstract class inherited from <a href="HelpOnCells.html"><code>HelpOnCells</code></a>. Its direct children are <a href="HelpsOn2CellsGrassLinkedTree.html"><code>HelpsOn2CellsGrassLinkedTree</code></a>, <a href="HelpsOn2CellTentUniqueSolution.html"><code>HelpsOn2CellTentUniqueSolution</code></a>, <a href="HelpsOnACellIsTentBecauseOfTree.html"><code>HelpsOnACellIsTentBecauseOfTree</code></a> and <a href="HelpOnACellTouchATent.html"><code>HelpOnACellTouchATent</code></a>.</p>
 
-<p>This class is a model for all the help classes that will need to know or
-return two cells.</p>
+<p>This class is a model for all the help classes that will need to know or return two cells.</p>
 
 <h5 id="class-HelpOn2Cells-label-Methods">Methods<span><a href="#class-HelpOn2Cells-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class overrides the initialize, cellsList and &#39;==&#39; methods
-from helpOnCells.</p>
+<p>This class overrides the initialize, cellsList and &#39;==&#39; methods from helpOnCells.</p>
 
 <h5 id="class-HelpOn2Cells-label-Variables">Variables<span><a href="#class-HelpOn2Cells-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>cell2</code> : This class adds a new cell to the one given in <a
-href="HelpOnCells.html">HelpOnCells</a>.</p>
+<p><code>cell2</code> : This class adds a new cell to the one given in <a href="HelpOnCells.html"><code>HelpOnCells</code></a>.</p>
 </li></ul>
 
   </section>
@@ -160,16 +149,13 @@ href="HelpOnCells.html">HelpOnCells</a>.</p>
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class&#39; constructor initializes the two variables taken in
-attributes as described below :</p>
+<p>This class&#39; constructor initializes the two variables taken in attributes as described below :</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>cell1</code> : The first cell needed for the help, here it already
-exists in the parent class so we do not need to create it.</p>
+<p><code>cell1</code> : The first cell needed for the help, here it already exists in the parent class so we do not need to create it.</p>
 </li><li>
-<p><code>cell2</code> : The second cell needed for the help, this one is
-created in this class.</p>
+<p><code>cell2</code> : The second cell needed for the help, this one is created in this class.</p>
 </li></ul>
 
 <h5 id="method-c-new-label-Example">Example<span><a href="#method-c-new-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -185,7 +171,7 @@ created in this class.</p>
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="HelpOnCells.html#method-c-new">HelpOnCells.new</a>
+              <a href="HelpOnCells.html#method-c-new"><code>HelpOnCells::new</code></a>
             </div>
           
 
@@ -229,9 +215,7 @@ created in this class.</p>
           
           <h5 id="method-i-3D-3D-label-Presentation">Presentation<span><a href="#method-i-3D-3D-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The == method overrides the == method in <a
-href="HelpOnCells.html">HelpOnCells</a>. It is here to compare this object
-with the help taken in parameters.</p>
+<p>The == method overrides the == method in <a href="HelpOnCells.html"><code>HelpOnCells</code></a>. It is here to compare this object with the help taken in parameters.</p>
 
 <h5 id="method-i-3D-3D-label-Attributes">Attributes<span><a href="#method-i-3D-3D-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -245,8 +229,7 @@ with the help taken in parameters.</p>
 <pre class="ruby"><span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell2</span>
 </pre>
 
-<p>This boolean will determine whether or not the current object is the same
-as the one taken in parameters.</p>
+<p>This boolean will determine whether or not the current object is the same as the one taken in parameters.</p>
 <hr>
           
           
@@ -287,21 +270,16 @@ as the one taken in parameters.</p>
           
           <h6 id="method-i-cellsList-label-Presentation">Presentation<span><a href="#method-i-cellsList-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h6>
 
-<p>The cellsList method from this class overrides this method from the <a
-href="HelpOnCells.html">HelpOnCells</a> class.</p>
+<p>The cellsList method from this class overrides this method from the <a href="HelpOnCells.html"><code>HelpOnCells</code></a> class.</p>
 
 <h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>helpLevel</code> : The help&#39;s importance, the higher the level
-is, the more helpful and precise it is and the more expensive it is.</p>
+<p><code>helpLevel</code> : The help&#39;s importance, the higher the level is, the more helpful and precise it is and the more expensive it is.</p>
 </li></ul>
 
 <h5 id="method-i-cellsList-label-Returns">Returns<span><a href="#method-i-cellsList-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the cells list, the help level decides whether or not
-the cell2 should be in it or not. This method is here so that when the
-player needs help the text shown gives the cell&#39;s position, but only if
-the previous texts didn&#39;t help the player enough.</p>
+<p>This method returns the cells list, the help level decides whether or not the cell2 should be in it or not. This method is here so that when the player needs help the text shown gives the cell&#39;s position, but only if the previous texts didn&#39;t help the player enough.</p>
 
 <h5 id="method-i-cellsList-label-Example">Example<span><a href="#method-i-cellsList-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -317,7 +295,7 @@ the previous texts didn&#39;t help the player enough.</p>
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="HelpOnCells.html#method-i-cellsList">HelpOnCells#cellsList</a>
+              <a href="HelpOnCells.html#method-i-cellsList"><code>HelpOnCells#cellsList</code></a>
             </div>
           
 
@@ -349,7 +327,7 @@ the previous texts didn&#39;t help the player enough.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

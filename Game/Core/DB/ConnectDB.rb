@@ -145,21 +145,28 @@ class ConnectDB
     stm.execute;
   end
 
-	# This method tries to find the player in the database with the name and the
-   # password provided. The game must be connected to the database.
-	#
-	# ===== Attributes
-	# * +name+ - The name of the Player we're looking for
-	# * +password+ - The password of the Player we're looking for
-	#
-	# ===== Return
-	# The Player we're looking for or nil if no one can be found in the database
-	#
-	# ===== Examples
-	#
-	#   db = ConnectDB.new()
-	# 	 db.playerConnect("aze","azeaze")
+  ##
+  # This method tries to find the player in the database with the name and the
+  # password provided. The game must be connected to the database.
   #
+  # ===== Attributes
+  # * +name+ - The name of the player we're looking for
+  # * +password+ - The password of the player we're looking for
+  #
+  # ===== Return
+  # The player we're looking for or nil if no one can be found in the database
+  #
+  # ===== How to Use
+  #    db = ConnectDB.new()
+  # 	 db.playerConnect("aze","azeaze")
+  #
+  # ===== Examples
+  # The following SQL request will be sent :
+  #    @db.execute "SELECT * FROM Player WHERE name_player = '#{name}' AND password_player = '#{Digest::SHA1.hexdigest(password)}'"
+  # This will return the results in a pl variable. If the request fails, pl equals nil.
+  # Else, the pl variable will be a new Player with the results of the request as
+  # parameters.
+  #    pl = Player.new(row[0],row[1],row[2])
   # -------
 	def playerConnect(name, password)
 
@@ -173,18 +180,33 @@ class ConnectDB
 
 	end
 
+   ##
+   # ===== Presentation
 	# This method adds a player in the database with the name and the password
    # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
-	# * +name+ - The name of the Player we want to add
-	# * +password+ - The password of the Player we want to add
+	# * +name+ - The name of the player we want to add
+	# * +password+ - The password of the player we want to add
 	#
-	# ===== Examples
-	#
+   # ===== Returns
+   # This method returns the informations about the Player that has been added
+   # in the database.
+   #
+	# ===== How to Use
 	#   db = ConnectDB.new()
 	# 	 db.createPlayer("aze","azeaze")
    #
+   # ===== Examples
+   # The following request will add the player in the database :
+   #    @db.execute "INSERT INTO Player(name_player, password_player) VALUES('#{name}','#{Digest::SHA1.hexdigest(password)}')"
+   # Then a "player" variable will be created and instanciated to nil. This player
+   # variable will become the player that has been added in the databae. To make it,
+   # this variable becomes a new Player and will take for parameters the results
+   # of the following request :
+   #   @db.execute "SELECT * FROM Player WHERE name_player='#{name}'"
+   # This will then create the player like this :
+   #   player = Player.new(row[0],row[1],row[2])
    # -------------
 	def createPlayer(name, password)
 
@@ -202,17 +224,29 @@ class ConnectDB
 
 	end
 
-  # This method check if the name of the Player already exists in the database
+  ##
+  # ===== Presentation
+  # This method checks if the name of the Player already exists in the database
   # The game must be connected to the database.
   #
   # ===== Attributes
   # * +name+ - The name of the Player we want to check
   #
-  # ===== Examples
+  # ===== Returns
+  # This method returns the player if it exists or nil if the request failed or
+  # returned nothing.
   #
-  #   db = ConnectDB.new()
+  # ===== How to Use
+  #    db = ConnectDB.new()
   # 	 db.isPlayerExist("aze")
   #
+  # ===== Examples
+  # This method will execute the following SQL request :
+  #    @db.execute "SELECT * FROM Player WHERE name_player='#{name}'"
+  # It will then return a player variable instanciated like this :
+  #    player = Player.new(row[0],row[1],row[2])
+  # But if the request failed or returned nothing, the player variable will
+  # be equal to nil.
   # -------------
   def isPlayerExist(name)
 
@@ -226,15 +260,20 @@ class ConnectDB
 
   end
 
-	# This method creates a Save in the database with the content and the Player
+   ##
+   # ===== Presentation
+	# This method creates a save in the database with the content and the Player
    # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
-	# * +player+ - The Player who wants to save
-	# * +content+ - The content of the save
+	# * +player+ - The Player who wants to save.
+	# * +content+ - The save's content.
 	#
-	# ===== Examples
-	#
+   # ===== Returns
+   # This method returns the save that just has been created, or nil if the request
+   # failed.
+   #
+	# ===== How to Use
 	#   db = ConnectDB.new()
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.save(pl, "Things to save")

@@ -89,15 +89,11 @@
     
 <h2 id="class-RuleScreen-label-Presentation">Presentation<span><a href="#class-RuleScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p><a href="RuleScreen.html">RuleScreen</a> is an inherited class from the <a
-href="Screen.html">Screen</a> class. This class only needs to be
-initialized and applied, so the only method is the initializer. It creates
-and implements the main menu from the game by creating its buttons.</p>
+<p><a href="RuleScreen.html"><code>RuleScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and applied, so the only method is the initializer. It creates and implements the main menu from the game by creating its buttons.</p>
 
 <h2 id="class-RuleScreen-label-Variables">Variables<span><a href="#class-RuleScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>The <a href="RuleScreen.html">RuleScreen</a> class creates the title size,
-text size and the padding variables with :</p>
+<p>The <a href="RuleScreen.html"><code>RuleScreen</code></a> class creates the title size, text size and the padding variables with :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@pad</span>=<span class="ruby-value">30</span>
 <span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
@@ -106,11 +102,9 @@ text size and the padding variables with :</p>
 <span class="ruby-ivar">@heightText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.04</span>
 </pre>
 
-<p>This class also inherits the screen variable from the <a
-href="Screen.html">Screen</a> class.</p>
+<p>This class also inherits the screen variable from the <a href="Screen.html"><code>Screen</code></a> class.</p>
 
-<p>The gtkObject is the table where the menuV (a vertical box) is added to
-create the menu buttons.</p>
+<p>The gtkObject is the table where the menuV (a vertical box) is added to create the menu buttons.</p>
 
 <h2 id="class-RuleScreen-label-Implementation">Implementation<span><a href="#class-RuleScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
@@ -121,26 +115,21 @@ create the menu buttons.</p>
 <pre class="ruby"><span class="ruby-identifier">jouer</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;jouer&quot;</span>,<span class="ruby-ivar">@widthText</span>,<span class="ruby-ivar">@heightText</span>)
 </pre>
 
-<p><strong>Next</strong> we add the button we just created in the VBox
-(gtkObject) :</p>
+<p><strong>Next</strong> we add the button we just created in the VBox (gtkObject) :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@menuV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">jouer</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 </pre>
 
-<p><strong>Then</strong> we add the action the button does when it is clicked
-:</p>
+<p><strong>Then</strong> we add the action the button does when it is clicked :</p>
 
 <pre class="ruby"><span class="ruby-identifier">jouer</span>.<span class="ruby-identifier">onClick</span>{
    <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
 }
 </pre>
 
-<p>Here we created a button entitled “jouer” that leads to the game mode menu
-<a href="ModeDeJeu.html">ModeDeJeu</a>. The other buttons are created by
-doing this aswell.</p>
+<p>Here we created a button entitled “jouer” that leads to the game mode menu <a href="ModeDeJeu.html"><code>ModeDeJeu</code></a>. The other buttons are created by doing this aswell.</p>
 
-<p><strong>Finally</strong>, when all of the buttons are done we add a
-background picture with :</p>
+<p><strong>Finally</strong>, when all of the buttons are done we add a background picture with :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
 </pre>
@@ -164,7 +153,7 @@ background picture with :</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
