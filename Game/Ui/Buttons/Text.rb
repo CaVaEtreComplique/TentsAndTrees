@@ -9,7 +9,7 @@
 class Text
 
   attr_reader :size, :gtkObject
-  attr_writer :weight, :style, :size, :color
+  attr_writer :weight, :style, :size, :color, :font
 
   def initialize(label, size=30)
     @label=label
@@ -37,9 +37,29 @@ class Text
 
   def title
     @weight = "ultrabold"
-    @font = "Sans"
+    @font = "arial"
+    @color = "white"
     @size = 50
     apply
+
+    underText = Text.new(@label)
+    underText.size=52
+    underText.font="arial"
+    underText.color="black"
+    underText.weight="bold"
+    underText.style="normal"
+    underText.apply
+
+
+    @gtkObject.each { |child|
+      @gtkObject.remove(child)
+    }
+    table=Gtk::Table.new(3,3)
+    table.attach(@eventBox, 1, 2, 1, 2)
+    table.attach(underText.gtkObject, 0, 3, 0, 3)
+    @gtkObject.add(table)
+
+    self
   end
 
   def updateLabel(newLabel)
