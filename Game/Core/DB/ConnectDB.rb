@@ -450,7 +450,6 @@ class ConnectDB
    #
   # ===== Examples
   #
-<<<<<<< HEAD
   #   db = ConnectDB.new()
   # 	 gm = Gamemode.new(1,"Gamemode name")
    #   diff = Difficulty.new(1,"Easy")
