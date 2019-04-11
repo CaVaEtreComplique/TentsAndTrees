@@ -78,6 +78,7 @@ class GameModeScreen < Screen
 
 
 		titre=Text.new(@textManager.getScreenTexts("gamemode" , "title"))
+		titre.title
 		aventure=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
 		timeA=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
 		clm=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
