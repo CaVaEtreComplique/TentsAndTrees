@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: ChronoUi.rb
 # @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 11-Apr-2019
 
 require File.dirname(__FILE__) + "/Text"
 
@@ -36,6 +36,7 @@ class ChronoUi < Text
     @color="black"
     @weight="normal"
     @style="normal"
+		setBackground 0.8, 0.5, 0.1, 1
 		apply
 	end
 

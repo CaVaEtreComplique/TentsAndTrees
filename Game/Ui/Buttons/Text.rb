@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Apr-2019
+# @Last modified time: 11-Apr-2019
 
 
 class Text
@@ -28,6 +28,11 @@ class Text
   def setWrap(bool)
     @textBox.wrap=bool
     self
+  end
+
+  def setBackground(r,g,b,a)
+    @eventBox.override_background_color(:normal,Gdk::RGBA.new(r,g,b,a))
+    @eventBox.show_all
   end
 
   def title
@@ -56,9 +61,14 @@ class Text
     }
     @eventBox.signal_connect("button_release_event") { |_, event|
       if event.button==Click::LEFT
-        @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
-        @color="black"
-        apply
+        Thread.new{
+          sleep(0.5)
+          if  !@eventBox.mapped?
+            @eventBox.window.set_cursor(Click::CURSOROUT) unless @eventBox.window == nil
+            @color="black"
+            apply
+          end
+        }
         yield
       end
     }
@@ -68,7 +78,7 @@ class Text
   def apply
     @textBox.set_markup("<span style='"+@style.to_s+"' weight='"+@weight.to_s+"' foreground='"+@color.to_s+"' font_desc='"+@font.to_s+" "+@size.to_s+"'>"+@label+"</span>")
   end
-  
+
   def colorChange(couleur)
     @color=couleur
     apply

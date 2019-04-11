@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: TestGame.rb
 # @Last modified by:   zeigon
-# @Last modified time: 29-Mar-2019
+# @Last modified time: 11-Apr-2019
 
 
 
@@ -26,23 +26,26 @@ require_all("Helps")
 # ----------------------------------
 class TestGame
 	def initialize
-		@@win = Gtk::Window.new.fullscreen
-		@@win.title = "Tent & Trees"
-		@@win.signal_connect('delete_event') {
+		@win = Gtk::Window.new.fullscreen
+		@win.title = "Tent & Trees"
+		@win.signal_connect('delete_event') {
 			Gtk.main_quit
 			false
 		}
-		@@win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
-		@@win.show_all
+		@win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Icons/tent.jpeg")
+		@win.show_all
 
-		ui = UiManager.new(@@win,nil)
+		ui = UiManager.new(@win,nil)
 		ui.run
 
-		@@win.show_all
+		@win.override_background_color(:normal,Gdk::RGBA.new(0.1, 0.6, 1, 1))
+		@win.show_all
+
+
 
 	end
 
 	def TestGame.hide
-			@@win.hide
+			@win.hide
 	end
 end
