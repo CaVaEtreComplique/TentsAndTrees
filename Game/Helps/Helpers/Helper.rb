@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
 # @Last modified by:   Sckylle
-# @Last modified time: 05-Apr-2019
+# @Last modified time: 11-Apr-2019
 
 
 
@@ -25,28 +25,19 @@ class Helper < FictivHelper
   @@DEBUG_MOD=1
   @@ONLY_UI_MOD=0
   @@mod = @@DEBUG_MOD
-  ######################################"""
+  ##Maximal and minimal level of help
+  @@MAXLEVELHELP = 3
+  @@MINLEVELHELP = 1
+  ######################################
 
   @@helper
   @helps
 
-  def helpsLevelsLimits(aHelpLevel)
-    if(aHelpLevel<1)
-      aHelpLevel =1
-    end
-    if(aHelpLevel>3)
-      aHelpLevel =3
-    end
-    return aHelpLevel
-  end
-
-
-
-  def initialize(helplvl=1,lvlmin=1,lvlmax=3)
+  def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)
 
     @helpLevel = helplvl
-    @helpLevelMin = lvlmin
-    @helpLevelMax = lvlmax
+    p"init"
+    helpLevelSetMinMax(lvlmin, lvlmax)
 
     @lastHelp = HelpNotFound.new
 
@@ -61,7 +52,53 @@ class Helper < FictivHelper
     @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
     @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
     @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
+    p"\tfinit"
+  end
 
+  # def helpsLevelsLimits(aHelpLevel)
+  #   if(aHelpLevel<1)
+  #     aHelpLevel =1
+  #   end
+  #   if(aHelpLevel>3)
+  #     aHelpLevel =3
+  #   end
+  #   return aHelpLevel
+  # end
+
+  def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
+
+    p"============================="
+
+    if(helpLevelMin < @@MINLEVELHELP) #Set helpLevelMin
+      @helpLevelMin = @@MINLEVELHELP
+    elsif(helpLevelMin > @@MAXLEVELHELP)
+      @helpLevelMin = @@MAXLEVELHELP
+    else
+      @helpLevelMin = helpLevelMin
+    end
+
+    p"2"
+    if(helpLevelMax < @@MINLEVELHELP) #Set helpLevelMax
+      @helpLevelMax = @@MINLEVELHELP
+    elsif(helpLevelMax > @@MAXLEVELHELP)
+      @helpLevelMax = @@MAXLEVELHELP
+    else
+      @helpLevelMax = helpLevelMax
+    end
+
+    p"3"
+
+    if(@helpLevelMax < @helpLevelMin) #Invers if necessary
+      tmp = @helpLevelMax
+      @helpLevelMax = @helpLevelMin
+      @helpLevelMin = tmp
+    end
+p"4"
+    if(@helpLevel < helpLevelMin) #Modify helperLevel if needed
+      @helpLevel = @helpLevelMin
+    elsif (@helpLevel > helpLevelMax)
+      @helpLevel = @helpLevelMax
+    end
   end
 
   def helpLevelManagement(aHelp)

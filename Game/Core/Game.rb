@@ -112,6 +112,8 @@ class Game
     case @session.gameMode
     when :timeAttack
       @baseTime-=@baseTime-@time
+    when :tutorial
+      @helper.helpLevelSetMinMax(3, 3)
     else
       @baseTime=-@time
     end
