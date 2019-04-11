@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GridUi - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-beginDrag">#beginDrag</a>
+    
+    <li ><a href="#method-i-cellsFromFirstToEnd">#cellsFromFirstToEnd</a>
+    
+    <li ><a href="#method-i-clickdefined-3F">#clickdefined?</a>
+    
+    <li ><a href="#method-i-coreCellAt">#coreCellAt</a>
+    
+    <li ><a href="#method-i-draged-3F">#draged?</a>
+    
+    <li ><a href="#method-i-hover">#hover</a>
+    
+    <li ><a href="#method-i-initGtkGrid">#initGtkGrid</a>
+    
+    <li ><a href="#method-i-leftClicked">#leftClicked</a>
+    
+    <li ><a href="#method-i-leftClickedDraged">#leftClickedDraged</a>
+    
+    <li ><a href="#method-i-realLast">#realLast</a>
+    
+    <li ><a href="#method-i-redo">#redo</a>
+    
+    <li ><a href="#method-i-refresh">#refresh</a>
+    
+    <li ><a href="#method-i-selection">#selection</a>
+    
+    <li ><a href="#method-i-toogleCountIndicators">#toogleCountIndicators</a>
+    
+    <li ><a href="#method-i-toogleTracer">#toogleTracer</a>
+    
+    <li ><a href="#method-i-tracerActive-3F">#tracerActive?</a>
+    
+    <li ><a href="#method-i-undo">#undo</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GridUi">
+  <h1 id="class-GridUi" class="class">
+    class GridUi
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-cells" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cells</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-first" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">first</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-game" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">game</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-gtkObject" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">gtkObject</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-last" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">last</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(game, assets, parent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creation of a new grid UI @param game the current game</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">assets</span>, <span class="ruby-identifier">parent</span>)
+        <span class="ruby-identifier">nRow</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>
+        <span class="ruby-identifier">nCol</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>
+        <span class="ruby-ivar">@game</span> = <span class="ruby-identifier">game</span>
+        <span class="ruby-ivar">@assets</span> = <span class="ruby-identifier">assets</span>
+        <span class="ruby-ivar">@countIndicators</span> = <span class="ruby-ivar">@tracer</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Chargement des indices&quot;</span>)
+        <span class="ruby-comment"># cration of the UI version of the clues</span>
+        <span class="ruby-ivar">@rowClues</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">clue</span>,<span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-constant">ClueUi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-identifier">clue</span>, <span class="ruby-identifier">j</span>, <span class="ruby-ivar">@game</span>) }
+        <span class="ruby-ivar">@colClues</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">clue</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-constant">ClueUi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>,   <span class="ruby-identifier">clue</span>, <span class="ruby-identifier">i</span>, <span class="ruby-ivar">@game</span>) }
+        <span class="ruby-comment"># creation of the UI version of the cells</span>
+        <span class="ruby-ivar">@cells</span> = (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">nRow</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+                (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">nCol</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                        <span class="ruby-constant">CellUi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">r</span>, <span class="ruby-identifier">c</span>, <span class="ruby-ivar">@assets</span>)
+                }
+        }
+        <span class="ruby-ivar">@cellsTrans</span>=<span class="ruby-ivar">@cells</span>.<span class="ruby-identifier">transpose</span>
+        <span class="ruby-comment"># creation of the grid itself</span>
+        <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Chargement des cases&quot;</span>)
+        <span class="ruby-identifier">initGtkGrid</span>()
+        <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;button_release_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@click</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">button</span>)
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">button</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">LEFT</span>
+                                <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">gridAltered</span>
+                                <span class="ruby-identifier">leftClickedDraged</span>()
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">endDrag</span>()
+        }
+        <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;leave_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">detail</span>.<span class="ruby-identifier">nick</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;inferior&quot;</span>
+                        <span class="ruby-identifier">endDrag</span>()
+                <span class="ruby-keyword">end</span>
+        }
+        <span class="ruby-ivar">@currentSelection</span> = <span class="ruby-constant">SelectionUi</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-beginDrag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">beginDrag</span><span
+            class="method-args">(cell, click)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="beginDrag-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">beginDrag</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">click</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">endDrag</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">draged?</span>
+        <span class="ruby-ivar">@first</span> = <span class="ruby-identifier">cell</span>
+        <span class="ruby-ivar">@click</span> = <span class="ruby-identifier">click</span>
+        <span class="ruby-identifier">selection</span>(<span class="ruby-identifier">cell</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cellsFromFirstToEnd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cellsFromFirstToEnd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cellsFromFirstToEnd-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsFromFirstToEnd</span>
+        <span class="ruby-identifier">last</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">realLast</span>
+        <span class="ruby-identifier">firstRow</span>, <span class="ruby-identifier">lastRow</span> = [<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">last</span>.<span class="ruby-identifier">row</span>].<span class="ruby-identifier">minmax</span>
+        <span class="ruby-identifier">firstCol</span>, <span class="ruby-identifier">lastCol</span> = [<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">col</span>, <span class="ruby-identifier">last</span>.<span class="ruby-identifier">col</span>].<span class="ruby-identifier">minmax</span>
+        <span class="ruby-identifier">cells</span> = []
+        (<span class="ruby-identifier">firstRow</span><span class="ruby-operator">..</span><span class="ruby-identifier">lastRow</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+                (<span class="ruby-identifier">firstCol</span><span class="ruby-operator">..</span><span class="ruby-identifier">lastCol</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">cells</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@cells</span>[<span class="ruby-identifier">row</span>][<span class="ruby-identifier">col</span>]
+                }
+        }
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">cells</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clickdefined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clickdefined?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clickdefined-3F-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clickdefined?</span>
+        <span class="ruby-ivar">@last</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@first</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-coreCellAt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">coreCellAt</span><span
+            class="method-args">(row, col)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="coreCellAt-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coreCellAt</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+        <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draged-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draged?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="draged-3F-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">draged?</span>
+        <span class="ruby-ivar">@first</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hover" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hover</span><span
+            class="method-args">(cell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hover-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hover</span>(<span class="ruby-identifier">cell</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tracerActive?</span>
+        <span class="ruby-identifier">mode</span>=<span class="ruby-value">0</span>        <span class="ruby-comment"># =&gt; 0 or -1</span>
+        <span class="ruby-identifier">row</span> = <span class="ruby-ivar">@cells</span>   [<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>][<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">col</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">col</span>)]
+        <span class="ruby-identifier">col</span> = <span class="ruby-ivar">@cellsTrans</span>[<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">col</span>][<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>)]
+        <span class="ruby-ivar">@currentSelection</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">col</span>)
+        <span class="ruby-ivar">@currentSelection</span>.<span class="ruby-identifier">show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-initGtkGrid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initGtkGrid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="initGtkGrid-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initGtkGrid</span>
+        <span class="ruby-identifier">realGrid</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Grid</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">realGrid</span>.<span class="ruby-identifier">set_column_spacing</span>(<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SPACING</span>)
+        <span class="ruby-identifier">realGrid</span>.<span class="ruby-identifier">set_row_spacing</span>(<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SPACING</span>)
+        <span class="ruby-ivar">@cells</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">row</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">row</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">cell</span>,<span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">realGrid</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+                }
+        }
+        <span class="ruby-ivar">@rowClues</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">clue</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">realGrid</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">clue</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+        }
+        <span class="ruby-ivar">@colClues</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">clue</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">realGrid</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">clue</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+        }
+        <span class="ruby-ivar">@gtkObject</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">realGrid</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-leftClicked" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">leftClicked</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>called when a left click occur on the grid</p>
+          
+          
+
+          
+          <div class="method-source-code" id="leftClicked-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leftClicked</span>
+        <span class="ruby-ivar">@first</span>.<span class="ruby-identifier">leftClicked</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-leftClickedDraged" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">leftClickedDraged</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>called when a draged left click occur on the grid</p>
+          
+          
+
+          
+          <div class="method-source-code" id="leftClickedDraged-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leftClickedDraged</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">clickdefined?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">leftClicked</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">draged?</span>
+        <span class="ruby-identifier">sameStateCoords</span> = []
+        <span class="ruby-identifier">sameState</span> = <span class="ruby-identifier">cellsFromFirstToEnd</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">sameState?</span>(<span class="ruby-ivar">@first</span>)
+        }
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">sameState</span>.<span class="ruby-identifier">length</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+                        <span class="ruby-ivar">@first</span>.<span class="ruby-identifier">leftClicked</span>
+                        <span class="ruby-identifier">cell</span>=<span class="ruby-ivar">@first</span>
+                        <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">addmove</span>([[<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">coords</span>],<span class="ruby-string">&quot;unLeftClicked&quot;</span>])
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">sameState</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+                                <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">dragLeftClicked</span>
+                                <span class="ruby-identifier">sameStateCoords</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">coords</span>
+                        }
+                        <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">addmove</span>([<span class="ruby-identifier">sameStateCoords</span>,<span class="ruby-string">&quot;dragLeftClicked&quot;</span>])
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-realLast" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">realLast</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compute the real last cell of the selection @return <a href="CellUi.html"><code>CellUi</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="realLast-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">realLast</span>
+        <span class="ruby-identifier">dc</span> = (<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">col</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@last</span>.<span class="ruby-identifier">col</span>).<span class="ruby-identifier">abs</span>
+        <span class="ruby-identifier">dr</span> = (<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@last</span>.<span class="ruby-identifier">row</span>).<span class="ruby-identifier">abs</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">dc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">dr</span> <span class="ruby-comment"># then the selection vertical</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-ivar">@cells</span>[<span class="ruby-ivar">@last</span>.<span class="ruby-identifier">row</span>][<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">col</span>]
+        <span class="ruby-keyword">else</span>       <span class="ruby-comment"># the selection is horizontal</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-ivar">@cells</span>[<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">row</span>][<span class="ruby-ivar">@last</span>.<span class="ruby-identifier">col</span>]
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-redo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redo-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">redo</span>
+        <span class="ruby-identifier ruby-title">cells</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">redo</span>
+        <span class="ruby-identifier">cells</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+                <span class="ruby-ivar">@cells</span>[<span class="ruby-identifier">cell</span>[<span class="ruby-value">0</span>]][<span class="ruby-identifier">cell</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">method</span>(<span class="ruby-identifier">cells</span>[<span class="ruby-value">1</span>]).<span class="ruby-identifier">call</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cells</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">size</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>
+                <span class="ruby-ivar">@cells</span>[<span class="ruby-identifier">cell</span>[<span class="ruby-value">0</span>]][<span class="ruby-identifier">cell</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">method</span>(<span class="ruby-identifier">cells</span>[<span class="ruby-value">1</span>]).<span class="ruby-identifier">call</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-refresh" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">refresh</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="refresh-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refresh</span>
+        <span class="ruby-ivar">@cells</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">r</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">c</span>.<span class="ruby-identifier">normal</span>
+                }
+        }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-selection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">selection</span><span
+            class="method-args">(cell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Draws a visual selection for the user</p>
+          
+          
+
+          
+          <div class="method-source-code" id="selection-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">selection</span>(<span class="ruby-identifier">cell</span>)
+        <span class="ruby-ivar">@last</span> = <span class="ruby-identifier">cell</span>
+        <span class="ruby-ivar">@currentSelection</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">cellsFromFirstToEnd</span>())
+        <span class="ruby-ivar">@currentSelection</span>.<span class="ruby-identifier">show</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-toogleCountIndicators" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">toogleCountIndicators</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="toogleCountIndicators-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">toogleCountIndicators</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-ivar">@countIndicators</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+                <span class="ruby-ivar">@countIndicators</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@rowClues</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">activateHelp</span>(<span class="ruby-ivar">@countIndicators</span>)}
+                <span class="ruby-ivar">@colClues</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">activateHelp</span>(<span class="ruby-ivar">@countIndicators</span>)}
+        <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@countIndicators</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-ivar">@rowClues</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">activateHelp</span>(<span class="ruby-ivar">@countIndicators</span>)}
+                <span class="ruby-ivar">@colClues</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">activateHelp</span>(<span class="ruby-ivar">@countIndicators</span>)}
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@countIndicators</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-toogleTracer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">toogleTracer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="toogleTracer-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">toogleTracer</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-ivar">@tracer</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+                <span class="ruby-ivar">@tracer</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@tracer</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@tracer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tracerActive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tracerActive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tracerActive-3F-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tracerActive?</span>
+        <span class="ruby-ivar">@tracer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-undo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">undo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="undo-source">
+            <pre><span class="ruby-comment"># File Ui/GridUi.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">undo</span>
+        <span class="ruby-identifier">cells</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">undo</span>
+        <span class="ruby-identifier">cells</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+                <span class="ruby-comment"># cell.method(cells[1]).call</span>
+                <span class="ruby-ivar">@cells</span>[<span class="ruby-identifier">cell</span>[<span class="ruby-value">0</span>]][<span class="ruby-identifier">cell</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">method</span>(<span class="ruby-identifier">cells</span>[<span class="ruby-value">1</span>]).<span class="ruby-identifier">call</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

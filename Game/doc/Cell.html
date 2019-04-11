@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Cell - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Cell-label-Presentation">Presentation</a>
+    <li><a href="#class-Cell-label-Variables">Variables</a>
+    <li><a href="#class-Cell-label-Methods">Methods</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-biRotative-3F">#biRotative?</a>
+    
+    <li ><a href="#method-i-dragLeftChange">#dragLeftChange</a>
+    
+    <li ><a href="#method-i-frozenOf">#frozenOf</a>
+    
+    <li ><a href="#method-i-isAGrass-3F">#isAGrass?</a>
+    
+    <li ><a href="#method-i-isATent-3F">#isATent?</a>
+    
+    <li ><a href="#method-i-isATree-3F">#isATree?</a>
+    
+    <li ><a href="#method-i-isAWhite-3F">#isAWhite?</a>
+    
+    <li ><a href="#method-i-primaryChange">#primaryChange</a>
+    
+    <li ><a href="#method-i-primaryUnchange">#primaryUnchange</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Cell">
+  <h1 id="class-Cell" class="class">
+    class Cell
+  </h1>
+
+  <section class="description">
+    
+<h4 id="class-Cell-label-Presentation">Presentation<span><a href="#class-Cell-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <a href="Cell.html"><code>Cell</code></a> class is the core class of every cell in the game.</p>
+
+<h4 id="class-Cell-label-Variables">Variables<span><a href="#class-Cell-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>states</code> - This class knows a list of all the possible states for a cell like this :</p>
+
+<pre class="ruby"><span class="ruby-identifier">@@states</span> = [<span class="ruby-value">:white</span>, <span class="ruby-value">:grass</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">:tree</span>, <span class="ruby-value">:lockedTree</span>]
+</pre>
+</li></ul>
+
+<p>This means every cell in the game has one of these states.</p>
+<ul><li>
+<p><code>state</code> - The cell&#39;s state, it must be one of the values given in the <code>states</code> list above.</p>
+</li><li>
+<p><code>frozen</code> - A boolean which is set to true when the cell is frozen. In the case of a frozen cell, the cell cannot be modified.</p>
+</li><li>
+<p><code>row</code> - The cell&#39;s row on the grid.</p>
+</li><li>
+<p><code>column</code> - The cell&#39;s column on the grid.</p>
+</li></ul>
+
+<p>These last two parameters are the cell&#39;s coordinates.</p>
+
+<h4 id="class-Cell-label-Methods">Methods<span><a href="#class-Cell-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class knows an initialization method, and the methods described below.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(args={state: :white, frozen: false, row: 0, column: 0})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h4 id="method-c-new-label-Parameters">Parameters<span><a href="#method-c-new-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>def initialize(args={state: :white, frozen: false, row: 0, column: 0})</pre>
+<ul><li>
+<p><code>state</code> - The cell&#39;s initial state.</p>
+</li><li>
+<p><code>frozen</code> - A boolean telling if the cell is frozen or not.</p>
+</li><li>
+<p><code>row</code> and <code>column</code> - The cell&#39;s coordinates.</p>
+</li></ul>
+
+<p>The values in the parameters determine the default values of each variable if there is nothing mentionned in the parenthesis when the method is called. By default, the cell is white, unfrozen and at the coordinates 0,0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">args</span>={<span class="ruby-value">state:</span> <span class="ruby-value">:white</span>, <span class="ruby-value">frozen:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">row:</span> <span class="ruby-value">0</span>, <span class="ruby-value">column:</span> <span class="ruby-value">0</span>}) <span class="ruby-comment"># default value are there only if no args at all are given</span>
+        <span class="ruby-ivar">@state</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">:state</span>]
+        <span class="ruby-ivar">@frozen</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">:frozen</span>]
+        <span class="ruby-ivar">@row</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">:row</span>]
+        <span class="ruby-ivar">@column</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">:column</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(otherCell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The == method is used to compare two cells, it returns true if the cells&#39; states are equal.</p>
+
+<h4 id="method-i-3D-3D-label-Parameter">Parameter<span><a href="#method-i-3D-3D-label-Parameter">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>otherCell</code> - The cell we want to compare the current cell to.</p>
+</li></ul>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherCell</span>)
+        <span class="ruby-identifier">oState</span>=<span class="ruby-identifier">otherCell</span>.<span class="ruby-identifier">state</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@state</span><span class="ruby-operator">==</span><span class="ruby-identifier">oState</span> <span class="ruby-keyword">unless</span> ([<span class="ruby-value">:tree</span>,<span class="ruby-value">:lockedTree</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">oState</span>) <span class="ruby-operator">&amp;&amp;</span> [<span class="ruby-value">:tree</span>,<span class="ruby-value">:lockedTree</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@state</span>))
+        <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-biRotative-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">biRotative?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The biRotative? is an alias method to the isATree? method. It returns true if the cell&#39;s state is a tree or a locked tree.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="biRotative-3F-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">biRotative?</span>
+        <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:lockedTree</span> <span class="ruby-operator">||</span>  <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tree</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Cell.html#method-i-isATree-3F">isATree?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dragLeftChange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dragLeftChange</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The dragLeftChange method is a boolean method that returns false if the cell is frozen. If not, the cell&#39;s state varies between white and grass. This method is used in the case where the player holds down the left mouse click on a row or a column in order to put grass on every cell where the mouse hovers.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="dragLeftChange-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dragLeftChange</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@frozen</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-ivar">@state</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:grass</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:white</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:white</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:grass</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-frozenOf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frozenOf</span><span
+            class="method-args">(cell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method returns the frozen state of a cell.</p>
+
+<h4 id="method-i-frozenOf-label-Parameter">Parameter<span><a href="#method-i-frozenOf-label-Parameter">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>cell</code> - The cell we want to get the frozen state from.</p>
+</li></ul>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="frozenOf-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">frozenOf</span>(<span class="ruby-identifier">cell</span>)
+        <span class="ruby-ivar">@state</span> = <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">state</span>
+        <span class="ruby-ivar">@frozen</span> = (<span class="ruby-ivar">@state</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:white</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-isAGrass-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isAGrass?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The isAGrass? method returns true if the cell&#39;s state is grass.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="isAGrass-3F-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isAGrass?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:grass</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-isATent-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isATent?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The isATent? method returns true if the cell&#39;s state is a tent.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="isATent-3F-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isATent?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tent</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-isATree-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">isATree?</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Cell.html#method-i-biRotative-3F">biRotative?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-isAWhite-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isAWhite?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The isAWhite? method returns true if the cell&#39;s state is white.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="isAWhite-3F-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isAWhite?</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:white</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-primaryChange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">primaryChange</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The primaryChange method is a boolean method returning false if the cell is frozen. This method changes the state of a cell if it&#39;s not a tree in order to follow the pattern white=&gt;grass=&gt;tent=&gt;white at each mouse left click. If the cell is a tree, the pattern is tree=&gt;lockedTree=&gt;tree.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="primaryChange-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">primaryChange</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@frozen</span> <span class="ruby-keyword">unless</span> (<span class="ruby-ivar">@state</span><span class="ruby-operator">==</span><span class="ruby-value">:tree</span><span class="ruby-operator">||</span><span class="ruby-ivar">@state</span><span class="ruby-operator">==</span><span class="ruby-value">:lockedTree</span>)
+        <span class="ruby-keyword">case</span> <span class="ruby-ivar">@state</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:white</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:grass</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:grass</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:tent</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:tent</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:white</span>
+
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:tree</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:lockedTree</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:lockedTree</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:tree</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-primaryUnchange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">primaryUnchange</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The primaryUnchange method uses the same system as the primaryChange method but is used in the case of an undo, so the patterns are reversed, becoming white=&gt;tent=&gt;grass=&gt;white.</p>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="primaryUnchange-source">
+            <pre><span class="ruby-comment"># File Core/Cell.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">primaryUnchange</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@frozen</span> <span class="ruby-keyword">unless</span> (<span class="ruby-ivar">@state</span><span class="ruby-operator">==</span><span class="ruby-value">:tree</span><span class="ruby-operator">||</span><span class="ruby-ivar">@state</span><span class="ruby-operator">==</span><span class="ruby-value">:lockedTree</span>)
+        <span class="ruby-keyword">case</span> <span class="ruby-ivar">@state</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:white</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:tent</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:tent</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:grass</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:grass</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:white</span>
+
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:tree</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:lockedTree</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:lockedTree</span>
+                        <span class="ruby-ivar">@state</span> = <span class="ruby-value">:tree</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

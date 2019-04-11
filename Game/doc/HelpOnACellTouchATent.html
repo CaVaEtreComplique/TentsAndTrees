@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HelpOnACellTouchATent - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpOnACellTouchATent-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpOnACellTouchATent-label-Methods">Methods</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="HelpOn2Cells.html">HelpOn2Cells</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-i-getText">#getText</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HelpOnACellTouchATent">
+  <h1 id="class-HelpOnACellTouchATent" class="class">
+    class HelpOnACellTouchATent
+  </h1>
+
+  <section class="description">
+    
+<h5 id="class-HelpOnACellTouchATent-label-Presentation">Presentation<span><a href="#class-HelpOnACellTouchATent-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="HelpOnACellTouchATent.html"><code>HelpOnACellTouchATent</code></a> class is inherited from the <a href="HelpOn2Cells.html"><code>HelpOn2Cells</code></a> abstract class. It shows a help text to the player when a cell nearby a tent is empty, telling the player that it has to be grass. This class is instanciable.</p>
+
+<h5 id="class-HelpOnACellTouchATent-label-Methods">Methods<span><a href="#class-HelpOnACellTouchATent-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class has an inherited constructor from the <a href="HelpOn2Cells.html"><code>HelpOn2Cells</code></a> class and the getText method.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cell, tentCell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor that is here to initialize the two variables taken in parameters with the initialize method from the <a href="HelpOn2Cells.html"><code>HelpOn2Cells</code></a> class.</p>
+
+<h5 id="method-c-new-label-Parameters">Parameters<span><a href="#method-c-new-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell</code> : The empty cell that has to be grass.</p>
+</li><li>
+<p><code>tentcell</code> : The tent cell nearby.</p>
+</li></ul>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="HelpOn2Cells.html#method-c-new"><code>HelpOn2Cells::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">tentCell</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">tentCell</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-getText" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getText</span><span
+            class="method-args">(helpLevel)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-getText-label-Presentation">Presentation<span><a href="#method-i-getText-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method fetches the text from the XML file to show the help text.</p>
+
+<h5 id="method-i-getText-label-Parameters">Parameters<span><a href="#method-i-getText-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance. The higher the level, the better the advice.</p>
+</li></ul>
+
+<h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method fetches the help text from the XML file and returns it depending on the help level.</p>
+
+<h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>When the help level is at 1, this method fetches the text only without giving any variable&#39;s value :</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+</pre>
+
+<p>This will send to the player the following help text :</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;There is at least one cell nearby a tent&quot;</span>
+</pre>
+
+<p>But when the help level is at 3, this method fetches the text and gives the two cells values so that the player will know where to act :</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
+</pre>
+
+<p>This will send to the player the following text, with c and tC being respectively the coordinates of cell and tentCell :</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;The cell c is nearby the tent on tC so it must be grass&quot;</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Help.html#method-i-getText"><code>Help#getText</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="getText-source">
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">helpLevel</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@cell2</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;celltouchatent&quot;</span>, <span class="ruby-identifier">helpLevel</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

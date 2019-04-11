@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HelpOn2Cells - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HelpOn2Cells-label-Presentation">Presentation</a>
+    <li><a href="#class-HelpOn2Cells-label-Methods">Methods</a>
+    <li><a href="#class-HelpOn2Cells-label-Variables">Variables</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="HelpOnCells.html">HelpOnCells</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-i-3D-3D">#==</a>
+    
+    <li class="calls-super" ><a href="#method-i-cellsList">#cellsList</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HelpOn2Cells">
+  <h1 id="class-HelpOn2Cells" class="class">
+    class HelpOn2Cells
+  </h1>
+
+  <section class="description">
+    
+<h5 id="class-HelpOn2Cells-label-Presentation">Presentation<span><a href="#class-HelpOn2Cells-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="HelpOn2Cells.html"><code>HelpOn2Cells</code></a> class is an abstract class inherited from <a href="HelpOnCells.html"><code>HelpOnCells</code></a>. Its direct children are <a href="HelpsOn2CellsGrassLinkedTree.html"><code>HelpsOn2CellsGrassLinkedTree</code></a>, <a href="HelpsOn2CellTentUniqueSolution.html"><code>HelpsOn2CellTentUniqueSolution</code></a>, <a href="HelpsOnACellIsTentBecauseOfTree.html"><code>HelpsOnACellIsTentBecauseOfTree</code></a> and <a href="HelpOnACellTouchATent.html"><code>HelpOnACellTouchATent</code></a>.</p>
+
+<p>This class is a model for all the help classes that will need to know or return two cells.</p>
+
+<h5 id="class-HelpOn2Cells-label-Methods">Methods<span><a href="#class-HelpOn2Cells-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class overrides the initialize, cellsList and &#39;==&#39; methods from helpOnCells.</p>
+
+<h5 id="class-HelpOn2Cells-label-Variables">Variables<span><a href="#class-HelpOn2Cells-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell2</code> : This class adds a new cell to the one given in <a href="HelpOnCells.html"><code>HelpOnCells</code></a>.</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cell1, cell2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the two variables taken in attributes as described below :</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>cell1</code> : The first cell needed for the help, here it already exists in the parent class so we do not need to create it.</p>
+</li><li>
+<p><code>cell2</code> : The second cell needed for the help, this one is created in this class.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-Example">Example<span><a href="#method-c-new-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Here is what this method does :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>)
+   <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
+   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="HelpOnCells.html#method-c-new"><code>HelpOnCells::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell1</span>, <span class="ruby-identifier">cell2</span>)
+  <span class="ruby-ivar">@cell2</span> = <span class="ruby-identifier">cell2</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(otherHelp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-3D-3D-label-Presentation">Presentation<span><a href="#method-i-3D-3D-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The == method overrides the == method in <a href="HelpOnCells.html"><code>HelpOnCells</code></a>. It is here to compare this object with the help taken in parameters.</p>
+
+<h5 id="method-i-3D-3D-label-Attributes">Attributes<span><a href="#method-i-3D-3D-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>otherHelp</code> : The help we want to compare to this one.</p>
+</li></ul>
+
+<h5 id="method-i-3D-3D-label-Returns">Returns<span><a href="#method-i-3D-3D-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns a boolean being the result of this expression :</p>
+
+<pre class="ruby"><span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell2</span>
+</pre>
+
+<p>This boolean will determine whether or not the current object is the same as the one taken in parameters.</p>
+<hr>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              HelpOnCells#==
+            </div>
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
+  <span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cellsList" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cellsList</span><span
+            class="method-args">(helpLevel)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h6 id="method-i-cellsList-label-Presentation">Presentation<span><a href="#method-i-cellsList-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h6>
+
+<p>The cellsList method from this class overrides this method from the <a href="HelpOnCells.html"><code>HelpOnCells</code></a> class.</p>
+
+<h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>helpLevel</code> : The help&#39;s importance, the higher the level is, the more helpful and precise it is and the more expensive it is.</p>
+</li></ul>
+
+<h5 id="method-i-cellsList-label-Returns">Returns<span><a href="#method-i-cellsList-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the cells list, the help level decides whether or not the cell2 should be in it or not. This method is here so that when the player needs help the text shown gives the cell&#39;s position, but only if the previous texts didn&#39;t help the player enough.</p>
+
+<h5 id="method-i-cellsList-label-Example">Example<span><a href="#method-i-cellsList-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-identifier">list</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
+      <span class="ruby-identifier">list</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@cell2</span>)
+   <span class="ruby-keyword">end</span>
+   <span class="ruby-keyword">return</span> <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="HelpOnCells.html#method-i-cellsList"><code>HelpOnCells#cellsList</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="cellsList-source">
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
+  <span class="ruby-identifier">list</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
+     <span class="ruby-identifier">list</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@cell2</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
