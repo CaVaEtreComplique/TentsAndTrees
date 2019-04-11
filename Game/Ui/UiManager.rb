@@ -16,21 +16,12 @@ class UiManager
   end
 
   def update
-    @loadScreen=LoadingScreen.new(self)
-<<<<<<< HEAD
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)
     @highScoresScreen=HighScoresScreen.new(self)
     @paramScreen=Parametre.new(self)
     @diffchScreen=ChoixDiff.new(self)
     @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)
-=======
-    @mainScreen=PrincipalScreen.new(self)
-    @modeScreen=GameModeScreen.new(self)
-    @paramScreen=ParametreScreen.new(self)
-    @diffchScreen=ChoixDiffScreen.new(self)
-    @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
->>>>>>> 2de33b7f8eab50c43c779f2a20cf3e459f153eac
   end
 
   def updateSave

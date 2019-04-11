@@ -279,7 +279,7 @@ class ConnectDB
 	# 	 db.save(pl, "Things to save")
    #
    # ===== Examples
-   # 
+   #
    # -------------
 	def save(player, content)
     # :nodoc:
@@ -514,7 +514,6 @@ class ConnectDB
     @db.execute("UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}") do |row|
       puts row
     end
-=======
   #    db = ConnectDB.new()
   # 	 db.getGamemodes()
   #
@@ -525,6 +524,5 @@ class ConnectDB
 			hg.push(new Gamemode())
 		end
     return gm
->>>>>>> 2de33b7f8eab50c43c779f2a20cf3e459f153eac
   end
 end
