@@ -49,11 +49,11 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
 
     case(helpLevel)
       when 1
-        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].getVisualRankRow.to_s
       when 2
-        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @state.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2)
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].getVisualRankRow.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @state.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2)
       when 3
-        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].row.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2) + @state.to_s
+        @helpText = @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 0) + @column[0].getVisualRankRow.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 1) + @cell.to_s + @textManager.getHelpsTexts("allpossibilitiescolumn", helpLevel, 2) + @state.to_s
       else
           super(helpLevel)
       end
