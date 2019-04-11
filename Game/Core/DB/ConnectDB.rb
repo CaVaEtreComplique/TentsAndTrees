@@ -312,37 +312,91 @@ class ConnectDB
 
 		hg = Array.new
 
-		@db.execute "SELECT * FROM HighScore WHERE id_gamemode_highScores = #{gamemode.id_gamemode} AND id_difficulty_highScores = #{diff.id_difficulty}" do |row|
-			hg.push(new HighScore(row[0],row[1],row[2],row[3]))
+		@db.execute "SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gamemode.id_gamemode} AND id_difficulty_highScores = #{diff.id_difficulty}" do |row|
+			hg.push(HighScore.new(row[0],row[1],row[2],row[3]))
 		end
 
 		return hg
 
 	end
 
-  # This method retrieves the game modes available. The game must be connected to
-  # the database.
+  # This method retrieves the high scores by game mode and difficulty made by a player. The game
+   # must be connected to the database.
   #
+  # ===== Attributes
+  # * +gamemode+ - The gamemode
+  # * +diff+ - The difficulty
+  # * +player+ - The player
   #
-  # ===== Return
-  # All the game modes in an Array
-  #
+   #
+   # ===== Return
+   # The highscore that match the game mode and the difficulty made by the player
+   #
   # ===== Examples
   #
-  #    db = ConnectDB.new()
-  # 	 db.getGamemodes()
-  #
-  # ---------
-  def getGamemodes()
+  #   db = ConnectDB.new()
+  # 	 gm = Gamemode.new(1,"Gamemode name")
+   #   diff = Difficulty.new(1,"Easy")
+  # 	 db.getPlayerHighScoreByGamemodeDiff(gm,diff, player)
+   #
+   # -------------
+  def getPlayerHighScoreByGamemodeDiff(gamemode, difficulty, player)
 
-    gm = Array.new
+    hg = nil
+    diff = 0
+    gm = 0
 
-		@db.execute "SELECT * FROM Gamemode" do |row|
-			hg.push(new Gamemode())
-		end
+    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'" do |row|
+      diff = row[0]
+    end
+
+    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gamemode}'" do |row|
+      gm = row[0]
+    end
 
 
-    return gm
+    @db.execute "SELECT * FROM HighScores WHERE id_player_highScores = #{player.id_player} AND id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}" do |row|
+      hg = HighScore.new(row[0],row[1],row[2],row[3])
+    end
+
+    return hg
+
+  end
+
+  def addHighScore(gameMode, difficulty, player, score)
+    hg = nil
+    diff = 0
+    gm = 0
+
+    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'" do |row|
+      diff = row[0]
+    end
+
+    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gameMode}'" do |row|
+      gm = row[0]
+    end
+
+    @db.execute("INSERT INTO HighScores VALUES(?,?,?,?)",diff, player.id_player,score, gm) do |row|
+      puts row
+    end
+  end
+
+  def updateHighScore(gameMode, difficulty, player, score)
+    hg = nil
+    diff = 0
+    gm = 0
+
+    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'" do |row|
+      diff = row[0]
+    end
+
+    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gameMode}'" do |row|
+      gm = row[0]
+    end
+
+    @db.execute("UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}") do |row|
+      puts row
+    end
   end
 
 end

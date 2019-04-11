@@ -6,7 +6,7 @@
 # @Last modified time: 08-Apr-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session
+    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session, :highScoresScreen
 
   def initialize(window,player)
     ProcessStatus.new
@@ -19,6 +19,7 @@ class UiManager
     @loadScreen=LoadingScreen.new(self)
     @mainScreen=FenetrePrinc.new(self)
     @modeScreen=ModeDeJeu.new(self)
+    @highScoresScreen=HighScoresScreen.new(self)
     @paramScreen=Parametre.new(self)
     @diffchScreen=ChoixDiff.new(self)
     @listeSaveScreen=ListeSave.new(self,Connexion.getJoueur)

@@ -26,11 +26,11 @@ class HighScoresScreen < Screen
     @menuV=Gtk::Box.new(:vertical)
     @gtkObject.attach(@menuV,1,2,0,1)
 
-    titre=Text.new(@textManager.getButtonLabel("main" , "score"),@widthTitre,@heightTitre)
+    titre=Text.new(@textManager.getButtonLabel("main" , "score"))
 
-    timeAttackLabel=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"),@widthText,@heightText)
-    quickPlayLabel=Text.new(@textManager.getButtonLabel("gamemode" , "quick"),@widthText,@heightText)
-    adventureLabel=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"),@widthText,@heightText)
+    timeAttackLabel=Text.new(@textManager.getButtonLabel("gamemode" , "timeattack"))
+    quickPlayLabel=Text.new(@textManager.getButtonLabel("gamemode" , "quick"))
+    adventureLabel=Text.new(@textManager.getButtonLabel("gamemode" , "adventure"))
     #add sur gtkObject
     @menuV.pack_start(titre.gtkObject ,expand: false, fill: true, padding: @pad)
 

@@ -104,7 +104,10 @@ class Game
     @chrono.start
     lastTime=0
     ["TERM", "INT", "QUIT"].each{ |sig|
-      Signal.trap(sig) { exit }
+        Signal.trap(sig) {
+          @session.updateSave
+          Gtk.main_quit
+       }
     }
     case @session.gameMode
     when :timeAttack

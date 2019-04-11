@@ -93,6 +93,7 @@ class FenetrePrinc < Screen
         manager.ruleScreen.applyOn(@parent)
      }
     meilleurScore.onClick{
+        manager.highScoresScreen.applyOn(@parent)
      }
     quitter.onClick(){
         Gtk.main_quit
