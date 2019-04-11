@@ -26,7 +26,6 @@ class AdventureVictoryScreen < Screen
 
   def applyOn(widget,sScore,isWon)
     @score=sScore
-
     @resultText=Text.new(@textManager.getScreenTexts("victory" , "win"))
     newlab = @textManager.getScreenTexts("victory" , "score")+@score.to_s
     @scoreText=Text.new(newlab)
@@ -37,43 +36,43 @@ class AdventureVictoryScreen < Screen
       @resultText.updateLabel(@textManager.getScreenTexts("victory" , "lose"))
       @resultText.title
     end
-    if !isWon || @session.continuable?
+    if !isWon || @manager.session.continuable?
 
-        if @session.continuable?
+        if @manager.session.continuable?
           @replay=Text.new(@textManager.getButtonLabel("victory" , "continue"))
         else
           @replay=Text.new(@textManager.getButtonLabel("victory" , "retry"))
         end
 
         @replay.onClick{
-          @session.replay(false)
-          @manager.runGameSession(@session)
+          @session.replay(true)
+          @manager.runGameSession(@session,true)
         }
 
         @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
 
         quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
         quit.onClick{
-          @manager.levelNumberScreen.applyOn(@parent,@session.calculateOverallStars, @session.overAllStars,@session.levelNumber)
+          @manager.levelNumberScreen.applyOn(@parent)
         }
         @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
     else
-      s=Star.new(@session.maxStars,@session.calculateStars)
+      s=Star.new(@manager.session.levelInfo[3],@manager.session.calculateStars)
       @bjr.add(s.stars)
       @vBox.pack_start(@bjr,expand: false, fill: true, padding: @pad)
 
       @replay=Text.new(@textManager.getButtonLabel("victory" , "levelselection"))
       @replay.onClick{
-        @manager.levelNumberScreen.applyOn(@parent,@session.calculateOverallStars, @session.overallStars,@session.levelNumber)
-    		@session.updateSave
+        @manager.levelNumberScreen.applyOn(@parent)
+    		@manager.session.updateSave
       }
       @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding: 20)
 
       quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
       quit.onClick{
-  			@session.updateSave
-  			manager.updateSave
-      	manager.mainScreen.applyOn(@parent)
+  			@manager.session.updateSave
+  			@manager.updateSave
+      	@manager.mainScreen.applyOn(@parent)
       }
       @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:20)
     end

@@ -12,8 +12,8 @@ class TimeAttackSession < Session
 	attr_reader :game, :gridPick, :time, :score, :gameMode, :difficulty
 	# attr_writer :score
 
-	def initialize(gameMode, difficulty, partOfAdventure=false)
-		super(gameMode, difficulty, partOfAdventure)
+	def initialize(difficulty, partOfAdventure=false)
+		super(:timeAttack, difficulty, partOfAdventure)
 	end
 
 	def continuable?
