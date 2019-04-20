@@ -25,8 +25,11 @@ class AdventureVictoryScreen < Screen
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
 
-  def applyOn(widget,sScore,isWon)
+  def applyOn(widget,sScore,isWon, associatedTimer)
     @score=sScore
+    @manager.session.adventureInfo.maxScore = (associatedTimer*@manager.session.levelInfo[2])
+    @score = @manager.session.calculateScore(@score).truncate;
+
     @resultText=Text.new(@textManager.getScreenTexts("victory" , "win"))
     newlab = @textManager.getScreenTexts("victory" , "score")+@score.to_s
     @scoreText=Text.new(newlab)

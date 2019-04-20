@@ -35,8 +35,8 @@ class AdventureSession < Session
 			@levelInfo = @adventureInfo.levels.fetch(lvlNumber)
 	end
 
-	def calculateScore(game)
-			@score += @adventureInfo.calculateScore(@levelInfo[2],@levelInfo[4],game)
+	def calculateScore(score)
+			@score = @adventureInfo.calculateScore(@levelInfo[0],@levelInfo[2],@levelInfo[4],score)
 	end
 
 	def calculateStars

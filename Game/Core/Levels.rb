@@ -13,6 +13,7 @@ require File.dirname(__FILE__) + "/Session"
 class Levels
 
 	attr_reader :levels, :maxScore, :overallStarsHash
+	attr_writer :maxScore
 
  	## @levels is all the information about a levels
 	# A level is define by : GameMode, Difficulty, score Multiplier, MaxStars, Number of grid to finish, LevelNumber
@@ -79,16 +80,14 @@ class Levels
 		end
 	end
 
-	def calculateScore(scoreMultiplier, numberOfGrid,game)
-		case game.session.gameMode
+	def calculateScore(gameMode,scoreMultiplier, numberOfGrid,score)
+		case gameMode
 		when :timeAttack
 				@finishedGrid+=1
-				@maxScore += game.session.gridPick.associatedTimer/numberOfGrid
-				@score+= (game.time*scoreMultiplier)/numberOfGrid
+				@score = (score * scoreMultiplier)/numberOfGrid
 		when :quickplay
 				@finishedGrid+=1
-				@maxScore += game.session.gridPick.associatedTimer/numberOfGrid
-				@score += ([game.session.gridPick.associatedTimer-game.time,0].max * scoreMultiplier)/numberOfGrid
+				@score = (score * scoreMultiplier)/numberOfGrid
 		end
 	end
 

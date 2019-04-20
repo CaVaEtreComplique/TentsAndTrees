@@ -41,7 +41,7 @@ class VictoryScreen < Screen
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
   end
 
-  def applyOn(widget,sScore,isWon)
+  def applyOn(widget,sScore,isWon, associatedTimer =0)
     screen = Gdk::Screen.default
     @score=sScore.truncate
 

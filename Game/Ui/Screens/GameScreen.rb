@@ -146,11 +146,11 @@ class GameScreen < Screen
     @chronoUi.updateLabel(@game.time.truncate)
     if @game.currentGuess.grid==@game.correction
       @game.chrono.stop
-      @victoryScreen.applyOn(@parent,@game.calculateScore,true)
+      @victoryScreen.applyOn(@parent,@game.calculateScore,true, @game.session.gridPick.associatedTimer)
       @game.delete_observers
     elsif @game.time <=0
       @game.chrono.stop
-      @victoryScreen.applyOn(@parent,@game.calculateScore,false)
+      @victoryScreen.applyOn(@parent,@game.calculateScore,false, @game.session.gridPick.associatedTimer)
       @game.delete_observers
     end
   end
