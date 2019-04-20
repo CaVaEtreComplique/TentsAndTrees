@@ -22,7 +22,7 @@ class TimeAttackSession < Session
 
 	def calculateScore
 		if @game
-			@score+=100
+			@score+=game.time
 		end
 	end
 
