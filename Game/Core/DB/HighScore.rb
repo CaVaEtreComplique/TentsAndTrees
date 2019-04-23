@@ -3,7 +3,7 @@
 class HighScore
 
   @id_difficulty_highScores # The difficulty of the HighScore
-  @id_player_highScores # The Player of the HighScore
+  @player_highScores # The Player of the HighScore
   @score_highScores # The score of the HighScore
   @id_gamemode_highScores # The gamemode of the HighScore
 
@@ -14,19 +14,19 @@ class HighScore
     # ===== Attributes
     #
     # * +idDiff+ - The id of the Difficulty of the HighScore
-    # * +idPlayer+ - The id of the Player of the HighScore
+    # * +player+ - The Player of the HighScore
     # * +score+ - The score of the HighScore
     # * +idMode+ - The id of the Gamemode of the HighScore
     #
     # ===== Examples
     #
     #    highScore = HighScore.new(1,1,5000,3)
-  def initialize(idDiff, idPlayer, score, idMode)
-    @id_difficulty_highScores, @id_player_highScores = idDiff, idPlayer
+  def initialize(idDiff, player, score, idMode)
+    @id_difficulty_highScores, @player_highScores = idDiff, player
     @score_highScores, @id_gamemode_highScores = score, idMode
   end
 
   # :nodoc:
-  attr_reader :id_difficulty_highScores, :id_player_highScores, :score_highScores, :id_gamemode_highScores
+  attr_reader :id_difficulty_highScores, :player_highScores, :score_highScores, :id_gamemode_highScores
 
 end

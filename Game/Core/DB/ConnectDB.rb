@@ -435,12 +435,27 @@ class ConnectDB
 	# 	 db.getHighScoresByGamemodeDiff(gm,diff)
    #
    # -------------
-	def getHighScoresByGamemodeDiff(gamemode, diff)
+	def getHighScoresByGamemodeDiff(gamemode, difficulty)
 
 		hg = Array.new
+    gm = nil
+    diff = nil
 
-		@db.execute "SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gamemode.id_gamemode} AND id_difficulty_highScores = #{diff.id_difficulty}" do |row|
-			hg.push(HighScore.new(row[0],row[1],row[2],row[3]))
+    @db.execute "SELECT * FROM GameMode WHERE name_gamemode = '#{gamemode}'" do |row|
+      gm = row[0]
+    end
+
+    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'" do |row|
+      diff = row[0]
+    end
+
+    p "gm = #{gm} - diff = #{diff}"
+
+		@db.execute "SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}" do |row|
+      @db.execute "SELECT * FROM Player WHERE player_id = #{row[1]}" do |row2|
+          p "ALLO LA ?    "
+			     hg.push(HighScore.new(row[0],Player.new(row2[0],row2[1],row2[2]),row[2],row[3]))
+      end
 		end
 
 		return hg
