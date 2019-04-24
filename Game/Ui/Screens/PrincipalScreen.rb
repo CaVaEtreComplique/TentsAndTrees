@@ -88,7 +88,7 @@ class PrincipalScreen < Screen
         manager.paramScreen.applyOn(@parent)
     }
     regle.onClick{
-        manager.ruleScreen.applyOn(@parent)
+        manager.rulesScreen.applyOn(@parent)
      }
 
     meilleurScore.onClick{

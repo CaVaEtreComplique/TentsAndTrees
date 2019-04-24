@@ -7,15 +7,22 @@
 
 
 require 'gtk3'
+require File.dirname(__FILE__) + "/AssetsClass/Asset"
 
 class Diapo
   attr_accessor :hBox, :nextButton, :previousButton, :rule, :box
 
 def initialize(width , height, textManager)
-  pic1 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle1.png")
-  pic2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle2.png")
-  pic3 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle3.png")
-  pic4 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/regle4.png")
+  @h=height*0.7
+  @w=width*0.9
+  pic1 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle1.png")
+  pic2 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle2.png")
+  pic3 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle3.png")
+  pic4 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle4.png")
+  pic1.resize(@w,@h)
+  pic2.resize(@w,@h)
+  pic3.resize(@w,@h)
+  pic4.resize(@w,@h)
 
   tempNext = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/nextButton.png")
   tempPrevious = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/previousButton.png")
@@ -98,7 +105,7 @@ end
 
 def getImage
   @imgLoaded = @pile[@picindex]
-  @imgLoaded = @imgLoaded.scale(@width,@height)
+  @imgLoaded = @imgLoaded.resize(@w,@h)
   @image = Gtk::Image.new(pixbuf: @imgLoaded)
   @image.show
 end
