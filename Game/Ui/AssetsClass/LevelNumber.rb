@@ -7,6 +7,7 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Asset"
+require File.dirname(__FILE__) + "/../AssetsLoaderClass/IconAsset"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -18,6 +19,7 @@ class LevelNumber
 		attr_reader :BoxV
   def initialize(i,manager,adventure, adventureInfo)
 		@police=25
+		@ic=IconAsset.new
     @BoxH=Gtk::Box.new(:horizontal)
     @BoxV=Gtk::Box.new(:vertical)
     @lock=Gtk::EventBox.new()
@@ -54,7 +56,7 @@ class LevelNumber
 
       }
     else
-      loc = Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
+      loc = @ic.iconAsset.fetch(:loc)
       loc.resize(100,100)
       loc.applyOn(@lock)
       @BoxH.pack_start(@lock,expand: false, fill: true, padding: @pad)

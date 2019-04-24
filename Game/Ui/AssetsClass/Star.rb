@@ -7,6 +7,7 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Asset"
+require File.dirname(__FILE__) + "/../AssetsLoaderClass/IconAsset"
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -17,9 +18,8 @@ end
 class Star
   attr_reader :stars
   def initialize(nbEtoile,nbEtoileObtenu)
-		@sHappy=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/star.png")
-		@sSad=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/starSad.png")
-    @stars=Gtk::Box.new(:horizontal,25)
+		@ic=IconAsset.new
+		@stars=Gtk::Box.new(:horizontal,25)
 		refresh(nbEtoile,nbEtoileObtenu)
    end
 	 def refresh(nbEtoile,nbEtoileObtenu)
@@ -29,11 +29,11 @@ class Star
 		 (1.. nbEtoile).each { |e|
 				@star=Gtk::EventBox.new()
 				if(e <= nbEtoileObtenu)
-				 sH= @sHappy
+				 sH=@ic.iconAsset.fetch(:starH)
 				 sH.resize(75,75)
 				 sH.applyOn(@star)
 			 else
-				 sS=@sSad
+				 sS=@ic.iconAsset.fetch(:starS)
 				 sS.resize(75,75)
 				 sS.applyOn(@star)
 			 end
