@@ -1,9 +1,9 @@
-# @Author: Corentin Petit <CorentinPetit>
+# @Author: maxime-touze <Maxime>
 # @Date:   08-Feb-2019
-# @Email:  corentin.petit.etu@univ-lemans.fr
-# @Filename: GameScreen.rb
-# @Last modified by:   zeigon
-# @Last modified time: 10-Apr-2019
+# @Email:  maxime_touze@univ-lemans.fr
+# @Filename: TutorialGameScreen.rb
+# @Last modified by:   Sckylle
+# @Last modified time: 24-Apr-2019
 
 
 
@@ -22,6 +22,7 @@ class TutorialGameScreen < Screen
 
   def initialize(manager,game,cellAssets,victoryScreen)
 
+    @tutoEnd = false;
     @stape = :intro
     super(manager.win)
     (@game=game).add_observer(self)
@@ -66,8 +67,11 @@ class TutorialGameScreen < Screen
 
     @nextResponseUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
     @rank = @rank+1
-    nextStep =Text.new(@textManager.getButtonLabel("ingame" , "next"))
+    nextStep = Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStep.onClick(){
+        if (@rank == 7)
+          @tutoEnd = true
+        end
         if(@rank <= 7)
           goToNextStep()
           @nextResponseUI.updateLabel("")
@@ -95,14 +99,15 @@ class TutorialGameScreen < Screen
     globalBox.width_request=(screen.width*0.3)
     globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
 
-    nextBox = Gtk::Box.new(:vertical).add(@nextResponseUI.gtkObject).add(nextStep.gtkObject)
-    nextAli  = Gtk::Alignment.new(0.5, 1, 0, 0).add(nextBox)
+    nextBox = Gtk::Box.new(:vertical).add(@nextResponseUI.gtkObject)
+    nextAli = Gtk::Alignment.new(0.5, 1, 0, 0).add(nextBox)
 
     globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@resetGrid.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@newGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@removeGuess.gtkObject, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@help.gtkObject, expand: true, fill: false, padding: 10)
+    globalBox.pack_start(nextStep.gtkObject, expand: true, fill: false, padding: 10)
 
     globalBoxH = Gtk::Box.new(:horizontal).add(globalBox)
     globalAli  = Gtk::Alignment.new(0.5, 0, 0, 0).add(globalBoxH)
@@ -114,8 +119,6 @@ class TutorialGameScreen < Screen
     @gtkObject.attach(nextAli,2,4,3,4)
     # @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
-
-
   end
 
   def gridAltered
@@ -235,7 +238,7 @@ class TutorialGameScreen < Screen
     if !@parent.active?
       @pauseScreen.applyOn(@parent)
     end
-    if @game.currentGuess.grid==@game.correction
+    if @game.currentGuess.grid==@game.correction && @tutoEnd
       @victoryScreen.applyOn(@parent,0,true)
       @game.delete_observers
     end
