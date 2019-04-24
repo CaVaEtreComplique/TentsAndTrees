@@ -36,7 +36,6 @@ class Helper < FictivHelper
   def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)
 
     @helpLevel = helplvl
-    p"init"
     helpLevelSetMinMax(lvlmin, lvlmax)
 
     @lastHelp = HelpNotFound.new
@@ -52,22 +51,11 @@ class Helper < FictivHelper
     @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
     @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
     @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
-    p"\tfinit"
   end
-
-  # def helpsLevelsLimits(aHelpLevel)
-  #   if(aHelpLevel<1)
-  #     aHelpLevel =1
-  #   end
-  #   if(aHelpLevel>3)
-  #     aHelpLevel =3
-  #   end
-  #   return aHelpLevel
-  # end
 
   def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
 
-    p"============================="
+    # p"============================="
 
     if(helpLevelMin < @@MINLEVELHELP) #Set helpLevelMin
       @helpLevelMin = @@MINLEVELHELP
@@ -77,7 +65,7 @@ class Helper < FictivHelper
       @helpLevelMin = helpLevelMin
     end
 
-    p"2"
+    # p"2"
     if(helpLevelMax < @@MINLEVELHELP) #Set helpLevelMax
       @helpLevelMax = @@MINLEVELHELP
     elsif(helpLevelMax > @@MAXLEVELHELP)
@@ -86,14 +74,14 @@ class Helper < FictivHelper
       @helpLevelMax = helpLevelMax
     end
 
-    p"3"
+    # p"3"
 
     if(@helpLevelMax < @helpLevelMin) #Invers if necessary
       tmp = @helpLevelMax
       @helpLevelMax = @helpLevelMin
       @helpLevelMin = tmp
     end
-p"4"
+    # p"4"
     if(@helpLevel < helpLevelMin) #Modify helperLevel if needed
       @helpLevel = @helpLevelMin
     elsif (@helpLevel > helpLevelMax)
@@ -104,7 +92,7 @@ p"4"
   def helpLevelManagement(aHelp)
     if(aHelp == @lastHelp)
       if(@helpLevel < @helpLevelMax)
-        @helpLevel +=1
+        @helpLevel += 1
       end
     else
       @helpLevel = @helpLevelMin
@@ -126,7 +114,7 @@ p"4"
         helpLevelManagement(helpRes)
         #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
-          puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + "\n"
+          puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + "  " + helpRes.to_s + "\n"
         end
           return helpRes.getRes(@helpLevel)
       end

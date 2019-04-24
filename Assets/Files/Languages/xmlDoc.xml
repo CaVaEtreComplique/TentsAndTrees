@@ -3,8 +3,8 @@
 @Date:   28-Mar-2019
 @Email:  maxime_touze@univ-lemans.fr
 @Filename: xmlDoc.xml
-@Last modified by:   maxime
-@Last modified time: 08-Apr-2019
+@Last modified by:   Sckylle
+@Last modified time: 24-Apr-2019
 -->
 
 
@@ -194,7 +194,7 @@
       <overlap>
         <lvl1>Deux cellules blanches indiquent l'état d'une troisième</lvl1>
         <lvl2>Deux cellules blanches indiquent qu'une autre cellule est du gazon</lvl2>
-        <lvl3>La case ; est touchée par deux cases blanches en ; et en ; et est donc du gazon.</lvl3>
+        <lvl3>La case ; est touchée par deux cases blanches en ; et en ; dont une est forcement une tente et est donc du gazon.</lvl3>
       </overlap>
       <allgrassoncolumn>
         <lvl1>Vous avez placé tout le gazon d'une colonne</lvl1>
@@ -420,7 +420,7 @@
       <overlap>
         <lvl1>Two white cells leave only one possible state for a third one</lvl1>
         <lvl2>Two white cells mean the third one is grass</lvl2>
-        <lvl3>The cell ; is nearby the two white cells ; and ; and therefore is grass</lvl3>
+        <lvl3>The cell ; is nearby the two white cells ; and ; whith one of them is a tent and therefore is grass</lvl3>
       </overlap>
       <allgrassoncolumn>
         <lvl1>You have placed all of a column's grass</lvl1>

@@ -2,8 +2,8 @@
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
 # @Filename: HelpsOnACellOverlap.rb
-# @Last modified by:   maxime
-# @Last modified time: 05-Apr-2019
+# @Last modified by:   Sckylle
+# @Last modified time: 24-Apr-2019
 
 require File.dirname(__FILE__) + "/../HelpOn3Cells"
 
@@ -59,7 +59,7 @@ class HelpsOnACellOverlap < HelpOn3Cells
   # respectively the coordinates of cellGrass, cellwhite1 and cellwhite2 :
   #    "The cell cG is nearby the two white cells cw1 and cw2 and therefore is grass"
   def getText(helpLevel)
-    case helpText
+    case helpLevel
       when 1
         return @textManager.getHelpsTexts("overlap", helpLevel, 0)
       when 2
