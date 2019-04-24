@@ -29,7 +29,7 @@
     </loadingmessages>
 
     <rules>
-      <rule1>Le nombre des tentes de chaque ligne et de chaque collone est indiqué</rule1>
+      <rule1>Le nombre de tentes pour chaque ligne / colonne est indiqué</rule1>
       <rule2>Un arbre ne peut être associer qu'à une seule tente</rule2>
       <rule3>Un arbre ne peut avoir de tente associer en diagonale</rule3>
       <rule4>Une tente ne peut pas toucher une autre tente</rule4>
