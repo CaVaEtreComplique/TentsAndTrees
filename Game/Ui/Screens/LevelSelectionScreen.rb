@@ -27,14 +27,25 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 
 		@gtkObject = Gtk::Table.new(3,3)
 		@scrol=ScrollableArea.new(:vertical)
-		@boxV=Gtk::Box.new(:horizontal)
+		@boxV=Gtk::Box.new(:vertical)
+		@overAllStars = @adventure.overAllStars.to_s
+
+		@etoileTotal=Gtk::Box.new(:horizontal)
 		a=Gtk::Alignment.new(0.5,0,0.5,1)
 		a.add(@boxV)
 		@gtkObject.attach(a,0,1,1,2)
+
+		@boxV.pack_start(@etoileTotal ,expand: false, fill: true, padding:@pad)
+		@st=Star.new(1,1)
+		@etoileTotal.pack_start(@st.stars,expand: false, fill: true, padding:@pad)
+		nbEtoile=Text.new(@overAllStars)
+
+		nbEtoile.title
+		@etoileTotal.pack_start(nbEtoile.gtkObject,expand: false, fill: true, padding:@pad)
+
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
 		@nbNiveau=@adventure.adventureInfo.levels.length
-		@overAllStars = @adventure.overAllStars
 		l=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
 
     @b=Gtk::Box.new(:horizontal, 25)
@@ -46,7 +57,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@scrol.add(@menuR)
 
 		retour=Text.new("Quitter")
-    @menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
+    @boxV.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
   	retour.onClick{
 			manager.session.updateSave
 			manager.updateSave
@@ -54,9 +65,18 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		}
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 	end
-
+	def refreshOverAllStar
+		@etoileTotal.each { |child|
+			@etoileTotal.remove(child)
+		}
+		@st=Star.new(1,1)
+		@etoileTotal.pack_start(@st.stars,expand: false, fill: true, padding:@pad)
+		nbEtoile=Text.new(@adventure.overAllStars.to_s)
+		nbEtoile.title
+		@etoileTotal.pack_start(nbEtoile.gtkObject,expand: false, fill: true, padding:@pad)
+	end
 	def applyOn(widget)
-
+		refreshOverAllStar
 		@icones.refresh(@manager,@adventure,@adventure.overAllStarsHash)
 		super(widget)
 	end

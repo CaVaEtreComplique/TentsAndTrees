@@ -24,11 +24,11 @@ def initialize(width , height, textManager)
   pic3.resize(@w,@h)
   pic4.resize(@w,@h)
 
-  tempNext = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/nextButton.png")
-  tempPrevious = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../Assets/regle/previousButton.png")
-  tempNext = tempNext.scale(width*0.2,height*0.2)
+  tempNext = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/nextButton.png")
+  tempPrevious = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/previousButton.png")
+  tempNext = tempNext.resize(width*0.2,height*0.2)
   nextButton = Gtk::Image.new(pixbuf: tempNext)
-  tempPrevious = tempPrevious.scale(width*0.2,height*0.2)
+  tempPrevious = tempPrevious.resize(width*0.2,height*0.2)
   previousButton = Gtk::Image.new(pixbuf: tempPrevious)
 
   @textManager=textManager
