@@ -219,7 +219,10 @@
     </helps>
     <tutorial>
       <victory>
-        <step0>Félicitaion vous avez fini le didacticiel ! Si vous avez des trous de mémoire concerntant les règles, n'oubliez pas le menu pause. N'hésitez pas à refaire le didacticiel si besoin ! Bon jeu !</step0>
+        <step0>Félicitaion vous avez fini le didacticiel !</step0>
+        <step1>Si vous avez avez oubliez les règles consulter le menu pause.</step1>
+        <step2>N'hésitez pas à refaire le didacticiel si besoin !</step2>
+        <step3>Bon jeu !</step3>
       </victory>
       <level>
         <step0>Bienvenue dans le niveau didacticiel, pour continuer, clickez sur "Suivant".</step0>
@@ -446,7 +449,10 @@
 
     <tutorial>
       <victory>
-        <step0>Félicitaion vous avez fini le didacticiel ! Si vous avez des trous de mémoire concerntant les règles, n'oubliez pas le menu pause. N'hésitez pas à refaire le didacticiel si besoin ! Bon jeu !</step0>
+        <step0>Félicitaion vous avez fini le didacticiel !</step0>
+        <step1>Si vous avez avez oubliez les règles consulter le menu pause.</step1>
+        <step2>N'hésitez pas à refaire le didacticiel si besoin !</step2>
+        <step3>Bon jeu !</step3>
       </victory>
       <level>
         <step0>Bienvenue dans le niveau didacticiel, pour continuer, clickez sur "Suivant".</step0>

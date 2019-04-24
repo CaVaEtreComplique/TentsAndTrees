@@ -2,8 +2,8 @@
 # @Date:   01-Mar-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: UiManager.rb
-# @Last modified by:   zeigon
-# @Last modified time: 08-Apr-2019
+# @Last modified by:   Sckylle
+# @Last modified time: 24-Apr-2019
 
 class UiManager
     attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session, :highScoresScreen
@@ -69,9 +69,9 @@ class UiManager
   def getVictoryScreen(session)
     if session.partOfAdventure?
       AdventureVictoryScreen.new(self,session)
-    else if session.isTutorial?
+    elsif session.isTutorial?
       TutorialVictoryScreen.new(self,@session)
-    end
+    else
       VictoryScreen.new(self,@session)
     end
   end
