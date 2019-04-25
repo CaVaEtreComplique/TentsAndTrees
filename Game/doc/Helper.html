@@ -189,23 +189,20 @@
 
           
           <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 107</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>) <span class="ruby-comment">#called to help the player</span>
-  <span class="ruby-comment">#game.beginGuess</span>
 
   <span class="ruby-identifier">game</span> = <span class="ruby-constant">GameDecorated</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>)
 
   <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">aHelper</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span>(((<span class="ruby-identifier">helpRes</span> = <span class="ruby-identifier">aHelper</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">game</span>)).<span class="ruby-identifier">helpFound?</span>))
       <span class="ruby-identifier">helpLevelManagement</span>(<span class="ruby-identifier">helpRes</span>)
-      <span class="ruby-comment">#game.removeGuess</span>
       <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@mod</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">@@DEBUG_MOD</span>)
         <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nDebug : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getText</span>(<span class="ruby-ivar">@helpLevel</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpLevel</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
       <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getRes</span>(<span class="ruby-ivar">@helpLevel</span>)
     <span class="ruby-keyword">end</span>
   }
-  <span class="ruby-comment">#game.removeGuess</span>
 
   <span class="ruby-identifier">help</span> = <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>
 
@@ -244,7 +241,7 @@
 
           
           <div class="method-source-code" id="helpLevelManagement-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 92</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpLevelManagement</span>(<span class="ruby-identifier">aHelp</span>)
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">aHelp</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@lastHelp</span>)
     <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@helpLevelMax</span>)
@@ -287,8 +284,6 @@
             <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpLevelSetMinMax</span>(<span class="ruby-identifier">helpLevelMin</span>, <span class="ruby-identifier">helpLevelMax</span>)
 
-  <span class="ruby-comment"># p&quot;=============================&quot;</span>
-
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevelMin</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">@@MINLEVELHELP</span>) <span class="ruby-comment">#Set helpLevelMin</span>
     <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">@@MINLEVELHELP</span>
   <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">helpLevelMin</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">@@MAXLEVELHELP</span>)
@@ -297,7 +292,6 @@
     <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">helpLevelMin</span>
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-comment"># p&quot;2&quot;</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevelMax</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">@@MINLEVELHELP</span>) <span class="ruby-comment">#Set helpLevelMax</span>
     <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">@@MINLEVELHELP</span>
   <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">helpLevelMax</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">@@MAXLEVELHELP</span>)
@@ -305,8 +299,6 @@
   <span class="ruby-keyword">else</span>
     <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">helpLevelMax</span>
   <span class="ruby-keyword">end</span>
-
-  <span class="ruby-comment"># p&quot;3&quot;</span>
 
   <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevelMax</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@helpLevelMin</span>) <span class="ruby-comment">#Invers if necessary</span>
     <span class="ruby-identifier">tmp</span> = <span class="ruby-ivar">@helpLevelMax</span>
@@ -349,7 +341,7 @@
 
           
           <div class="method-source-code" id="price-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 103</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>()
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lastHelp</span>.<span class="ruby-identifier">price</span>(<span class="ruby-ivar">@helpLevel</span>)
 <span class="ruby-keyword">end</span></pre>
