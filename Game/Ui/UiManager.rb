@@ -29,6 +29,9 @@ class UiManager
   def updateSave
     @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
   end
+   def updateSave
+    @highScoresScreen=HighScoresScreen.new(self)
+  end
 
   def run
     @mainScreen.applyOn(@win)
