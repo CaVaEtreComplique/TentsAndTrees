@@ -67,8 +67,8 @@ class AdventureVictoryScreen < Screen
 
       @replay=Text.new(@textManager.getButtonLabel("victory" , "levelselection"))
       @replay.onClick{
+        @manager.session.updateSave
         @manager.levelNumberScreen.applyOn(@parent)
-    		@manager.session.updateSave
       }
       @vBox.pack_start(@replay.gtkObject, expand: false, fill: true, padding:@pad)
 
