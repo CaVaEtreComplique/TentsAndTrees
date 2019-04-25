@@ -5,17 +5,39 @@
 # @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
-
-
 #A helper whitch help the player to place grass in cells that touch tents
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
+##
+# ===== Presentation
+# The CellTouchATentHelper class is a helper class inherited from FictivHelper, it's role is to find a cell whitch touch a tent.
+#
+# ===== Methods
+# help(game) -- inheritade from FictivHelper, but definded there.
+
+
 class CellTouchATentHelper < FictivHelper
 
 public_class_method :new
 
+
+##
+# ===== Presentation
+# This method try to find a cell touched by a tent.
+#
+# ===== Attributes
+# * +game+ - The game you want a help for.
+#
+# ===== Returns
+# If it find a cell touched by a tent, returns a HelpOnACellTouchATent instance,
+# else it returns a HelpNotFound instance.
+#
+# ===== How to use
+# To get a help for a cell touched by a tent:
+# CellTouchATentHelper_instace.help(theGameYouWantHelpFor)
+# -----------
   def help(game)
 
     white = game.white()
