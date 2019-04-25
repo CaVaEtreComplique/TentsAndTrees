@@ -5,7 +5,7 @@
 # @Last modified by:   Maxime
 # @Last modified time: 15-Mar-2019
 
-#A helper whitch help the player to place grass in cells that touch tents
+#A helper whitch helps the player to put grass on cells that touch tents.
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellTouchATent/HelpOnACellTouchATent"
 require File.dirname(__FILE__) + "/../FictivHelper"
