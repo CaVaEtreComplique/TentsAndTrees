@@ -31,7 +31,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 #This method is used to create the level selection by calling the class LevelNumbers.
 #ALl images will be charged thanks to the class IconAsset.
 #A scrolable area is also created by calling the class ScrolableArea, which contains
-#buttons and boxes. This buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars.
+#buttons and boxes. These buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars.
 #On the page we can find the number of stars that we own contain in the box etoileTotal.
 #All the other variable are used for the layout.
 #=====Attributes
