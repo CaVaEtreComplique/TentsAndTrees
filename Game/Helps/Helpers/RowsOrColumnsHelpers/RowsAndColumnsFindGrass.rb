@@ -41,11 +41,7 @@ class RowsAndColumnsFindGrass < FictivHelper
   #
   # ===== How to use
   # To get a help for a cell don't touched by a tree:
-<<<<<<< HEAD
   #     rowsAndColumnsFindGrass_instace.help(theGameYouWantHelpFor)
-=======
-  # rowsAndColumnsFindGrass_instace.help(theGameYouWantHelpFor)
->>>>>>> 462cd7a472e54fe510a650fbd98e3c5072194f8d
   # -----------
   def help(game) # :nodoc:
 
