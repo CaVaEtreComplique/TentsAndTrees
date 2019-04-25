@@ -14,9 +14,29 @@ def require_all(_dir)
 	}
 end
 
+
+##
+# ===== Presentation
+#LevelSelectionScreen is an inherited class from the Screen class. This class only needs
+#to be initialized and refresh.
+#It creates and implements the level selection menu from the game by creating its
+#levels numbers.
+##
+
 class LevelSelectionScreen < Screen
 
 attr_reader :adventure, :adventureInfo, :overAllStars
+#
+#=====Presentation
+#This method is used to create the level selection by calling the class LevelNumbers.
+#ALl images will be charged thanks to the class IconAsset.
+#A scrolable area is also created by calling the class ScrolableArea, which contains
+#buttons and boxes. This buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars.
+#On the page we can find the number of stars that we own contain in the box etoileTotal.
+#All the other variable are used for the layout.
+#=====Attributes
+# *+manager+ : managerUi who handle the Ui
+##
   def initialize(manager)
 		super(manager.win)
 		@manager = manager
@@ -24,7 +44,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@adventure = manager.session
 		screen = Constants::SCREEN
 		@pad=Constants::BUTTON_PADDING
-
+		@ic=IconAsset.new
 		@gtkObject = Gtk::Table.new(3,3)
 		@scrol=ScrollableArea.new(:vertical)
 		@boxV=Gtk::Box.new(:vertical)
@@ -46,7 +66,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
 		@nbNiveau=@adventure.adventureInfo.levels.length
-		l=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Characters/lock.png")
+		l=@ic.iconAsset.fetch(:loc)
 
     @b=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@b)
@@ -75,6 +95,17 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		nbEtoile.title
 		@etoileTotal.pack_start(nbEtoile.gtkObject,expand: false, fill: true, padding:@pad)
 	end
+
+
+	#
+	#=====Presentation
+	#This method is used to refresh the page by calling the method refresh of the class LevelNumbers
+	#=====Attributes
+	# *+widget+ :
+	#=====Return
+	# this method return the widget refreshed
+	##
+
 	def applyOn(widget)
 		refreshOverAllStar
 		@icones.refresh(@manager,@adventure,@adventure.overAllStarsHash)
