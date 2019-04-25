@@ -15,11 +15,35 @@ require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
+##
+# ===== Presentation
+# The RowsAndColumnsFindGrass class is a helper class inherited from FictivHelper
+# it's role is to find a cell whitch is grass because of it's row/column, or a near one.
+#
+# ===== Methods
+# * +help(game)+ - inheritade from FictivHelper, but definded there.
 class RowsAndColumnsFindGrass < FictivHelper
 
   public_class_method :new
 
-  def help(game)
+  ##
+  # ===== Presentation
+  # This method try to find a cell whitch is grass beacause of it's row/column, or a near one.
+  #
+  # ===== Attributes
+  # * +game+ - The game you want a help for.
+  #
+  # ===== Returns
+  # If it find a cell whitch is grass beacause of it's row/column, or a near one,
+  # returns a HelpAllPossibilitiesGiveItRow instance if it depends on a row,
+  # returns a HelpAllPossibilitiesGiveItColumn instance if it depends on a column,
+  # else it returns a HelpNotFound instance.
+  #
+  # ===== How to use
+  # To get a help for a cell don't touched by a tree:
+  #     rowsAndColumnsFindGrass_instace.help(theGameYouWantHelpFor)
+  # -----------
+  def help(game) # :nodoc:
 
     game = game.game()
 
@@ -135,7 +159,7 @@ class RowsAndColumnsFindGrass < FictivHelper
                   if cell.row - 1 >= 0
                     return HelpAllPossibilitiesGiveItColumn.new(game.cellAt(cell.row - 1, cell.column - 1), game.correction.rows[i], "grass") if game.cellAt(cell.row - 1, cell.column - 1).isAWhite?
                   end
-                end 
+                end
               end
               odd = true
               zone.each do |cell|
