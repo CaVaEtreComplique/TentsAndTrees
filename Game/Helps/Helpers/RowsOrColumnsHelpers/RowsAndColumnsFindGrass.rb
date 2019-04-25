@@ -5,10 +5,6 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
-#RowsAndColumnsFindGrass help you to find grass in a row or columns
-
 require File.dirname(__FILE__) + "/../../FindWhiteZone"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn"
@@ -21,7 +17,7 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 # it's role is to find a cell whitch is grass because of it's row/column, or a near one.
 #
 # ===== Methods
-# * +help(game)+ - inheritade from FictivHelper, but definded there.
+# * +help+ - inheritade from FictivHelper, but definded there.
 class RowsAndColumnsFindGrass < FictivHelper
 
   public_class_method :new

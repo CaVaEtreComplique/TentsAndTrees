@@ -5,10 +5,6 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
-#RowsAndColumnsFindTent help you to find Tent in a row or columns
-
 require File.dirname(__FILE__) + "/../../Count"
 require File.dirname(__FILE__) + "/../../FindWhiteZone"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
@@ -22,7 +18,7 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 # it's role is to find a cell whitch is tent because of it's row/column, or a near one.
 #
 # ===== Methods
-# * +help(game)+ - inheritade from FictivHelper, but definded there.
+# * +help+ - inheritade from FictivHelper, but definded there.
 class RowsAndColumnsFindTent < FictivHelper
 
   public_class_method :new
