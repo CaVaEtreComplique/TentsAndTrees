@@ -6,9 +6,26 @@
 # @Last modified time: 15-Mar-2019
 
 
-
-#Find white block in column/row which follow each other, create an array who contain those block
+##
+# ==== Presentation
+# The FindWhiteZone class is an extended methode from Game class
+#
+# ==== Methods
+# This class know the Find methode describe below
+#
 class FindWhiteZone
+
+	# ==== Presentation
+	# This class methode ("  trouve les cases blanches qui se
+	# suivent dans une colonne ou ligne pour les placer dans un tableau,
+	# renvoie au final un tableau qui contien ces différents tableaux.  ")
+	#
+	# ===== Attributes
+	# * +game+ - The Game in witch we are going to extract our finial array.
+	# * +vertHor+ - The orientation, put 1 if we are looking for a row otherwise it
+	#			will look for a column.
+	# * +rank+ - The row or column number we want to do our research in.
+	#
 	def FindWhiteZone.Find(game, vertHor, rank)
 		tabCell = Array.new()
 		tabCellInside = Array.new()
