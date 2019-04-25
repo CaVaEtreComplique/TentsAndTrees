@@ -74,7 +74,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-help">#help</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -87,11 +97,11 @@
     
 <h5 id="class-RowsAndColumnsFindGrass-label-Presentation">Presentation<span><a href="#class-RowsAndColumnsFindGrass-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="RowsAndColumnsFindGrass.html"><code>RowsAndColumnsFindGrass</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a> it&#39;s role is to find a cell whitch is grass because of it&#39;s row/column, or a near one.</p>
+<p>The <a href="RowsAndColumnsFindGrass.html"><code>RowsAndColumnsFindGrass</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>. Its role is to find a cell whitch is grass because of its row/column, or a near one.</p>
 
 <h5 id="class-RowsAndColumnsFindGrass-label-Methods">Methods<span><a href="#class-RowsAndColumnsFindGrass-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>help</code> - inheritade from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+<p><code>help</code> - Inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but defined there.</p>
 </li></ul>
 
   </section>
@@ -107,6 +117,206 @@
     
 
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-help" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help</span><span
+            class="method-args">(game)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method tries to find a cell whitch is grass beacause of its row/column, or a near one.</p>
+
+<h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - The game you want help for.</p>
+</li></ul>
+
+<h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If it finds a cell whitch is grass because of its row/column, or a near one, returns a <a href="HelpAllPossibilitiesGiveItRow.html"><code>HelpAllPossibilitiesGiveItRow</code></a> instance if it depends on a row or returns a <a href="HelpAllPossibilitiesGiveItColumn.html"><code>HelpAllPossibilitiesGiveItColumn</code></a> instance if it depends on a column. If nothing is found, returns a <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance.</p>
+
+<h5 id="method-i-help-label-How+to+use">How to use<span><a href="#method-i-help-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To get help :</p>
+
+<pre class="ruby"><span class="ruby-identifier">rowsAndColumnsFindGrass_instace</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">theGameYouWantHelpFor</span>)
+</pre>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="help-source">
+            <pre><span class="ruby-comment"># File Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsFindGrass.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
+
+  <span class="ruby-identifier">game</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">game</span>()
+
+  <span class="ruby-comment">#Algorithm for each columns</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
+    <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+
+    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tent</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
+
+    <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">||</span> (<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+
+      <span class="ruby-comment">#Time efficient, in case of medium/big grid</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>])
+
+        <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>)
+              <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+              <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">else</span>  <span class="ruby-comment">#nbTent == game.colClues[i]+1</span>
+        <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-comment">#odd zone</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>)   <span class="ruby-comment">#Two consecutive odd zone</span>
+              <span class="ruby-identifier">cell</span> = <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">first</span>
+              <span class="ruby-keyword">if</span> (<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>).<span class="ruby-identifier">isAWhite?</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>)
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">odd</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">false</span>
+          <span class="ruby-keyword">else</span>  <span class="ruby-comment">#zone.size % 2 == 0 --&gt; even zone</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment">#Algorithm for each row</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
+    <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+
+    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tent</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
+
+    <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">||</span> (<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+
+      <span class="ruby-comment">#Time efficient, in case of medium/big grid</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>])
+
+        <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>)
+              <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>).<span class="ruby-identifier">isAWhite?</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+              <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>).<span class="ruby-identifier">isAWhite?</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">else</span>  <span class="ruby-comment">#nbTent == game.rowClues[i]+1</span>
+        <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-comment">#odd zone</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>)   <span class="ruby-comment">#Two consecutive odd zone</span>
+              <span class="ruby-identifier">cell</span> = <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">first</span>
+              <span class="ruby-keyword">if</span> (<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>).<span class="ruby-identifier">isAWhite?</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>)
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+                  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>), <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;grass&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">column</span>).<span class="ruby-identifier">isAWhite?</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">odd</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">odd</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">false</span>
+          <span class="ruby-keyword">else</span>  <span class="ruby-comment">#zone.size % 2 == 0 --&gt; even zone</span>
+            <span class="ruby-identifier">odd</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>()
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

@@ -13,33 +13,33 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 
 ##
 # ===== Presentation
-# The RowsAndColumnsFindGrass class is a helper class inherited from FictivHelper
-# it's role is to find a cell whitch is grass because of it's row/column, or a near one.
+# The RowsAndColumnsFindGrass class is a helper class inherited from FictivHelper.
+# Its role is to find a cell whitch is grass because of its row/column, or a near one.
 #
 # ===== Methods
-# * +help+ - inheritade from FictivHelper, but definded there.
+# * +help+ - Inherited from FictivHelper, but defined there.
 class RowsAndColumnsFindGrass < FictivHelper
 
   public_class_method :new
 
   ##
   # ===== Presentation
-  # This method try to find a cell whitch is grass beacause of it's row/column, or a near one.
+  # This method tries to find a cell whitch is grass beacause of its row/column, or a near one.
   #
   # ===== Attributes
-  # * +game+ - The game you want a help for.
+  # * +game+ - The game you want help for.
   #
   # ===== Returns
-  # If it find a cell whitch is grass beacause of it's row/column, or a near one,
-  # returns a HelpAllPossibilitiesGiveItRow instance if it depends on a row,
-  # returns a HelpAllPossibilitiesGiveItColumn instance if it depends on a column,
-  # else it returns a HelpNotFound instance.
+  # If it finds a cell whitch is grass because of its row/column, or a near one,
+  # returns a HelpAllPossibilitiesGiveItRow instance if it depends on a row or
+  # returns a HelpAllPossibilitiesGiveItColumn instance if it depends on a column.
+  # If nothing is found, returns a HelpNotFound instance.
   #
   # ===== How to use
-  # To get a help for a cell don't touched by a tree:
+  # To get help :
   #     rowsAndColumnsFindGrass_instace.help(theGameYouWantHelpFor)
   # -----------
-  def help(game) # :nodoc:
+  def help(game)
 
     game = game.game()
 
