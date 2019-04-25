@@ -2,8 +2,8 @@
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
-# @Last modified by:   zeigon
-# @Last modified time: 05-Apr-2019
+# @Last modified by:   Sckylle
+# @Last modified time: 25-Apr-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../AssetsClass/Asset"
@@ -56,7 +56,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
     @menuR=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@menuR)
 
-		retour=Text.new("Quitter")
+		retour=Text.new(@textManager.getButtonLabel("adventure", "back"))
     @boxV.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
   	retour.onClick{
 			manager.session.updateSave

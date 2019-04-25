@@ -4,7 +4,7 @@
 @Email:  maxime_touze@univ-lemans.fr
 @Filename: xmlDoc.xml
 @Last modified by:   Sckylle
-@Last modified time: 24-Apr-2019
+@Last modified time: 25-Apr-2019
 -->
 
 
@@ -79,6 +79,15 @@
         </texts>
       </forgotpass>
 
+      <adventure>
+        <texts>
+          <title>Aventure</title>
+        </texts>
+        <buttons>
+          <back>Retour</back>
+        </buttons>
+      </adventure>
+
       <gamemode>
         <texts>
           <title>Mode de jeu</title>
@@ -104,6 +113,18 @@
           <back>Retour</back>
         </buttons>
       </difficulty>
+
+      <save>
+        <texts>
+          <title>Sauvegardes</title>
+          <nosave>Pas de sauvegardes</nosave>
+        </texts>
+        <buttons>
+          <back>Retour</back>
+          <load>Charger</load>
+          <del>Supprimer</del>
+        </buttons>
+      </save>
 
       <ingame>
         <texts>
@@ -306,7 +327,14 @@
         </texts>
       </forgotpass>
 
-
+      <adventure>
+        <texts>
+          <title>Adventure</title>
+        </texts>
+        <buttons>
+          <back>Back</back>
+        </buttons>
+      </adventure>
 
       <gamemode>
         <texts>
@@ -333,6 +361,18 @@
           <back>Back</back>
         </buttons>
       </difficulty>
+
+      <save>
+        <texts>
+          <title>Save</title>
+          <nosave>No save</nosave>
+        </texts>
+        <buttons>
+          <back>Back</back>
+          <load>Load</load>
+          <del>Delete</del>
+        </buttons>
+      </save>
 
       <ingame>
         <texts>
@@ -396,7 +436,7 @@
         <lvl3>All the possibilities from the column ; give the cell ; the state </lvl3>
       </allpossibilitiesrow>
       <toofaroftrees>
-        <lvl1>A cell does not tou.add(nextStep.gtkObject)ch a tree</lvl1>
+        <lvl1>A cell does not touch a tree</lvl1>
         <lvl2>A cell does not touch a tree and therefore is grass</lvl2>
         <lvl3>The cell ; does not touch a tree and therefore is grass</lvl3>
       </toofaroftrees>

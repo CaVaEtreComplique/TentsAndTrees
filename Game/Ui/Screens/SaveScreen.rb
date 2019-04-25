@@ -2,8 +2,8 @@
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ChoixDiff.rb
-# @Last modified by:   zeigon
-# @Last modified time: 28-Mar-2019
+# @Last modified by:   Sckylle
+# @Last modified time: 25-Mar-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/../Screens/Screen"
@@ -27,7 +27,7 @@ class SaveScreen < Screen
 		@scrol=ScrollableArea.new(:vertical)
 		@menuR=Gtk::Box.new(:horizontal)
 		@boxV=Gtk::Box.new(:vertical)
-		sauvegarde=Text.new("Sauvegarde")
+		sauvegarde=Text.new(@textManager.getScreenTexts("save" , "title"))
 		sauvegarde.title
 		@boxV.pack_start(sauvegarde.gtkObject ,expand: false, fill: true, padding:@pad)
 
@@ -39,14 +39,14 @@ class SaveScreen < Screen
 		tab=connect.getPlayersSave(joueur)
 
 		if(tab.empty?)
-				noSave=Text.new("PAS DE SAUVEGARDE")
+				noSave=Text.new(@textManager.getScreenTexts("save" , "nosave"))
 				@scrol.add(noSave.gtkObject)
 		else
 				tab.each{|i|
 				@scrol.add(SaveBlockUi.new(manager,i,@parent))
 				}
 		end
-		retour=Text.new("RETOUR")
+		retour=Text.new(@textManager.getButtonLabel("save" , "back"))
 		@menuR.pack_start(retour.gtkObject ,expand: false, fill: true, padding:@pad)
 		@boxV.add(@menuR)
 	#	@scrol.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)

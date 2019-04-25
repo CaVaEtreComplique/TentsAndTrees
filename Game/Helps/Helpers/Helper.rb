@@ -3,7 +3,7 @@
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: Helper.rb
 # @Last modified by:   Sckylle
-# @Last modified time: 11-Apr-2019
+# @Last modified time: 25-Apr-2019
 
 
 
@@ -55,8 +55,6 @@ class Helper < FictivHelper
 
   def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
 
-    # p"============================="
-
     if(helpLevelMin < @@MINLEVELHELP) #Set helpLevelMin
       @helpLevelMin = @@MINLEVELHELP
     elsif(helpLevelMin > @@MAXLEVELHELP)
@@ -65,7 +63,6 @@ class Helper < FictivHelper
       @helpLevelMin = helpLevelMin
     end
 
-    # p"2"
     if(helpLevelMax < @@MINLEVELHELP) #Set helpLevelMax
       @helpLevelMax = @@MINLEVELHELP
     elsif(helpLevelMax > @@MAXLEVELHELP)
@@ -73,8 +70,6 @@ class Helper < FictivHelper
     else
       @helpLevelMax = helpLevelMax
     end
-
-    # p"3"
 
     if(@helpLevelMax < @helpLevelMin) #Invers if necessary
       tmp = @helpLevelMax
@@ -105,21 +100,18 @@ class Helper < FictivHelper
   end
 
   def help(game) #called to help the player
-    #game.beginGuess
 
     game = GameDecorated.new(game)
 
     @helps.each{ |aHelper|
       if(((helpRes = aHelper.help(game)).helpFound?))
         helpLevelManagement(helpRes)
-        #game.removeGuess
         if(@@mod == @@DEBUG_MOD)
           puts "\nDebug : " + helpRes.getText(@helpLevel) + @helpLevel.to_s + "  " + helpRes.to_s + "\n"
         end
           return helpRes.getRes(@helpLevel)
       end
     }
-    #game.removeGuess
 
     help = HelpNotFound.new
 
