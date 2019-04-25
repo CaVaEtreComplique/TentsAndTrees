@@ -2,8 +2,8 @@
 # @Date:   8-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Connexion.rb
-# @Last modified by:   zeigon
-# @Last modified time: 29-Mar-2019
+# @Last modified by:   Sckylle
+# @Last modified time: 25-Apr-2019
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -51,10 +51,10 @@ class Connexion
     @image=Gtk::EventBox.new()
 
     log = Text.new("LOGIN",@police)
-    mdp = Text.new("MOT DE PASSE",@police)
-    ident = Text.new("SE CONNECTER",@police)
-		inscription =Text.new("INSCRIPTION",@police)
-		mdpOublie=Text.new("MOT DE PASSE OUBLIE",@police)
+    mdp = Text.new("PASSWORD",@police)
+    ident = Text.new("SIGN IN",@police)
+		inscription =Text.new("SIGN UP",@police)
+		mdpOublie=Text.new("FORGOT PASSWORD",@police)
 
     quitter=Asset.new(File.dirname(__FILE__) + "/../Assets/Icons/cancel.png")
     quitter.resize(20,20)
