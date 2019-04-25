@@ -5,9 +5,6 @@
 # @Last modified by:   Sckylle
 # @Last modified time: 25-Apr-2019
 
-
-
-#Main of the help, when you need a help, let's call Helper to help you
 require File.dirname(__FILE__) + "/FictivHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper"
 require File.dirname(__FILE__) + "/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper"
@@ -19,21 +16,51 @@ require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellWhiteOverlap"
 require File.dirname(__FILE__) + "/../GameDecorated"
 
+##
+# ===== Presentation
+# The Helper class is a helper class inherited from FictivHelper
+# it's role is to help you to find where you can fill a row or column whith tents.
+#
+# ===== Variables
+# * +MAXLEVELHELP+ : class variable, the maximum level of helps returned
+# * +MINLEVELHELP+ : class variable, the minimal level of helps returned
+# * +helps+ : instence variable, all the helpers known by this helper
+#
+# ===== Methods
+# * +help+ - inherited from FictivHelper, but definded there.
+# * +price+ - give the price of the last help.
 class Helper < FictivHelper
+  # :nodoc:
   #needed to be initialized at the start
   ##MODS for displaying only on game screen ( @@ONLY_UI_MOD ) or on the terminal as well ( @@DEBUG_MOD )
   @@DEBUG_MOD=1
   @@ONLY_UI_MOD=0
-  @@mod = @@DEBUG_MOD
+  @@mod = @@ONLY_UI_MOD
+#######
+
   ##Maximal and minimal level of help
   @@MAXLEVELHELP = 3
   @@MINLEVELHELP = 1
-  ######################################
-
+######
   @@helper
   @helps
 
-  def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)
+  # :startdoc:
+
+  ##
+  # ===== Presentation
+  # This method initialize the helper with all the helpers he needs to know, and the helps' levels.
+  #
+  # ===== Attributes
+  # helplvl: help level at the start of the helps.
+  # lvlmin : minimal help level of the helper.
+  # lvlmax : maximal help level of the helper.
+  #
+  # ===== How to use
+  # To get a help:
+  #    helper_instace.helpLevelManagement(aHelp)
+  # -----------
+  def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)# :nodoc:
 
     @helpLevel = helplvl
     helpLevelSetMinMax(lvlmin, lvlmax)
@@ -51,9 +78,21 @@ class Helper < FictivHelper
     @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
     @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
     @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
-  end
+  end# :startdoc:
 
-  def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
+  ##
+  # ===== Presentation
+  # This method sets the min and max levels of the helps gave by the helper.
+  #
+  # ===== Attributes
+  # helpLevelMin : minimal help level of the helper
+  # helpLevelMax : maximal help level of the helper
+  #
+  # ===== How to use
+  # To get a help:
+  #    helper_instace.helpLevelManagement(aHelp)
+  # -----------
+  def helpLevelSetMinMax(helpLevelMin, helpLevelMax)# :nodoc:
 
     if(helpLevelMin < @@MINLEVELHELP) #Set helpLevelMin
       @helpLevelMin = @@MINLEVELHELP
@@ -82,9 +121,20 @@ class Helper < FictivHelper
     elsif (@helpLevel > helpLevelMax)
       @helpLevel = @helpLevelMax
     end
-  end
+  end# :startdoc:
 
-  def helpLevelManagement(aHelp)
+  ##
+  # ===== Presentation
+  # This method changes the level of the help text.
+  #
+  # ===== Attributes
+  # aHelp : last help called
+  #
+  # ===== How to use
+  # To get a help:
+  #    helper_instace.helpLevelManagement(aHelp)
+  # -----------
+  def helpLevelManagement(aHelp)# :nodoc:
     if(aHelp == @lastHelp)
       if(@helpLevel < @helpLevelMax)
         @helpLevel += 1
@@ -93,13 +143,40 @@ class Helper < FictivHelper
       @helpLevel = @helpLevelMin
       @lastHelp = aHelp
     end
-  end
+  end# :startdoc:
 
-  def price()
+
+  ##
+  # ===== Presentation
+  # This method returns the cost of last help.
+  #
+  # ===== Returns
+  # The cost in second of the las help called
+  #
+  # ===== How to use
+  # To get a help:
+  #    helper_instace.price()
+  # -----------
+  def price()# :nodoc:
     return @lastHelp.price(@helpLevel)
-  end
+  end# :startdoc:
 
-  def help(game) #called to help the player
+  ##
+  # ===== Presentation
+  # This method returns the help found to help the player.
+  #
+  # ===== Attributes
+  # * +game+ - The game you want a help for.
+  #
+  # ===== Returns
+  # The interpretable result of a help.
+  #
+  # ===== How to use
+  # To get a help:
+  #    helper_instace.help(theGameYouWantHelpFor)
+  # -----------
+  def help(game) # :nodoc:
+    #called to help the player
 
     game = GameDecorated.new(game)
 
@@ -120,5 +197,5 @@ class Helper < FictivHelper
     end
       helpLevelManagement(help)
       return help.getRes(@helpLevel)
-  end
+  end# :startdoc:
 end
