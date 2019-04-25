@@ -5,21 +5,41 @@
 # @Last modified by:   maxime
 # @Last modified time: 05-Apr-2019
 
-
-
-#GrassHelper help you to find where you can fill a row or column whith grass
-
 require File.dirname(__FILE__) + "/../../Count"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpNotFound/HelpNotFound"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnAColumn/HelpsAllTentsOnAColumn/HelpAllTentsOnAColumn"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnRowsAndColumn/HelpsOnARow/HelpsAllTentsOnARow/HelpAllTentsOnARow"
 require File.dirname(__FILE__) + "/../FictivHelper"
 
+##
+# ===== Presentation
+# The RowsAndColumnsGrassHelper class is a helper class inherited from FictivHelper
+# it's role is to help you to find where you can fill a row or column whith grass.
+#
+# ===== Methods
+# * +help+ - inheritade from FictivHelper, but definded there.
 class RowsAndColumnsGrassHelper < FictivHelper
 
   public_class_method :new
 
-  def help(game)
+  ##
+  # ===== Presentation
+  # This method try to find to find whitch row or column you can fill whith grass.
+  #
+  # ===== Attributes
+  # * +game+ - The game you want a help for.
+  #
+  # ===== Returns
+  # If it find a row or a column to fill with grass,
+  # returns a HelpAllTentsOnARow instance if it's a row to fill,
+  # returns a HelpAllTentsOnAColumn instance if it's a column to fill,
+  # else it returns a HelpNotFound instance.
+  #
+  # ===== How to use
+  # To get a help for a cell don't touched by a tree:
+  #     rowsAndColumnsGrassHelper_instace.help(theGameYouWantHelpFor)
+  # -----------
+  def help(game) #:nodoc:
 
     game = game.game()
 
