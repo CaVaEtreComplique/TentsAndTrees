@@ -11,12 +11,46 @@ require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../Buttons/Text"
 require File.dirname(__FILE__) + "/../Buttons/Button"
 
+
+##
+#==Presentation
+#HighScoresScreen is an inherited class from the Screen class. This class only needs
+#to be initialized and applied, so the only method is the initializer. It
+#creates and implements the game mode choice menu from the game by creating its
+#buttons.
+#
+#==Variables
+#The HighScoresScreen class creates the title size, text
+#size and the padding variables with :
+#   @pad =10
+#   @widthTitre=screen.width*0.10
+#   @heightTitre=screen.height*0.08
+#   @widthText=screen.width*0.15
+#   @heightText=screen.height*0.04
+#
+#This class also inherits the screen variable from the Screen class.
+#
+#The gtkObject is the table where the menu (a vertical box) is added to create
+#the menu buttons.
+#
+#==Implementation
+#=====Here is how a high score is implemented on the high scores screen :
+#
+#*First* we fetch the high scores from the database :
+#     ta = db.getHighScoresByGamemodeDiff("timeAttack","easy")
+#
+#*Then* we add the high scores to the screen :
+#   timeAttackArea.pack_start(Text.new("#{hg.player_highScores.name_player} : #{hg.score_highScores}").gtkObject,expand: true, fill:true, padding: @pad)
+#
+#*Finally*, when all the high scores are done we add a background picture with :
+#    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
+#
 class HighScoresScreen < Screen
   def initialize(manager) #:nodoc:
     super(manager.win)
     screen=Gdk::Screen.default
     #Variable pour resize le texte
-    @pad=30
+    @pad=10
     @widthTitre=screen.width*0.10
     @heightTitre=screen.height*0.08
     @widthText=screen.width*0.15
