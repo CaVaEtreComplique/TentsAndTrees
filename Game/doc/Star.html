@@ -147,11 +147,10 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">nbEtoile</span>,<span class="ruby-identifier">nbEtoileObtenu</span>)
-              <span class="ruby-ivar">@sHappy</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/star.png&quot;</span>)
-              <span class="ruby-ivar">@sSad</span>=<span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/starSad.png&quot;</span>)
-  <span class="ruby-ivar">@stars</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
+              <span class="ruby-ivar">@ic</span>=<span class="ruby-constant">IconAsset</span>.<span class="ruby-identifier">new</span>
+              <span class="ruby-ivar">@stars</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
               <span class="ruby-identifier">refresh</span>(<span class="ruby-identifier">nbEtoile</span>,<span class="ruby-identifier">nbEtoileObtenu</span>)
  <span class="ruby-keyword">end</span></pre>
           </div>
@@ -199,11 +198,11 @@
         (<span class="ruby-value">1</span><span class="ruby-operator">..</span> <span class="ruby-identifier">nbEtoile</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
                        <span class="ruby-ivar">@star</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>()
                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">nbEtoileObtenu</span>)
-                        <span class="ruby-identifier">sH</span>= <span class="ruby-ivar">@sHappy</span>
+                        <span class="ruby-identifier">sH</span>=<span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:starH</span>)
                         <span class="ruby-identifier">sH</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">75</span>,<span class="ruby-value">75</span>)
                         <span class="ruby-identifier">sH</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@star</span>)
                 <span class="ruby-keyword">else</span>
-                        <span class="ruby-identifier">sS</span>=<span class="ruby-ivar">@sSad</span>
+                        <span class="ruby-identifier">sS</span>=<span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:starS</span>)
                         <span class="ruby-identifier">sS</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">75</span>,<span class="ruby-value">75</span>)
                         <span class="ruby-identifier">sS</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@star</span>)
                 <span class="ruby-keyword">end</span>

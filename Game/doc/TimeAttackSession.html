@@ -77,6 +77,8 @@
     
     <li ><a href="#method-i-continuable-3F">#continuable?</a>
     
+    <li ><a href="#method-i-isTutorial-3F">#isTutorial?</a>
+    
     <li ><a href="#method-i-setTime">#setTime</a>
     
   </ul>
@@ -201,7 +203,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(gameMode, difficulty, partOfAdventure=false)</span>
+            class="method-args">(difficulty, partOfAdventure=false)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -222,8 +224,8 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
-        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
+        <span class="ruby-keyword">super</span>(<span class="ruby-value">:timeAttack</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -265,7 +267,7 @@
             <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span>
-                <span class="ruby-ivar">@score</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+                <span class="ruby-ivar">@score</span><span class="ruby-operator">+=</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">time</span>
         <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -311,6 +313,39 @@
       </div>
 
     
+      <div id="method-i-isTutorial-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isTutorial?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="isTutorial-3F-source">
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isTutorial?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-setTime" class="method-detail ">
         
         <div class="method-heading">
@@ -330,7 +365,7 @@
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
         <span class="ruby-ivar">@time</span>=<span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span>
 <span class="ruby-keyword">end</span></pre>

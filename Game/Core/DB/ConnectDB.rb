@@ -93,7 +93,7 @@ class ConnectDB
   #
   # ===== Attributes
   # * +login+ : The player's login.
-  # * +mdp+ : The player's new password
+  # * +mdp+ : The player's new password.
   #
   # ===== Returns
   # This method returns the player.
@@ -153,7 +153,7 @@ class ConnectDB
   # * +name+ - The name of the player we're looking for
   # * +password+ - The password of the player we're looking for
   #
-  # ===== Return
+  # ===== Returns
   # The player we're looking for or nil if no one can be found in the database
   #
   # ===== How to Use
@@ -323,7 +323,7 @@ class ConnectDB
 	# 	 db.deleteSave((ID of the save))
    #
    # ===== Examples
-   # The following request will delete the save with the id taken in parameters
+   # The following request will delete the save with the id taken in parameters :
    #    @db.execute "DELETE FROM Save WHERE id_save = #{id}"
    # --------------
 	def deleteSave(id)
@@ -335,7 +335,23 @@ class ConnectDB
 	end
 
    ##
-   # CONTINUER A PARTIR D'ICI
+   # ===== Presentation
+   # This method deletes a player's highscore in the database with the ID of the
+   # player. It is useful when a player deletes his account.
+   # The game must be connected to the database.
+   #
+   # ===== Attributes
+   # * +id+ - The ID of the player we want to delete the high score from
+   #
+   # ===== How to Use
+   #   db = ConnectDB.new()
+   # 	 db.deletePlayerHg((ID of the player))
+   #
+   # ===== Examples
+   # The following request will delete the high score with the player's id taken
+   # in parameters :
+   #    @db.execute "DELETE FROM HighScores WHERE id_player_highScores = #{id}"
+   # --------------
   def deletePlayerHg(id)
     @db.execute "DELETE FROM HighScores WHERE id_player_highScores = #{id}" do |row|
       puts row
@@ -343,6 +359,22 @@ class ConnectDB
 
   end
 
+  ##
+  # ===== Presentation
+  # This method deletes a player in the database with the ID of the
+  # player. The game must be connected to the database.
+  #
+  # ===== Attributes
+  # * +id+ - The ID of the player we want to delete.
+  #
+  # ===== How to Use
+  #   db = ConnectDB.new()
+  # 	 db.deletePlayer((ID of the player))
+  #
+  # ===== Examples
+  # The following request will delete the player with the id taken in parameters :
+  #    @db.execute "DELETE FROM Player WHERE player_id = #{id}"
+  # --------------
   def deletePlayer(id)
 		@db.execute "DELETE FROM Player WHERE player_id = #{id}" do |row|
 			puts row
@@ -350,7 +382,23 @@ class ConnectDB
 
 	end
 
-
+  ##
+  # ===== Presentation
+  # This method deletes all of the player's saves in the database with the ID of the
+  # player. This is useful when a player deletes his account.
+  # The game must be connected to the database.
+  #
+  # ===== Attributes
+  # * +id+ - The ID of the player we want to delete.
+  #
+  # ===== How to Use
+  #   db = ConnectDB.new()
+  # 	 db.deletePlayerSave((ID of the player))
+  #
+  # ===== Examples
+  # The following request will delete the player with the id taken in parameters :
+  #    @db.execute "DELETE FROM Save WHERE player_id_save = #{id}"
+  # --------------
   def deletePlayerSave(id)
 
 		@db.execute "DELETE FROM Save WHERE player_id_save = #{id}" do |row|
@@ -359,23 +407,29 @@ class ConnectDB
 
 	end
 
-
-	# This method retrieves the saves created by the Player.
+   ##
+   # ===== Presentation
+	# This method retrieves all the saves created by the Player.
    # The game must be connected to the database.
 	#
 	# ===== Attributes
 	# * +player+ - The Player who saved.
-	#
    #
-   # ===== Return
+   # ===== Returns
    # The saves created by the Player in an Array.
    #
-	# ===== Examples
+	# ===== How to Use
 	#
 	#   db = ConnectDB.new()
 	# 	 pl = new Player(1,"zae","aze")
 	# 	 db.getPlayersSave(pl)
    #
+   # ===== Exemples
+   # The following request will fetch the player's save in the database :
+   #     @db.execute "SELECT * FROM Save WHERE player_id_save = #{player.id_player}"
+   #
+   # This will then push the results in the Array called saves :
+   #     saves.push(SaveDB.new(row[0],row[1],row[2],row[3]))
    # ------------
 	def getPlayersSave(player)
 
@@ -389,20 +443,29 @@ class ConnectDB
 
 	end
 
+   ##
+   # ===== Presentation
    # This method retrieves the save from the provided ID. The game must be
    # connected to the database.
 	#
 	# ===== Attributes
 	# * +id+ - The ID of the Save
    #
-   # ===== Return
+   # ===== Returns
    # The save that matches the ID provided
    #
-	# ===== Examples
+	# ===== How to Use
 	#
 	#   db = ConnectDB.new()
 	# 	 db.getSaveByID(id)
    #
+   # ===== Examples
+   # The following request will fetch the save from the database with the given
+   # save's ID :
+   #      @db.execute "SELECT * FROM Save WHERE id_save = #{id}"
+   #
+   # This will then give to the save variable the result of the request and return it :
+   #      save = SaveDB.new(row[0],row[1],row[2],row[3])
    # ------------
 	def getSaveByID(id)
 
@@ -416,28 +479,54 @@ class ConnectDB
 
 	end
 
+   ##
+   # ===== Presentation
 	# This method retrieves the high scores by game mode and difficulty. The game
    # must be connected to the database.
 	#
 	# ===== Attributes
 	# * +gamemode+ - The gamemode
 	# * +diff+ - The difficulty
-	#
    #
-   # ===== Return
-   # The highscores that match the game mode and the difficulty in an Array
+   # ===== Returns
+   # The highscores that match the game mode and the difficulty in an Array with
+   # the player that did the highscore.
    #
-	# ===== Examples
+	# ===== How to Use
 	#
 	#   db = ConnectDB.new()
 	# 	 gm = Gamemode.new(1,"Gamemode name")
    #   diff = Difficulty.new(1,"Easy")
 	# 	 db.getHighScoresByGamemodeDiff(gm,diff)
    #
+   # ===== Examples
+   # Three variables are created  : an Array for the high scores, a game mode
+   # variable and a difficulty variable :
+   #     hg = Array.new
+   #     gm = nil
+   #     diff = nil
+   #
+   # The game mode variable gets its value with the following request from the
+   # database :
+   #    @db.execute "SELECT * FROM GameMode WHERE name_gamemode = '#{gamemode}'"
+   #
+   # The difficulty variable gets its value with the following request from the
+   # database :
+   #    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'"
+   #
+   # Finally, the two following requests are made : the first fetches the highscores
+   # with the gamemode and the difficulty provided, the second gets the player
+   # from the last request. It then adds the player and highscore's values in the
+   # Array :
+   #   @db.execute "SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}" do |row|
+   #   @db.execute "SELECT * FROM Player WHERE player_id = #{row[1]}" do |row2|
+   #           hg.push(HighScore.new(row[0],Player.new(row2[0],row2[1],row2[2]),row[2],row[3]))
+   #   end
+   #   end
    # -------------
 	def getHighScoresByGamemodeDiff(gamemode, difficulty)
 
-		hg = Array.new
+	 hg = Array.new
     gm = nil
     diff = nil
 
@@ -449,11 +538,8 @@ class ConnectDB
       diff = row[0]
     end
 
-    p "gm = #{gm} - diff = #{diff}"
-
 		@db.execute "SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}" do |row|
       @db.execute "SELECT * FROM Player WHERE player_id = #{row[1]}" do |row2|
-          p "ALLO LA ?    "
 			     hg.push(HighScore.new(row[0],Player.new(row2[0],row2[1],row2[2]),row[2],row[3]))
       end
 		end
@@ -462,26 +548,47 @@ class ConnectDB
 
 	end
 
-  # This method retrieves the high scores by game mode and difficulty made by a player. The game
-   # must be connected to the database.
+  ##
+  # ===== Presentation
+  # This method retrieves the high score by game mode and difficulty made by a
+  # given player. The game must be connected to the database.
   #
   # ===== Attributes
-  # * +gamemode+ - The gamemode
-  # * +diff+ - The difficulty
-  # * +player+ - The player
+  # * +gamemode+ - The gamemode in which the player did his previous high score.
+  # * +difficulty+ - The difficulty in which the player did his previous high score.
+  # * +player+ - The player that needs the high score.
   #
-   #
-   # ===== Return
-   # The highscore that match the game mode and the difficulty made by the player
-   #
-  # ===== Examples
+  # ===== Returns
+  # The high score that matches the game mode and the difficulty made by the player.
   #
-  #   db = ConnectDB.new()
+  # ===== How to Use
+  #
+  #    db = ConnectDB.new()
   # 	 gm = Gamemode.new(1,"Gamemode name")
-   #   diff = Difficulty.new(1,"Easy")
+  #    diff = Difficulty.new(1,"Easy")
   # 	 db.getPlayerHighScoreByGamemodeDiff(gm,diff, player)
-   #
-   # -------------
+  #
+  # ===== Examples
+  # Three variables are created  : an Array for the high scores, a game mode
+  # variable and a difficulty variable :
+  #     hg = nil
+  #     diff = 0
+  #     gm = 0
+  #
+  # The difficulty variable gets its value with the following request from the
+  # database :
+  #    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'"
+  #
+  # The game mode variable gets its value with the following request from the
+  # database :
+  #    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gamemode}'"
+  #
+  # Finally, the following request fetches the highscore in this game mode and
+  # difficulty and gives the high score variable its value, in order to return it :
+  #    @db.execute "SELECT * FROM HighScores WHERE id_player_highScores = #{player.id_player} AND id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}" do |row|
+  #      hg = HighScore.new(row[0],row[1],row[2],row[3])
+  #    end
+  # -------------
   def getPlayerHighScoreByGamemodeDiff(gamemode, difficulty, player)
 
     hg = nil
@@ -505,6 +612,41 @@ class ConnectDB
 
   end
 
+  ##
+  # ===== Presentation
+  # When the player has not already done a high score in the given game mode and
+  # difficulty this method will create a new one for him. This high score can then
+  # be updated every time a player improves himself. This method does not know if
+  # the player already made a high score in this game mode and difficulty, so the
+  # test to know if it already exists in the database has to be done outside of
+  # this method. In order to work, the game must be connected to the database.
+  #
+  # ===== Attributes
+  # * +gameMode+ : The game mode in which the player made a new score.
+  # * +difficulty+ : The difficulty in whitch the player made a new score.
+  # * +player+ : The player that did his first score in this difficulty and game mode.
+  # * +score+ : The score the player did for the first time.
+  #
+  # ===== Examples
+  # Three variables are created : high score, difficulty and game mode :
+  #     hg = nil
+  #     diff = 0
+  #     gm = 0
+  #
+  # The first request fetches the difficulty in the database to give its value to
+  # the difficulty variable :
+  #    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'"
+  #
+  # The second request fetches the game mode in the database to give its value to
+  # the game mode variable :
+  #    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gameMode}'"
+  #
+  # The last request inserts the new high score for the given attributes into the
+  # database :
+  #    @db.execute("INSERT INTO HighScores VALUES(?,?,?,?)",diff, player.id_player,score, gm) do |row|
+  #      puts row
+  #    end
+  # -----------
   def addHighScore(gameMode, difficulty, player, score)
     hg = nil
     diff = 0
@@ -523,6 +665,41 @@ class ConnectDB
     end
   end
 
+  ##
+  # ===== Presentation
+  # When the player has already done a high score in the given game mode and
+  # difficulty this method will update the previous one for him. This method does
+  # not know if the player already made a high score in this game mode and
+  # difficulty, so the test to know if it already exists in the database has to
+  # be done outside of this method. In order to work, the game must be connected
+  # to the database.
+  #
+  # ===== Attributes
+  # * +gameMode+ : The game mode in which the player improved his previous score.
+  # * +difficulty+ : The difficulty in whitch the player improved his previous score.
+  # * +player+ : The player that did his new high score in this difficulty and game mode.
+  # * +score+ : The score the player did.
+  #
+  # ===== Examples
+  # Three variables are created : high score, difficulty and game mode :
+  #     hg = nil
+  #     diff = 0
+  #     gm = 0
+  #
+  # The first request fetches the difficulty in the database to give its value to
+  # the difficulty variable :
+  #    @db.execute "SELECT * FROM Difficulty WHERE name_difficulty = '#{difficulty}'"
+  #
+  # The second request fetches the game mode in the database to give its value to
+  # the game mode variable :
+  #    @db.execute "SELECT * FROM gamemode WHERE name_gamemode = '#{gameMode}'"
+  #
+  # The last request updates the prevous high score for the given attributes into the
+  # database :
+  #    @db.execute("UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}") do |row|
+  #      puts row
+  #    end
+  # -----------
   def updateHighScore(gameMode, difficulty, player, score)
     hg = nil
     diff = 0
@@ -539,16 +716,5 @@ class ConnectDB
     @db.execute("UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}") do |row|
       puts row
     end
-  #    db = ConnectDB.new()
-  # 	 db.getGamemodes()
-  #
-  # ---------
-  def getGamemodes()
-    gm = Array.new
-		@db.execute "SELECT * FROM Gamemode" do |row|
-			hg.push(new Gamemode())
-		end
-    return gm
   end
-end
 end

@@ -27,7 +27,7 @@
 <h2 id="classes">Classes and Modules</h2>
 <ul>
   <li class="class">
-    <a href="AdventureLevel.html">AdventureLevel</a>
+    <a href="AdventureSession.html">AdventureSession</a>
   </li>
   <li class="class">
     <a href="AdventureVictoryScreen.html">AdventureVictoryScreen</a>
@@ -353,6 +353,9 @@
     <a href="HighScoresScreen.html">HighScoresScreen</a>
   </li>
   <li class="class">
+    <a href="IconAsset.html">IconAsset</a>
+  </li>
+  <li class="class">
     <a href="LevelNumber.html">LevelNumber</a>
   </li>
   <li class="class">
@@ -484,13 +487,13 @@
     <a href="TimeAttackSession.html">TimeAttackSession</a>
   </li>
   <li class="class">
-    <a href="Tutorial.html">Tutorial</a>
-  </li>
-  <li class="class">
     <a href="TutorialGameScreen.html">TutorialGameScreen</a>
   </li>
   <li class="class">
     <a href="TutorialSession.html">TutorialSession</a>
+  </li>
+  <li class="class">
+    <a href="TutorialVictoryScreen.html">TutorialVictoryScreen</a>
   </li>
   <li class="class">
     <a href="UiManager.html">UiManager</a>
@@ -564,9 +567,9 @@
     <span class="container">Connexion</span>
 
   <li class="method">
-    <a href="AdventureLevel.html#method-c-new">::new</a>
+    <a href="AdventureSession.html#method-c-new">::new</a>
     &mdash;
-    <span class="container">AdventureLevel</span>
+    <span class="container">AdventureSession</span>
 
   <li class="method">
     <a href="Cell.html#method-c-new">::new</a>
@@ -662,11 +665,6 @@
     <a href="TimeAttackSession.html#method-c-new">::new</a>
     &mdash;
     <span class="container">TimeAttackSession</span>
-
-  <li class="method">
-    <a href="Tutorial.html#method-c-new">::new</a>
-    &mdash;
-    <span class="container">Tutorial</span>
 
   <li class="method">
     <a href="TutorialSession.html#method-c-new">::new</a>
@@ -809,6 +807,11 @@
     <span class="container">CellAssets</span>
 
   <li class="method">
+    <a href="IconAsset.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">IconAsset</span>
+
+  <li class="method">
     <a href="Button.html#method-c-new">::new</a>
     &mdash;
     <span class="container">Button</span>
@@ -914,6 +917,11 @@
     <span class="container">TutorialGameScreen</span>
 
   <li class="method">
+    <a href="TutorialVictoryScreen.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">TutorialVictoryScreen</span>
+
+  <li class="method">
     <a href="VictoryScreen.html#method-c-new">::new</a>
     &mdash;
     <span class="container">VictoryScreen</span>
@@ -1004,6 +1012,11 @@
     <span class="container">ScrollableArea</span>
 
   <li class="method">
+    <a href="ConnectDB.html#method-i-addHighScore">#addHighScore</a>
+    &mdash;
+    <span class="container">ConnectDB</span>
+
+  <li class="method">
     <a href="Game.html#method-i-addmove">#addmove</a>
     &mdash;
     <span class="container">Game</span>
@@ -1044,6 +1057,11 @@
     <span class="container">Screen</span>
 
   <li class="method">
+    <a href="TutorialVictoryScreen.html#method-i-applyOn">#applyOn</a>
+    &mdash;
+    <span class="container">TutorialVictoryScreen</span>
+
+  <li class="method">
     <a href="VictoryScreen.html#method-i-applyOn">#applyOn</a>
     &mdash;
     <span class="container">VictoryScreen</span>
@@ -1069,19 +1087,29 @@
     <span class="container">XmlReader</span>
 
   <li class="method">
-    <a href="AdventureLevel.html#method-i-calculateOverallStars">#calculateOverallStars</a>
+    <a href="AdventureSession.html#method-i-calculateOverallStars">#calculateOverallStars</a>
     &mdash;
-    <span class="container">AdventureLevel</span>
+    <span class="container">AdventureSession</span>
 
   <li class="method">
-    <a href="AdventureLevel.html#method-i-calculateScore">#calculateScore</a>
+    <a href="Levels.html#method-i-calculateOverallStars">#calculateOverallStars</a>
     &mdash;
-    <span class="container">AdventureLevel</span>
+    <span class="container">Levels</span>
+
+  <li class="method">
+    <a href="AdventureSession.html#method-i-calculateScore">#calculateScore</a>
+    &mdash;
+    <span class="container">AdventureSession</span>
 
   <li class="method">
     <a href="Game.html#method-i-calculateScore">#calculateScore</a>
     &mdash;
     <span class="container">Game</span>
+
+  <li class="method">
+    <a href="Levels.html#method-i-calculateScore">#calculateScore</a>
+    &mdash;
+    <span class="container">Levels</span>
 
   <li class="method">
     <a href="QuickPlaySession.html#method-i-calculateScore">#calculateScore</a>
@@ -1104,9 +1132,14 @@
     <span class="container">TutorialSession</span>
 
   <li class="method">
-    <a href="AdventureLevel.html#method-i-calculateStars">#calculateStars</a>
+    <a href="AdventureSession.html#method-i-calculateStars">#calculateStars</a>
     &mdash;
-    <span class="container">AdventureLevel</span>
+    <span class="container">AdventureSession</span>
+
+  <li class="method">
+    <a href="Levels.html#method-i-calculateStars">#calculateStars</a>
+    &mdash;
+    <span class="container">Levels</span>
 
   <li class="method">
     <a href="CellAssets.html#method-i-cellAsset">#cellAsset</a>
@@ -1214,9 +1247,14 @@
     <span class="container">Text</span>
 
   <li class="method">
-    <a href="AdventureLevel.html#method-i-continuable-3F">#continuable?</a>
+    <a href="AdventureSession.html#method-i-continuable-3F">#continuable?</a>
     &mdash;
-    <span class="container">AdventureLevel</span>
+    <span class="container">AdventureSession</span>
+
+  <li class="method">
+    <a href="Levels.html#method-i-continuable-3F">#continuable?</a>
+    &mdash;
+    <span class="container">Levels</span>
 
   <li class="method">
     <a href="Session.html#method-i-continuable-3F">#continuable?</a>
@@ -1339,11 +1377,6 @@
     <span class="container">XmlReader</span>
 
   <li class="method">
-    <a href="ConnectDB.html#method-i-getGamemodes">#getGamemodes</a>
-    &mdash;
-    <span class="container">ConnectDB</span>
-
-  <li class="method">
     <a href="XmlReader.html#method-i-getHelpsTexts">#getHelpsTexts</a>
     &mdash;
     <span class="container">XmlReader</span>
@@ -1364,9 +1397,19 @@
     <span class="container">XmlReader</span>
 
   <li class="method">
+    <a href="AdventureSession.html#method-i-getLevel">#getLevel</a>
+    &mdash;
+    <span class="container">AdventureSession</span>
+
+  <li class="method">
     <a href="Levels.html#method-i-getLevel">#getLevel</a>
     &mdash;
     <span class="container">Levels</span>
+
+  <li class="method">
+    <a href="AdventureSession.html#method-i-getLevelInformation">#getLevelInformation</a>
+    &mdash;
+    <span class="container">AdventureSession</span>
 
   <li class="method">
     <a href="Levels.html#method-i-getLevelMaxStars">#getLevelMaxStars</a>
@@ -1380,6 +1423,11 @@
 
   <li class="method">
     <a href="ConnectDB.html#method-i-getPlayer">#getPlayer</a>
+    &mdash;
+    <span class="container">ConnectDB</span>
+
+  <li class="method">
+    <a href="ConnectDB.html#method-i-getPlayerHighScoreByGamemodeDiff">#getPlayerHighScoreByGamemodeDiff</a>
     &mdash;
     <span class="container">ConnectDB</span>
 
@@ -1594,7 +1642,7 @@
     <span class="container">Helper</span>
 
   <li class="method">
-    <a href="Helper.html#method-i-helpsLevelsLimits">#helpsLevelsLimits</a>
+    <a href="Helper.html#method-i-helpLevelSetMinMax">#helpLevelSetMinMax</a>
     &mdash;
     <span class="container">Helper</span>
 
@@ -1607,6 +1655,11 @@
     <a href="GridUi.html#method-i-initGtkGrid">#initGtkGrid</a>
     &mdash;
     <span class="container">GridUi</span>
+
+  <li class="method">
+    <a href="Levels.html#method-i-initLevel">#initLevel</a>
+    &mdash;
+    <span class="container">Levels</span>
 
   <li class="method">
     <a href="Cell.html#method-i-isAGrass-3F">#isAGrass?</a>
@@ -1634,6 +1687,26 @@
     <span class="container">ConnectDB</span>
 
   <li class="method">
+    <a href="QuickPlaySession.html#method-i-isTutorial-3F">#isTutorial?</a>
+    &mdash;
+    <span class="container">QuickPlaySession</span>
+
+  <li class="method">
+    <a href="Session.html#method-i-isTutorial-3F">#isTutorial?</a>
+    &mdash;
+    <span class="container">Session</span>
+
+  <li class="method">
+    <a href="TimeAttackSession.html#method-i-isTutorial-3F">#isTutorial?</a>
+    &mdash;
+    <span class="container">TimeAttackSession</span>
+
+  <li class="method">
+    <a href="TutorialSession.html#method-i-isTutorial-3F">#isTutorial?</a>
+    &mdash;
+    <span class="container">TutorialSession</span>
+
+  <li class="method">
     <a href="CellUi.html#method-i-leftClicked">#leftClicked</a>
     &mdash;
     <span class="container">CellUi</span>
@@ -1654,6 +1727,11 @@
     <span class="container">Save</span>
 
   <li class="method">
+    <a href="AdventureSession.html#method-i-lvlAvailable-3F">#lvlAvailable?</a>
+    &mdash;
+    <span class="container">AdventureSession</span>
+
+  <li class="method">
     <a href="Levels.html#method-i-lvlAvailable-3F">#lvlAvailable?</a>
     &mdash;
     <span class="container">Levels</span>
@@ -1672,11 +1750,6 @@
     <a href="Guess.html#method-i-next">#next</a>
     &mdash;
     <span class="container">Guess</span>
-
-  <li class="method">
-    <a href="Tutorial.html#method-i-next">#next</a>
-    &mdash;
-    <span class="container">Tutorial</span>
 
   <li class="method">
     <a href="Diapo.html#method-i-nextImage">#nextImage</a>
@@ -1824,14 +1897,19 @@
     <span class="container">GridUi</span>
 
   <li class="method">
+    <a href="LevelSelectionScreen.html#method-i-refreshOverAllStar">#refreshOverAllStar</a>
+    &mdash;
+    <span class="container">LevelSelectionScreen</span>
+
+  <li class="method">
     <a href="Game.html#method-i-removeGuess">#removeGuess</a>
     &mdash;
     <span class="container">Game</span>
 
   <li class="method">
-    <a href="Levels.html#method-i-replay">#replay</a>
+    <a href="AdventureSession.html#method-i-replay">#replay</a>
     &mdash;
-    <span class="container">Levels</span>
+    <span class="container">AdventureSession</span>
 
   <li class="method">
     <a href="Moves.html#method-i-replay">#replay</a>
@@ -1909,11 +1987,6 @@
     <span class="container">CellUi</span>
 
   <li class="method">
-    <a href="ConnectDB.html#method-i-save">#save</a>
-    &mdash;
-    <span class="container">ConnectDB</span>
-
-  <li class="method">
     <a href="CellUi.html#method-i-select">#select</a>
     &mdash;
     <span class="container">CellUi</span>
@@ -1967,11 +2040,6 @@
     <a href="Session.html#method-i-setSave">#setSave</a>
     &mdash;
     <span class="container">Session</span>
-
-  <li class="method">
-    <a href="AdventureLevel.html#method-i-setTime">#setTime</a>
-    &mdash;
-    <span class="container">AdventureLevel</span>
 
   <li class="method">
     <a href="QuickPlaySession.html#method-i-setTime">#setTime</a>
@@ -2109,6 +2177,11 @@
     <span class="container">UiManager</span>
 
   <li class="method">
+    <a href="ConnectDB.html#method-i-updateHighScore">#updateHighScore</a>
+    &mdash;
+    <span class="container">ConnectDB</span>
+
+  <li class="method">
     <a href="Button.html#method-i-updateLabel">#updateLabel</a>
     &mdash;
     <span class="container">Button</span>
@@ -2122,6 +2195,11 @@
     <a href="Text.html#method-i-updateLabel">#updateLabel</a>
     &mdash;
     <span class="container">Text</span>
+
+  <li class="method">
+    <a href="AdventureSession.html#method-i-updateOverallStarsHash">#updateOverallStarsHash</a>
+    &mdash;
+    <span class="container">AdventureSession</span>
 
   <li class="method">
     <a href="ConnectDB.html#method-i-updateSave">#updateSave</a>

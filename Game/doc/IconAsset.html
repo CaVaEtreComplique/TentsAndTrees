@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class HighScore - RDoc Documentation</title>
+<title>class IconAsset - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -79,15 +79,13 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-HighScore">
-  <h1 id="class-HighScore" class="class">
-    class HighScore
+<main role="main" aria-labelledby="class-IconAsset">
+  <h1 id="class-IconAsset" class="class">
+    class IconAsset
   </h1>
 
   <section class="description">
     
-<p>A <a href="HighScore.html"><code>HighScore</code></a> is defined by its difficulty, its <a href="Player.html"><code>Player</code></a>, its score and its gamemode. This Class is here to represent a High score in the database.</p>
-
   </section>
 
   
@@ -98,6 +96,27 @@
 
     
 
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-iconAsset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">iconAsset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
     
 
     
@@ -111,7 +130,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(idDiff, player, score, idMode)</span>
+            class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -120,32 +139,20 @@
 
         <div class="method-description">
           
-          <p>Constructor of a <a href="HighScore.html"><code>HighScore</code></a>.</p>
-
-<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-<ul><li>
-<p><code>idDiff</code> - The id of the <a href="Difficulty.html"><code>Difficulty</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
-</li><li>
-<p><code>player</code> - The <a href="Player.html"><code>Player</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
-</li><li>
-<p><code>score</code> - The score of the <a href="HighScore.html"><code>HighScore</code></a></p>
-</li><li>
-<p><code>idMode</code> - The id of the <a href="Gamemode.html"><code>Gamemode</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
-</li></ul>
-
-<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<pre class="ruby"><span class="ruby-identifier">highScore</span> = <span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">5000</span>,<span class="ruby-value">3</span>)
-</pre>
+          
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/HighScore.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">idDiff</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>, <span class="ruby-identifier">idMode</span>)
-  <span class="ruby-ivar">@id_difficulty_highScores</span>, <span class="ruby-ivar">@player_highScores</span> = <span class="ruby-identifier">idDiff</span>, <span class="ruby-identifier">player</span>
-  <span class="ruby-ivar">@score_highScores</span>, <span class="ruby-ivar">@id_gamemode_highScores</span> = <span class="ruby-identifier">score</span>, <span class="ruby-identifier">idMode</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-identifier">pathToIcon</span>=<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/&quot;</span>
+  <span class="ruby-ivar">@iconAsset</span>= {
+    <span class="ruby-value">loc:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pathToIcon</span><span class="ruby-string">+&quot;lock.png&quot;</span>),
+    <span class="ruby-value">starS:</span><span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pathToIcon</span><span class="ruby-string">+&quot;starSad.png&quot;</span>),
+    <span class="ruby-value">starH:</span><span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pathToIcon</span><span class="ruby-string">+&quot;star.png&quot;</span>)
+  }
 <span class="ruby-keyword">end</span></pre>
           </div>
           

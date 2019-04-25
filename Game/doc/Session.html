@@ -81,6 +81,8 @@
     
     <li ><a href="#method-i-deleteSave">#deleteSave</a>
     
+    <li ><a href="#method-i-isTutorial-3F">#isTutorial?</a>
+    
     <li ><a href="#method-i-partOfAdventure-3F">#partOfAdventure?</a>
     
     <li ><a href="#method-i-replay">#replay</a>
@@ -301,7 +303,7 @@
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 49</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -334,7 +336,7 @@
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
         <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
@@ -400,9 +402,42 @@
 
           
           <div class="method-source-code" id="deleteSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>
                 <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">deleteSave</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-isTutorial-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isTutorial?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="isTutorial-3F-source">
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isTutorial?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -466,7 +501,7 @@
 
           
           <div class="method-source-code" id="replay-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 57</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">continue</span>)
         <span class="ruby-comment"># Generation de la grille</span>
         <span class="ruby-ivar">@gridPick</span> = <span class="ruby-constant">GridGenerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@difficulty</span>)
@@ -510,7 +545,7 @@
 
           
           <div class="method-source-code" id="setSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setSave</span>(<span class="ruby-identifier">save</span>)
                 <span class="ruby-ivar">@save</span> = <span class="ruby-identifier">save</span>
 <span class="ruby-keyword">end</span></pre>
@@ -543,7 +578,7 @@
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 53</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -576,11 +611,12 @@
 
           
           <div class="method-source-code" id="updateSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 38</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>
-        <span class="ruby-comment"># if self</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">delete_observers</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">clearHelper</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@gameMode</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:adventure</span>
+                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">delete_observers</span>
+                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">clearHelper</span>
+        <span class="ruby-keyword">end</span>
         <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">updateSave</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_yaml</span>(), <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>

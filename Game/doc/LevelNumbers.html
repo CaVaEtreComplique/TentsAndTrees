@@ -149,6 +149,7 @@
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span> ,<span class="ruby-identifier">adventureInfo</span>)
+              <span class="ruby-ivar">@pad</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTON_PADDING</span>
               <span class="ruby-ivar">@im</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>, <span class="ruby-value">25</span>)
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span> <span class="ruby-value">5</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@ic</span>=<span class="ruby-constant">LevelNumber</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>,<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span> ,<span class="ruby-identifier">adventureInfo</span>)
@@ -193,7 +194,7 @@
 
           
           <div class="method-source-code" id="refresh-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refresh</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span> ,<span class="ruby-identifier">adventureInfo</span>)
               <span class="ruby-ivar">@im</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
                       <span class="ruby-ivar">@im</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)

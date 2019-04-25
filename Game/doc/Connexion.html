@@ -130,7 +130,7 @@
 
           
           <div class="method-source-code" id="connexion-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 122</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 124</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">connexion</span>(<span class="ruby-identifier">player</span>)
         <span class="ruby-identifier">@@joueur</span>=<span class="ruby-identifier">player</span>
         <span class="ruby-identifier">@@win</span>.<span class="ruby-identifier">hide</span>
@@ -165,7 +165,7 @@
 
           
           <div class="method-source-code" id="getJoueur-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 128</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">getJoueur</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@joueur</span>
 <span class="ruby-keyword">end</span></pre>
@@ -198,12 +198,13 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
-  <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
+  <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREEN</span>
               <span class="ruby-comment">#Variable pour resize le texte</span>
               <span class="ruby-ivar">@pad</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.002</span>
-  <span class="ruby-ivar">@police</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.02</span>
+              <span class="ruby-ivar">@police</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.016</span>
+
               <span class="ruby-ivar">@h</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.4</span>
               <span class="ruby-ivar">@w</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.4</span>
 
@@ -326,7 +327,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 132</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 134</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">show</span>
                 <span class="ruby-identifier">@@win</span>.<span class="ruby-identifier">show_all</span>
 <span class="ruby-keyword">end</span></pre>

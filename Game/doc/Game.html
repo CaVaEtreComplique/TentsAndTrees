@@ -695,17 +695,22 @@
 <span class="ruby-ivar">@chrono</span>.<span class="ruby-identifier">start</span>
 <span class="ruby-identifier">lastTime</span>=<span class="ruby-value">0</span>
 [<span class="ruby-string">&quot;TERM&quot;</span>, <span class="ruby-string">&quot;INT&quot;</span>, <span class="ruby-string">&quot;QUIT&quot;</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">sig</span><span class="ruby-operator">|</span>
-  <span class="ruby-constant">Signal</span>.<span class="ruby-identifier">trap</span>(<span class="ruby-identifier">sig</span>) { <span class="ruby-identifier">exit</span> }
+    <span class="ruby-constant">Signal</span>.<span class="ruby-identifier">trap</span>(<span class="ruby-identifier">sig</span>) {
+      <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">updateSave</span>
+      <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>
+   }
 }
 <span class="ruby-keyword">case</span> <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">gameMode</span>
 <span class="ruby-keyword">when</span> <span class="ruby-value">:timeAttack</span>
   <span class="ruby-ivar">@baseTime</span><span class="ruby-operator">-=</span><span class="ruby-ivar">@baseTime</span><span class="ruby-operator">-</span><span class="ruby-ivar">@time</span>
+<span class="ruby-keyword">when</span> <span class="ruby-value">:tutorial</span>
+  <span class="ruby-ivar">@helper</span>.<span class="ruby-identifier">helpLevelSetMinMax</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>)
 <span class="ruby-keyword">else</span>
   <span class="ruby-ivar">@baseTime</span>=<span class="ruby-operator">-</span><span class="ruby-ivar">@time</span>
 <span class="ruby-keyword">end</span>
             <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
   <span class="ruby-ivar">@malus</span> <span class="ruby-operator">*=</span><span class="ruby-value">-1</span> <span class="ruby-keyword">if</span><span class="ruby-ivar">@session</span>.<span class="ruby-identifier">gameMode</span><span class="ruby-operator">==</span><span class="ruby-value">:timeAttack</span>
-  <span class="ruby-ivar">@time</span>=(<span class="ruby-ivar">@baseTime</span><span class="ruby-operator">-</span><span class="ruby-ivar">@chrono</span>.<span class="ruby-identifier">elapsed</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">truncate</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@malus</span>
+  <span class="ruby-ivar">@time</span>=(<span class="ruby-ivar">@baseTime</span><span class="ruby-operator">-</span><span class="ruby-ivar">@chrono</span>.<span class="ruby-identifier">elapsed</span>[<span class="ruby-value">0</span>]).<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@malus</span>
                     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@moveDone</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@time</span><span class="ruby-operator">!=</span><span class="ruby-identifier">lastTime</span>
     <span class="ruby-identifier">lastTime</span>=<span class="ruby-ivar">@time</span>
                             <span class="ruby-identifier">changed</span>                 <span class="ruby-comment"># notify observers</span>

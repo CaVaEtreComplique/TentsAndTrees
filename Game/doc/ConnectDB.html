@@ -84,6 +84,8 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li ><a href="#method-i-addHighScore">#addHighScore</a>
+    
     <li ><a href="#method-i-createPlayer">#createPlayer</a>
     
     <li ><a href="#method-i-deletePlayer">#deletePlayer</a>
@@ -94,11 +96,11 @@
     
     <li ><a href="#method-i-deleteSave">#deleteSave</a>
     
-    <li ><a href="#method-i-getGamemodes">#getGamemodes</a>
-    
     <li ><a href="#method-i-getHighScoresByGamemodeDiff">#getHighScoresByGamemodeDiff</a>
     
     <li ><a href="#method-i-getPlayer">#getPlayer</a>
+    
+    <li ><a href="#method-i-getPlayerHighScoreByGamemodeDiff">#getPlayerHighScoreByGamemodeDiff</a>
     
     <li ><a href="#method-i-getPlayersSave">#getPlayersSave</a>
     
@@ -110,7 +112,7 @@
     
     <li ><a href="#method-i-playerUpdate">#playerUpdate</a>
     
-    <li ><a href="#method-i-save">#save</a>
+    <li ><a href="#method-i-updateHighScore">#updateHighScore</a>
     
     <li ><a href="#method-i-updateSave">#updateSave</a>
     
@@ -235,6 +237,93 @@
        </header>
 
     
+      <div id="method-i-addHighScore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">addHighScore</span><span
+            class="method-args">(gameMode, difficulty, player, score)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-addHighScore-label-Presentation">Presentation<span><a href="#method-i-addHighScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>When the player has not already done a high score in the given game mode and difficulty this method will create a new one for him. This high score can then be updated every time a player improves himself. This method does not know if the player already made a high score in this game mode and difficulty, so the test to know if it already exists in the database has to be done outside of this method. In order to work, the game must be connected to the database.</p>
+
+<h5 id="method-i-addHighScore-label-Attributes">Attributes<span><a href="#method-i-addHighScore-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>gameMode</code> : The game mode in which the player made a new score.</p>
+</li><li>
+<p><code>difficulty</code> : The difficulty in whitch the player made a new score.</p>
+</li><li>
+<p><code>player</code> : The player that did his first score in this difficulty and game mode.</p>
+</li><li>
+<p><code>score</code> : The score the player did for the first time.</p>
+</li></ul>
+
+<h5 id="method-i-addHighScore-label-Examples">Examples<span><a href="#method-i-addHighScore-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Three variables are created : high score, difficulty and game mode :</p>
+
+<pre class="ruby"><span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
+</pre>
+
+<p>The first request fetches the difficulty in the database to give its value to the difficulty variable :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span>
+</pre>
+
+<p>The second request fetches the game mode in the database to give its value to the game mode variable :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gameMode}&#39;&quot;</span>
+</pre>
+
+<p>The last request inserts the new high score for the given attributes into the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO HighScores VALUES(?,?,?,?)&quot;</span>,<span class="ruby-identifier">diff</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id_player</span>,<span class="ruby-identifier">score</span>, <span class="ruby-identifier">gm</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
+<span class="ruby-keyword">end</span>
+</pre>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="addHighScore-source">
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 650</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addHighScore</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>)
+  <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gameMode}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">gm</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO HighScores VALUES(?,?,?,?)&quot;</span>,<span class="ruby-identifier">diff</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id_player</span>,<span class="ruby-identifier">score</span>, <span class="ruby-identifier">gm</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-createPlayer" class="method-detail ">
         
         <div class="method-heading">
@@ -330,13 +419,34 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-deletePlayer-label-Presentation">Presentation<span><a href="#method-i-deletePlayer-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method deletes a player in the database with the ID of the player. The game must be connected to the database.</p>
+
+<h5 id="method-i-deletePlayer-label-Attributes">Attributes<span><a href="#method-i-deletePlayer-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>id</code> - The ID of the player we want to delete.</p>
+</li></ul>
+
+<h5 id="method-i-deletePlayer-label-How+to+Use">How to Use<span><a href="#method-i-deletePlayer-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
+   <span class="ruby-identifier">db</span>.<span class="ruby-identifier">deletePlayer</span>((<span class="ruby-constant">ID</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">player</span>))
+</pre>
+
+<h5 id="method-i-deletePlayer-label-Examples">Examples<span><a href="#method-i-deletePlayer-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will delete the player with the id taken in parameters :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Player WHERE player_id = #{id}&quot;</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="deletePlayer-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 332</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 378</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayer</span>(<span class="ruby-identifier">id</span>)
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Player WHERE player_id = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
                       <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -366,13 +476,34 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-deletePlayerHg-label-Presentation">Presentation<span><a href="#method-i-deletePlayerHg-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method deletes a player&#39;s highscore in the database with the ID of the player. It is useful when a player deletes his account. The game must be connected to the database.</p>
+
+<h5 id="method-i-deletePlayerHg-label-Attributes">Attributes<span><a href="#method-i-deletePlayerHg-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>id</code> - The ID of the player we want to delete the high score from</p>
+</li></ul>
+
+<h5 id="method-i-deletePlayerHg-label-How+to+Use">How to Use<span><a href="#method-i-deletePlayerHg-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">deletePlayerHg</span>((<span class="ruby-constant">ID</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">player</span>))
+</pre>
+
+<h5 id="method-i-deletePlayerHg-label-Examples">Examples<span><a href="#method-i-deletePlayerHg-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will delete the high score with the player&#39;s id taken in parameters :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM HighScores WHERE id_player_highScores = #{id}&quot;</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="deletePlayerHg-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 325</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 355</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerHg</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM HighScores WHERE id_player_highScores = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -402,13 +533,34 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-deletePlayerSave-label-Presentation">Presentation<span><a href="#method-i-deletePlayerSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method deletes all of the player&#39;s saves in the database with the ID of the player. This is useful when a player deletes his account. The game must be connected to the database.</p>
+
+<h5 id="method-i-deletePlayerSave-label-Attributes">Attributes<span><a href="#method-i-deletePlayerSave-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>id</code> - The ID of the player we want to delete.</p>
+</li></ul>
+
+<h5 id="method-i-deletePlayerSave-label-How+to+Use">How to Use<span><a href="#method-i-deletePlayerSave-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
+   <span class="ruby-identifier">db</span>.<span class="ruby-identifier">deletePlayerSave</span>((<span class="ruby-constant">ID</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">player</span>))
+</pre>
+
+<h5 id="method-i-deletePlayerSave-label-Examples">Examples<span><a href="#method-i-deletePlayerSave-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will delete the player with the id taken in parameters :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE player_id_save = #{id}&quot;</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="deletePlayerSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 340</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 402</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerSave</span>(<span class="ruby-identifier">id</span>)
 
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE player_id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -439,17 +591,26 @@
 
         <div class="method-description">
           
-          <p>This method deletes a <a href="Save.html"><code>Save</code></a> in the database with the ID of the <a href="Save.html"><code>Save</code></a>. The game must be connected to the database.</p>
+          <h5 id="method-i-deleteSave-label-Presentation">Presentation<span><a href="#method-i-deleteSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method deletes a <a href="Save.html"><code>Save</code></a> in the database with the ID of the <a href="Save.html"><code>Save</code></a>. The game must be connected to the database.</p>
 
 <h5 id="method-i-deleteSave-label-Attributes">Attributes<span><a href="#method-i-deleteSave-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>id</code> - The ID of the save we want to delete.</p>
 </li></ul>
 
-<h5 id="method-i-deleteSave-label-Examples">Examples<span><a href="#method-i-deleteSave-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-deleteSave-label-How+to+Use">How to Use<span><a href="#method-i-deleteSave-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-identifier">db</span>.<span class="ruby-identifier">deleteSave</span>((<span class="ruby-constant">ID</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">save</span>))
+</pre>
+
+<h5 id="method-i-deleteSave-label-Examples">Examples<span><a href="#method-i-deleteSave-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will delete the save with the id taken in parameters :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE id_save = #{id}&quot;</span>
 </pre>
 <hr>
           
@@ -457,7 +618,7 @@
 
           
           <div class="method-source-code" id="deleteSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 317</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 329</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -475,59 +636,11 @@
       </div>
 
     
-      <div id="method-i-getGamemodes" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">getGamemodes</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>This method retrieves the game modes available. The game must be connected to the database.</p>
-
-<h5 id="method-i-getGamemodes-label-Return">Return<span><a href="#method-i-getGamemodes-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>All the game modes in an Array</p>
-
-<h5 id="method-i-getGamemodes-label-Examples">Examples<span><a href="#method-i-getGamemodes-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
-  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getGamemodes</span>()
-</pre>
-<hr>
-          
-          
-
-          
-          <div class="method-source-code" id="getGamemodes-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 449</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getGamemodes</span>()
-  <span class="ruby-identifier">gm</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-              <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-string">&quot;SELECT * FROM Gamemode&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-                      <span class="ruby-identifier">hg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">new</span> <span class="ruby-constant">Gamemode</span>())
-              <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">gm</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
       <div id="method-i-getHighScoresByGamemodeDiff" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">getHighScoresByGamemodeDiff</span><span
-            class="method-args">(gamemode, diff)</span>
+            class="method-args">(gamemode, difficulty)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -536,7 +649,9 @@
 
         <div class="method-description">
           
-          <p>This method retrieves the high scores by game mode and difficulty. The game must be connected to the database.</p>
+          <h5 id="method-i-getHighScoresByGamemodeDiff-label-Presentation">Presentation<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method retrieves the high scores by game mode and difficulty. The game must be connected to the database.</p>
 
 <h5 id="method-i-getHighScoresByGamemodeDiff-label-Attributes">Attributes<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -545,16 +660,44 @@
 <p><code>diff</code> - The difficulty</p>
 </li></ul>
 
-<h5 id="method-i-getHighScoresByGamemodeDiff-label-Return">Return<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getHighScoresByGamemodeDiff-label-Returns">Returns<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The highscores that match the game mode and the difficulty in an Array</p>
+<p>The highscores that match the game mode and the difficulty in an Array with the player that did the highscore.</p>
 
-<h5 id="method-i-getHighScoresByGamemodeDiff-label-Examples">Examples<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getHighScoresByGamemodeDiff-label-How+to+Use">How to Use<span><a href="#method-i-getHighScoresByGamemodeDiff-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-identifier">gm</span> = <span class="ruby-constant">Gamemode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Gamemode name&quot;</span>)
 <span class="ruby-identifier">diff</span> = <span class="ruby-constant">Difficulty</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Easy&quot;</span>)
     <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-identifier">gm</span>,<span class="ruby-identifier">diff</span>)
+</pre>
+
+<h5 id="method-i-getHighScoresByGamemodeDiff-label-Examples">Examples<span><a href="#method-i-getHighScoresByGamemodeDiff-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Three variables are created  : an Array for the high scores, a game mode variable and a difficulty variable :</p>
+
+<pre class="ruby"><span class="ruby-identifier">hg</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">gm</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">diff</span> = <span class="ruby-keyword">nil</span>
+</pre>
+
+<p>The game mode variable gets its value with the following request from the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM GameMode WHERE name_gamemode = &#39;#{gamemode}&#39;&quot;</span>
+</pre>
+
+<p>The difficulty variable gets its value with the following request from the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span>
+</pre>
+
+<p>Finally, the two following requests are made : the first fetches the highscores with the gamemode and the difficulty provided, the second gets the player from the last request. It then adds the player and highscore&#39;s values in the Array :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Player WHERE player_id = #{row[1]}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row2</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">hg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row2</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row2</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row2</span>[<span class="ruby-value">2</span>]),<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
 </pre>
 <hr>
           
@@ -562,18 +705,30 @@
 
           
           <div class="method-source-code" id="getHighScoresByGamemodeDiff-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 424</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHighScoresByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">diff</span>)
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 527</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHighScoresByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">difficulty</span>)
 
-        <span class="ruby-identifier">hg</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+     <span class="ruby-identifier">hg</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">gm</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">diff</span> = <span class="ruby-keyword">nil</span>
 
-        <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM HighScore WHERE id_gamemode_highScores = #{gamemode.id_gamemode} AND id_difficulty_highScores = #{diff.id_difficulty}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-                <span class="ruby-identifier">hg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">new</span> <span class="ruby-constant">HighScore</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
-        <span class="ruby-keyword">end</span>
+<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM GameMode WHERE name_gamemode = &#39;#{gamemode}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">gm</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span>
 
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hg</span>
+<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span>
 
-<span class="ruby-keyword">end</span></pre>
+            <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM HighScores WHERE id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Player WHERE player_id = #{row[1]}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row2</span><span class="ruby-operator">|</span>
+                         <span class="ruby-identifier">hg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row2</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row2</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row2</span>[<span class="ruby-value">2</span>]),<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
+  <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-keyword">return</span> <span class="ruby-identifier">hg</span>
+
+    <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -654,6 +809,108 @@
       </div>
 
     
+      <div id="method-i-getPlayerHighScoreByGamemodeDiff" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getPlayerHighScoreByGamemodeDiff</span><span
+            class="method-args">(gamemode, difficulty, player)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-getPlayerHighScoreByGamemodeDiff-label-Presentation">Presentation<span><a href="#method-i-getPlayerHighScoreByGamemodeDiff-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method retrieves the high score by game mode and difficulty made by a given player. The game must be connected to the database.</p>
+
+<h5 id="method-i-getPlayerHighScoreByGamemodeDiff-label-Attributes">Attributes<span><a href="#method-i-getPlayerHighScoreByGamemodeDiff-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>gamemode</code> - The gamemode in which the player did his previous high score.</p>
+</li><li>
+<p><code>difficulty</code> - The difficulty in which the player did his previous high score.</p>
+</li><li>
+<p><code>player</code> - The player that needs the high score.</p>
+</li></ul>
+
+<h5 id="method-i-getPlayerHighScoreByGamemodeDiff-label-Returns">Returns<span><a href="#method-i-getPlayerHighScoreByGamemodeDiff-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The high score that matches the game mode and the difficulty made by the player.</p>
+
+<h5 id="method-i-getPlayerHighScoreByGamemodeDiff-label-How+to+Use">How to Use<span><a href="#method-i-getPlayerHighScoreByGamemodeDiff-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">gm</span> = <span class="ruby-constant">Gamemode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Gamemode name&quot;</span>)
+<span class="ruby-identifier">diff</span> = <span class="ruby-constant">Difficulty</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Easy&quot;</span>)
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getPlayerHighScoreByGamemodeDiff</span>(<span class="ruby-identifier">gm</span>,<span class="ruby-identifier">diff</span>, <span class="ruby-identifier">player</span>)
+</pre>
+
+<h5 id="method-i-getPlayerHighScoreByGamemodeDiff-label-Examples">Examples<span><a href="#method-i-getPlayerHighScoreByGamemodeDiff-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Three variables are created  : an Array for the high scores, a game mode variable and a difficulty variable :</p>
+
+<pre class="ruby"><span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
+</pre>
+
+<p>The difficulty variable gets its value with the following request from the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span>
+</pre>
+
+<p>The game mode variable gets its value with the following request from the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gamemode}&#39;&quot;</span>
+</pre>
+
+<p>Finally, the following request fetches the highscore in this game mode and difficulty and gives the high score variable its value, in order to return it :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM HighScores WHERE id_player_highScores = #{player.id_player} AND id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">hg</span> = <span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>])
+<span class="ruby-keyword">end</span>
+</pre>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="getPlayerHighScoreByGamemodeDiff-source">
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 592</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayerHighScoreByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>)
+
+  <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gamemode}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">gm</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+
+
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM HighScores WHERE id_player_highScores = #{player.id_player} AND id_gamemode_highScores = #{gm} AND id_difficulty_highScores = #{diff}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hg</span> = <span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hg</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-getPlayersSave" class="method-detail ">
         
         <div class="method-heading">
@@ -667,22 +924,36 @@
 
         <div class="method-description">
           
-          <p>This method retrieves the saves created by the <a href="Player.html"><code>Player</code></a>. The game must be connected to the database.</p>
+          <h5 id="method-i-getPlayersSave-label-Presentation">Presentation<span><a href="#method-i-getPlayersSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method retrieves all the saves created by the <a href="Player.html"><code>Player</code></a>. The game must be connected to the database.</p>
 
 <h5 id="method-i-getPlayersSave-label-Attributes">Attributes<span><a href="#method-i-getPlayersSave-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>player</code> - The <a href="Player.html"><code>Player</code></a> who saved.</p>
 </li></ul>
 
-<h5 id="method-i-getPlayersSave-label-Return">Return<span><a href="#method-i-getPlayersSave-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getPlayersSave-label-Returns">Returns<span><a href="#method-i-getPlayersSave-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <p>The saves created by the <a href="Player.html"><code>Player</code></a> in an Array.</p>
 
-<h5 id="method-i-getPlayersSave-label-Examples">Examples<span><a href="#method-i-getPlayersSave-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getPlayersSave-label-How+to+Use">How to Use<span><a href="#method-i-getPlayersSave-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-identifier">pl</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">Player</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;zae&quot;</span>,<span class="ruby-string">&quot;aze&quot;</span>)
     <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getPlayersSave</span>(<span class="ruby-identifier">pl</span>)
+</pre>
+
+<h5 id="method-i-getPlayersSave-label-Exemples">Exemples<span><a href="#method-i-getPlayersSave-label-Exemples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will fetch the player&#39;s save in the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Save WHERE player_id_save = #{player.id_player}&quot;</span>
+</pre>
+
+<p>This will then push the results in the Array called saves :</p>
+
+<pre class="ruby"><span class="ruby-identifier">saves</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>]))
 </pre>
 <hr>
           
@@ -690,7 +961,7 @@
 
           
           <div class="method-source-code" id="getPlayersSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 366</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 434</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayersSave</span>(<span class="ruby-identifier">player</span>)
 
         <span class="ruby-identifier">saves</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -725,21 +996,35 @@
 
         <div class="method-description">
           
-          <p>This method retrieves the save from the provided ID. The game must be connected to the database.</p>
+          <h5 id="method-i-getSaveByID-label-Presentation">Presentation<span><a href="#method-i-getSaveByID-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method retrieves the save from the provided ID. The game must be connected to the database.</p>
 
 <h5 id="method-i-getSaveByID-label-Attributes">Attributes<span><a href="#method-i-getSaveByID-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>id</code> - The ID of the <a href="Save.html"><code>Save</code></a></p>
 </li></ul>
 
-<h5 id="method-i-getSaveByID-label-Return">Return<span><a href="#method-i-getSaveByID-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getSaveByID-label-Returns">Returns<span><a href="#method-i-getSaveByID-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <p>The save that matches the ID provided</p>
 
-<h5 id="method-i-getSaveByID-label-Examples">Examples<span><a href="#method-i-getSaveByID-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-getSaveByID-label-How+to+Use">How to Use<span><a href="#method-i-getSaveByID-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
     <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getSaveByID</span>(<span class="ruby-identifier">id</span>)
+</pre>
+
+<h5 id="method-i-getSaveByID-label-Examples">Examples<span><a href="#method-i-getSaveByID-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will fetch the save from the database with the given save&#39;s ID :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Save WHERE id_save = #{id}&quot;</span>
+</pre>
+
+<p>This will then give to the save variable the result of the request and return it :</p>
+
+<pre class="ruby"><span class="ruby-identifier">save</span> = <span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>])
 </pre>
 <hr>
           
@@ -747,7 +1032,7 @@
 
           
           <div class="method-source-code" id="getSaveByID-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 393</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 470</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getSaveByID</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-identifier">save</span> = <span class="ruby-keyword">nil</span>
@@ -864,7 +1149,7 @@
 <p><code>password</code> - The password of the player we&#39;re looking for</p>
 </li></ul>
 
-<h5 id="method-i-playerConnect-label-Return">Return<span><a href="#method-i-playerConnect-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-playerConnect-label-Returns">Returns<span><a href="#method-i-playerConnect-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <p>The player we&#39;re looking for or nil if no one can be found in the database</p>
 
@@ -934,7 +1219,7 @@
 <ul><li>
 <p><code>login</code> : The player&#39;s login.</p>
 </li><li>
-<p><code>mdp</code> : The player&#39;s new password</p>
+<p><code>mdp</code> : The player&#39;s new password.</p>
 </li></ul>
 
 <h5 id="method-i-playerUpdate-label-Returns">Returns<span><a href="#method-i-playerUpdate-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -983,11 +1268,11 @@
       </div>
 
     
-      <div id="method-i-save" class="method-detail ">
+      <div id="method-i-updateHighScore" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">save</span><span
-            class="method-args">(player, content)</span>
+          <span class="method-name">updateHighScore</span><span
+            class="method-args">(gameMode, difficulty, player, score)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -996,56 +1281,70 @@
 
         <div class="method-description">
           
-          <h5 id="method-i-save-label-Presentation">Presentation<span><a href="#method-i-save-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+          <h5 id="method-i-updateHighScore-label-Presentation">Presentation<span><a href="#method-i-updateHighScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method creates a save in the database with the content and the <a href="Player.html"><code>Player</code></a> provided. The game must be connected to the database.</p>
+<p>When the player has already done a high score in the given game mode and difficulty this method will update the previous one for him. This method does not know if the player already made a high score in this game mode and difficulty, so the test to know if it already exists in the database has to be done outside of this method. In order to work, the game must be connected to the database.</p>
 
-<h5 id="method-i-save-label-Attributes">Attributes<span><a href="#method-i-save-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-updateHighScore-label-Attributes">Attributes<span><a href="#method-i-updateHighScore-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>player</code> - The <a href="Player.html"><code>Player</code></a> who wants to save.</p>
+<p><code>gameMode</code> : The game mode in which the player improved his previous score.</p>
 </li><li>
-<p><code>content</code> - The save&#39;s content.</p>
+<p><code>difficulty</code> : The difficulty in whitch the player improved his previous score.</p>
+</li><li>
+<p><code>player</code> : The player that did his new high score in this difficulty and game mode.</p>
+</li><li>
+<p><code>score</code> : The score the player did.</p>
 </li></ul>
 
-<h5 id="method-i-save-label-Returns">Returns<span><a href="#method-i-save-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-i-updateHighScore-label-Examples">Examples<span><a href="#method-i-updateHighScore-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the save that just has been created, or nil if the request failed.</p>
+<p>Three variables are created : high score, difficulty and game mode :</p>
 
-<h5 id="method-i-save-label-How+to+Use">How to Use<span><a href="#method-i-save-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<pre class="ruby"><span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
+</pre>
 
-<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
-    <span class="ruby-identifier">pl</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">Player</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;zae&quot;</span>,<span class="ruby-string">&quot;aze&quot;</span>)
-    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">pl</span>, <span class="ruby-string">&quot;Things to save&quot;</span>)
+<p>The first request fetches the difficulty in the database to give its value to the difficulty variable :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span>
+</pre>
+
+<p>The second request fetches the game mode in the database to give its value to the game mode variable :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gameMode}&#39;&quot;</span>
+</pre>
+
+<p>The last request updates the prevous high score for the given attributes into the database :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
+<span class="ruby-keyword">end</span>
 </pre>
 <hr>
           
           
 
           
-          <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 282</span>
-    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">content</span>)
+          <div class="method-source-code" id="updateHighScore-source">
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 703</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateHighScore</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>)
+  <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">gm</span> = <span class="ruby-value">0</span>
 
-<span class="ruby-comment">#puts &quot;player = #{player.id_player}&quot;</span>
-<span class="ruby-comment">#puts &quot;content = #{content}&quot;</span>
-            <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
-<span class="ruby-identifier">s</span> = <span class="ruby-keyword">nil</span>
-<span class="ruby-comment">#puts &quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(#{player.id_player}, &#39;#{d.strftime(&quot;%d/%m/%Y %H:%M&quot;)}&#39;,&#39;#{content}&#39;)&quot;</span>
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM Difficulty WHERE name_difficulty = &#39;#{difficulty}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
 
-<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;CREATE SAVE&quot;</span>
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM gamemode WHERE name_gamemode = &#39;#{gameMode}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">gm</span> = <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
 
-
-            <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO Save(player_id_save, date_save, content_save) VALUES(?, ?, ?)&quot;</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id_player</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%d/%m/%Y %H:%M&quot;</span>),<span class="ruby-identifier">content</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-                    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
-            <span class="ruby-keyword">end</span>
-
-<span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SELECT * FROM Save WHERE player_id_save = #{player.id_player} AND date_save=&#39;#{d.strftime(&quot;%d/%m/%Y %H:%M&quot;)}&#39;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
-  <span class="ruby-identifier">s</span> = <span class="ruby-constant">SaveDB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">row</span>[<span class="ruby-value">3</span>])
-<span class="ruby-keyword">end</span>
-<span class="ruby-identifier">puts</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">id_save</span>
-<span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
-
-    <span class="ruby-keyword">end</span></pre>
+  <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;UPDATE HighScores SET score_highScores=#{score} WHERE id_difficulty_highScores=#{diff} AND id_player_highScores=#{player.id_player} AND id_gamemode_highScores=#{gm}&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

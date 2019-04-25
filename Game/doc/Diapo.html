@@ -203,18 +203,24 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 14</span>
+            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">width</span> , <span class="ruby-identifier">height</span>, <span class="ruby-identifier">textManager</span>)
-  <span class="ruby-identifier">pic1</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle1.png&quot;</span>)
-  <span class="ruby-identifier">pic2</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle2.png&quot;</span>)
-  <span class="ruby-identifier">pic3</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle3.png&quot;</span>)
-  <span class="ruby-identifier">pic4</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle4.png&quot;</span>)
+  <span class="ruby-ivar">@h</span>=<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.7</span>
+  <span class="ruby-ivar">@w</span>=<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.9</span>
+  <span class="ruby-identifier">pic1</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle1.png&quot;</span>)
+  <span class="ruby-identifier">pic2</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle2.png&quot;</span>)
+  <span class="ruby-identifier">pic3</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle3.png&quot;</span>)
+  <span class="ruby-identifier">pic4</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/regle4.png&quot;</span>)
+  <span class="ruby-identifier">pic1</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
+  <span class="ruby-identifier">pic2</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
+  <span class="ruby-identifier">pic3</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
+  <span class="ruby-identifier">pic4</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
 
-  <span class="ruby-identifier">tempNext</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/nextButton.png&quot;</span>)
-  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/previousButton.png&quot;</span>)
-  <span class="ruby-identifier">tempNext</span> = <span class="ruby-identifier">tempNext</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
+  <span class="ruby-identifier">tempNext</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/nextButton.png&quot;</span>)
+  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../Assets/regle/previousButton.png&quot;</span>)
+  <span class="ruby-identifier">tempNext</span> = <span class="ruby-identifier">tempNext</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
   <span class="ruby-identifier">nextButton</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-identifier">tempNext</span>)
-  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-identifier">tempPrevious</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
+  <span class="ruby-identifier">tempPrevious</span> = <span class="ruby-identifier">tempPrevious</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>,<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.2</span>)
   <span class="ruby-identifier">previousButton</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-identifier">tempPrevious</span>)
 
   <span class="ruby-ivar">@textManager</span>=<span class="ruby-identifier">textManager</span>
@@ -291,10 +297,10 @@
 
           
           <div class="method-source-code" id="getImage-source">
-            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 99</span>
+            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getImage</span>
   <span class="ruby-ivar">@imgLoaded</span> = <span class="ruby-ivar">@pile</span>[<span class="ruby-ivar">@picindex</span>]
-  <span class="ruby-ivar">@imgLoaded</span> = <span class="ruby-ivar">@imgLoaded</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-ivar">@width</span>,<span class="ruby-ivar">@height</span>)
+  <span class="ruby-ivar">@imgLoaded</span> = <span class="ruby-ivar">@imgLoaded</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
   <span class="ruby-ivar">@image</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@imgLoaded</span>)
   <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">show</span>
 <span class="ruby-keyword">end</span></pre>
@@ -327,7 +333,7 @@
 
           
           <div class="method-source-code" id="nextImage-source">
-            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 65</span>
+            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nextImage</span>
   <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@previousButton</span>)
   <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@image</span>)
@@ -373,7 +379,7 @@
 
           
           <div class="method-source-code" id="previousImage-source">
-            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 82</span>
+            <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">previousImage</span>
   <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@previousButton</span>)
   <span class="ruby-ivar">@hBox</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@image</span>)
