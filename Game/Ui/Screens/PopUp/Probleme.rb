@@ -22,6 +22,7 @@ class Probleme
   end
   def initialize()
     screen=Gdk::Screen.default
+		@textManager=XmlReader.instance
 		#Variable pour resize le texte
 		@pad=screen.height*0.03
 		@police=screen.height*0.025
@@ -40,7 +41,7 @@ class Probleme
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10)
 
-    pb = Text.new("Identifiant indisponible",@police)
+    pb = Text.new("Login unavailable",@police)
 		pb.colorChange("red")
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
 

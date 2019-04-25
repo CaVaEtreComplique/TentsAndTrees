@@ -39,7 +39,7 @@ class ProblemeIdent
 		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Backgrounds/nature.png")
 		@buffer=@buffer.scale(w/4,h/10+100)
 
-    pb = Text.new("Identifiant introuvable \n OU \nmot de passe incorrecte",@police)
+    pb = Text.new("Login not found \n OR \nwrong password",@police)
 	#	pb2 = Text.new(" OU mot de passe incorrecte",15)
 		pb.colorChange("red")
 	#	pb2.colorChange("red")

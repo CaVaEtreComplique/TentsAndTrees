@@ -139,7 +139,7 @@
         <span class="ruby-ivar">@scrol</span>=<span class="ruby-constant">ScrollableArea</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
         <span class="ruby-ivar">@menuR</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
         <span class="ruby-ivar">@boxV</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
-        <span class="ruby-identifier">sauvegarde</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Sauvegarde&quot;</span>)
+        <span class="ruby-identifier">sauvegarde</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;save&quot;</span> , <span class="ruby-string">&quot;title&quot;</span>))
         <span class="ruby-identifier">sauvegarde</span>.<span class="ruby-identifier">title</span>
         <span class="ruby-ivar">@boxV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">sauvegarde</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
 
@@ -151,14 +151,14 @@
         <span class="ruby-identifier">tab</span>=<span class="ruby-identifier">connect</span>.<span class="ruby-identifier">getPlayersSave</span>(<span class="ruby-identifier">joueur</span>)
 
         <span class="ruby-keyword">if</span>(<span class="ruby-identifier">tab</span>.<span class="ruby-identifier">empty?</span>)
-                        <span class="ruby-identifier">noSave</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;PAS DE SAUVEGARDE&quot;</span>)
+                        <span class="ruby-identifier">noSave</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;save&quot;</span> , <span class="ruby-string">&quot;nosave&quot;</span>))
                         <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">noSave</span>.<span class="ruby-identifier">gtkObject</span>)
         <span class="ruby-keyword">else</span>
                         <span class="ruby-identifier">tab</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
                         <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">SaveBlockUi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">i</span>,<span class="ruby-ivar">@parent</span>))
                         }
         <span class="ruby-keyword">end</span>
-        <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;RETOUR&quot;</span>)
+        <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;save&quot;</span> , <span class="ruby-string">&quot;back&quot;</span>))
         <span class="ruby-ivar">@menuR</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">retour</span>.<span class="ruby-identifier">gtkObject</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
         <span class="ruby-ivar">@boxV</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@menuR</span>)
 <span class="ruby-comment">#      @scrol.pack_start(retour.gtkObject ,expand: false, fill: true, padding: @pad)</span>
