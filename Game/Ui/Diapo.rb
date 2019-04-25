@@ -8,6 +8,7 @@
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/AssetsClass/Asset"
+require File.dirname(__FILE__) + "/AssetsLoaderClass/IconAsset"
 
 class Diapo
   attr_accessor :hBox, :nextButton, :previousButton, :rule, :box
@@ -15,10 +16,11 @@ class Diapo
 def initialize(width , height, textManager)
   @h=height*0.7
   @w=width*0.9
-  pic1 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle1.png")
-  pic2 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle2.png")
-  pic3 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle3.png")
-  pic4 = Asset.new(File.dirname(__FILE__) + "/../../Assets/regle/regle4.png")
+  @ic=IconAsset.new
+  pic1 = @ic.iconAsset.fetch(:diapo1)
+  pic2 = @ic.iconAsset.fetch(:diapo2)
+  pic3 = @ic.iconAsset.fetch(:diapo3)
+  pic4 = @ic.iconAsset.fetch(:diapo4)
   pic1.resize(@w,@h)
   pic2.resize(@w,@h)
   pic3.resize(@w,@h)
