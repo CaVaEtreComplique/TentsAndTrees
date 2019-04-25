@@ -57,6 +57,8 @@ class AdventureVictoryScreen < Screen
 
         quit=Text.new(@textManager.getButtonLabel("victory" , "quit"))
         quit.onClick{
+          @manager.updateHighScore
+          @manager.updateSave
           @manager.levelNumberScreen.applyOn(@parent)
         }
         @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:@pad)
