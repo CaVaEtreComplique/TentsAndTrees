@@ -1,5 +1,11 @@
 
 require 'gtk3'
+##
+# ===== Presentation
+#ScolableArea  only needs to be initialized.
+#It creates and implements a scrolable area in a page.
+##
+
 class ScrollableArea
   attr_reader :gtkObject
   #
