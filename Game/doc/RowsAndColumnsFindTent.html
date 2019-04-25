@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-RowsAndColumnsFindTent-label-Presentation">Presentation</a>
+    <li><a href="#class-RowsAndColumnsFindTent-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -65,17 +74,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-i-help">#help</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -86,6 +85,15 @@
 
   <section class="description">
     
+<h5 id="class-RowsAndColumnsFindTent-label-Presentation">Presentation<span><a href="#class-RowsAndColumnsFindTent-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="RowsAndColumnsFindTent.html"><code>RowsAndColumnsFindTent</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a> it&#39;s role is to find a cell whitch is tent because of it&#39;s row/column, or a near one.</p>
+
+<h5 id="class-RowsAndColumnsFindTent-label-Methods">Methods<span><a href="#class-RowsAndColumnsFindTent-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>help</code> - inheritade from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+</li></ul>
+
   </section>
 
   
@@ -99,104 +107,6 @@
     
 
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-help" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">help</span><span
-            class="method-args">(game)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsFindTent.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
-
-  <span class="ruby-identifier">game</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">game</span>()
-
-  <span class="ruby-comment">#Algorithm for each columns</span>
-  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-
-    <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
-    <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
-
-    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
-    <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tent</span>
-      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
-        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-        <span class="ruby-identifier">cell</span> = <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">first</span> <span class="ruby-comment">#registered answer</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
-
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>]
-      <span class="ruby-keyword">break</span>
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-comment">#We find an answer</span>
-      <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItRow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;tent&quot;</span>)
-    <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-comment">#Algorithm for each row</span>
-  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-
-    <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
-    <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
-
-    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
-    <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tent</span>
-      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
-        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-        <span class="ruby-identifier">cell</span> = <span class="ruby-identifier">zone</span>.<span class="ruby-identifier">first</span> <span class="ruby-comment">#register answer</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
- 
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>]
-
-      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-comment">#We find an answer</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllPossibilitiesGiveItColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>], <span class="ruby-string">&quot;tent&quot;</span>)
-      <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>()
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

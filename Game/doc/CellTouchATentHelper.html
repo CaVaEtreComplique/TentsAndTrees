@@ -97,11 +97,12 @@
     
 <h5 id="class-CellTouchATentHelper-label-Presentation">Presentation<span><a href="#class-CellTouchATentHelper-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="CellTouchATentHelper.html"><code>CellTouchATentHelper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, it&#39;s role is to find a cell whitch touch a tent.</p>
+<p>The <a href="CellTouchATentHelper.html"><code>CellTouchATentHelper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>. Its role is to find a cell witch is touching a tent.</p>
 
 <h5 id="class-CellTouchATentHelper-label-Methods">Methods<span><a href="#class-CellTouchATentHelper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>help(game) – inheritade from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+<ul><li>
+<p><code>help</code> - Inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but defined there.</p>
+</li></ul>
 
   </section>
 
@@ -137,27 +138,30 @@
           
           <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method try to find a cell touched by a tent.</p>
+<p>This method tries to find a cell touched by a tent.</p>
 
 <h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>game</code> - The game you want a help for.</p>
+<p><code>game</code> - The game you want help for.</p>
 </li></ul>
 
 <h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>If it find a cell touched by a tent, returns a <a href="HelpOnACellTouchATent.html"><code>HelpOnACellTouchATent</code></a> instance, else it returns a <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance.</p>
+<p>If it finds a cell touched by a tent, returns a <a href="HelpOnACellTouchATent.html"><code>HelpOnACellTouchATent</code></a> instance. If not, it returns a <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance.</p>
 
 <h5 id="method-i-help-label-How+to+use">How to use<span><a href="#method-i-help-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>To get a help for a cell touched by a tent: CellTouchATentHelper_instace.help(theGameYouWantHelpFor)</p>
+<p>To get helped for a cell touched by a tent:</p>
+
+<pre class="ruby"><span class="ruby-constant">CellTouchATentHelper_instace</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">theGameYouWantHelpFor</span>)
+</pre>
 <hr>
           
           
 
           
           <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/CellsHelpers/CellTouchATentHelper.rb, line 41</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/CellsHelpers/CellTouchATentHelper.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
 
   <span class="ruby-identifier">white</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">white</span>()
