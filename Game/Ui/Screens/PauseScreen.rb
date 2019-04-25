@@ -50,10 +50,16 @@ class PauseScreen < Screen
     }
     quit=Text.new(@textManager.getButtonLabel("pause" , "quit"))
       quit.onClick(){
-        @game.delete_observers
-        manager.session.updateSave
-        manager.updateSave
-        manager.mainScreen.applyOn(@parent)
+        if !@game.session.partOfAdventure?
+          @game.delete_observers
+          manager.session.updateSave
+          manager.updateSave
+          manager.mainScreen.applyOn(@parent)
+        else
+          @game.session.game.delete_observers
+          @game.session.game.clearHelper
+          manager.levelNumberScreen.applyOn(@parent)
+        end
         ["TERM", "INT", "QUIT"].each{ |sig|
           Signal.trap(sig) { exit }
         }
