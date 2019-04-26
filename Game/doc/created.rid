@@ -1,4 +1,4 @@
-Thu, 25 Apr 2019 18:17:51 +0200
+Fri, 26 Apr 2019 08:42:43 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -28,7 +28,7 @@ Thu, 25 Apr 2019 18:17:51 +0200
 ./Helps/Helpers/CellsHelpers/CellDontTouchTreeHelper.rb	Thu, 25 Apr 2019 17:58:18 +0200
 ./Helps/Helpers/CellsHelpers/CellTouchATentHelper.rb	Thu, 25 Apr 2019 17:59:31 +0200
 ./Helps/Helpers/CellsHelpers/CellWhiteOverlap.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsFindTent.rb	Thu, 25 Apr 2019 17:50:37 +0200
+./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsFindTent.rb	Fri, 26 Apr 2019 08:42:38 +0200
 ./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsFindGrass.rb	Thu, 25 Apr 2019 18:12:00 +0200
 ./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper.rb	Thu, 25 Apr 2019 17:56:59 +0200
 ./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper.rb	Thu, 25 Apr 2019 17:56:59 +0200

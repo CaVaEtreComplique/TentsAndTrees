@@ -14,33 +14,33 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 
 ##
 # ===== Presentation
-# The RowsAndColumnsFindTent class is a helper class inherited from FictivHelper
-# it's role is to find a cell whitch is tent because of it's row/column, or a near one.
+# The RowsAndColumnsFindTent class is a helper class inherited from FictivHelper.
+# Its role is to find a cell whitch is a tent because of its row/column, or a near one.
 #
 # ===== Methods
-# * +help+ - inheritade from FictivHelper, but definded there.
+# * +help+ - Inherited from FictivHelper, but defined there.
 class RowsAndColumnsFindTent < FictivHelper
 
   public_class_method :new
 
   ##
   # ===== Presentation
-  # This method try to find a cell whitch is tent beacause of it's row/column, or a near one.
+  # This method tries to find a cell whitch is a tent because of its row/column, or a near one.
   #
   # ===== Attributes
-  # * +game+ - The game you want a help for.
+  # * +game+ - The game you need help for.
   #
   # ===== Returns
-  # If it find a cell whitch is tent beacause of it's row/column, or a near one,
+  # If it finds a cell whitch is a tent because of its row/column, or a near one,
   # returns a HelpAllPossibilitiesGiveItRow instance if it depends on a row,
   # returns a HelpAllPossibilitiesGiveItColumn instance if it depends on a column,
   # else it returns a HelpNotFound instance.
   #
   # ===== How to use
-  # To get a help for a cell don't touched by a tree:
+  # To get help :
   #     RowsAndColumnsFindTent_instace.help(theGameYouWantHelpFor)
   # -----------
-  def help(game) # :nodoc:
+  def help(game)
 
     game = game.game()
 
@@ -78,7 +78,7 @@ class RowsAndColumnsFindTent < FictivHelper
       nbTent = 0
 
       whiteZone = FindWhiteZone.Find(game, 1, i)
-      whiteZone.each do |zone| #Count the number of possible tent
+      whiteZone.each do |zone| #Count the number of possible tents
         if (zone.size % 2 == 0)
           nbTent += (zone.size / 2)
         else
