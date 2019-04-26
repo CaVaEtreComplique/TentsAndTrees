@@ -111,7 +111,7 @@ class AdventureSession < Session
 	#     @score = @adventureInfo.calculateScore(@levelInfo[0],@levelInfo[2],@levelInfo[4],score)
 	##
 	def calculateScore(score)
-			@score = @adventureInfo.calculateScore(@levelInfo[0],@levelInfo[2],@levelInfo[4],score)
+			@score = @adventureInfo.calculateScore(@levelInfo[2],@levelInfo[4],score)
 	end
 
 	##
