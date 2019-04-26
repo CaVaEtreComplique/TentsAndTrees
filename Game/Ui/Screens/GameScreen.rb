@@ -149,7 +149,7 @@ class GameScreen < Screen
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,true, @game.session.gridPick.associatedTimer)
       @game.delete_observers
-    elsif @game.time <=0.5
+    elsif @game.time <=0
       @game.chrono.stop
       @victoryScreen.applyOn(@parent,@game.calculateScore,false, @game.session.gridPick.associatedTimer)
       @game.delete_observers
