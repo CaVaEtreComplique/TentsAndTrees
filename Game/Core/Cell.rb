@@ -168,7 +168,7 @@ class Cell
 
 	#:nodoc:
 	def to_s
-		return "["+(@column+1).to_s+";"+(@row+1).to_s+"]"
+		return "["+(@row+1).to_s+";"+(@column+1).to_s+"]"
 	end
 
 	def getVisualRankColumn()
