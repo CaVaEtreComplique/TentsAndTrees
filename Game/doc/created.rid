@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 10:35:42 +0200
+Fri, 26 Apr 2019 10:45:57 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -62,7 +62,7 @@ Fri, 26 Apr 2019 10:35:42 +0200
 ./Core/ProcessStatus.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/ClueUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/Button.rb	Fri, 26 Apr 2019 10:06:43 +0200
-./Ui/Buttons/Text.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Buttons/Text.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/Buttons/ChronoUi.rb	Fri, 26 Apr 2019 10:22:04 +0200
 ./Ui/Buttons/GuessUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/CellUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -70,25 +70,25 @@ Fri, 26 Apr 2019 10:35:42 +0200
 ./Ui/Diapo.rb	Thu, 25 Apr 2019 15:32:16 +0200
 ./Ui/HelpUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/AssetsClass/Asset.rb	Fri, 26 Apr 2019 09:52:52 +0200
-./Ui/AssetsClass/LevelNumbers.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/AssetsClass/LevelNumbers.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/AssetsClass/Star.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/AssetsClass/LevelNumber.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/AssetsClass/LevelNumber.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/AssetsClass/CellAsset.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Constants.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/ParametreScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/GameModeScreen.rb	Fri, 26 Apr 2019 10:31:54 +0200
-./Ui/Screens/GameScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Screens/GameScreen.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/Screens/SaveScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/PopUp/ProblemeIdent.rb	Thu, 25 Apr 2019 17:38:40 +0200
 ./Ui/Screens/PopUp/MotdepasseOublie.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/PopUp/Probleme.rb	Thu, 25 Apr 2019 17:38:40 +0200
-./Ui/Screens/Screen.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Screens/Screen.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/Screens/TutorialVictoryScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/AdventureVictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/HighScoresScreen.rb	Fri, 26 Apr 2019 10:35:39 +0200
 ./Ui/Screens/PrincipalScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/TutorialGameScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
+./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 10:45:53 +0200
 ./Ui/Screens/PauseScreen.rb	Thu, 25 Apr 2019 16:38:29 +0200
 ./Ui/Screens/VictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/RuleScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -101,5 +101,5 @@ Fri, 26 Apr 2019 10:35:42 +0200
 ./Ui/AssetsLoaderClass/CellAssets.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/SelectionUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/ScrollableArea.rb	Fri, 26 Apr 2019 09:36:28 +0200
-./Connexion.rb	Thu, 25 Apr 2019 16:43:54 +0200
+./Connexion.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./TestGame.rb	Thu, 25 Apr 2019 10:19:45 +0200

@@ -130,7 +130,7 @@
 
           
           <div class="method-source-code" id="connexion-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 124</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">connexion</span>(<span class="ruby-identifier">player</span>)
         <span class="ruby-identifier">@@joueur</span>=<span class="ruby-identifier">player</span>
         <span class="ruby-identifier">@@win</span>.<span class="ruby-identifier">hide</span>
@@ -165,7 +165,7 @@
 
           
           <div class="method-source-code" id="getJoueur-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 130</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 134</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">getJoueur</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@joueur</span>
 <span class="ruby-keyword">end</span></pre>
@@ -223,13 +223,17 @@
       <span class="ruby-ivar">@gtkObject</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
               <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@menu</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
 
-              <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../Assets/Backgrounds/nature.png&quot;</span>)
+              <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../Assets/Backgrounds/nature.jpg&quot;</span>)
               <span class="ruby-ivar">@buffer</span>=<span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span><span class="ruby-value">+100</span>)
 
   <span class="ruby-ivar">@image</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>()
 
   <span class="ruby-identifier">log</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;LOGIN&quot;</span>,<span class="ruby-ivar">@police</span>)
+              <span class="ruby-identifier">log</span>.<span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;black&quot;</span>
   <span class="ruby-identifier">mdp</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;PASSWORD&quot;</span>,<span class="ruby-ivar">@police</span>)
+              <span class="ruby-identifier">mdp</span>.<span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;black&quot;</span>
+              <span class="ruby-identifier">log</span>.<span class="ruby-identifier">apply</span>
+              <span class="ruby-identifier">mdp</span>.<span class="ruby-identifier">apply</span>
   <span class="ruby-identifier">ident</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;SIGN IN&quot;</span>,<span class="ruby-ivar">@police</span>)
               <span class="ruby-identifier">inscription</span> =<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;SIGN UP&quot;</span>,<span class="ruby-ivar">@police</span>)
               <span class="ruby-identifier">mdpOublie</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;FORGOT PASSWORD&quot;</span>,<span class="ruby-ivar">@police</span>)
@@ -327,7 +331,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File Connexion.rb, line 134</span>
+            <pre><span class="ruby-comment"># File Connexion.rb, line 138</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">show</span>
                 <span class="ruby-identifier">@@win</span>.<span class="ruby-identifier">show_all</span>
 <span class="ruby-keyword">end</span></pre>
