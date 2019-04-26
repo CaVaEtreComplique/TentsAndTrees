@@ -5,14 +5,30 @@
 # @Last modified by:   zeigon
 # @Last modified time: 26-Apr-2019
 
-
-
+# :nodoc:
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../GridUi"
 require File.dirname(__FILE__) + "/../HelpUi"
 require File.dirname(__FILE__) + "/../Buttons/Button"
+# :startdoc:
 
+##
+# ===== Presentation
+# The Helper class is a helper class inherited from FictivHelper
+# it's role is to help you to find where you can fill a row or column whith tents.
+#
+# ===== Variables
+# * +states+ : class variable, all the steps of the tutorial.
+# * +tutoEnd+ : instence variable, true when the tutorial is finished.
+# * +step+ : instence variable, one of @@states, permises to know where we are in the tutorial's steps.
+# * +victoryScreen+ : instence variable, the screen you see when you finished the tutorial
+# * +rank+ : instence variable, the number of the step we are (for multilanguage)
+#
+# ===== Methods
+# * +update+ - update the screens.
+# * +gridAltered+ - Called when the grid is altered.
+# * +goToNextStep+ - Permises to unlock the next step of the tutorial.
 class TutorialGameScreen < Screen
   @@states = [:intro, :unlockPause, :unlockGrid, :unlockUndo, :unlockRedo, :unlockFreezers, :unlockReset, :unlockHelps]
 
@@ -20,10 +36,25 @@ class TutorialGameScreen < Screen
 
   attr_writer :helpDisplayed
 
-  def initialize(manager,game,cellAssets,victoryScreen)
 
+  ##
+  # ===== Presentation
+  # This method initialize the TutorialGameScreen.
+  #
+  # ===== Attributes
+  # * +manager+ : help level at the start of the helps.
+  # * +game+ : minimal help level of the helper.
+  # * +cellAssets+ : maximal help level of the helper.
+  # * +victoryScreen+ :
+  #
+  # ===== How to use
+  # To create a TutorialGameScreen:
+  #    TutorialGameScreen.new(manager,game,cellAssets,victoryScreen)
+  # -----------
+  def initialize(manager,game,cellAssets,victoryScreen)
+# :nodoc:
     @tutoEnd = false;
-    @stape = :intro
+    @step = :intro
     super(manager.win)
     (@game=game).add_observer(self)
 
@@ -50,13 +81,6 @@ class TutorialGameScreen < Screen
     @redoButton=Text.new(@textManager.getButtonLabel("ingame" , "redo"))
 
 
-    @helpResponseUi = Text.new ""
-    @helpResponseUi.style="italic"
-    @helpResponseUi.weight="normal"
-    @helpResponseUi.color="red"
-    @helpResponseUi.size=15
-    @helpResponseUi.apply
-    @helpResponseUi.setWrap(true)
     @help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
 
     @pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
@@ -65,7 +89,7 @@ class TutorialGameScreen < Screen
 
     @rank =0
 
-    @nextResponseUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
+    @textUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
     @rank = @rank+1
     nextStep = Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStep.onClick(){
@@ -74,18 +98,18 @@ class TutorialGameScreen < Screen
         end
         if(@rank <= 7)
           goToNextStep()
-          @nextResponseUI.updateLabel("")
-          @nextResponseUI.updateLabel(@textManager.getTutorialTexts("level" , @rank))
+          @textUI.updateLabel("")
+          @textUI.updateLabel(@textManager.getTutorialTexts("level" , @rank))
           @rank = @rank + 1
         end
       }
 
-      @nextResponseUI.style="italic"
-      @nextResponseUI.weight="normal"
-      @nextResponseUI.color="red"
-      @nextResponseUI.size=17
-      @nextResponseUI.apply
-      @nextResponseUI.setWrap(true)
+      @textUI.style="italic"
+      @textUI.weight="normal"
+      @textUI.color="red"
+      @textUI.size=17
+      @textUI.apply
+      @textUI.setWrap(true)
 
 ##################################################################
 
@@ -99,7 +123,7 @@ class TutorialGameScreen < Screen
     globalBox.width_request=(screen.width*0.3)
     globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
 
-    nextBox = Gtk::Box.new(:vertical).add(@nextResponseUI.gtkObject)
+    nextBox = Gtk::Box.new(:vertical).add(@textUI.gtkObject)
     nextAli = Gtk::Alignment.new(0.5, 1, 0, 0).add(nextBox)
 
     globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
@@ -111,19 +135,29 @@ class TutorialGameScreen < Screen
 
     globalBoxH = Gtk::Box.new(:horizontal).add(globalBox)
     globalAli  = Gtk::Alignment.new(0.5, 0, 0, 0).add(globalBoxH)
-    helpCRAli  = Gtk::Alignment.new(0.5, 0, 0, 1).add(@helpResponseUi.gtkObject)
+    #helpCRAli  = Gtk::Alignment.new(0.5, 0, 0, 1).add(@helpResponseUi.gtkObject)
 
     @gtkObject.attach(globalAli,3,4,0,1)
-    @gtkObject.attach(helpCRAli,2,4,1,2)
-    # @gtkObject.attach(@nextResponseUI.gtkObject,2,4,2,3)
+    #@gtkObject.attach(helpCRAli,2,4,1,2)
+    # @gtkObject.attach(@textUI.gtkObject,2,4,2,3)
     @gtkObject.attach(nextAli,2,4,3,4)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer2),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
+  # :startdoc:
   end
 
+  ##
+  # ===== Presentation
+  # This method is called when the grid is altered.
+  #
+  # ===== How to use
+  # To use this:
+  #    tutorialGameScreen_instance.gridAltered()
+  # -----------
   def gridAltered
+  # :nodoc:
     if helpDisplayed?
-      @helpResponseUi.updateLabel ""
+      @textUI.updateLabel ""
       @helpCR[1]
       #  Make the concerned cells normal
       @helpCR[1].each{ |cell|
@@ -132,55 +166,98 @@ class TutorialGameScreen < Screen
         }
       helpDisplayed=false
     end
+  # :startdoc:
   end
 
+
+  ##
+  # ===== Presentation
+  # This method returns true if help has been displayed.
+  #
+  # ===== Return
+  # * +@helpDisplayed+ - return the instace variable whitch is a boolean.
+  #
+  # ===== How to use
+  # To use this:
+  #    tutorialGameScreen_instance.helpDisplayed?()
+  # -----------
   def helpDisplayed?
+  # :nodoc:
     @helpDisplayed
+  # :startdoc:
   end
 
+  ##
+  # ===== Presentation
+  # This method permises to go to the next Tutorial step.
+  #
+  # ===== How to use
+  # To use this:
+  #    tutorialGameScreen_instance.goToNextStep()
+  # -----------
   def goToNextStep
-    case @stape
+    # :nodoc:
+    case @step
       when :unlockReset
-        @stape = :unlockHelps
+        @step = :unlockHelps
         setHelpOnClick
 
       when :unlockFreezers
-        @stape = :unlockReset
+        @step = :unlockReset
         setResetOnClick
 
       when :unlockRedo
-        @stape = :unlockFreezers
+        @step = :unlockFreezers
         setFreezersOnClick
 
       when :unlockUndo
-        @stape = :unlockRedo
+        @step = :unlockRedo
         setRedoOnClick
 
       when :unlockGrid
-        @stape = :unlockUndo
+        @step = :unlockUndo
         setUndoOnClick
 
       when :unlockPause
-        @stape = :unlockGrid
+        @step = :unlockGrid
         setGridOnClick
 
       when :intro
-        @stape = :unlockPause
+        @step = :unlockPause
         setPauseOnClick
     end
+  # :startdoc:
   end
 
-#set the Reset on click function
+  ##
+  # ===== Presentation
+  # This method sets the Reset on click function.
+  #
+  # ===== How to use
+  # To set the reset on click:
+  #    tutorialGameScreen_instance.setResetOnClick()
+  # -----------
   def setResetOnClick
+  # :nodoc:
     @resetGrid.onClick(){
       @game.resetGrid
       @gridUi.refresh
     }
+  # :startdoc:
   end
 
 
-#set the Hypothesis on click function
+
+  ##
+  # ===== Presentation
+  # This method sets the Hypothesis on click function.
+  #
+  # ===== How to use
+  # To set the freezers on click:
+  #    tutorialGameScreen_instance.setFreezersOnClick()
+  # -----------
   def setFreezersOnClick
+  # :nodoc:
     @newGuess.onClick(){
       @game.beginGuess
       @gridUi.refresh
@@ -190,41 +267,85 @@ class TutorialGameScreen < Screen
       @game.removeGuess
       @gridUi.refresh
     }
+  # :startdoc:
   end
 
-#set the Redo on click function
+
+  ##
+  # ===== Presentation
+  # This methods sets the Redo on click function.
+  #
+  # ===== How to use
+  # To set the Redo on click:
+  #    tutorialGameScreen_instance.setRedoOnClick()
+  # -----------
   def setRedoOnClick
+  # :nodoc:
     @redoButton.onClick(){
       @gridUi.redo
     }
+  # :startdoc:
   end
 
-#set the Undo on click function
+  ##
+  # ===== Presentation
+  # This method sets the Undo on click function.
+  #
+  # ===== How to use
+  # To set the undo on click:
+  #    tutorialGameScreen_instance.setUndoOnClick()
+  # -----------
   def setUndoOnClick
+  # :nodoc:
     @undoButton.onClick(){
       @gridUi.undo
     }
+  # :startdoc:
   end
 
-#set the Grid's cells on click function
+  ##
+  # ===== Presentation
+  # This method sets the Grid's cells on click function.
+  #
+  # ===== How to use
+  # To set the Grid's cells on click:
+  #    tutorialGameScreen_instance.setGridOnClick()
+  # -----------
   def setGridOnClick
-
+  # :nodoc:
+  # :startdoc:
   end
 
-
-#set the Pause on click function
+  ##
+  # ===== Presentation
+  # This method sets the Pause on click function.
+  #
+  # ===== How to use
+  # To set the pause on click:
+  #    tutorialGameScreen_instance.setPauseOnClick()
+  # -----------
   def setPauseOnClick
+  # :nodoc:
     @pause.onClick(){
       @pauseScreen.applyOn(@parent)
     }
+  # :startdoc:
   end
 
-#set the Help on click function
+  ##
+  # ===== Presentation
+  # This method sets the Help on click function.
+  #
+  # ===== How to use
+  # To set the help on click:
+  #    tutorialGameScreen_instance.setHelpOnClick()
+  # -----------
   def setHelpOnClick
+  # :nodoc:
     @help.onClick(){
       # Display the help message
       @helpCR=@game.help
-      @helpResponseUi.updateLabel(@helpCR[0])
+      @textUI.updateLabel(@helpCR[0])
       self.helpDisplayed=true
       #  Make the concerned cells golw
       @helpCR[1].each{ |cell|
@@ -232,9 +353,19 @@ class TutorialGameScreen < Screen
         cellUi.glowing
       }
     }
+  # :startdoc:
   end
 
+  ##
+  # ===== Presentation
+  # This method updates all the parents of the current screen, and the current itself.
+  #
+  # ===== How to use
+  # To set the help on click:
+  #    tutorialGameScreen_instance.update()
+  # -----------
   def update
+  # :nodoc:
     if !@parent.active?
       @pauseScreen.applyOn(@parent)
     end
@@ -242,6 +373,7 @@ class TutorialGameScreen < Screen
       @victoryScreen.applyOn(@parent,0,true)
       @game.delete_observers
     end
+  # :startdoc:
   end
 
 end
