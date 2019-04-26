@@ -12,31 +12,31 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 
 ##
 # ===== Presentation
-# The RowsAndColumnsTentsHelper class is a helper class inherited from FictivHelper
-# it's role is to help you to find where you can fill a row or column whith tents.
+# The RowsAndColumnsTentsHelper class is a helper class inherited from FictivHelper.
+# Its role is to help you finding where you can fill a row or column with tents.
 #
 # ===== Methods
-# * +help+ - inheritade from FictivHelper, but definded there.
+# * +help+ - Inherited from FictivHelper, but defined there.
 class RowsAndColumnsTentsHelper < FictivHelper
 
   public_class_method :new
 
   ##
   # ===== Presentation
-  # This method try to find to find whitch row or column you can fill whith tents.
+  # This method tries to find whitch row or column you can fill with tents.
   #
   # ===== Attributes
-  # * +game+ - The game you want a help for.
+  # * +game+ - The game you need help on.
   #
   # ===== Returns
-  # If it find a row or a column to fill with grass,
+  # If it finds a row or a column to fill with grass,
   # returns a HelpAllGrassOnARow instance if it's a row to fill,
   # returns a HelpAllGrassOnAColumn instance if it's a column to fill,
   # else it returns a HelpNotFound instance.
   #
   # ===== How to use
-  # To get a help for a cell don't touched by a tree:
-  #     RowsAndColumnsTentsHelper_instace.help(theGameYouWantHelpFor)
+  # To get a help :
+  #     RowsAndColumnsTentsHelper_instance.help(theGameYouWantHelpFor)
   # -----------
   def help(game)
 

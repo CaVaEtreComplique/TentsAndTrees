@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Helper-label-Presentation">Presentation</a>
+    <li><a href="#class-Helper-label-Variables">Variables</a>
+    <li><a href="#class-Helper-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -65,25 +75,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
-    
-    <li ><a href="#method-i-help">#help</a>
-    
-    <li ><a href="#method-i-helpLevelManagement">#helpLevelManagement</a>
-    
-    <li ><a href="#method-i-helpLevelSetMinMax">#helpLevelSetMinMax</a>
-    
-    <li ><a href="#method-i-price">#price</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -94,6 +86,26 @@
 
   <section class="description">
     
+<h5 id="class-Helper-label-Presentation">Presentation<span><a href="#class-Helper-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="Helper.html"><code>Helper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a> it&#39;s role is to help you to find where you can fill a row or column whith tents.</p>
+
+<h5 id="class-Helper-label-Variables">Variables<span><a href="#class-Helper-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>MAXLEVELHELP</code> : class variable, the maximum level of helps returned</p>
+</li><li>
+<p><code>MINLEVELHELP</code> : class variable, the minimal level of helps returned</p>
+</li><li>
+<p><code>helps</code> : instence variable, all the helpers known by this helper</p>
+</li></ul>
+
+<h5 id="class-Helper-label-Methods">Methods<span><a href="#class-Helper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>help</code> - inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+</li><li>
+<p><code>price</code> - give the price of the last help.</p>
+</li></ul>
+
   </section>
 
   
@@ -107,256 +119,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(helplvl = 1, lvlmin = 1, lvlmax = 3)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">helplvl</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">lvlmin</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">lvlmax</span> = <span class="ruby-value">3</span>)
-
-  <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-identifier">helplvl</span>
-  <span class="ruby-identifier">helpLevelSetMinMax</span>(<span class="ruby-identifier">lvlmin</span>, <span class="ruby-identifier">lvlmax</span>)
-
-  <span class="ruby-ivar">@lastHelp</span> = <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>
-
-  <span class="ruby-comment">#initialize with all helpers</span>
-  <span class="ruby-ivar">@helps</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellTouchATentHelper</span>.<span class="ruby-identifier">new</span>)       <span class="ruby-comment"># Fill the cells near a Tent with grass</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsTentsHelper</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># Fill a row/column whith tents when it has all this grass</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsGrassHelper</span>.<span class="ruby-identifier">new</span>)  <span class="ruby-comment"># Fill a row/column whith grass when it has all this tents</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellDontTouchTreeHelper</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># Help when a cell dont touch a tree, it will be a grass</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsFindTent</span>.<span class="ruby-identifier">new</span>)     <span class="ruby-comment"># RowsAndColumnsFindTent help you to find Tent in a row or columns</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">RowsAndColumnsFindGrass</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># RowsAndColumnsFindGrass help you to find grass in a row or columns</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">CellWhiteOverlap</span>.<span class="ruby-identifier">new</span>)           <span class="ruby-comment"># Help when all possibilities give a grass cell</span>
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">AllTreesHaveTentsHelper</span>.<span class="ruby-identifier">new</span>)    <span class="ruby-comment"># Place a tent for a tree that don&#39;t has his tent</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-help" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">help</span><span
-            class="method-args">(game)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 102</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>) <span class="ruby-comment">#called to help the player</span>
-
-  <span class="ruby-identifier">game</span> = <span class="ruby-constant">GameDecorated</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>)
-
-  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">aHelper</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span>(((<span class="ruby-identifier">helpRes</span> = <span class="ruby-identifier">aHelper</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">game</span>)).<span class="ruby-identifier">helpFound?</span>))
-      <span class="ruby-identifier">helpLevelManagement</span>(<span class="ruby-identifier">helpRes</span>)
-      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@mod</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">@@DEBUG_MOD</span>)
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nDebug : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getText</span>(<span class="ruby-ivar">@helpLevel</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpLevel</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
-      <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getRes</span>(<span class="ruby-ivar">@helpLevel</span>)
-    <span class="ruby-keyword">end</span>
-  }
-
-  <span class="ruby-identifier">help</span> = <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>
-
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@mod</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">@@DEBUG_MOD</span>)
-    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nDebug : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">help</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpLevel</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
-  <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">helpLevelManagement</span>(<span class="ruby-identifier">help</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">help</span>.<span class="ruby-identifier">getRes</span>(<span class="ruby-ivar">@helpLevel</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-helpLevelManagement" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">helpLevelManagement</span><span
-            class="method-args">(aHelp)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="helpLevelManagement-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 87</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpLevelManagement</span>(<span class="ruby-identifier">aHelp</span>)
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">aHelp</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@lastHelp</span>)
-    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@helpLevelMax</span>)
-      <span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-ivar">@helpLevelMin</span>
-    <span class="ruby-ivar">@lastHelp</span> = <span class="ruby-identifier">aHelp</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-helpLevelSetMinMax" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">helpLevelSetMinMax</span><span
-            class="method-args">(helpLevelMin, helpLevelMax)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="helpLevelSetMinMax-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 56</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpLevelSetMinMax</span>(<span class="ruby-identifier">helpLevelMin</span>, <span class="ruby-identifier">helpLevelMax</span>)
-
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevelMin</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">@@MINLEVELHELP</span>) <span class="ruby-comment">#Set helpLevelMin</span>
-    <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">@@MINLEVELHELP</span>
-  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">helpLevelMin</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">@@MAXLEVELHELP</span>)
-    <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">@@MAXLEVELHELP</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">helpLevelMin</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevelMax</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">@@MINLEVELHELP</span>) <span class="ruby-comment">#Set helpLevelMax</span>
-    <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">@@MINLEVELHELP</span>
-  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">helpLevelMax</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">@@MAXLEVELHELP</span>)
-    <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">@@MAXLEVELHELP</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-identifier">helpLevelMax</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevelMax</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@helpLevelMin</span>) <span class="ruby-comment">#Invers if necessary</span>
-    <span class="ruby-identifier">tmp</span> = <span class="ruby-ivar">@helpLevelMax</span>
-    <span class="ruby-ivar">@helpLevelMax</span> = <span class="ruby-ivar">@helpLevelMin</span>
-    <span class="ruby-ivar">@helpLevelMin</span> = <span class="ruby-identifier">tmp</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-comment"># p&quot;4&quot;</span>
-  <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">helpLevelMin</span>) <span class="ruby-comment">#Modify helperLevel if needed</span>
-    <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-ivar">@helpLevelMin</span>
-  <span class="ruby-keyword">elsif</span> (<span class="ruby-ivar">@helpLevel</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">helpLevelMax</span>)
-    <span class="ruby-ivar">@helpLevel</span> = <span class="ruby-ivar">@helpLevelMax</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-price" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">price</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="price-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 98</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>()
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lastHelp</span>.<span class="ruby-identifier">price</span>(<span class="ruby-ivar">@helpLevel</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

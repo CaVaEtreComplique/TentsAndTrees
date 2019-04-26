@@ -65,7 +65,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -76,6 +86,10 @@
 
   <section class="description">
     
+<pre>===== Presentation</pre>
+
+<p><a href="HighScoresScreen.html"><code>HighScoresScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and refresh. It creates and implements the high scores screen from the game by adding the high scores.</p>
+
   </section>
 
   
@@ -89,6 +103,140 @@
     
 
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(manager)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to create the high scores screen by calling the class <a href="ConnectDB.html"><code>ConnectDB</code></a>. ALl high scores will be charged thanks to the class <a href="ConnectDB.html"><code>ConnectDB</code></a>. A scrolable area is also created by calling the class ScrolableArea, which contains boxes. The boxes contains the high scores. All the other variable are used for the layout.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>*+manager+ : managerUi who handle the Ui</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Screen.html#method-c-new"><code>Screen::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Ui/Screens/HighScoresScreen.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
+  <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
+  <span class="ruby-comment">#Variable pour resize le texte</span>
+  <span class="ruby-ivar">@pad</span>=<span class="ruby-value">10</span>
+  <span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
+  <span class="ruby-ivar">@heightTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.08</span>
+  <span class="ruby-ivar">@widthText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.15</span>
+  <span class="ruby-ivar">@heightText</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.04</span>
+
+  <span class="ruby-ivar">@menuBase</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-ivar">@gtkObject</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">4</span>,<span class="ruby-value">9</span>)
+  <span class="ruby-ivar">@menuV</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@menuBase</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
+
+  <span class="ruby-identifier">easy</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;quickplay&quot;</span>,<span class="ruby-string">&quot;easy&quot;</span>)
+  <span class="ruby-identifier">medium</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;quickplay&quot;</span>,<span class="ruby-string">&quot;medium&quot;</span>)
+  <span class="ruby-identifier">hard</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;quickplay&quot;</span>,<span class="ruby-string">&quot;hard&quot;</span>)
+
+  <span class="ruby-identifier">qp</span> = <span class="ruby-identifier">easy</span><span class="ruby-operator">+</span><span class="ruby-identifier">medium</span><span class="ruby-operator">+</span><span class="ruby-identifier">hard</span>
+
+  <span class="ruby-identifier">qp</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">score_highScores</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">score_highScores</span>
+  }
+
+  <span class="ruby-identifier">ta</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;timeAttack&quot;</span>,<span class="ruby-string">&quot;easy&quot;</span>)
+  <span class="ruby-identifier">adventure</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;adventure&quot;</span>,<span class="ruby-string">&quot;easy&quot;</span>)
+
+  <span class="ruby-identifier">titre</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;main&quot;</span> , <span class="ruby-string">&quot;score&quot;</span>))
+
+  <span class="ruby-identifier">timeAttackArea</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-identifier">quickplayArea</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-identifier">adventureArea</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+  <span class="ruby-identifier">difficultyArea</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+
+  <span class="ruby-identifier">timeAttackLabel</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;gamemode&quot;</span> , <span class="ruby-string">&quot;timeattack&quot;</span>))
+  <span class="ruby-identifier">quickPlayLabel</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;gamemode&quot;</span> , <span class="ruby-string">&quot;quick&quot;</span>))
+  <span class="ruby-identifier">adventureLabel</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;gamemode&quot;</span> , <span class="ruby-string">&quot;adventure&quot;</span>))
+
+
+  <span class="ruby-identifier">retour</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;save&quot;</span> , <span class="ruby-string">&quot;back&quot;</span>))
+
+  <span class="ruby-identifier">retour</span>.<span class="ruby-identifier">onClick</span>{
+    <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">modeScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
+   }
+   <span class="ruby-identifier">timeAttackArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">timeAttackLabel</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+   <span class="ruby-identifier">quickplayArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">quickPlayLabel</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+   <span class="ruby-identifier">adventureArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">adventureLabel</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+
+  <span class="ruby-identifier">qp</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">hg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">difficultyArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{hg.player_highScores.name_player} : #{hg.score_highScores}&quot;</span>).<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+  }
+  <span class="ruby-identifier">ta</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">hg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">timeAttackArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{hg.player_highScores.name_player} : #{hg.score_highScores}&quot;</span>).<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+  }
+
+  <span class="ruby-identifier">adventure</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">hg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">boxAdventure</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+      <span class="ruby-identifier">boxAdventure</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>).<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+      <span class="ruby-identifier">boxAdventure</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{hg.player_highScores.name_player} : #{hg.score_highScores}&quot;</span>).<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+      <span class="ruby-identifier">adventureArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">boxAdventure</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
+  }
+
+
+  <span class="ruby-comment">#add sur gtkObject</span>
+  <span class="ruby-ivar">@menuBase</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">titre</span>.<span class="ruby-identifier">gtkObject</span>)
+
+  <span class="ruby-ivar">@boxHighScore</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+
+  <span class="ruby-ivar">@boxLabel</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+  <span class="ruby-ivar">@menuV</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">timeAttackArea</span>)
+  <span class="ruby-ivar">@menuV</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">quickplayArea</span>)
+  <span class="ruby-ivar">@menuV</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">adventureArea</span>)
+  <span class="ruby-comment">#@boxHighScore.pack_start(@boxLabel,expand: true, fill: true, padding: @pad)</span>
+
+  <span class="ruby-identifier">quickplayArea</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">difficultyArea</span>,<span class="ruby-value">expand:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span><span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
+
+  <span class="ruby-ivar">@menuBase</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@menuV</span>)
+  <span class="ruby-ivar">@menuBase</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">retour</span>.<span class="ruby-identifier">gtkObject</span>)
+  <span class="ruby-comment">#image de fond</span>
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

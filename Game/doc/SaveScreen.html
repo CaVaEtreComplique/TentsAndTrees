@@ -86,6 +86,10 @@
 
   <section class="description">
     
+<pre>===== Presentation</pre>
+
+<p><a href="SaveScreen.html"><code>SaveScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized. It creates and implements the high save screen from the game.</p>
+
   </section>
 
   
@@ -118,7 +122,14 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to create the save screen  by calling the class <a href="SaveBlockUi.html"><code>SaveBlockUi</code></a>. A scrolable area is also created by calling the class ScrolableArea, which contains buttons and boxes.. On the page you can load and delete a save. All the other variable are used for the layout.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>*+manager+ : managerUi who handle the Ui
+*+joueur+ : represent the player connected</pre>
           
           
             <div class="method-calls-super">
@@ -129,7 +140,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/SaveScreen.rb, line 21</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/SaveScreen.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">joueur</span>)
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
         <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREEN</span>

@@ -74,7 +74,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-help">#help</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -87,11 +97,11 @@
     
 <h5 id="class-RowsAndColumnsGrassHelper-label-Presentation">Presentation<span><a href="#class-RowsAndColumnsGrassHelper-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="RowsAndColumnsGrassHelper.html"><code>RowsAndColumnsGrassHelper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a> it&#39;s role is to help you to find where you can fill a row or column whith grass.</p>
+<p>The <a href="RowsAndColumnsGrassHelper.html"><code>RowsAndColumnsGrassHelper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>. Its role is to help you finding where you can fill a row or column with grass.</p>
 
 <h5 id="class-RowsAndColumnsGrassHelper-label-Methods">Methods<span><a href="#class-RowsAndColumnsGrassHelper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>help</code> - inheritade from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+<p><code>help</code> - Inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but defined there.</p>
 </li></ul>
 
   </section>
@@ -107,6 +117,89 @@
     
 
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-help" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help</span><span
+            class="method-args">(game)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method tries to find whitch row or column you can fill with grass.</p>
+
+<h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - The game you need help on.</p>
+</li></ul>
+
+<h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If it finds a row or a column to fill with grass, returns a <a href="HelpAllTentsOnARow.html"><code>HelpAllTentsOnARow</code></a> instance if it&#39;s a row to fill, returns a <a href="HelpAllTentsOnAColumn.html"><code>HelpAllTentsOnAColumn</code></a> instance if it&#39;s a column to fill, else it returns a <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance.</p>
+
+<h5 id="method-i-help-label-How+to+use">How to use<span><a href="#method-i-help-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To get help :</p>
+
+<pre class="ruby"><span class="ruby-identifier">rowsAndColumnsGrassHelper_instace</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">theGameYouWantHelpFor</span>)
+</pre>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="help-source">
+            <pre><span class="ruby-comment"># File Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsGrassHelper.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
+
+  <span class="ruby-identifier">game</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">game</span>()
+
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nCol</span>).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-comment">#for each column</span>
+    <span class="ruby-keyword">if</span>( <span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span> ) <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">colClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-comment">#if there are much tents that we need for the column</span>
+      <span class="ruby-identifier">cell</span> = <span class="ruby-constant">Count</span>.<span class="ruby-identifier">findFirst</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:white</span> , <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>).<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Cell</span>)
+      <span class="ruby-comment">#if there is an empty cell</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllTentsOnARow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">cols</span>[<span class="ruby-identifier">i</span>])
+        <span class="ruby-comment">#You help player by saying that the row is full of tents</span>
+    <span class="ruby-keyword">end</span>
+  }
+
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">nRow</span>).<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-comment">#for each row</span>
+    <span class="ruby-keyword">if</span>(<span class="ruby-constant">Count</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:tent</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span> ) <span class="ruby-operator">==</span> <span class="ruby-identifier">game</span>.<span class="ruby-identifier">rowClues</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-comment">#if there are much tents that we need for the row</span>
+      <span class="ruby-identifier">cell</span> = <span class="ruby-constant">Count</span>.<span class="ruby-identifier">findFirst</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">:white</span> , <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>).<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Cell</span>)
+      <span class="ruby-comment">#if there is an empty cell</span>
+         <span class="ruby-comment">#You find a row to help player</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpAllTentsOnAColumn</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>.<span class="ruby-identifier">correction</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-identifier">i</span>])
+        <span class="ruby-comment">#You help player by saying that the column is full of tents</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

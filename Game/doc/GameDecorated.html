@@ -52,6 +52,17 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-GameDecorated-label-Presentation">Presentation</a>
+    <li><a href="#class-GameDecorated-label-Variables">Variables</a>
+    <li><a href="#class-GameDecorated-label-Methods">Methods</a>
+    <li><a href="#class-GameDecorated-label-Exemple">Exemple</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,6 +97,36 @@
 
   <section class="description">
     
+<h4 id="class-GameDecorated-label-Presentation">Presentation<span><a href="#class-GameDecorated-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <a href="GameDecorated.html"><code>GameDecorated</code></a> class represente the grid of <a href="Game.html"><code>Game</code></a> class as four smaller grid, with an acces to this <a href="Game.html"><code>Game</code></a> class  .</p>
+
+<h4 id="class-GameDecorated-label-Variables">Variables<span><a href="#class-GameDecorated-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>game</code> : the game used to create the four other variables</p>
+</li><li>
+<p><code>tree</code> : A grid that contain all the tree of game</p>
+</li><li>
+<p><code>tent</code> : A grid that contain all the tent of game</p>
+</li><li>
+<p><code>grass</code> : A grid that contain all the grass of game</p>
+</li><li>
+<p><code>white</code> : A grid that contain all the white of game</p>
+</li></ul>
+
+<h4 id="class-GameDecorated-label-Methods">Methods<span><a href="#class-GameDecorated-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class knows the initialization method and the methods described below.</p>
+
+<h5 id="class-GameDecorated-label-Exemple">Exemple<span><a href="#class-GameDecorated-label-Exemple">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To create a game where the grid have been divided in specified grid use :</p>
+
+<pre class="ruby"><span class="ruby-identifier">game</span> = <span class="ruby-constant">GameDecorated</span>(<span class="ruby-identifier">game</span>).<span class="ruby-identifier">new</span>
+</pre>
+
+<p>Get the specified grid you want : tree = game.tree() Then retrieve game : game = game.game()</p>
+
   </section>
 
   
@@ -191,13 +232,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class constructor initializes the tree, tent, grass and white variable with the game in order to create small and specified grid.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/GameDecorated.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Helps/GameDecorated.rb, line 46</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">game</span>)
 
 <span class="ruby-identifier">array</span> = <span class="ruby-constant">CompresseGrid</span>.<span class="ruby-identifier">compresse</span>(<span class="ruby-identifier">game</span>)
