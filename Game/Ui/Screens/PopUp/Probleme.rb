@@ -15,11 +15,21 @@ end
 require 'gtk3'
 require_all("Ui")
 
+##
+# ===== Presentation
+#Probleme only needs to be initialized.
+#It creates and implements a pop up to tell you the probleme about the identification.
+##
 
 class Probleme
   def onDestroy
      Gtk.main_quit
   end
+	#
+	#=====Presentation
+	#This method is used to create the pop up to tell you the probleme about the identification.
+	#All the other variable are used for the layout.
+	#
   def initialize()
     screen=Gdk::Screen.default
 		@textManager=XmlReader.instance
@@ -31,7 +41,6 @@ class Probleme
     win = Gtk::Window.new
     win.set_default_size(w/4,h/10)
     win.set_resizable(false)
-		#win.decorated=false
     win.window_position= :center_always
 
 		@menu=Gtk::Box.new(:vertical, 25)

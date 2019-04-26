@@ -15,14 +15,26 @@ end
 require 'gtk3'
 require_all("Ui")
 require File.dirname(__FILE__) + "/../../../Core/DB/ConnectDB"
+require File.dirname(__FILE__) + "/../../AssetsLoaderClass/IconAsset"
 
+
+##
+# ===== Presentation
+#MotdepasseOublie only needs to be initialized.
+#It creates and implements a pop up to redefine your password
+##
 
 
 class MotdepasseOublie
+	#
+	#=====Presentation
+	#This method is used to create the pop up to redefine your password.
+	#All the other variable are used for the layout.
+	#
   def initialize()
     screen=Gdk::Screen.default
 		@textManager=XmlReader.instance
-		#Variable pour resize le texte
+		@ic=IconAsset.new
 		@pad=screen.height*0.002
  	 	@police=screen.height*0.02
     win = Gtk::Window.new
@@ -31,9 +43,8 @@ class MotdepasseOublie
     win.set_default_size(w*0.4,h*0.7)
     win.set_resizable(false)
 		win.decorated=false
-    win.window_position= :center_always
 		win.icon=GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../../Assets/Icons/tent.jpeg")
-
+    win.window_position= :center_always
 
     connect=ConnectDB.new
 		@image=Gtk::EventBox.new()
@@ -47,7 +58,7 @@ class MotdepasseOublie
 		confirmPass = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmpass"))
 		confirm = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmform"))
 
-		quitter=Asset.new(File.dirname(__FILE__) + "/../../../../Assets/Icons/cancel.png")
+		quitter=@ic.iconAsset.fetch(:quitter)
     quitter.resize(20,20)
 		quitter.applyOn(@image)
 
@@ -60,13 +71,9 @@ class MotdepasseOublie
 		@menu.pack_start(saisiLogin, expand: false, fill: true, padding: @pad)
 		@menu.pack_start(password.gtkObject, expand: false, fill: true, padding: @pad)
     @menu.pack_start(saisi,expand: false, fill: true, padding: @pad)
-  #  @menu.pack_start(mdp,expand: false, fill: true, padding: @pad)
 		@menu.pack_start(confirmPass.gtkObject,expand: false, fill: true, padding: @pad)
 	  @menu.pack_start(saisi2,expand: false, fill: true, padding: @pad)
 		@menu.pack_start(confirm.gtkObject,expand: false, fill: true, padding: @pad)
-	#  if(saisi.text ==saisi2.text)
-        #connect.    UPDATEPLAYER
-  #  end
 		confirm.onClick{
     	if(saisi.text !=saisi2.text)
       	saisi.set_text("")
