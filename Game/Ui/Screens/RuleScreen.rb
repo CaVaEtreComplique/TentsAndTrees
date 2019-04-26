@@ -53,7 +53,7 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 # *Finally*, when all of the buttons are done we add a background picture with :
 #   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 class RuleScreen < Screen
-  def initialize(manager) #:nodoc:
+  def initialize(manager,ic) #:nodoc:
     super(manager.win)
     screen=Constants::SCREEN
     #Variable pour resize le texte
@@ -62,7 +62,7 @@ class RuleScreen < Screen
     @gtkObject= Gtk::Table.new(3,3)
     @allign=Gtk::Alignment.new(0.5, 0, 0, 0)
     @vBox= Gtk::Box.new(:vertical)
-    @diapo = Diapo.new(screen.width*0.6,screen.height*0.6,@textManager)
+    @diapo = Diapo.new(screen.width*0.6,screen.height*0.6,@textManager,ic)
     @regle=Text.new(@textManager.getScreenTexts("rule" , "title"))
     @retour=Text.new(@textManager.getButtonLabel("rule" , "back"))
 

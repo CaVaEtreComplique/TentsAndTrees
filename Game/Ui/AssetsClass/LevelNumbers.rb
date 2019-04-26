@@ -1,7 +1,7 @@
 # @Author: VAIDIE Camille <CamilleVAIDIE>
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
-# @Filename: ChoixDiff.rb
+# @Filename: LevelNumbers.rb
 # @Last modified by:   zeigon
 # @Last modified time: 28-Mar-2019
 
@@ -31,12 +31,13 @@ class LevelNumbers
 	# *+adventure+ : class adventure session
 	# *+adventureInfo+ : hash table that contains all the stars own per level
 	#
-  def initialize(manager,adventure ,adventureInfo)
+  def initialize(manager,adventure ,adventureInfo,ic)
 		@pad=Constants::BUTTON_PADDING
 		@im=Gtk::Box.new(:vertical, 25)
+		@ic=ic
     (1.. adventure.adventureInfo.levels.length).each { |i|
-      @ic=LevelNumber.new(i,manager,adventure ,adventureInfo)
-      @im.pack_start(@ic.BoxV,expand: false, fill: true, padding: @pad)
+      @ico=LevelNumber.new(i,manager,adventure ,adventureInfo,@ic)
+      @im.pack_start(@ico.BoxV,expand: false, fill: true, padding: @pad)
     }
     @im.show_all
   end
@@ -53,8 +54,8 @@ class LevelNumbers
 			@im.remove(child)
 		}
     (1.. adventure.adventureInfo.levels.length).each { |i|
-			@ic=LevelNumber.new(i,manager,adventure ,adventureInfo)
-      @im.pack_start(@ic.BoxV,expand: false, fill: true, padding: @pad)
+			@ico=LevelNumber.new(i,manager,adventure ,adventureInfo,@ic)
+      @im.pack_start(@ico.BoxV,expand: false, fill: true, padding: @pad)
     }
     @im.show_all
   end

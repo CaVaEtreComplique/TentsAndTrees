@@ -1,7 +1,7 @@
 # @Author: VAIDIE Camille <CamilleVAIDIE>
 # @Date:   1-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
-# @Filename: ChoixDiff.rb
+# @Filename: LevelNumber.rb
 # @Last modified by:   zeigon
 # @Last modified time: 28-Mar-2019
 
@@ -34,16 +34,16 @@ class LevelNumber
 		# *+adventureInfo+ : hash table that contains all the stars own per level
 		# *+i+ : number of the level associated
 		#
-  def initialize(i,manager,adventure, adventureInfo)
+  def initialize(i,manager,adventure, adventureInfo,ic)
 		@police=25
-		@ic=IconAsset.new
+		@ic=ic
     @BoxH=Gtk::Box.new(:horizontal)
     @BoxV=Gtk::Box.new(:vertical)
     @lock=Gtk::EventBox.new()
     @stars=Gtk::Box.new(:horizontal,10)
 		@overAllStars = 0
 		@adventureInfo=adventureInfo
-		@s=Star.new(adventure.getLevelInformation(i)[3],0)
+		@s=Star.new(adventure.getLevelInformation(i)[3],0,ic)
 		refresh(i,manager,adventure,adventureInfo)
   end
 	##
@@ -83,7 +83,7 @@ class LevelNumber
 
       }
     else
-      loc = @ic.iconAsset.fetch(:loc)
+      loc = @ic.iconAsset(:loc)
       loc.resize(100,100)
       loc.applyOn(@lock)
       @BoxH.pack_start(@lock,expand: false, fill: true, padding: @pad)

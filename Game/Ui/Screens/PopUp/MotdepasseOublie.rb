@@ -15,7 +15,7 @@ end
 require 'gtk3'
 require_all("Ui")
 require File.dirname(__FILE__) + "/../../../Core/DB/ConnectDB"
-require File.dirname(__FILE__) + "/../../AssetsLoaderClass/IconAsset"
+
 
 
 ##
@@ -58,7 +58,7 @@ class MotdepasseOublie
 		confirmPass = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmpass"))
 		confirm = Text.new(@textManager.getScreenTexts("forgotpass" , "confirmform"))
 
-		quitter=@ic.iconAsset.fetch(:quitter)
+		quitter=Asset.new(File.dirname(__FILE__) + "/../../../Assets/Icons/cancel.png")
     quitter.resize(20,20)
 		quitter.applyOn(@image)
 
