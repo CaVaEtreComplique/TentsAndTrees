@@ -6,12 +6,13 @@
 # @Last modified time: 24-Apr-2019
 
 class UiManager
-    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session, :highScoresScreen,:rulesScreen
+    attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session, :highScoresScreen,:rulesScreen, :ic
 
   def initialize(window,player)
     ProcessStatus.new
     @player=player
     @win=window
+    @ic=IconAsset.new
     update
   end
 
@@ -23,7 +24,7 @@ class UiManager
     @diffchScreen=ChoixDiffScreen.new(self)
     @loadScreen=LoadingScreen.new(self)
     @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
-    @rulesScreen=RuleScreen.new(self)
+    @rulesScreen=RuleScreen.new(self,@ic)
   end
 
   def updateSave
@@ -66,7 +67,7 @@ class UiManager
 
   def runAdventureSession(session)
     @session=session
-    @levelNumberScreen=LevelSelectionScreen.new(self)
+    @levelNumberScreen=LevelSelectionScreen.new(self,@ic)
     @levelNumberScreen.applyOn(@win)
   end
 
