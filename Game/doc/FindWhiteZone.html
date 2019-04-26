@@ -97,11 +97,11 @@
     
 <h4 id="class-FindWhiteZone-label-Presentation">Presentation<span><a href="#class-FindWhiteZone-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="FindWhiteZone.html"><code>FindWhiteZone</code></a> class is an extended methode from <a href="Game.html"><code>Game</code></a> class</p>
+<p>The <a href="FindWhiteZone.html"><code>FindWhiteZone</code></a> class is an extended method from the <a href="Game.html"><code>Game</code></a> class.</p>
 
 <h4 id="class-FindWhiteZone-label-Methods">Methods<span><a href="#class-FindWhiteZone-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>This class know the <a href="FindWhiteZone.html#method-c-Find"><code>Find</code></a> methode describe below</p>
+<p>This class knows the <a href="FindWhiteZone.html#method-c-Find"><code>Find</code></a> method as described below.</p>
 
   </section>
 
@@ -137,24 +137,29 @@
           
           <h4 id="method-c-Find-label-Presentation">Presentation<span><a href="#method-c-Find-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>This class methode (“  trouve les cases blanches qui se suivent dans une colonne ou ligne pour les placer dans un tableau, renvoie au final un tableau qui contien ces différents tableaux.  ”)</p>
+<p>This class method is used in order to help the other help classes by finding white cells next to each other in a row or column.</p>
+
+<p>The empty cells next to each other on the same row or column will be put in an Array. The objective is then to combine all of the Arrays for the column or row into one Array and return it.</p>
 
 <h5 id="method-c-Find-label-Attributes">Attributes<span><a href="#method-c-Find-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>game</code> - The <a href="Game.html"><code>Game</code></a> in witch we are going to extract our finial array.</p>
+<p><code>game</code> - The <a href="Game.html"><code>Game</code></a> in witch we are going to extract our final array.</p>
 </li><li>
-<p><code>vertHor</code> - The orientation, put 1 if we are looking for a row otherwise it</p>
-
-<pre>will look for a column.</pre>
+<p><code>vertHor</code> - The orientation, put 1 if we are looking for a row, otherwise it will be looking for a column.</p>
 </li><li>
 <p><code>rank</code> - The row or column number we want to do our research in.</p>
+</li></ul>
+
+<h5 id="method-c-Find-label-Returns">Returns<span><a href="#method-c-Find-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>tabCell</code> - The Array containing all the empty cells of the row or column.</p>
 </li></ul>
           
           
 
           
           <div class="method-source-code" id="Find-source">
-            <pre><span class="ruby-comment"># File Helps/FindWhiteZone.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Helps/FindWhiteZone.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier ruby-title">game</span>, <span class="ruby-identifier">vertHor</span>, <span class="ruby-identifier">rank</span>)
         <span class="ruby-identifier">tabCell</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()
         <span class="ruby-identifier">tabCellInside</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()

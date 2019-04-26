@@ -8,24 +8,27 @@
 
 ##
 # ==== Presentation
-# The FindWhiteZone class is an extended methode from Game class
+# The FindWhiteZone class is an extended method from the Game class.
 #
 # ==== Methods
-# This class know the Find methode describe below
-#
+# This class knows the Find method as described below.
 class FindWhiteZone
 
 	# ==== Presentation
-	# This class methode ("  trouve les cases blanches qui se
-	# suivent dans une colonne ou ligne pour les placer dans un tableau,
-	# renvoie au final un tableau qui contien ces différents tableaux.  ")
+	# This class method is used in order to help the other help classes by finding
+	# white cells next to each other in a row or column.
+	#
+	# The empty cells next to each other on the same row or column will be put in
+	# an Array. The objective is then to combine all of the Arrays for the column
+	# or row into one Array and return it.
 	#
 	# ===== Attributes
-	# * +game+ - The Game in witch we are going to extract our finial array.
-	# * +vertHor+ - The orientation, put 1 if we are looking for a row otherwise it
-	#			will look for a column.
+	# * +game+ - The Game in witch we are going to extract our final array.
+	# * +vertHor+ - The orientation, put 1 if we are looking for a row, otherwise it will be looking for a column.
 	# * +rank+ - The row or column number we want to do our research in.
 	#
+	# ===== Returns
+	# * +tabCell+ - The Array containing all the empty cells of the row or column.
 	def FindWhiteZone.Find(game, vertHor, rank)
 		tabCell = Array.new()
 		tabCellInside = Array.new()
