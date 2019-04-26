@@ -26,6 +26,7 @@ class LevelNumber
 		# This method is used to create the level icon.
 		# An icon contain a level number icon from the levels numbers menu by creating its
 		# number, box of star corresponding and the lock icon if needed.
+		# Icons are loaded thanks to iconAsset
 		# All the other variables are used for the layout.
 		# ===== Attributes
 		# *+manager+ : managerUi who handles the Ui.
