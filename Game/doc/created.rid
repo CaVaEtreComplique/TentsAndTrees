@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 10:45:57 +0200
+Fri, 26 Apr 2019 10:52:19 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -71,11 +71,11 @@ Fri, 26 Apr 2019 10:45:57 +0200
 ./Ui/HelpUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/AssetsClass/Asset.rb	Fri, 26 Apr 2019 09:52:52 +0200
 ./Ui/AssetsClass/LevelNumbers.rb	Fri, 26 Apr 2019 10:36:38 +0200
-./Ui/AssetsClass/Star.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/AssetsClass/LevelNumber.rb	Fri, 26 Apr 2019 10:36:38 +0200
+./Ui/AssetsClass/Star.rb	Fri, 26 Apr 2019 10:47:13 +0200
+./Ui/AssetsClass/LevelNumber.rb	Fri, 26 Apr 2019 10:47:13 +0200
 ./Ui/AssetsClass/CellAsset.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Constants.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/Screens/ParametreScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Screens/ParametreScreen.rb	Fri, 26 Apr 2019 10:52:16 +0200
 ./Ui/Screens/GameModeScreen.rb	Fri, 26 Apr 2019 10:31:54 +0200
 ./Ui/Screens/GameScreen.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/Screens/SaveScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
@@ -88,7 +88,7 @@ Fri, 26 Apr 2019 10:45:57 +0200
 ./Ui/Screens/HighScoresScreen.rb	Fri, 26 Apr 2019 10:35:39 +0200
 ./Ui/Screens/PrincipalScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/TutorialGameScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 10:45:53 +0200
+./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 10:46:44 +0200
 ./Ui/Screens/PauseScreen.rb	Thu, 25 Apr 2019 16:38:29 +0200
 ./Ui/Screens/VictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/RuleScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -101,5 +101,5 @@ Fri, 26 Apr 2019 10:45:57 +0200
 ./Ui/AssetsLoaderClass/CellAssets.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/SelectionUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/ScrollableArea.rb	Fri, 26 Apr 2019 09:36:28 +0200
-./Connexion.rb	Fri, 26 Apr 2019 10:36:38 +0200
+./Connexion.rb	Fri, 26 Apr 2019 10:47:13 +0200
 ./TestGame.rb	Thu, 25 Apr 2019 10:19:45 +0200
