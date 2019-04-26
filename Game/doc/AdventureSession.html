@@ -115,7 +115,7 @@
     
 <h5 id="class-AdventureSession-label-Presentation">Presentation<span><a href="#class-AdventureSession-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class inherited from <a href="Session.html"><code>Session</code></a>. The <a href="AdventureSession.html"><code>AdventureSession</code></a> is the session that will be save to register all the informations needed for a player to move forward in his adventure.</p>
+<p>This class is inherited from <a href="Session.html"><code>Session</code></a>. The <a href="AdventureSession.html"><code>AdventureSession</code></a> is the session that will be saved to register all the informations needed for a player to move forward in his adventure.</p>
 
 <h5 id="class-AdventureSession-label-Methods">Methods<span><a href="#class-AdventureSession-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -131,131 +131,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-adventureInfo" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">adventureInfo</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-difficulty" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">difficulty</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-game" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">game</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gridPick" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gridPick</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-levelInfo" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">levelInfo</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-overAllStars" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">overAllStars</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-overAllStarsHash" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">overAllStarsHash</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-score" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">score</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-time" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">time</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -280,7 +155,11 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class&#39; constructor call the inherited constructor from <a href="Session.html"><code>Session</code></a> and defined the <a href="Game.html"><code>Game</code></a> mode as adventure with no difficulty. It initialize all the variables needed to run a new adventure. Those variables are the overall number of stars and a hash table that will contain the information about all the number of stars that the user has per level. AdventurInfo  a variable wich initialize as a <a href="Levels.html"><code>Levels</code></a>. <a href="Levels.html"><code>Levels</code></a> is a class that contain all the informations about all level and all the operation.</p>
+<p>This class&#39; constructor calls the inherited constructor from <a href="Session.html"><code>Session</code></a> and defines the game mode as adventure with no difficulty. It initializes all the variables needed to run a new adventure.</p>
+
+<h5 id="method-c-new-label-Variables">Variables<span><a href="#method-c-new-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The variables in this constructor are the overall number of stars and a hash table that will contain the information about all the number of stars that the user has per level. The adventureInfo variable is initialized as a <a href="Levels.html"><code>Levels</code></a>.</p>
           
           
             <div class="method-calls-super">
@@ -331,7 +210,7 @@
           
           <h5 id="method-i-calculateOverallStars-label-Presentation">Presentation<span><a href="#method-i-calculateOverallStars-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the overallstars of an adventure session.</p>
+<p>This method is used when the player ends a game. This is used to calculate the overallstars of an adventure session.</p>
 
 <h5 id="method-i-calculateOverallStars-label-Returns">Returns<span><a href="#method-i-calculateOverallStars-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -339,16 +218,17 @@
 
 <h5 id="method-i-calculateOverallStars-label-Examples">Examples<span><a href="#method-i-calculateOverallStars-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method calculate the stars using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
+<p>This method calculates the stars using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@overAllStars</span>= <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateOverallStars</span>(<span class="ruby-ivar">@overAllStarsHash</span>)
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateOverallStars-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 152</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 156</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateOverallStars</span>
         <span class="ruby-ivar">@overAllStars</span>= <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateOverallStars</span>(<span class="ruby-ivar">@overAllStarsHash</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -377,11 +257,11 @@
           
           <h5 id="method-i-calculateScore-label-Presentation">Presentation<span><a href="#method-i-calculateScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the score with the level condition.</p>
+<p>This method is used when the player ends a game. This is used to calculate the score with the level condition.</p>
 
 <h5 id="method-i-calculateScore-label-Attributes">Attributes<span><a href="#method-i-calculateScore-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>score</code> : The score of the session .</p>
+<p><code>score</code> - The score of the session.</p>
 </li></ul>
 
 <h5 id="method-i-calculateScore-label-Returns">Returns<span><a href="#method-i-calculateScore-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -390,16 +270,17 @@
 
 <h5 id="method-i-calculateScore-label-Examples">Examples<span><a href="#method-i-calculateScore-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method calculate the score using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
+<p>This method calculates the score using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
 
-<pre class="ruby"><span class="ruby-ivar">@score</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateScore</span>(<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">0</span>],<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">2</span>],<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">4</span>],<span class="ruby-identifier">score</span>)
+<pre class="ruby"><span class="ruby-ivar">@score</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateScore</span>(<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">2</span>],<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">4</span>],<span class="ruby-identifier">score</span>)
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 113</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>(<span class="ruby-identifier">score</span>)
                 <span class="ruby-ivar">@score</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateScore</span>(<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">2</span>],<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">4</span>],<span class="ruby-identifier">score</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -428,7 +309,7 @@
           
           <h5 id="method-i-calculateStars-label-Presentation">Presentation<span><a href="#method-i-calculateStars-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the number of stars depending on the score.</p>
+<p>This method is used when the player ends a game. This is used to calculate the number of stars depending on the score.</p>
 
 <h5 id="method-i-calculateStars-label-Returns">Returns<span><a href="#method-i-calculateStars-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -436,9 +317,9 @@
 
 <h5 id="method-i-calculateStars-label-Examples">Examples<span><a href="#method-i-calculateStars-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method calculate the stars using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
+<p>This method calculates the stars using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
 
-<pre class="ruby"><span class="ruby-ivar">@overAllStars</span>= <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateOverallStars</span>(<span class="ruby-ivar">@overAllStarsHash</span>)
+<pre class="ruby"><span class="ruby-ivar">@stars</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateStars</span>(<span class="ruby-ivar">@score</span>,<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">3</span>],<span class="ruby-ivar">@overAllStarsHash</span>,<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">5</span>])
 </pre>
 
 <p>Update the hash table overAllStarsHash with the method updateOverallStarsHash :</p>
@@ -450,12 +331,13 @@
 
 <pre class="ruby"><span class="ruby-keyword">self</span>.<span class="ruby-identifier">calculateOverallStars</span>
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateStars-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 133</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 137</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateStars</span>
         <span class="ruby-ivar">@stars</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">calculateStars</span>(<span class="ruby-ivar">@score</span>,<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">3</span>],<span class="ruby-ivar">@overAllStarsHash</span>,<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">5</span>])
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">updateOverallStarsHash</span>
@@ -487,24 +369,25 @@
           
           <h5 id="method-i-continuable-3F-label-Presentation">Presentation<span><a href="#method-i-continuable-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to know if a level is continuable.</p>
+<p>This method is used to know if a level can be continued.</p>
 
 <h5 id="method-i-continuable-3F-label-Returns">Returns<span><a href="#method-i-continuable-3F-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method return true or false.</p>
+<p>This method returns true or false.</p>
 
 <h5 id="method-i-continuable-3F-label-Examples">Examples<span><a href="#method-i-continuable-3F-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method tell if a level is continuable or not using the method of the class Levels:</p>
+<p>This method tells if a level can be continued or not using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">continuable?</span>(<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">4</span>])
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 198</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 203</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
         <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">continuable?</span>(<span class="ruby-ivar">@levelInfo</span>[<span class="ruby-value">4</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -537,12 +420,12 @@
 
 <h5 id="method-i-getLevel-label-Attributes">Attributes<span><a href="#method-i-getLevel-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>levelNumber</code> : The Number of the level.</p>
+<p><code>levelNumber</code> - The level&#39;s number.</p>
 </li></ul>
 
 <h5 id="method-i-getLevel-label-Returns">Returns<span><a href="#method-i-getLevel-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the session of the level.</p>
+<p>This method returns the level&#39;s <a href="Session.html"><code>Session</code></a>.</p>
 
 <h5 id="method-i-getLevel-label-Examples">Examples<span><a href="#method-i-getLevel-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -551,10 +434,11 @@
 <pre class="ruby"><span class="ruby-keyword">self</span>.<span class="ruby-identifier">getLevelInformation</span>(<span class="ruby-identifier">lvlNumber</span>)
 </pre>
 
-<p>Then it return the session of the level get from the adventureInfo :</p>
+<p>Then it returns the session of the level get from the adventureInfo :</p>
 
 <pre class="ruby"><span class="ruby-identifier">adventureInfo</span>.<span class="ruby-identifier">getLevel</span>(<span class="ruby-identifier">lvlNumber</span>)
 </pre>
+<hr>
           
           
 
@@ -591,11 +475,11 @@
           
           <h5 id="method-i-getLevelInformation-label-Presentation">Presentation<span><a href="#method-i-getLevelInformation-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player wants to play a level in the adventure. This is use to access the information about the current level thtat is beeing played.</p>
+<p>This method is used when the player wants to play a level in the adventure. This is here to access the information about the current level that is being played.</p>
 
 <h5 id="method-i-getLevelInformation-label-Attributes">Attributes<span><a href="#method-i-getLevelInformation-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>levelNumber</code> : The Number of the level.</p>
+<p><code>levelNumber</code> - The number of the level.</p>
 </li></ul>
 
 <h5 id="method-i-getLevelInformation-label-Returns">Returns<span><a href="#method-i-getLevelInformation-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -604,16 +488,17 @@
 
 <h5 id="method-i-getLevelInformation-label-Examples">Examples<span><a href="#method-i-getLevelInformation-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method creates a levelInfo variable wich is an array of all the informations about the level beeing played :</p>
+<p>This method creates a levelInfo variable which is an array of all the informations about the level being played :</p>
 
 <pre class="ruby"><span class="ruby-identifier">levelInfo</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvlNumber</span>)
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="getLevelInformation-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 94</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevelInformation</span>(<span class="ruby-identifier">lvlNumber</span>)
                 <span class="ruby-ivar">@levelInfo</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvlNumber</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -646,20 +531,21 @@
 
 <h5 id="method-i-lvlAvailable-3F-label-Returns">Returns<span><a href="#method-i-lvlAvailable-3F-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method return true or false.</p>
+<p>This method returns a boolean, true if the player can access the level, else it returns false.</p>
 
 <h5 id="method-i-lvlAvailable-3F-label-Examples">Examples<span><a href="#method-i-lvlAvailable-3F-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method tell if a level is avaible or not using the method of the class Levels:</p>
+<p>This method tells if a level is avaible or not using the method of the class <a href="Levels.html"><code>Levels</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>, <span class="ruby-ivar">@overAllStars</span>)
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="lvlAvailable-3F-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 183</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 188</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>, <span class="ruby-ivar">@overAllStars</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -688,22 +574,31 @@
           
           <h5 id="method-i-replay-label-Presentation">Presentation<span><a href="#method-i-replay-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class has no reaason to have a replay. Overwriting this method with nothing allows less code dup than redifining it in all other sessions</p>
+<p>This class has no reason to have a replay. Overwriting this method with nothing allows less code duplication than redifining it in all other sessions</p>
 
 <h5 id="method-i-replay-label-Attributes">Attributes<span><a href="#method-i-replay-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>none</code> : none</p>
+<p><code>none</code> - none</p>
 </li></ul>
 
 <h5 id="method-i-replay-label-Returns">Returns<span><a href="#method-i-replay-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
 <p>This method returns nothing.</p>
+
+<h5 id="method-i-replay-label-Examples">Examples<span><a href="#method-i-replay-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Here is the complete replay class :</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">none</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="replay-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 75</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">none</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -731,24 +626,25 @@
           
           <h5 id="method-i-updateOverallStarsHash-label-Presentation">Presentation<span><a href="#method-i-updateOverallStarsHash-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to update the overAllStarsHash variable.</p>
+<p>This method is used when the player ends a game. This is used to update the overAllStarsHash variable.</p>
 
 <h5 id="method-i-updateOverallStarsHash-label-Returns">Returns<span><a href="#method-i-updateOverallStarsHash-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the hash table that contain all the stars get per level.</p>
+<p>This method returns the hash table that contains all the stars earned per level.</p>
 
 <h5 id="method-i-updateOverallStarsHash-label-Examples">Examples<span><a href="#method-i-updateOverallStarsHash-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method return the overAllStarsHash of the class Level (adventureInfo) :</p>
+<p>This method returns the overAllStarsHash of the class Level (adventureInfo) :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@overAllStarsHash</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">overallStarsHash</span>
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="updateOverallStarsHash-source">
-            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 168</span>
+            <pre><span class="ruby-comment"># File Core/AdventureSession.rb, line 172</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateOverallStarsHash</span>
         <span class="ruby-ivar">@overAllStarsHash</span> = <span class="ruby-ivar">@adventureInfo</span>.<span class="ruby-identifier">overallStarsHash</span>
 <span class="ruby-keyword">end</span></pre>
