@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + "/CellsHelpers/CellDontTouchTreeHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellTouchATentHelper"
 require File.dirname(__FILE__) + "/RecursivHelpers/AllTreesHaveTentsHelper"
 require File.dirname(__FILE__) + "/CellsHelpers/CellWhiteOverlap"
-require File.dirname(__FILE__) + "/../GameDecorated"
+require File.dirname(__FILE__) + "/../GameDivised"
 
 ##
 # ===== Presentation
@@ -178,7 +178,7 @@ class Helper < FictivHelper
   def help(game) # :nodoc:
     #called to help the player
 
-    game = GameDecorated.new(game)
+    game = GameDivised.new(game)
 
     @helps.each{ |aHelper|
       if(((helpRes = aHelper.help(game)).helpFound?))

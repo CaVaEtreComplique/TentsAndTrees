@@ -1,7 +1,7 @@
 # @Author: Florian Tourpe <Sckylle>
 # @Date:   15-Mar-2019
 # @Email:  florian.tourpe@gmail.com
-# @Filename: GameDecorated.rb
+# @Filename: GameDivised.rb
 # @Last modified by:   Sckylle
 # @Last modified time: 25-Mar-2019
 
@@ -9,7 +9,7 @@ require File.dirname(__FILE__) + "/CompresseGrid"
 
 ##
 # ===== Presentation
-# The GameDecorated class represents the grid from the Game class as four smaller
+# The GameDivised class represents the grid from the Game class as four smaller
 # grids, with an access to this Game class.
 #
 # ===== Variables
@@ -24,12 +24,12 @@ require File.dirname(__FILE__) + "/CompresseGrid"
 #
 # ===== How to Use
 # To create a game where the grid has been divided into the specified grids, use :
-#    	game = GameDecorated(game).new
+#    	game = GameDivised(game).new
 # Get the specified grid you want :
 #     tree = game.tree()
 # Then retrieve the game :
 #     game = game.game()
-class GameDecorated
+class GameDivised
 
 	@game
 	@tree
