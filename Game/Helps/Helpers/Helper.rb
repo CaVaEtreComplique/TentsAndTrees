@@ -25,6 +25,8 @@ require File.dirname(__FILE__) + "/../GameDivised"
 # * +MAXLEVELHELP+ : class variable, the maximum level of helps returned
 # * +MINLEVELHELP+ : class variable, the minimal level of helps returned
 # * +helps+ : instence variable, all the helpers known by this helper
+# * +helpLevel+ : instence variable, used to know the actual help level
+# * +lastHelp+ : instence variable, represent the last help we send (for the price of this, and the help level management)
 #
 # ===== Methods
 # * +help+ - inherited from FictivHelper, but definded there.
@@ -42,9 +44,10 @@ class Helper < FictivHelper
   @@MAXLEVELHELP = 3
   @@MINLEVELHELP = 1
 ######
-  @@helper
   @helps
 
+  @helpLevel
+  @lastHelp
   # :startdoc:
 
   ##
@@ -58,11 +61,11 @@ class Helper < FictivHelper
   #
   # ===== How to use
   # To get a help:
-  #    helper_instace.helpLevelManagement(aHelp)
+  #    Helper.new(helplvl, lvlmin, lvlmax)
   # -----------
-  def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)# :nodoc:
+  def initialize(lvlmin = 1, lvlmax = 3)# :nodoc:
 
-    @helpLevel = helplvl
+    @helpLevel = lvlmin
     helpLevelSetMinMax(lvlmin, lvlmax)
 
     @lastHelp = HelpNotFound.new
@@ -90,7 +93,7 @@ class Helper < FictivHelper
   #
   # ===== How to use
   # To get a help:
-  #    helper_instace.helpLevelManagement(aHelp)
+  #    helper_instace.helpLevelSetMinMax(helpLevelMin, helpLevelMax)
   # -----------
   def helpLevelSetMinMax(helpLevelMin, helpLevelMax)# :nodoc:
 
