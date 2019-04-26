@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 09:52:57 +0200
+Fri, 26 Apr 2019 10:06:48 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -23,7 +23,8 @@ Fri, 26 Apr 2019 09:52:57 +0200
 ./Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpsAllPossibilitiesGiveItColumns/HelpAllPossibilitiesGiveItColumn.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndColumns/HelpCellsAndColumns.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Helps/Helpers/Helper.rb	Fri, 26 Apr 2019 08:42:52 +0200
+./Helps/GameDivised.rb	Fri, 26 Apr 2019 09:53:15 +0200
+./Helps/Helpers/Helper.rb	Fri, 26 Apr 2019 09:53:15 +0200
 ./Helps/Helpers/FictivHelper.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Helps/Helpers/CellsHelpers/CellDontTouchTreeHelper.rb	Thu, 25 Apr 2019 17:58:18 +0200
 ./Helps/Helpers/CellsHelpers/CellTouchATentHelper.rb	Thu, 25 Apr 2019 17:59:31 +0200
@@ -34,7 +35,6 @@ Fri, 26 Apr 2019 09:52:57 +0200
 ./Helps/Helpers/RowsOrColumnsHelpers/RowsAndColumnsTentsHelper.rb	Fri, 26 Apr 2019 08:51:25 +0200
 ./Helps/Helpers/RecursivHelpers/AllTreesHaveTentsHelper.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/FindWhiteZone.rb	Fri, 26 Apr 2019 09:00:38 +0200
-./Helps/GameDecorated.rb	Fri, 26 Apr 2019 09:09:23 +0200
 ./Helps/CompresseGrid.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/Count.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/QuickPlaySession.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -61,7 +61,7 @@ Fri, 26 Apr 2019 09:52:57 +0200
 ./Core/TimeAttackSession.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/ProcessStatus.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/ClueUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/Buttons/Button.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Buttons/Button.rb	Fri, 26 Apr 2019 10:06:43 +0200
 ./Ui/Buttons/Text.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/ChronoUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/GuessUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -95,7 +95,7 @@ Fri, 26 Apr 2019 09:52:57 +0200
 ./Ui/Screens/ChoixDiffScreen..rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/LoadingScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Click.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/UiManager.rb	Fri, 26 Apr 2019 08:42:52 +0200
+./Ui/UiManager.rb	Fri, 26 Apr 2019 10:04:00 +0200
 ./Ui/SaveBlockUi.rb	Fri, 26 Apr 2019 09:36:50 +0200
 ./Ui/AssetsLoaderClass/IconAsset.rb	Thu, 25 Apr 2019 15:32:16 +0200
 ./Ui/AssetsLoaderClass/CellAssets.rb	Thu, 25 Apr 2019 10:19:45 +0200
