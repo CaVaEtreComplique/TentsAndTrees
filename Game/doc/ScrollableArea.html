@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-ScrollableArea-label-Presentation">Presentation</a>
+    <li><a href="#class-ScrollableArea-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -88,9 +97,13 @@
 
   <section class="description">
     
-<pre>===== Presentation</pre>
+<h5 id="class-ScrollableArea-label-Presentation">Presentation<span><a href="#class-ScrollableArea-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>ScolableArea  only needs to be initialized. It creates and implements a scrolable area in a page.</p>
+<p>This class creates and implements a scrollable area in a page.</p>
+
+<h5 id="class-ScrollableArea-label-Methods">Methods<span><a href="#class-ScrollableArea-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class has its initializer and an add method, as described below.</p>
 
   </section>
 
@@ -102,27 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-gtkObject" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gtkObject</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -147,17 +139,18 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create the scrolable area by using a viewport All the other variable are used for the layout.</p>
+<p>This method is used to create the scrollable area by using a viewport. All of the other variables are used for the layout.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<pre>*+orientation+ : define the orientation (horizontal,vertical) of the scrolable area</pre>
+<ul><li>
+<p><code>orientation</code> - Defines the orientation (horizontal,vertical) of the scrollable area.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/ScrollableArea.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Ui/ScrollableArea.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">orientation</span>)
   <span class="ruby-ivar">@gtkObject</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ScrolledWindow</span>.<span class="ruby-identifier">new</span>()
   <span class="ruby-ivar">@menu</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">orientation</span>)
@@ -197,15 +190,24 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-add-label-Presentation">Presentation<span><a href="#method-i-add-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method will add a widget to the scrollable area.</p>
+
+<h5 id="method-i-add-label-Attributes">Attributes<span><a href="#method-i-add-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>widget</code> - The widget it is adding.</p>
+</li><li>
+<p><code>pad</code> - The padding value.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File Ui/ScrollableArea.rb, line 26</span>
+            <pre><span class="ruby-comment"># File Ui/ScrollableArea.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">widget</span>,<span class="ruby-identifier">pad</span>=<span class="ruby-value">0</span>)
-  <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">widget</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>,<span class="ruby-value">padding:</span><span class="ruby-identifier">pad</span>)
+  <span class="ruby-ivar">@menu</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">widget</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">padding:</span><span class="ruby-identifier">pad</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

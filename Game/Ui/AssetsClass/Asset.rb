@@ -6,38 +6,61 @@
 # @Last modified time: 12-Feb-2019
 
 ##
-#Asset is an abstract class needed to create and use all of the images from the
-#game. It creates these 4 variables :
+# ===== Presentation
+# Asset is an abstract class needed to create and use all of the images from the
+# game. It creates these 4 variables :
 #	@image
 #	@buffer
 #	@width
 #	@height
 #
-#This class needs to be initialized. In the initializer the buffer variable
-#takes its value from a file taken in the method parameters.
-#
-#This class creates two methods : resize and applyOn.
-#
-#The resize class modifies the buffer to make it fit the size taken in
-#parameters.
-#
-#The applyOn method takes a widget in parameters and puts the image on it.
+# ===== Methods
+# This class creates two methods : resize and applyOn. It also needs to be initialized.
 class Asset
 	@image
 	@buffer
 	@width
 	@height
 
-	attr_reader :buffer  #:nodoc:
+	# :nodoc:
+	attr_reader :buffer
+	# :startdoc:
 
-	def initialize(file)  #:nodoc:
+	##
+	# ===== Presentation
+	# The class' initializer.
+	#
+	# ===== Attributes
+	# * +file+ - A file that will give its value to the buffer variable.
+	#
+	# ===== Examples
+	# To initialize the buffer variable :
+	#      @buffer= GdkPixbuf::Pixbuf.new(file: file)
+	def initialize(file)
 		@buffer= GdkPixbuf::Pixbuf.new(file: file)
 	end
 
+	##
+	# ===== Presentation
+	# The resize method modifies the buffer to make it fit a certain size.
+	#
+	# ===== Attributes
+	# * +width+, +height+ - The new size for the buffer.
+	#
+	# ===== Examples
+	# To resize the buffer :
+	#     @buffer=@buffer.scale(width, height, :bilinear)
 	def resize(width,height)
-		@buffer=@buffer.scale(width,height, :bilinear)
+		@buffer=@buffer.scale(width, height, :bilinear)
 	end
 
+	##
+	# ===== Presentation
+	# The applyOn method puts an image on a widget.
+	#
+	# ===== Atrributes
+	# * +widget+ - The widget we will put the image onto.
+	# ----------
 	def applyOn(widget)
 		widget.each { |child|
 			widget.remove(child)

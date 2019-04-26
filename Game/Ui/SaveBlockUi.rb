@@ -15,26 +15,26 @@ def require_all(_dir)
 		require file
 	}
 end
+
 ##
 # ===== Presentation
-#SaveblockUi is an inherited class from the gtkBox. This class only needs
-#to be initialized.
-#It creates and implements the save block screen from the save.
-##
-
-
-
+# SaveblockUi is an inherited class from the gtkBox. It creates and implements
+# the save block screen from the save.
+#
+# ===== Methods
+# This class only needs to be initialized.
 class SaveBlockUi < Gtk::Box
-	#
-	#=====Presentation
-	#This method is used to create the Save block.
-	#All save block contain a number of save, a save, a load's button and a delete's button
-	#All the other variable are used for the layout.
-	#=====Attributes
-	# *+manager+ : managerUi who handle the Ui
-	# *+save+ : which is the save corresponding
-	# *+parent+ :
+
 	##
+	# ===== Presentation
+	# This method is used to create the Save block.
+	# All save blocks contain a number of save, a save, a load button and a delete button.
+	# All the other variables are used for the layout.
+	# ===== Attributes
+	# *+manager+ : managerUi who handles the Ui.
+	# *+save+ : The corresponding save.
+	# *+parent+ :
+	#
 	def initialize(manager,save, parent)
     super(:horizontal)
 		@pad=screen.height*0.03
