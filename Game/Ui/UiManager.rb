@@ -29,7 +29,7 @@ class UiManager
   def updateSave
     @listeSaveScreen=SaveScreen.new(self,Connexion.getJoueur)
   end
-   def updateSave
+   def updateHighScore
     @highScoresScreen=HighScoresScreen.new(self)
   end
 
