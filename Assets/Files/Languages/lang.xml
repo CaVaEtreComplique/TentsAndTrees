@@ -248,7 +248,7 @@
       <level>
         <step0>Bienvenue dans le niveau didacticiel, pour continuer, cliquez sur "Suivant".</step0>
         <step1>Pour apprendre les bases, cliquez sur pause. Une fois que vous avez lu les règles, cliquez sur "Suivant" pour continuer le didacticiel.</step1>
-        <step2>Maintenant que vous connaissez les règles, vous pouvez placer des tentes et des arbres sur la grille à l'aide du clic gauche.</step2>
+        <step2>Maintenant que vous connaissez les règles, vous pouvez placer des tentes et de l'herbe sur la grille à l'aide du clic gauche.</step2>
         <step3>Lorsque vous vous êtes trompé, vous pouvez annuler votre dernier changement avec le bouton "Annuler".</step3>
         <step4>Vous avez trop cliqué sur "Annuler"? Pas de soucis, clickez sur "Rétablir" pour remettre la dernière action effacée avec "Undo".</step4>
         <step5>Si vous avez des doutes, utilisez les hypothèses à l'aide du bouton "Nouvelle hypothèse". Si vous êtes parti sur une fausse piste, vous pouvez l'annuler avec le bouton "Réfuter hypothèse".</step5>
@@ -496,8 +496,8 @@
       </victory>
       <level>
         <step0>Welcome to the tutorial level, to continue, click on "Next".</step0>
-        <step1>To learn the basics, click on pause. Once you have read the rules, click on "next" to continue the tutorial.</step1>
-        <step2>Now that you know the rules, you can place tents and trees on the grid using the left click.</step2>
+        <step1>To learn the basics, click on pause, then click on "next" to continue the tutorial.</step1>
+        <step2>You can place tents and grass on the grid using the left click.</step2>
         <step3>If you made a mistake, you can cancel your last change with the "Undo" button.</step3>
         <step4>You clicked too much on "Undo"? No worries, click on "Redo" to put the last action deleted with "Undo".</step4>
         <step5>If you have doubts, use hypothesis with "New hypothesis" button. If you are on a false track, you can cancel it with the "Refute hypothesis" button.</step5>
