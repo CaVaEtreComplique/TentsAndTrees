@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 10:52:19 +0200
+Fri, 26 Apr 2019 10:58:55 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -42,9 +42,9 @@ Fri, 26 Apr 2019 10:52:19 +0200
 ./Core/Game.rb	Fri, 26 Apr 2019 10:19:54 +0200
 ./Core/Save.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/TutorialSession.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Core/AdventureSession.rb	Fri, 26 Apr 2019 08:42:52 +0200
+./Core/AdventureSession.rb	Fri, 26 Apr 2019 10:56:28 +0200
 ./Core/Cell.rb	Fri, 26 Apr 2019 10:33:58 +0200
-./Core/Levels.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Core/Levels.rb	Fri, 26 Apr 2019 10:56:28 +0200
 ./Core/Moves.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/DB/Difficulty.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/DB/Player.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -85,8 +85,8 @@ Fri, 26 Apr 2019 10:52:19 +0200
 ./Ui/Screens/Screen.rb	Fri, 26 Apr 2019 10:36:38 +0200
 ./Ui/Screens/TutorialVictoryScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/AdventureVictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
-./Ui/Screens/HighScoresScreen.rb	Fri, 26 Apr 2019 10:35:39 +0200
-./Ui/Screens/PrincipalScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Screens/HighScoresScreen.rb	Fri, 26 Apr 2019 10:56:28 +0200
+./Ui/Screens/PrincipalScreen.rb	Fri, 26 Apr 2019 10:58:36 +0200
 ./Ui/Screens/TutorialGameScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 10:46:44 +0200
 ./Ui/Screens/PauseScreen.rb	Thu, 25 Apr 2019 16:38:29 +0200
@@ -97,7 +97,7 @@ Fri, 26 Apr 2019 10:52:19 +0200
 ./Ui/Click.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/UiManager.rb	Fri, 26 Apr 2019 10:04:00 +0200
 ./Ui/SaveBlockUi.rb	Fri, 26 Apr 2019 09:36:50 +0200
-./Ui/AssetsLoaderClass/IconAsset.rb	Thu, 25 Apr 2019 15:32:16 +0200
+./Ui/AssetsLoaderClass/IconAsset.rb	Fri, 26 Apr 2019 10:56:28 +0200
 ./Ui/AssetsLoaderClass/CellAssets.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/SelectionUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/ScrollableArea.rb	Fri, 26 Apr 2019 09:36:28 +0200
