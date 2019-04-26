@@ -537,7 +537,7 @@
         
         <div class="method-heading">
           <span class="method-name">manageHelp</span><span
-            class="method-args">(curr, min, max)</span>
+            class="method-args">( min, max)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -553,9 +553,9 @@
           
           <div class="method-source-code" id="manageHelp-source">
             <pre><span class="ruby-comment"># File Core/Game.rb, line 96</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">manageHelp</span>(<span class="ruby-identifier">curr</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
-  <span class="ruby-ivar">@curr</span>, <span class="ruby-ivar">@min</span>, <span class="ruby-ivar">@max</span> = <span class="ruby-identifier">curr</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>
-  <span class="ruby-ivar">@helper</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-identifier">curr</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">manageHelp</span>( <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-ivar">@min</span>, <span class="ruby-ivar">@max</span> = <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>
+  <span class="ruby-ivar">@helper</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -690,7 +690,7 @@
           <div class="method-source-code" id="run-source">
             <pre><span class="ruby-comment"># File Core/Game.rb, line 101</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>
-<span class="ruby-ivar">@helper</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@curr</span>, <span class="ruby-ivar">@min</span>, <span class="ruby-ivar">@max</span>)
+<span class="ruby-ivar">@helper</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@min</span>, <span class="ruby-ivar">@max</span>)
 <span class="ruby-ivar">@chrono</span>=<span class="ruby-constant">GLib</span><span class="ruby-operator">::</span><span class="ruby-constant">Timer</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-ivar">@chrono</span>.<span class="ruby-identifier">start</span>
 <span class="ruby-identifier">lastTime</span>=<span class="ruby-value">0</span>

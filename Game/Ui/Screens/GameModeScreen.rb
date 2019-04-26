@@ -19,48 +19,46 @@ def require_all(_dir)
 end
 
 ##
-#==Presentation
-#ModeDeJeu is an inherited class from the Screen class. This class only needs
-#to be initialized and applied, so the only method is the initializer. It
-#creates and implements the game mode choice menu from the game by creating its
-#buttons.
+# ===== Presentation
+# GameModeScreen is an inherited class from the Screen class. This class only needs
+# to be initialized and applied, so the only method is the initializer. It
+# creates and implements the game mode choice menu from the game by creating its
+# buttons.
 #
-#==Variables
-#The ModeDeJeu class creates the title size, text
-#size and the padding variables with :
+# ===== Variables
+# The GameModeScreen class creates the title size, text
+# size and the padding variables with :
 #   @pad =10
 #   @widthTitre=screen.width*0.10
 #   @heightTitre=screen.height*0.08
 #   @widthText=screen.width*0.1
 #   @heightText=screen.height*0.04
 #
-#This class also inherits the screen variable from the Screen class.
+# This class also inherits the screen variable from the Screen class.
 #
-#The gtkObject is the table where the menu (a vertical box) is added to create
-#the menu buttons.
+# The gtkObject is the table where the menu (a vertical box) is added to create
+# the menu buttons.
 #
-#==Implementation
-#=====Here is how a button is implemented on the game mode choice menu :
+# ===== Implementation
+# Here is how a button is implemented on the game mode choice menu :
 #
-#*First* we add some text to the button :
+# *First* we add some text to the button :
 #   timeA=Text.new("Partie rapide",@widthText,@heightText)
 #
-#*Next* we add the button we just created in the VBox (gtkObject) :
+# *Next* we add the button we just created in the VBox (gtkObject) :
 #   @menu.pack_start(timeA.gtkObject ,expand: false, fill: true, padding: @pad)
 #
-#*Then* we add the action the button does when it is clicked :
+# *Then* we add the action the button does when it is clicked :
 #   timeA.onClick{
 #      manager.diffchScreen.applyOn(@parent)
 #   }
 #
-#Here we created a button entitled "Partie rapide" that leads to the difficulty
-#choice menu ChoixDiff.
-#The other buttons are created by doing this aswell.
+# Here we created a button entitled "Partie rapide" that leads to the difficulty
+# choice menu ChoixDiffScreen.
+# The other buttons are created by doing this aswell.
 #
-#*Finally*, when all of the buttons are done we add a background picture with :
+# *Finally*, when all of the buttons are done we add a background picture with :
 #    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-#
-
 class GameModeScreen < Screen
   def initialize(manager) #:nodoc:
 		super(manager.win)

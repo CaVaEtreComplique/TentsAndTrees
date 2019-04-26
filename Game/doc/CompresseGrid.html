@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-CompresseGrid-label-Presentation">Presentation</a>
+    <li><a href="#class-CompresseGrid-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +95,13 @@
 
   <section class="description">
     
-<p>Decompresse the grid into 4 arrays whitch contain tent, tree, grass and white</p>
+<h4 id="class-CompresseGrid-label-Presentation">Presentation<span><a href="#class-CompresseGrid-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <a href="Count.html"><code>Count</code></a> class give an extended methode for <a href="Game.html"><code>Game</code></a> class</p>
+
+<h4 id="class-CompresseGrid-label-Methods">Methods<span><a href="#class-CompresseGrid-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class know the compresse methode describe below</p>
 
   </section>
 
@@ -120,13 +135,27 @@
 
         <div class="method-description">
           
-          
+          <h4 id="method-c-compresse-label-Presentation">Presentation<span><a href="#method-c-compresse-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class methode count the number of cell who are in a certain state inside a row or column.</p>
+
+<h5 id="method-c-compresse-label-Attributes">Attributes<span><a href="#method-c-compresse-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - The <a href="Game.html"><code>Game</code></a> we are going to extractact the grid from.</p>
+</li></ul>
+
+<h5 id="method-c-compresse-label-Returns">Returns<span><a href="#method-c-compresse-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns an array that contain four smaller array corresponding</p>
+
+<pre>to a specific regroupement of cell ether full of white, tree, tent, or
+grass cell form the grid of Game</pre>
           
           
 
           
           <div class="method-source-code" id="compresse-source">
-            <pre><span class="ruby-comment"># File Helps/CompresseGrid.rb, line 13</span>
+            <pre><span class="ruby-comment"># File Helps/CompresseGrid.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">CompresseGrid</span>.<span class="ruby-identifier ruby-title">compresse</span>(<span class="ruby-identifier">game</span>)
 
   <span class="ruby-identifier">tree</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>

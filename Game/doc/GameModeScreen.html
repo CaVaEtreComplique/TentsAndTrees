@@ -59,7 +59,6 @@
     <li><a href="#class-GameModeScreen-label-Presentation">Presentation</a>
     <li><a href="#class-GameModeScreen-label-Variables">Variables</a>
     <li><a href="#class-GameModeScreen-label-Implementation">Implementation</a>
-    <li><a href="#class-GameModeScreen-label-Here+is+how+a+button+is+implemented+on+the+game+mode+choice+menu+-3A">Here is how a button is implemented on the game mode choice menu :</a>
   </ul>
 </div>
 
@@ -87,13 +86,13 @@
 
   <section class="description">
     
-<h2 id="class-GameModeScreen-label-Presentation">Presentation<span><a href="#class-GameModeScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-GameModeScreen-label-Presentation">Presentation<span><a href="#class-GameModeScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>ModeDeJeu is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and applied, so the only method is the initializer. It creates and implements the game mode choice menu from the game by creating its buttons.</p>
+<p><a href="GameModeScreen.html"><code>GameModeScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and applied, so the only method is the initializer. It creates and implements the game mode choice menu from the game by creating its buttons.</p>
 
-<h2 id="class-GameModeScreen-label-Variables">Variables<span><a href="#class-GameModeScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-GameModeScreen-label-Variables">Variables<span><a href="#class-GameModeScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The ModeDeJeu class creates the title size, text size and the padding variables with :</p>
+<p>The <a href="GameModeScreen.html"><code>GameModeScreen</code></a> class creates the title size, text size and the padding variables with :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@pad</span> =<span class="ruby-value">10</span>
 <span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
@@ -106,9 +105,9 @@
 
 <p>The gtkObject is the table where the menu (a vertical box) is added to create the menu buttons.</p>
 
-<h2 id="class-GameModeScreen-label-Implementation">Implementation<span><a href="#class-GameModeScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-GameModeScreen-label-Implementation">Implementation<span><a href="#class-GameModeScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h5 id="class-GameModeScreen-label-Here+is+how+a+button+is+implemented+on+the+game+mode+choice+menu+-3A">Here is how a button is implemented on the game mode choice menu :<span><a href="#class-GameModeScreen-label-Here+is+how+a+button+is+implemented+on+the+game+mode+choice+menu+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<p>Here is how a button is implemented on the game mode choice menu :</p>
 
 <p><strong>First</strong> we add some text to the button :</p>
 
@@ -127,7 +126,7 @@
 }
 </pre>
 
-<p>Here we created a button entitled “Partie rapide” that leads to the difficulty choice menu ChoixDiff. The other buttons are created by doing this aswell.</p>
+<p>Here we created a button entitled “Partie rapide” that leads to the difficulty choice menu <a href="ChoixDiffScreen.html"><code>ChoixDiffScreen</code></a>. The other buttons are created by doing this aswell.</p>
 
 <p><strong>Finally</strong>, when all of the buttons are done we add a background picture with :</p>
 

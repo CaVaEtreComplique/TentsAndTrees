@@ -14,21 +14,21 @@ require File.dirname(__FILE__) + "/../Buttons/Button"
 
 ##
 # ===== Presentation
-#HighScoresScreen is an inherited class from the Screen class. This class only needs
-#to be initialized and refresh.
-#It creates and implements the high scores screen from the game by adding the high scores.
-##
+# HighScoresScreen is an inherited class from the Screen class. This class only needs
+# to be initialized and refreshed.
+# It creates and implements the high scores screen from the game by adding the high scores.
 class HighScoresScreen < Screen
-  #
-  #=====Presentation
-  #This method is used to create the high scores screen by calling the class ConnectDB.
-  #ALl high scores will be charged thanks to the class ConnectDB.
-  #A scrolable area is also created by calling the class ScrolableArea, which contains boxes.
-  #The boxes contains the high scores.
-  #All the other variable are used for the layout.
-  #=====Attributes
-  # *+manager+ : managerUi who handle the Ui
+
   ##
+  # ===== Presentation
+  # This method is used to create the high scores screen by calling the class ConnectDB.
+  # All high scores will be loaded using the ConnectDB class.
+  # A scrollable area is also created by calling the class ScrollableArea, which contains boxes.
+  # The boxes contains the high scores.
+  # All the other variable are used for the layout.
+  #
+  # ===== Attributes
+  # *+manager+ - managerUi who handles the Ui
   def initialize(manager)
     super(manager.win)
     screen=Gdk::Screen.default

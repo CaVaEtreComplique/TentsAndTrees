@@ -58,7 +58,7 @@
   <ul class="link-list" role="directory">
     <li><a href="#class-ChronoUi-label-Presentation">Presentation</a>
     <li><a href="#class-ChronoUi-label-Methods">Methods</a>
-    <li><a href="#class-ChronoUi-label-Variable">Variable</a>
+    <li><a href="#class-ChronoUi-label-Variables">Variables</a>
   </ul>
 </div>
 
@@ -100,17 +100,18 @@
 
   <section class="description">
     
-<h4 id="class-ChronoUi-label-Presentation">Presentation<span><a href="#class-ChronoUi-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h5 id="class-ChronoUi-label-Presentation">Presentation<span><a href="#class-ChronoUi-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The ChronoUI class is inherited from the <a href="Button.html"><code>Button</code></a> class and manages the in-game chronometer.</p>
+<p>The ChronoUI class is inherited from the <a href="Text.html"><code>Text</code></a> class and manages the in-game chronometer.</p>
 
-<h4 id="class-ChronoUi-label-Methods">Methods<span><a href="#class-ChronoUi-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h5 id="class-ChronoUi-label-Methods">Methods<span><a href="#class-ChronoUi-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class knows three methods : initialize, updateLabel (both inherited from the <a href="Button.html"><code>Button</code></a> class) and the parce method. These methods are described further down.</p>
+<p>This class knows three methods : initialize, updateLabel (both inherited from the <a href="Text.html"><code>Text</code></a> class) and the parce method. These methods are described further down.</p>
 
-<h4 id="class-ChronoUi-label-Variable">Variable<span><a href="#class-ChronoUi-label-Variable">&para;</a> <a href="#top">&uarr;</a></span></h4>
-
-<p>The only variable this class needs is the time value.</p>
+<h5 id="class-ChronoUi-label-Variables">Variables<span><a href="#class-ChronoUi-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>time</code> - The only variable in the class, the time&#39;s value.</p>
+</li></ul>
 
   </section>
 
@@ -144,7 +145,31 @@
 
         <div class="method-description">
           
-          <p>The initialization method creates a new button with specific values for the chronometer&#39;s creation.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The initialization method creates a new button with specific values for the chronometer&#39;s creation.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>time</code> - The time&#39;s value.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method will first call the initializer from <a href="Text.html"><code>Text</code></a> with the parsed time attribute :</p>
+
+<pre class="ruby"><span class="ruby-keyword">super</span>(<span class="ruby-string">&quot;%02dh %02dm %02ds&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">parce</span>(<span class="ruby-identifier">time</span>))
+</pre>
+
+<p>It will then define the font, color, weight and style of the background and apply it :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@font</span>=<span class="ruby-string">&quot;Arial&quot;</span>
+<span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;black&quot;</span>
+<span class="ruby-ivar">@weight</span>=<span class="ruby-string">&quot;normal&quot;</span>
+<span class="ruby-ivar">@style</span>=<span class="ruby-string">&quot;normal&quot;</span>
+<span class="ruby-identifier">setBackground</span> <span class="ruby-value">0.8</span>, <span class="ruby-value">0.5</span>, <span class="ruby-value">0.1</span>, <span class="ruby-value">1</span>
+<span class="ruby-identifier">apply</span>
+</pre>
           
           
             <div class="method-calls-super">
@@ -155,7 +180,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 33</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 49</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">time</span>)
 <span class="ruby-keyword">super</span>(<span class="ruby-string">&quot;%02dh %02dm %02ds&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">parce</span>(<span class="ruby-identifier">time</span>))
 <span class="ruby-ivar">@font</span>=<span class="ruby-string">&quot;Arial&quot;</span>
@@ -196,13 +221,47 @@
 
         <div class="method-description">
           
-          <p>The parce method is needed for the initialization and for the label update. It gives the time a value that is easily read by humans. By doing so, it can be displayed in the game.</p>
+          <h5 id="method-i-parce-label-Presentation">Presentation<span><a href="#method-i-parce-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The parce method is needed for the initialization and for the label update. It gives the time a value that is easily read by humans. By doing so, it can be displayed in the game.</p>
+
+<h5 id="method-i-parce-label-Attributes">Attributes<span><a href="#method-i-parce-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>time</code> - The time&#39;s value.</p>
+</li></ul>
+
+<h5 id="method-i-parce-label-Returns">Returns<span><a href="#method-i-parce-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the parsed time.</p>
+
+<h5 id="method-i-parce-label-Examples">Examples<span><a href="#method-i-parce-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method first gives a value to the seconds and minutes of the timer :</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span>, <span class="ruby-identifier">m</span> = <span class="ruby-identifier">time</span> <span class="ruby-operator">%</span> <span class="ruby-value">60</span>, <span class="ruby-identifier">time</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span>
+</pre>
+
+<p>Then the hour gets its value :</p>
+
+<pre class="ruby"><span class="ruby-identifier">h</span> = <span class="ruby-identifier">m</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span>
+</pre>
+
+<p>And finally the minutes get the correct value :</p>
+
+<pre class="ruby"><span class="ruby-identifier">m</span> = <span class="ruby-identifier">m</span> <span class="ruby-operator">%</span> <span class="ruby-value">60</span>
+</pre>
+
+<p>The time can now be returned in an arrray in the format H/M/S :</p>
+
+<pre class="ruby">[<span class="ruby-identifier">h</span>, <span class="ruby-identifier">m</span>, <span class="ruby-identifier">s</span>]
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="parce-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 52</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parce</span>(<span class="ruby-identifier">time</span>)
   <span class="ruby-identifier">s</span>, <span class="ruby-identifier">m</span> = <span class="ruby-identifier">time</span> <span class="ruby-operator">%</span> <span class="ruby-value">60</span>, <span class="ruby-identifier">time</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span>
   <span class="ruby-identifier">h</span> = <span class="ruby-identifier">m</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span>
@@ -232,7 +291,14 @@
 
         <div class="method-description">
           
-          <p>The updateLabel method updates the chronometer button&#39;s label in order to actualize it at each time change.</p>
+          <h5 id="method-i-updateLabel-label-Presentation">Presentation<span><a href="#method-i-updateLabel-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The updateLabel method updates the chronometer button&#39;s label in order to actualize it at each time change.</p>
+
+<h5 id="method-i-updateLabel-label-Attributes">Attributes<span><a href="#method-i-updateLabel-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>time</code> - The time&#39;s value.</p>
+</li></ul>
           
           
             <div class="method-calls-super">
@@ -243,7 +309,7 @@
 
           
           <div class="method-source-code" id="updateLabel-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/ChronoUi.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateLabel</span>(<span class="ruby-identifier">time</span>)
         <span class="ruby-keyword">super</span>(<span class="ruby-string">&quot;%02dh %02dm %02ds&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">parce</span>(<span class="ruby-identifier">time</span>))
 <span class="ruby-keyword">end</span></pre>

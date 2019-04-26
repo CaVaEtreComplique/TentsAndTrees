@@ -59,7 +59,6 @@
     <li><a href="#class-ChoixDiffScreen-label-Presentation">Presentation</a>
     <li><a href="#class-ChoixDiffScreen-label-Variables">Variables</a>
     <li><a href="#class-ChoixDiffScreen-label-Implementation">Implementation</a>
-    <li><a href="#class-ChoixDiffScreen-label-Here+is+how+a+button+is+implemented+on+the+difficulty+choice+menu+-3A">Here is how a button is implemented on the difficulty choice menu :</a>
   </ul>
 </div>
 
@@ -87,13 +86,13 @@
 
   <section class="description">
     
-<h2 id="class-ChoixDiffScreen-label-Presentation">Presentation<span><a href="#class-ChoixDiffScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-ChoixDiffScreen-label-Presentation">Presentation<span><a href="#class-ChoixDiffScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>ChoixDiff is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and applied, so the only method is the initializer. It creates and implements the difficulty choice menu from the game by creating its buttons.</p>
+<p><a href="ChoixDiffScreen.html"><code>ChoixDiffScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and applied, so the only method is the initializer. It creates and implements the difficulty choice menu from the game by creating its buttons.</p>
 
-<h2 id="class-ChoixDiffScreen-label-Variables">Variables<span><a href="#class-ChoixDiffScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-ChoixDiffScreen-label-Variables">Variables<span><a href="#class-ChoixDiffScreen-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The ChoixDiff class creates the title size, text size and the padding variables with :</p>
+<p>The <a href="ChoixDiffScreen.html"><code>ChoixDiffScreen</code></a> class creates the title size, text size and the padding variables with :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@pad</span> =<span class="ruby-value">10</span>
 <span class="ruby-ivar">@widthTitre</span>=<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.10</span>
@@ -106,9 +105,9 @@
 
 <p>The gtkObject is the table where the menu (a vertical box) is added to create the menu buttons.</p>
 
-<h2 id="class-ChoixDiffScreen-label-Implementation">Implementation<span><a href="#class-ChoixDiffScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h5 id="class-ChoixDiffScreen-label-Implementation">Implementation<span><a href="#class-ChoixDiffScreen-label-Implementation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h5 id="class-ChoixDiffScreen-label-Here+is+how+a+button+is+implemented+on+the+difficulty+choice+menu+-3A">Here is how a button is implemented on the difficulty choice menu :<span><a href="#class-ChoixDiffScreen-label-Here+is+how+a+button+is+implemented+on+the+difficulty+choice+menu+-3A">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<p>Here is how a button is implemented on the difficulty choice menu :</p>
 
 <p><strong>First</strong> we add some text to the button :</p>
 

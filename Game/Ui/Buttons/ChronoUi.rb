@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + "/Text"
 #
 # ===== Methods
 # This class knows three methods : initialize, updateLabel (both
-# inherited from the Button class) and the parce method. These methods are
+# inherited from the Text class) and the parce method. These methods are
 # described further down.
 #
 # ===== Variables
@@ -86,7 +86,7 @@ class ChronoUi < Text
 	#      h = m / 60
 	# And finally the minutes get the correct value :
 	#      m = m % 60
-	# The time can now be returned in an arrray in the form H/M/S :
+	# The time can now be returned in an arrray in the format H/M/S :
 	#      [h, m, s]
 	# ----------
 	def parce(time)
