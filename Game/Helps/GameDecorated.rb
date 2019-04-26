@@ -8,26 +8,27 @@
 require File.dirname(__FILE__) + "/CompresseGrid"
 
 ##
-# ==== Presentation
-# The GameDecorated class represente the grid of Game class as four smaller
-# grid, with an acces to this Game class  .
+# ===== Presentation
+# The GameDecorated class represents the grid from the Game class as four smaller
+# grids, with an access to this Game class.
 #
-# ==== Variables
-# * +game+ : the game used to create the four other variables
-# * +tree+ : A grid that contain all the tree of game
-# * +tent+ : A grid that contain all the tent of game
-# * +grass+ : A grid that contain all the grass of game
-# * +white+ : A grid that contain all the white of game
+# ===== Variables
+# * +game+ - The game used to create the four other variables.
+# * +tree+ - A grid that contains all the trees of the game.
+# * +tent+ - A grid that contains all the tents of the game.
+# * +grass+ - A grid that contains all the grass of the game.
+# * +white+ - A grid that contains all the empty cells of the game.
 #
-# ==== Methods
-# This class knows the initialization method and the methods described below.
+# ===== Methods
+# This class knows the initialization method.
 #
-# ===== Exemple
-# To create a game where the grid have been divided in specified grid use :
-# 	game = GameDecorated(game).new
-# Get the specified grid you want : tree = game.tree()
-# Then retrieve game : game = game.game()
-#
+# ===== How to Use
+# To create a game where the grid has been divided into the specified grids, use :
+#    	game = GameDecorated(game).new
+# Get the specified grid you want :
+#     tree = game.tree()
+# Then retrieve the game :
+#     game = game.game()
 class GameDecorated
 
 	@game
@@ -36,13 +37,14 @@ class GameDecorated
   @grass
   @white
 
+	# :nodoc:
 	attr_reader :game, :tree, :grass, :white, :tent
+	# :startdoc:
 
 	##
 	# ===== Presentation
-	# This class constructor initializes the tree, tent, grass and white
-	# variable with the game in order to create small and specified grid.
-	#
+	# This class' constructor initializes the tree, tent, grass and white
+	# variables with the game in order to create small and specific grids.
 	def initialize(game)
 
     array = CompresseGrid.compresse(game)

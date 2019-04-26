@@ -59,7 +59,7 @@
     <li><a href="#class-GameDecorated-label-Presentation">Presentation</a>
     <li><a href="#class-GameDecorated-label-Variables">Variables</a>
     <li><a href="#class-GameDecorated-label-Methods">Methods</a>
-    <li><a href="#class-GameDecorated-label-Exemple">Exemple</a>
+    <li><a href="#class-GameDecorated-label-How+to+Use">How to Use</a>
   </ul>
 </div>
 
@@ -99,33 +99,41 @@
     
 <h4 id="class-GameDecorated-label-Presentation">Presentation<span><a href="#class-GameDecorated-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="GameDecorated.html"><code>GameDecorated</code></a> class represente the grid of <a href="Game.html"><code>Game</code></a> class as four smaller grid, with an acces to this <a href="Game.html"><code>Game</code></a> class  .</p>
+<p>The <a href="GameDecorated.html"><code>GameDecorated</code></a> class represents the grid from the <a href="Game.html"><code>Game</code></a> class as four smaller grids, with an access to this <a href="Game.html"><code>Game</code></a> class.</p>
 
 <h4 id="class-GameDecorated-label-Variables">Variables<span><a href="#class-GameDecorated-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>game</code> : the game used to create the four other variables</p>
+<p><code>game</code> - The game used to create the four other variables.</p>
 </li><li>
-<p><code>tree</code> : A grid that contain all the tree of game</p>
+<p><code>tree</code> - A grid that contains all the trees of the game.</p>
 </li><li>
-<p><code>tent</code> : A grid that contain all the tent of game</p>
+<p><code>tent</code> - A grid that contains all the tents of the game.</p>
 </li><li>
-<p><code>grass</code> : A grid that contain all the grass of game</p>
+<p><code>grass</code> - A grid that contains all the grass of the game.</p>
 </li><li>
-<p><code>white</code> : A grid that contain all the white of game</p>
+<p><code>white</code> - A grid that contains all the empty cells of the game.</p>
 </li></ul>
 
 <h4 id="class-GameDecorated-label-Methods">Methods<span><a href="#class-GameDecorated-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>This class knows the initialization method and the methods described below.</p>
+<p>This class knows the initialization method.</p>
 
-<h5 id="class-GameDecorated-label-Exemple">Exemple<span><a href="#class-GameDecorated-label-Exemple">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="class-GameDecorated-label-How+to+Use">How to Use<span><a href="#class-GameDecorated-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>To create a game where the grid have been divided in specified grid use :</p>
+<p>To create a game where the grid has been divided into the specified grids, use :</p>
 
 <pre class="ruby"><span class="ruby-identifier">game</span> = <span class="ruby-constant">GameDecorated</span>(<span class="ruby-identifier">game</span>).<span class="ruby-identifier">new</span>
 </pre>
 
-<p>Get the specified grid you want : tree = game.tree() Then retrieve game : game = game.game()</p>
+<p>Get the specified grid you want :</p>
+
+<pre class="ruby"><span class="ruby-identifier">tree</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">tree</span>()
+</pre>
+
+<p>Then retrieve game :</p>
+
+<pre class="ruby"><span class="ruby-identifier">game</span> = <span class="ruby-identifier">game</span>.<span class="ruby-identifier">game</span>()
+</pre>
 
   </section>
 
@@ -137,79 +145,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-game" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">game</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-grass" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">grass</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-tent" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">tent</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-tree" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">tree</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-white" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">white</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -234,13 +169,13 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class constructor initializes the tree, tent, grass and white variable with the game in order to create small and specified grid.</p>
+<p>This class&#39; constructor initializes the tree, tent, grass and white variables with the game in order to create small and specific grids.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/GameDecorated.rb, line 46</span>
+            <pre><span class="ruby-comment"># File Helps/GameDecorated.rb, line 48</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">game</span>)
 
 <span class="ruby-identifier">array</span> = <span class="ruby-constant">CompresseGrid</span>.<span class="ruby-identifier">compresse</span>(<span class="ruby-identifier">game</span>)
