@@ -1,3 +1,10 @@
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: ConnectDB.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 25-Avr-2019
+
 require 'rubygems'
 require 'sqlite3'
 require File.dirname(__FILE__) + "/Player.rb"
