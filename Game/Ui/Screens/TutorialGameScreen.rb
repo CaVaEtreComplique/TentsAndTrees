@@ -2,8 +2,8 @@
 # @Date:   08-Feb-2019
 # @Email:  maxime_touze@univ-lemans.fr
 # @Filename: TutorialGameScreen.rb
-# @Last modified by:   Sckylle
-# @Last modified time: 24-Apr-2019
+# @Last modified by:   zeigon
+# @Last modified time: 26-Apr-2019
 
 
 
@@ -117,7 +117,7 @@ class TutorialGameScreen < Screen
     @gtkObject.attach(helpCRAli,2,4,1,2)
     # @gtkObject.attach(@nextResponseUI.gtkObject,2,4,2,3)
     @gtkObject.attach(nextAli,2,4,3,4)
-    # @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer2),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
   end
 

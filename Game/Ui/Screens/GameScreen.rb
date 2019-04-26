@@ -118,7 +118,7 @@ class GameScreen < Screen
 
     @gtkObject.attach(globalAli,3,4,1,2)
     @gtkObject.attach(helpCRAli,2,4,2,3)
-    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer2),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end
 

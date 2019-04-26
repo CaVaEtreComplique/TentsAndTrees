@@ -17,7 +17,7 @@ class Text
     @label=label
     @gtkObject=Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @eventBox = Gtk::EventBox.new
-    @eventBox.border_width=10
+    @eventBox.border_width=0
     @size=size
     @font="Arial"
     @color="lightgrey"
