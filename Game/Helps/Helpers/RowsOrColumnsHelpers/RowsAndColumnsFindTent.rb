@@ -50,7 +50,7 @@ class RowsAndColumnsFindTent < FictivHelper
       cell = nil  #reset
       nbTent = 0
 
-      whiteZone = FindWhiteZone.Find(game, 0, i)
+      whiteZone = FindWhiteZone.find(game, 0, i)
       whiteZone.each do |zone| #Count the number of possible tent
         if (zone.size % 2 == 0)
           nbTent += (zone.size / 2)
@@ -77,7 +77,7 @@ class RowsAndColumnsFindTent < FictivHelper
       cell = nil  #reset
       nbTent = 0
 
-      whiteZone = FindWhiteZone.Find(game, 1, i)
+      whiteZone = FindWhiteZone.find(game, 1, i)
       whiteZone.each do |zone| #Count the number of possible tents
         if (zone.size % 2 == 0)
           nbTent += (zone.size / 2)
