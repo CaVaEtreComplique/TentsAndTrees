@@ -41,8 +41,15 @@ class HighScoresScreen < Screen
 
     @menuBase = Gtk::Box.new(:vertical)
     @gtkObject= Gtk::Table.new(4,9)
-    @menuV=Gtk::Box.new(:horizontal)
+    @menuScores=Gtk::Box.new(:horizontal)
+    @menuLabel = Gtk::Box.new(:horizontal)
     @gtkObject.attach(@menuBase,1,2,0,1)
+    @gridScores=Gtk::Table.new(5,2)
+    a=Gtk::Alignment.new(0.5,1,0,1)
+
+
+
+    @menu=Gtk::Box.new(:vertical)
 
     db = ConnectDB.new()
 
@@ -60,6 +67,7 @@ class HighScoresScreen < Screen
     adventure = db.getHighScoresByGamemodeDiff("adventure","easy")
 
     titre=Text.new(@textManager.getButtonLabel("main" , "score"))
+    titre.title
 
     timeAttackArea = Gtk::Box.new(:vertical)
     quickplayArea = Gtk::Box.new(:vertical)
@@ -74,11 +82,12 @@ class HighScoresScreen < Screen
     retour=Text.new(@textManager.getButtonLabel("save" , "back"))
 
     retour.onClick{
-      manager.modeScreen.applyOn(@parent)
+      manager.mainScreen.applyOn(@parent)
      }
-     timeAttackArea.pack_start(timeAttackLabel.gtkObject,expand: true, fill:true, padding: @pad)
-     quickplayArea.pack_start(quickPlayLabel.gtkObject,expand: true, fill:true, padding: @pad)
-     adventureArea.pack_start(adventureLabel.gtkObject,expand: true, fill:true, padding: @pad)
+     @gridScores.column_spacings=(20)
+     @gridScores.attach(timeAttackLabel.gtkObject,0,1,0,1)
+     @gridScores.attach(quickPlayLabel.gtkObject,2,3,0,1)
+     @gridScores.attach(adventureLabel.gtkObject,4,5,0,1)
 
     qp.each{ |hg|
         difficultyArea.pack_start(Text.new("#{hg.player_highScores.name_player} : #{hg.score_highScores}").gtkObject,expand: true, fill:true, padding: @pad)
@@ -98,17 +107,17 @@ class HighScoresScreen < Screen
     #add sur gtkObject
     @menuBase.add(titre.gtkObject)
 
-    @boxHighScore=Gtk::Box.new(:vertical)
+    @gridScores.attach(timeAttackArea,0,1,1,2)
+    @gridScores.attach(quickplayArea,2,3,1,2)
+    @gridScores.attach(adventureArea,4,5,1,2)
 
-    @boxLabel=Gtk::Box.new(:horizontal)
-    @menuV.add(timeAttackArea)
-    @menuV.add(quickplayArea)
-    @menuV.add(adventureArea)
+    a.add(@gridScores)
+
     #@boxHighScore.pack_start(@boxLabel,expand: true, fill: true, padding: @pad)
 
     quickplayArea.pack_start(difficultyArea,expand:true, fill:true, padding:@pad)
 
-    @menuBase.add(@menuV)
+    @menuBase.add(a)
     @menuBase.add(retour.gtkObject)
     #image de fond
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
