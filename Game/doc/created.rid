@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 10:58:55 +0200
+Fri, 26 Apr 2019 11:03:13 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -62,7 +62,7 @@ Fri, 26 Apr 2019 10:58:55 +0200
 ./Core/ProcessStatus.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/ClueUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Buttons/Button.rb	Fri, 26 Apr 2019 10:06:43 +0200
-./Ui/Buttons/Text.rb	Fri, 26 Apr 2019 10:36:38 +0200
+./Ui/Buttons/Text.rb	Fri, 26 Apr 2019 11:00:15 +0200
 ./Ui/Buttons/ChronoUi.rb	Fri, 26 Apr 2019 10:22:04 +0200
 ./Ui/Buttons/GuessUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/CellUi.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -77,21 +77,21 @@ Fri, 26 Apr 2019 10:58:55 +0200
 ./Ui/Constants.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/ParametreScreen.rb	Fri, 26 Apr 2019 10:52:16 +0200
 ./Ui/Screens/GameModeScreen.rb	Fri, 26 Apr 2019 10:31:54 +0200
-./Ui/Screens/GameScreen.rb	Fri, 26 Apr 2019 10:36:38 +0200
+./Ui/Screens/GameScreen.rb	Fri, 26 Apr 2019 11:00:15 +0200
 ./Ui/Screens/SaveScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/PopUp/ProblemeIdent.rb	Thu, 25 Apr 2019 17:38:40 +0200
 ./Ui/Screens/PopUp/MotdepasseOublie.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/PopUp/Probleme.rb	Thu, 25 Apr 2019 17:38:40 +0200
-./Ui/Screens/Screen.rb	Fri, 26 Apr 2019 10:36:38 +0200
+./Ui/Screens/Screen.rb	Fri, 26 Apr 2019 11:00:15 +0200
 ./Ui/Screens/TutorialVictoryScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Screens/AdventureVictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
 ./Ui/Screens/HighScoresScreen.rb	Fri, 26 Apr 2019 10:56:28 +0200
 ./Ui/Screens/PrincipalScreen.rb	Fri, 26 Apr 2019 10:58:36 +0200
-./Ui/Screens/TutorialGameScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
-./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 10:46:44 +0200
+./Ui/Screens/TutorialGameScreen.rb	Fri, 26 Apr 2019 11:00:15 +0200
+./Ui/Screens/LevelSelectionScreen.rb	Fri, 26 Apr 2019 11:00:15 +0200
 ./Ui/Screens/PauseScreen.rb	Thu, 25 Apr 2019 16:38:29 +0200
 ./Ui/Screens/VictoryScreen.rb	Fri, 26 Apr 2019 08:42:52 +0200
-./Ui/Screens/RuleScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
+./Ui/Screens/RuleScreen.rb	Fri, 26 Apr 2019 11:03:09 +0200
 ./Ui/Screens/ChoixDiffScreen..rb	Fri, 26 Apr 2019 10:26:33 +0200
 ./Ui/Screens/LoadingScreen.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Ui/Click.rb	Thu, 25 Apr 2019 10:19:45 +0200
