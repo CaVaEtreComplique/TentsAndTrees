@@ -29,6 +29,11 @@ class FindWhiteZone
 	#
 	# ===== Returns
 	# * +tabCell+ - The Array containing all the empty cells of the row or column.
+	# ===== Exemple
+	# W -> white cell; T -> not white cell
+	# | W | W | T | T | W | W | W | T | W | -> row number 3 of game
+	# arr = FindWhiteZone.Find(game, 1, 3)
+	# arr will print something like : [[0,1],[4,5,6],[8]]
 	def FindWhiteZone.Find(game, vertHor, rank)
 		tabCell = Array.new()
 		tabCellInside = Array.new()
