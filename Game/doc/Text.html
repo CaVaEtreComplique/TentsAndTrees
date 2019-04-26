@@ -229,9 +229,10 @@
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">label</span>
   <span class="ruby-ivar">@gtkObject</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0.2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
   <span class="ruby-ivar">@eventBox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">EventBox</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">border_width</span>=<span class="ruby-value">10</span>
   <span class="ruby-ivar">@size</span>=<span class="ruby-identifier">size</span>
   <span class="ruby-ivar">@font</span>=<span class="ruby-string">&quot;Arial&quot;</span>
-  <span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;black&quot;</span>
+  <span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;lightgrey&quot;</span>
   <span class="ruby-ivar">@weight</span>=<span class="ruby-string">&quot;bold&quot;</span>
   <span class="ruby-ivar">@style</span>=<span class="ruby-string">&quot;normal&quot;</span>
   <span class="ruby-ivar">@textBox</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@label</span>)
@@ -276,7 +277,7 @@
 
           
           <div class="method-source-code" id="apply-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 101</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>
   <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span style=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@style</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; weight=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@weight</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; foreground=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@color</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; font_desc=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@font</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@size</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@label</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -309,7 +310,7 @@
 
           
           <div class="method-source-code" id="colorChange-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 105</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colorChange</span>(<span class="ruby-identifier">couleur</span>)
   <span class="ruby-ivar">@color</span>=<span class="ruby-identifier">couleur</span>
   <span class="ruby-identifier">apply</span>
@@ -343,9 +344,10 @@
 
           
           <div class="method-source-code" id="onClick-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 73</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onClick</span>(<span class="ruby-identifier">block</span>=<span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">temp</span>=<span class="ruby-ivar">@color</span>
+  <span class="ruby-identifier">setBackground</span>(<span class="ruby-value">0.2</span>,<span class="ruby-value">0.2</span>,<span class="ruby-value">0.2</span>,<span class="ruby-value">0.6</span>)
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;enter_notify_event&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">widget</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">set_cursor</span>(<span class="ruby-constant">Click</span><span class="ruby-operator">::</span><span class="ruby-constant">CURSORIN</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">window</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
     <span class="ruby-ivar">@color</span>=<span class="ruby-string">&quot;orange&quot;</span>
@@ -400,7 +402,7 @@
 
           
           <div class="method-source-code" id="setBackground-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setBackground</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">a</span>)
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">override_background_color</span>(<span class="ruby-value">:normal</span>,<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">RGBA</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">a</span>))
   <span class="ruby-ivar">@eventBox</span>.<span class="ruby-identifier">show_all</span>
@@ -434,7 +436,7 @@
 
           
           <div class="method-source-code" id="setWrap-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setWrap</span>(<span class="ruby-identifier">bool</span>)
   <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">wrap</span>=<span class="ruby-identifier">bool</span>
   <span class="ruby-keyword">self</span>
@@ -468,7 +470,7 @@
 
           
           <div class="method-source-code" id="title-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 40</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">title</span>
   <span class="ruby-ivar">@weight</span> = <span class="ruby-string">&quot;ultrabold&quot;</span>
   <span class="ruby-ivar">@font</span> = <span class="ruby-string">&quot;arial&quot;</span>
@@ -524,7 +526,7 @@
 
           
           <div class="method-source-code" id="updateLabel-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 67</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateLabel</span>(<span class="ruby-identifier">newLabel</span>)
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">newLabel</span>
   <span class="ruby-identifier">apply</span>

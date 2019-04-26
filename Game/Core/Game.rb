@@ -93,13 +93,13 @@ class Game
     @helper=nil
   end
 
-  def manageHelp(curr, min, max)
-    @curr, @min, @max = curr, min, max
-    @helper = Helper.instance(curr, min, max)
+  def manageHelp( min, max)
+    @min, @max = min, max
+    @helper = Helper.instance(min, max)
   end
 
 	def run
-    @helper = Helper.new(@curr, @min, @max)
+    @helper = Helper.new(@min, @max)
     @chrono=GLib::Timer.new
     @chrono.start
     lastTime=0

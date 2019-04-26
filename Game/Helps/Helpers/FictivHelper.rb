@@ -13,7 +13,7 @@
 # ===== Methods
 # * +help+ - don't use this class' one.
 class FictivHelper
-
+  private_class_method :new
   ##
   # ===== Presentation
   # This method help the player but need to be definded in the helper class.

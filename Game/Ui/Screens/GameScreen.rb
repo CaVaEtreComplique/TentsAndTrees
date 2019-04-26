@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GameScreen.rb
 # @Last modified by:   zeigon
-# @Last modified time: 11-Apr-2019
+# @Last modified time: 26-Apr-2019
 
 
 
@@ -69,6 +69,7 @@ class GameScreen < Screen
     @helpResponseUi.size=15
     @helpResponseUi.apply
     @helpResponseUi.setWrap(true)
+    @helpResponseUi.setBackground(1,1,1,0.5)
     help=Text.new(@textManager.getButtonLabel("ingame" , "help"))
     help.onClick(){
       # Display the help message
@@ -117,7 +118,7 @@ class GameScreen < Screen
 
     @gtkObject.attach(globalAli,3,4,1,2)
     @gtkObject.attach(helpCRAli,2,4,2,3)
-    # @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
+    @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 3)
   end
 

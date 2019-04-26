@@ -172,7 +172,7 @@
     <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
     <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
 
-    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">i</span>)
     <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tent</span>
       <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
         <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
@@ -199,7 +199,7 @@
     <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment">#reset</span>
     <span class="ruby-identifier">nbTent</span> = <span class="ruby-value">0</span>
 
-    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-constant">Find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-identifier">whiteZone</span> = <span class="ruby-constant">FindWhiteZone</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">game</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">i</span>)
     <span class="ruby-identifier">whiteZone</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zone</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Count the number of possible tents</span>
       <span class="ruby-keyword">if</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
         <span class="ruby-identifier">nbTent</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)

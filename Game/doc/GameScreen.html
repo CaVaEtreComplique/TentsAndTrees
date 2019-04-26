@@ -220,6 +220,7 @@
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">size</span>=<span class="ruby-value">15</span>
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">apply</span>
   <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">setWrap</span>(<span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">setBackground</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0.5</span>)
   <span class="ruby-identifier">help</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;ingame&quot;</span> , <span class="ruby-string">&quot;help&quot;</span>))
   <span class="ruby-identifier">help</span>.<span class="ruby-identifier">onClick</span>(){
     <span class="ruby-comment"># Display the help message</span>
@@ -268,7 +269,7 @@
 
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">globalAli</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">helpCRAli</span>,<span class="ruby-value">2</span>,<span class="ruby-value">4</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)
-  <span class="ruby-comment"># @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,4,0,4)</span>
+  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">4</span>)
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@gridUi</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -308,7 +309,7 @@
 
           
           <div class="method-source-code" id="gridAltered-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 124</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gridAltered</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">helpDisplayed?</span>
     <span class="ruby-ivar">@helpResponseUi</span>.<span class="ruby-identifier">updateLabel</span> <span class="ruby-string">&quot;&quot;</span>
@@ -350,7 +351,7 @@
 
           
           <div class="method-source-code" id="helpDisplayed-3F-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 137</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 138</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpDisplayed?</span>
   <span class="ruby-ivar">@helpDisplayed</span>
 <span class="ruby-keyword">end</span></pre>
@@ -383,7 +384,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 141</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/GameScreen.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">active?</span>
     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">stop</span>

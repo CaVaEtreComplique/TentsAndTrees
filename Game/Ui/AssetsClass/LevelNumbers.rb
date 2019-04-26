@@ -15,23 +15,44 @@ def require_all(_dir)
 		require file
 	}
 end
-
+##
+# ===== Presentation
+#LevelNumbers only needs to be initialized and refresh.
+#It creates and implements all the levels numbers icon.
+##
 class LevelNumbers
   attr_reader :im
+	##
+	# ===== Presentation
+	# This method is used to create all the levels icons by calling the class levelNumber
+	# All the other variables are used for the layout.
+	# ===== Attributes
+	# *+manager+ : managerUi who handles the Ui.
+	# *+adventure+ : class adventure session
+	# *+adventureInfo+ : hash table that contains all the stars own per level
+	#
   def initialize(manager,adventure ,adventureInfo)
 		@pad=Constants::BUTTON_PADDING
 		@im=Gtk::Box.new(:vertical, 25)
-    (1.. 5).each { |i|
+    (1.. adventure.adventureInfo.levels.length).each { |i|
       @ic=LevelNumber.new(i,manager,adventure ,adventureInfo)
       @im.pack_start(@ic.BoxV,expand: false, fill: true, padding: @pad)
     }
     @im.show_all
   end
+	##
+	# ===== Presentation
+	# This method is used to refresh all the levels icons by calling the class levelNumber
+	# ===== Attributes
+	# *+manager+ : managerUi who handles the Ui.
+	# *+adventure+ : class adventure session
+	# *+adventureInfo+ : hash table that contains all the stars own per level
+	#
   def refresh(manager,adventure ,adventureInfo)
 		@im.each { |child|
 			@im.remove(child)
 		}
-    (1.. 5).each { |i|
+    (1.. adventure.adventureInfo.levels.length).each { |i|
 			@ic=LevelNumber.new(i,manager,adventure ,adventureInfo)
       @im.pack_start(@ic.BoxV,expand: false, fill: true, padding: @pad)
     }

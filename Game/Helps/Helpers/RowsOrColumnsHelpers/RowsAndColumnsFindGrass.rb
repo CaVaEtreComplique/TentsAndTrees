@@ -49,7 +49,7 @@ class RowsAndColumnsFindGrass < FictivHelper
       nbTent = 0
       odd = true
 
-      whiteZone = FindWhiteZone.Find(game, 0, i)
+      whiteZone = FindWhiteZone.find(game, 0, i)
       whiteZone.each do |zone| #Count the number of possible tent
         if (zone.size % 2 == 0)
           nbTent += (zone.size / 2)
@@ -117,7 +117,7 @@ class RowsAndColumnsFindGrass < FictivHelper
       nbTent = 0
       odd = true
 
-      whiteZone = FindWhiteZone.Find(game, 1, i)
+      whiteZone = FindWhiteZone.find(game, 1, i)
       whiteZone.each do |zone| #Count the number of possible tent
         if (zone.size % 2 == 0)
           nbTent += (zone.size / 2)

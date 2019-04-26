@@ -3,7 +3,7 @@
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: Text.rb
 # @Last modified by:   zeigon
-# @Last modified time: 11-Apr-2019
+# @Last modified time: 26-Apr-2019
 
 require File.dirname(__FILE__) + "/../Constants"
 
@@ -17,9 +17,10 @@ class Text
     @label=label
     @gtkObject=Gtk::Alignment.new(0.5, 0.2, 0, 0)
     @eventBox = Gtk::EventBox.new
+    @eventBox.border_width=10
     @size=size
     @font="Arial"
-    @color="black"
+    @color="lightgrey"
     @weight="bold"
     @style="normal"
     @textBox = Gtk::Label.new(@label)
@@ -72,6 +73,7 @@ class Text
 
   def onClick(block=nil)
     temp=@color
+    setBackground(0.2,0.2,0.2,0.6)
     @eventBox.signal_connect("enter_notify_event") { |widget, event|
       @eventBox.window.set_cursor(Click::CURSORIN) unless @eventBox.window == nil
       @color="orange"

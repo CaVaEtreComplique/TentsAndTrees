@@ -14,6 +14,13 @@ require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellsGrassLinkedTree/HelpsOn2CellsGrassLinkedTree"
 
+##
+# ===== Presentation
+# The AllTreesHaveTentsHelper class is a helper class inherited from FictivHelper.
+# Its role is to find the type of cell who is next to a tree.
+#
+# ===== Methods
+# * +help+ - This method is inherited from FictivHelper, but definded there.
 class AllTreesHaveTentsHelper < FictivHelper
   public_class_method :new
 
@@ -23,6 +30,23 @@ class AllTreesHaveTentsHelper < FictivHelper
   @nbTent
   @nbTree
 
+  ##
+  # ===== Presentation
+  # This method tries to create network of tent an tree in order to find the
+  # emplacement of an tent or a grass.
+  #
+  # ===== Attributes
+  # * +game+ - The game you want help for.
+  #
+  # ===== Returns
+  # If it finds a tree, try to create a network with tree and tents return :
+  # HelpsOnACellIsTentBecauseOfTree if the answered cell is one
+  # possible tent.
+  # HelpsOn2CellTentUniqueSolution if a tree only have one possible position
+  # for a tent.
+  # HelpsOn2CellsGrassLinkedTree if the network is complete but still got white
+  # cell at the extremity.
+  # HelpNotFound if nothing if found.
   def help(game)
 
     #initialize variable

@@ -25,6 +25,8 @@ require File.dirname(__FILE__) + "/../GameDivised"
 # * +MAXLEVELHELP+ : class variable, the maximum level of helps returned
 # * +MINLEVELHELP+ : class variable, the minimal level of helps returned
 # * +helps+ : instence variable, all the helpers known by this helper
+# * +helpLevel+ : instence variable, used to know the actual help level
+# * +lastHelp+ : instence variable, represent the last help we send (for the price of this, and the help level management)
 #
 # ===== Methods
 # * +help+ - inherited from FictivHelper, but definded there.
@@ -42,9 +44,13 @@ class Helper < FictivHelper
   @@MAXLEVELHELP = 3
   @@MINLEVELHELP = 1
 ######
-  @@helper
   @helps
 
+  @helpLevel
+  @lastHelp
+
+  public_class_method :new
+  
   # :startdoc:
 
   ##
@@ -58,11 +64,12 @@ class Helper < FictivHelper
   #
   # ===== How to use
   # To get a help:
-  #    helper_instace.helpLevelManagement(aHelp)
+  #    Helper.new(helplvl, lvlmin, lvlmax)
   # -----------
-  def initialize(helplvl = 1, lvlmin = 1, lvlmax = 3)# :nodoc:
+  def initialize(lvlmin = 1, lvlmax = 3)
+  # :nodoc:
 
-    @helpLevel = helplvl
+    @helpLevel = lvlmin
     helpLevelSetMinMax(lvlmin, lvlmax)
 
     @lastHelp = HelpNotFound.new
@@ -78,7 +85,8 @@ class Helper < FictivHelper
     @helps.push(RowsAndColumnsFindGrass.new)    # RowsAndColumnsFindGrass help you to find grass in a row or columns
     @helps.push(CellWhiteOverlap.new)           # Help when all possibilities give a grass cell
     @helps.push(AllTreesHaveTentsHelper.new)    # Place a tent for a tree that don't has his tent
-  end# :startdoc:
+  end
+  # :startdoc:
 
   ##
   # ===== Presentation
@@ -90,9 +98,10 @@ class Helper < FictivHelper
   #
   # ===== How to use
   # To get a help:
-  #    helper_instace.helpLevelManagement(aHelp)
+  #    helper_instace.helpLevelSetMinMax(helpLevelMin, helpLevelMax)
   # -----------
-  def helpLevelSetMinMax(helpLevelMin, helpLevelMax)# :nodoc:
+  def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
+  # :nodoc:
 
     if(helpLevelMin < @@MINLEVELHELP) #Set helpLevelMin
       @helpLevelMin = @@MINLEVELHELP
@@ -121,7 +130,8 @@ class Helper < FictivHelper
     elsif (@helpLevel > helpLevelMax)
       @helpLevel = @helpLevelMax
     end
-  end# :startdoc:
+  end
+  # :startdoc:
 
   ##
   # ===== Presentation
@@ -134,7 +144,8 @@ class Helper < FictivHelper
   # To get a help:
   #    helper_instace.helpLevelManagement(aHelp)
   # -----------
-  def helpLevelManagement(aHelp)# :nodoc:
+  def helpLevelManagement(aHelp)
+  # :nodoc:
     if(aHelp == @lastHelp)
       if(@helpLevel < @helpLevelMax)
         @helpLevel += 1
@@ -143,8 +154,9 @@ class Helper < FictivHelper
       @helpLevel = @helpLevelMin
       @lastHelp = aHelp
     end
-  end# :startdoc:
-
+  end
+  private :helpLevelManagement
+  # :startdoc:
 
   ##
   # ===== Presentation
@@ -157,9 +169,11 @@ class Helper < FictivHelper
   # To get a help:
   #    helper_instace.price()
   # -----------
-  def price()# :nodoc:
+  def price()
+  # :nodoc:
     return @lastHelp.price(@helpLevel)
-  end# :startdoc:
+  end
+  # :startdoc:
 
   ##
   # ===== Presentation
@@ -175,7 +189,8 @@ class Helper < FictivHelper
   # To get a help:
   #    helper_instace.help(theGameYouWantHelpFor)
   # -----------
-  def help(game) # :nodoc:
+  def help(game)
+  # :nodoc:
     #called to help the player
 
     game = GameDivised.new(game)
@@ -197,5 +212,6 @@ class Helper < FictivHelper
     end
       helpLevelManagement(help)
       return help.getRes(@helpLevel)
-  end# :startdoc:
+  end
+  # :startdoc:
 end

@@ -14,14 +14,34 @@ def require_all(_dir)
 		require file
 	}
 end
-
+##
+# ===== Presentation
+# Star only needs to be initialized and refresh.
+# It creates and implements all the star's icon of the game.
+##
 class Star
   attr_reader :stars
+	##
+	# ===== Presentation
+	# This method is used to create all the star's icons.
+	# Icons are loaded thanks to iconAsset
+	# All the other variables are used for the layout.
+	# ===== Attributes
+	# *+nbEtoile+: contain the maximun number of star that you can have
+	#*+nbEtoileObtenu+: contain the number of star that you have for a level
+	#
   def initialize(nbEtoile,nbEtoileObtenu)
 		@ic=IconAsset.new
 		@stars=Gtk::Box.new(:horizontal,25)
 		refresh(nbEtoile,nbEtoileObtenu)
    end
+	 ##
+	 # ===== Presentation
+	 # This method is used to refresh all the star's icons.
+	 # ===== Attributes
+	 # *+nbEtoile+: contain the maximun number of star that you can have
+	 #*+nbEtoileObtenu+: contain the number of star that you have for a level
+	 #
 	 def refresh(nbEtoile,nbEtoileObtenu)
 		 @stars.each{|child|
 			 @stars.remove(child)

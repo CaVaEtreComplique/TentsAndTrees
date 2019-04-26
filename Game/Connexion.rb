@@ -2,8 +2,8 @@
 # @Date:   8-Mar-2019
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: Connexion.rb
-# @Last modified by:   Sckylle
-# @Last modified time: 25-Apr-2019
+# @Last modified by:   zeigon
+# @Last modified time: 26-Apr-2019
 
 def require_all(_dir)
 	Dir[File.expand_path(File.join(File.dirname(File.absolute_path(__FILE__)), _dir)) + "/**/*.rb"].each { |file|
@@ -17,16 +17,16 @@ require_all("Ui")
 require File.dirname(__FILE__) + "/TestGame"
 require File.dirname(__FILE__) + "/Ui/Constants"
 require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
+require File.dirname(__FILE__) + "/Ui/AssetsLoaderClass/IconAsset"
 
 
 class Connexion
 
   def initialize()
     screen=Constants::SCREEN
-		#Variable pour resize le texte
 		@pad=screen.height*0.002
 		@police=screen.height*0.016
-
+		@ic=IconAsset.new
 		@h=screen.height*0.4
 		@w=screen.width*0.4
 
@@ -45,18 +45,22 @@ class Connexion
   	@gtkObject= Gtk::Table.new(3,3)
 		@gtkObject.attach(@menu,1,2,1,2)
 
-		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Backgrounds/nature.png")
+		@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../Assets/Backgrounds/nature.jpg")
 		@buffer=@buffer.scale(@w,@h+100)
 
     @image=Gtk::EventBox.new()
 
     log = Text.new("LOGIN",@police)
+		log.color="black"
     mdp = Text.new("PASSWORD",@police)
+		mdp.color="black"
+		log.apply
+		mdp.apply
     ident = Text.new("SIGN IN",@police)
 		inscription =Text.new("SIGN UP",@police)
 		mdpOublie=Text.new("FORGOT PASSWORD",@police)
 
-    quitter=Asset.new(File.dirname(__FILE__) + "/../Assets/Icons/cancel.png")
+    quitter=@ic.iconAsset.fetch(:quitter)
     quitter.resize(20,20)
 		quitter.applyOn(@image)
 
