@@ -18,47 +18,46 @@ def require_all(_dir)
 end
 
 ##
-#==Presentation
-#Parametre is an inherited class from the Screen class. This class only needs
-#to be initialized and applied, so the only method is the initializer. It
-#creates and implements the language choice menu from the game by creating its
-#buttons.
+# ===== Presentation
+# ParametreScreen is an inherited class from the Screen class. This class only needs
+# to be initialized and applied, so the only method is the initializer. It
+# creates and implements the settings menu from the game by creating its buttons.
 #
-#==Variables
-#The Parametre class creates the title size, text
-#size and the padding variables with :
+# ===== Variables
+# The ParametreScreen class creates the title size, text size and the padding
+# variables with :
 #     @pad =10
 #     @widthTitre=screen.width*0.10
 #     @heightTitre=screen.height*0.08
 #     @widthText=screen.width*0.08
 #     @heightText=screen.height*0.05
 #
-#This class also inherits the screen variable from the Screen class.
+# This class also inherits the screen variable from the Screen class.
 #
-#The gtkObject is the table where the menu (a vertical box) is added to create
-#the menu buttons.
+# The gtkObject is the table where the menu (a vertical box) is added to create
+# the menu buttons.
 #
-#==Implementation
-#=====Here is how the language choice is implemented on this screen :
+# ===== Implementation
+# Here is how the language choice is implemented on this screen :
 #
-#*First* we create the variables :
+# *First* we create the variables :
 #      fr ="Francais"
 #      ang="Anglais"
 #      languageButton=Gtk::ComboBoxText.new
 #
-#The languageButton variable is a combo box, making it easier for the player to choose.
+# The languageButton variable is a combo box, making it easier for the player to choose.
 #
-#*Next* we add our combo box to the menu
+# *Next* we add our combo box to the menu
 #      @menu.add(languageButton=Gtk::ComboBoxText.new)
 #
-#*Then* we add the action each possibility of the box does when it is clicked :
+# *Then* we add the action each possibility of the box does when it is clicked :
 #      languageButton.append_text(fr)
 #      languageButton.append_text(ang)
 #
-#Here we created a combo box with two possible languages, French and English.
-#The other buttons are created by doing this aswell.
+# Here we created a combo box with two possible languages, French and English.
+# The other buttons are created by doing this aswell.
 #
-#*Finally*, when all of the buttons are done we add a background picture with :
+# *Finally*, when all of the buttons are done we add a background picture with :
 #       @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 #
 class ParametreScreen < Screen

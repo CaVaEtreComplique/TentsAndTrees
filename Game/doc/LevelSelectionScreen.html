@@ -90,9 +90,9 @@
 
   <section class="description">
     
-<h5 id="class-LevelSelectionScreen-label-Presentation">Presentation<span><a href="#class-LevelSelectionScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<pre>===== Presentation</pre>
 
-<p><a href="LevelSelectionScreen.html"><code>LevelSelectionScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and refreshed. It creates and implements the level selection menu from the game by creating its levels numbers.</p>
+<p><a href="LevelSelectionScreen.html"><code>LevelSelectionScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and refresh. It creates and implements the level selection menu from the game by creating its levels numbers.</p>
 
   </section>
 
@@ -104,6 +104,53 @@
 
     
 
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-adventure" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">adventure</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-adventureInfo" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">adventureInfo</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-overAllStars" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">overAllStars</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
     
 
     
@@ -128,12 +175,11 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create the level selection by calling the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a>. All the images will be charged using the <a href="IconAsset.html"><code>IconAsset</code></a> class. A scrollable area is also created by calling the class <a href="ScrollableArea.html"><code>ScrollableArea</code></a>, which contains buttons and boxes. These buttons are made by the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a> who represents the level numbers, the loc and the stars. On the page we can find the number of stars that we own contained in the box etoileTotal. All the other variables are used for the layout.</p>
+<p>This method is used to create the level selection by calling the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a>. ALl images will be charged thanks to the class <a href="IconAsset.html"><code>IconAsset</code></a>. A scrolable area is also created by calling the class ScrolableArea, which contains buttons and boxes. These buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars. On the page we can find the number of stars that we own contain in the box etoileTotal. All the other variable are used for the layout.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-<ul><li>
-<p><code>manager</code> : managerUi who handles the Ui.</p>
-</li></ul>
+
+<pre>*+manager+ : managerUi who handle the Ui</pre>
           
           
             <div class="method-calls-super">
@@ -144,7 +190,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 42</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>)
               <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
               <span class="ruby-ivar">@manager</span> = <span class="ruby-identifier">manager</span>
@@ -224,9 +270,17 @@
 
         <div class="method-description">
           
-          <h5 id="method-i-applyOn-label-Returns">Returns<span><a href="#method-i-applyOn-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+          <h5 id="method-i-applyOn-label-Presentation">Presentation<span><a href="#method-i-applyOn-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the refreshed widget.</p>
+<p>This method is used to refresh the page by calling the method refresh of the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a></p>
+
+<h5 id="method-i-applyOn-label-Attributes">Attributes<span><a href="#method-i-applyOn-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>*+widget+ : the widget associated</pre>
+
+<h5 id="method-i-applyOn-label-Return">Return<span><a href="#method-i-applyOn-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>this method return the widget refreshed</pre>
           
           
             <div class="method-calls-super">
@@ -237,7 +291,7 @@
 
           
           <div class="method-source-code" id="applyOn-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 111</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">applyOn</span>(<span class="ruby-identifier">widget</span>)
         <span class="ruby-identifier">refreshOverAllStar</span>
         <span class="ruby-ivar">@icones</span>.<span class="ruby-identifier">refresh</span>(<span class="ruby-ivar">@manager</span>,<span class="ruby-ivar">@adventure</span>,<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">overAllStarsHash</span>)
@@ -266,13 +320,19 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-refreshOverAllStar-label-Presentation">Presentation<span><a href="#method-i-refreshOverAllStar-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to refresh star&#39;s icons</p>
+
+<h5 id="method-i-refreshOverAllStar-label-Return">Return<span><a href="#method-i-refreshOverAllStar-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre>this method return the box etoileTotal which contain all the stars</pre>
           
           
 
           
           <div class="method-source-code" id="refreshOverAllStar-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 90</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refreshOverAllStar</span>
         <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
                 <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)

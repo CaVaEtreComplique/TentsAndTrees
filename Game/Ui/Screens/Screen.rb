@@ -19,8 +19,10 @@ class Screen
   def initialize(parent)
     screen = Constants::SCREEN
     @parent=parent
-  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/4.png")
+  	@buffer = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/landscape2.jpg")
     @buffer=@buffer.scale(screen.width,screen.height)
+  	@buffer2 = GdkPixbuf::Pixbuf.new(file: File.dirname(__FILE__) + "/../../../Assets/Backgrounds/landscape.jpg")
+    @buffer2=@buffer2.scale(screen.width,screen.height)
     @textManager=XmlReader.instance
   end
 

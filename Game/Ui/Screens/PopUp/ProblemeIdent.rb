@@ -15,11 +15,20 @@ end
 require 'gtk3'
 require_all("Ui")
 
-
+##
+# ===== Presentation
+#ProblemeIdent only needs to be initialized.
+#It creates and implements a pop up to tell you the probleme about the identification.
+##
 class ProblemeIdent
   def onDestroy
      Gtk.main_quit
   end
+	#
+	#=====Presentation
+	#This method is used to create the pop up to tell you the probleme about the identification.
+	#All the other variable are used for the layout.
+	#
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte
@@ -40,11 +49,8 @@ class ProblemeIdent
 		@buffer=@buffer.scale(w/4,h/10+100)
 
     pb = Text.new("Login not found \n OR \nwrong password",@police)
-	#	pb2 = Text.new(" OU mot de passe incorrecte",15)
 		pb.colorChange("red")
-	#	pb2.colorChange("red")
     @menu.pack_start(pb.gtkObject,expand: false, fill: true, padding: @pad)
-	#	@menu.pack_start(pb2.gtkObject,expand: false, fill: true, padding: @pad)
 		@gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 		win.add(@gtkObject)
 		win.show_all

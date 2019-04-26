@@ -86,6 +86,10 @@
 
   <section class="description">
     
+<h5 id="class-IconAsset-label-Presentation">Presentation<span><a href="#class-IconAsset-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="Star.html"><code>Star</code></a> only needs to be initialized. It load all the icon.</p>
+
   </section>
 
   
@@ -139,13 +143,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to load all the icon by putting them in a hash table @iconAsset</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 7</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-identifier">pathToIcon</span>=<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/&quot;</span>
   <span class="ruby-ivar">@iconAsset</span>= {
@@ -155,7 +161,8 @@
     <span class="ruby-value">diapo1:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle1.png&quot;</span>),
     <span class="ruby-value">diapo2:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle2.png&quot;</span>),
     <span class="ruby-value">diapo3:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle3.png&quot;</span>),
-    <span class="ruby-value">diapo4:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle4.png&quot;</span>)
+    <span class="ruby-value">diapo4:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle4.png&quot;</span>),
+    <span class="ruby-value">quitter:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/cancel.png&quot;</span>)
   }
 <span class="ruby-keyword">end</span></pre>
           </div>
