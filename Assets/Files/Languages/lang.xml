@@ -30,8 +30,8 @@
 
     <rules>
       <rule1>Le nombre de tentes pour chaque ligne / colonne est indiqué</rule1>
-      <rule2>Un arbre ne peut être associer qu'à une seule tente</rule2>
-      <rule3>Un arbre ne peut avoir de tente associer en diagonale</rule3>
+      <rule2>Un arbre ne peut être associé qu'à une seule tente</rule2>
+      <rule3>Un arbre ne peut avoir de tente associée en diagonale</rule3>
       <rule4>Une tente ne peut pas toucher une autre tente</rule4>
     </rules>
 
@@ -240,20 +240,20 @@
     </helps>
     <tutorial>
       <victory>
-        <step0>Félicitaion vous avez fini le didacticiel !</step0>
-        <step1>Si vous avez avez oubliez les règles consulter le menu pause.</step1>
+        <step0>Félicitations vous avez fini le didacticiel !</step0>
+        <step1>Si vous avez oublié les règles consultez le menu pause.</step1>
         <step2>N'hésitez pas à refaire le didacticiel si besoin !</step2>
         <step3>Bonne chance !</step3>
       </victory>
       <level>
-        <step0>Bienvenue dans le niveau didacticiel, pour continuer, clickez sur "Suivant".</step0>
-        <step1>Pour apprendre les bases, clickez sur pause. Une fois que vous avez lut les règles, clickez sur "suivant" pour continuer le didacticiel.</step1>
-        <step2>Maintenant que vous connaissez les règles, vous pouvez placer des tentes et des arbres sur la grille à l'aide du click gauche.</step2>
-        <step3>Lorsque vous vous etes trompé, vous pouvez annuler votre dernier changement avec le bouton "Annuler".</step3>
-        <step4>Vous avez trop clické sur "Annuler"? Pas de soucis, clickez sur "Retablir" pour remettre la dernière action effacée avec "Undo".</step4>
-        <step5>Si vous avez des doutes, utilisez les hypothèses à l'aide du bouton "Nouvelle hypothèse". Si vous etes parti sur une fausse piste, vous pouvez l'annuler avec le bouton "Refuter hypothèse".</step5>
-        <step6>Lorsque vous etes perdu, vous pouvez recommencer la grille à zéro en clickant sur "Remettre la grille a zero".</step6>
-        <step7>C'est à vous de jouer! Finissez la grille. Si vous avez besoin d'aide, n'hésitez pas à clicker sur le bouton "Aide".</step7>
+        <step0>Bienvenue dans le niveau didacticiel, pour continuer, cliquez sur "Suivant".</step0>
+        <step1>Pour apprendre les bases, cliquez sur pause. Une fois que vous avez lu les règles, cliquez sur "Suivant" pour continuer le didacticiel.</step1>
+        <step2>Maintenant que vous connaissez les règles, vous pouvez placer des tentes et des arbres sur la grille à l'aide du clic gauche.</step2>
+        <step3>Lorsque vous vous êtes trompé, vous pouvez annuler votre dernier changement avec le bouton "Annuler".</step3>
+        <step4>Vous avez trop cliqué sur "Annuler"? Pas de soucis, clickez sur "Rétablir" pour remettre la dernière action effacée avec "Undo".</step4>
+        <step5>Si vous avez des doutes, utilisez les hypothèses à l'aide du bouton "Nouvelle hypothèse". Si vous êtes parti sur une fausse piste, vous pouvez l'annuler avec le bouton "Réfuter hypothèse".</step5>
+        <step6>Lorsque vous êtes perdu, vous pouvez recommencer la grille à zéro en cliquant sur "Remettre la grille à zéro".</step6>
+        <step7>C'est à vous de jouer! Finissez la grille. Si vous avez besoin d'aide, n'hésitez pas à cliquer sur le bouton "Aide".</step7>
       </level>
     </tutorial>
   </Français>
@@ -278,8 +278,8 @@
 
     <rules>
       <rule1>The total of tents in a column is shown</rule1>
-      <rule2>A tree must be associate with only one tent</rule2>
-      <rule3>A tree can't have a tent associate in diagonal</rule3>
+      <rule2>A tree must be associated with only one tent</rule2>
+      <rule3>A tree can't have a tent associated in diagonal</rule3>
       <rule4>Two tents can't touch each other</rule4>
     </rules>
 
@@ -499,7 +499,7 @@
         <step1>To learn the basics, click on pause. Once you have read the rules, click on "next" to continue the tutorial.</step1>
         <step2>Now that you know the rules, you can place tents and trees on the grid using the left click.</step2>
         <step3>If you made a mistake, you can cancel your last change with the "Undo" button.</step3>
-        <step4>You clicke too much on "Undo"? No worries, click on "Redo" to put the last action deleted with "Undo".</step4>
+        <step4>You clicked too much on "Undo"? No worries, click on "Redo" to put the last action deleted with "Undo".</step4>
         <step5>If you have doubts, use hypothesis with "New hypothesis" button. If you are on a false track, you can cancel it with the "Refute hypothesis" button.</step5>
         <step6>When you are lost, you can restart the grid by clicking on "Reset".</step6>
         <step7>It's up to you! Finish the grid. If you need help, do not hesitate to click on the "help" button.</step7>
