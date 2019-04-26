@@ -1,4 +1,4 @@
-Fri, 26 Apr 2019 16:59:27 +0200
+Fri, 26 Apr 2019 17:12:11 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpOnCells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpOn2Cells.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Helps/HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOn2CellTentUniqueSolution/HelpsOn2CellTentUniqueSolution.rb	Thu, 25 Apr 2019 10:19:45 +0200
@@ -47,9 +47,9 @@ Fri, 26 Apr 2019 16:59:27 +0200
 ./Core/Levels.rb	Fri, 26 Apr 2019 10:56:28 +0200
 ./Core/Moves.rb	Thu, 25 Apr 2019 10:19:45 +0200
 ./Core/DB/Difficulty.rb	Fri, 26 Apr 2019 16:34:07 +0200
-./Core/DB/Player.rb	Fri, 26 Apr 2019 16:29:16 +0200
-./Core/DB/SaveDB.rb	Fri, 26 Apr 2019 16:29:16 +0200
-./Core/DB/HighScore.rb	Fri, 26 Apr 2019 16:29:16 +0200
+./Core/DB/Player.rb	Fri, 26 Apr 2019 17:11:24 +0200
+./Core/DB/SaveDB.rb	Fri, 26 Apr 2019 17:12:08 +0200
+./Core/DB/HighScore.rb	Fri, 26 Apr 2019 17:11:30 +0200
 ./Core/DB/Gamemode.rb	Fri, 26 Apr 2019 16:43:26 +0200
 ./Core/DB/db.sqlite	Fri, 26 Apr 2019 16:29:16 +0200
 ./Core/DB/ConnectDB.rb	Fri, 26 Apr 2019 16:29:16 +0200

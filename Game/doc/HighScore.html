@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-HighScore-label-Presentation">Presentation</a>
+    <li><a href="#class-HighScore-label-Variables">Variables</a>
+    <li><a href="#class-HighScore-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +96,17 @@
 
   <section class="description">
     
-<p>A <a href="HighScore.html"><code>HighScore</code></a> is defined by its difficulty, its <a href="Player.html"><code>Player</code></a>, its score and its gamemode. This Class is here to represent a High score in the database.</p>
+<h5 id="class-HighScore-label-Presentation">Presentation<span><a href="#class-HighScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="HighScore.html"><code>HighScore</code></a> class is here to represent a high score in the database.</p>
+
+<h5 id="class-HighScore-label-Variables">Variables<span><a href="#class-HighScore-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A <a href="HighScore.html"><code>HighScore</code></a> is defined by its difficulty, its <a href="Player.html"><code>Player</code></a>, its score and its gamemode.</p>
+
+<h5 id="class-HighScore-label-Methods">Methods<span><a href="#class-HighScore-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized.</p>
 
   </section>
 
@@ -120,7 +140,9 @@
 
         <div class="method-description">
           
-          <p>Constructor of a <a href="HighScore.html"><code>HighScore</code></a>.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This is the class&#39; constructor, it only gives the variables their value taken from the parameters.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -133,7 +155,9 @@
 <p><code>idMode</code> - The id of the <a href="Gamemode.html"><code>Gamemode</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
 </li></ul>
 
-<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To create a new <a href="HighScore.html"><code>HighScore</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-identifier">highScore</span> = <span class="ruby-constant">HighScore</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">5000</span>,<span class="ruby-value">3</span>)
 </pre>
@@ -142,7 +166,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/HighScore.rb, line 31</span>
+            <pre><span class="ruby-comment"># File Core/DB/HighScore.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">idDiff</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>, <span class="ruby-identifier">idMode</span>)
   <span class="ruby-ivar">@id_difficulty_highScores</span>, <span class="ruby-ivar">@player_highScores</span> = <span class="ruby-identifier">idDiff</span>, <span class="ruby-identifier">player</span>
   <span class="ruby-ivar">@score_highScores</span>, <span class="ruby-ivar">@id_gamemode_highScores</span> = <span class="ruby-identifier">score</span>, <span class="ruby-identifier">idMode</span>

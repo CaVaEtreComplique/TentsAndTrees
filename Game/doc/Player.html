@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Player-label-Presentation">Presentation</a>
+    <li><a href="#class-Player-label-Variables">Variables</a>
+    <li><a href="#class-Player-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +96,17 @@
 
   <section class="description">
     
-<p>A <a href="Player.html"><code>Player</code></a> is defined by his ID, his name and his password. This Class is here to represent a <a href="Player.html"><code>Player</code></a> in the database</p>
+<h5 id="class-Player-label-Presentation">Presentation<span><a href="#class-Player-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="Player.html"><code>Player</code></a> class is here to represent a <a href="Player.html"><code>Player</code></a> in the database.</p>
+
+<h5 id="class-Player-label-Variables">Variables<span><a href="#class-Player-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A <a href="Player.html"><code>Player</code></a> is defined by his ID, his name and his password.</p>
+
+<h5 id="class-Player-label-Methods">Methods<span><a href="#class-Player-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized.</p>
 
   </section>
 
@@ -120,18 +140,22 @@
 
         <div class="method-description">
           
-          <p>Constructor of a <a href="Player.html"><code>Player</code></a>.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor. It only gives the variables their value taken from the parameters.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>id</code> - The id of the <a href="Difficulty.html"><code>Difficulty</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
+<p><code>id</code> - The id of the <a href="Difficulty.html"><code>Difficulty</code></a> of the <a href="HighScore.html"><code>HighScore</code></a>.</p>
 </li><li>
-<p><code>name</code> - The id of the <a href="Player.html"><code>Player</code></a> of the <a href="HighScore.html"><code>HighScore</code></a></p>
+<p><code>name</code> - The id of the <a href="Player.html"><code>Player</code></a> of the <a href="HighScore.html"><code>HighScore</code></a>.</p>
 </li><li>
-<p><code>password</code> - The score of the <a href="HighScore.html"><code>HighScore</code></a></p>
+<p><code>password</code> - The score of the <a href="HighScore.html"><code>HighScore</code></a>.</p>
 </li></ul>
 
-<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To create a new <a href="Player.html"><code>Player</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-identifier">player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Name&quot;</span>,<span class="ruby-string">&quot;Password&quot;</span>)
 </pre>
@@ -140,7 +164,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/Player.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Core/DB/Player.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-ivar">@id_player</span>,<span class="ruby-ivar">@name_player</span>,<span class="ruby-ivar">@password_player</span> = <span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>
 <span class="ruby-keyword">end</span></pre>

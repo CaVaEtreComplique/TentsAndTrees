@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-SaveDB-label-Presentation">Presentation</a>
+    <li><a href="#class-SaveDB-label-Variables">Variables</a>
+    <li><a href="#class-SaveDB-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +96,17 @@
 
   <section class="description">
     
-<p>A <a href="Save.html"><code>Save</code></a> is defined by its ID, its <a href="Player.html"><code>Player</code></a>, its date and its content. This Class is here to represent a <a href="Save.html"><code>Save</code></a> in the database.</p>
+<h5 id="class-SaveDB-label-Presentation">Presentation<span><a href="#class-SaveDB-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="SaveDB.html"><code>SaveDB</code></a> class is here to represent a <a href="Save.html"><code>Save</code></a> in the database.</p>
+
+<h5 id="class-SaveDB-label-Variables">Variables<span><a href="#class-SaveDB-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>A <a href="Save.html"><code>Save</code></a> is defined by its ID, his <a href="Player.html"><code>Player</code></a>, its date and its content.</p>
+
+<h5 id="class-SaveDB-label-Methods">Methods<span><a href="#class-SaveDB-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized.</p>
 
   </section>
 
@@ -120,20 +140,24 @@
 
         <div class="method-description">
           
-          <p>Constructor of a <a href="Save.html"><code>Save</code></a>.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor. It only gives the variables their value taken from the parameters.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>id</code> - The ID of the <a href="Save.html"><code>Save</code></a></p>
+<p><code>id</code> - The ID of the <a href="Save.html"><code>Save</code></a>.</p>
 </li><li>
-<p><code>player</code> - The ID of the <a href="Player.html"><code>Player</code></a> of the <a href="Save.html"><code>Save</code></a></p>
+<p><code>player</code> - The ID of the <a href="Player.html"><code>Player</code></a> of the <a href="Save.html"><code>Save</code></a>.</p>
 </li><li>
-<p><code>date</code> - The date of the <a href="Save.html"><code>Save</code></a></p>
+<p><code>date</code> - The date of the <a href="Save.html"><code>Save</code></a>.</p>
 </li><li>
-<p><code>content</code> - The content of the <a href="Save.html"><code>Save</code></a></p>
+<p><code>content</code> - The content of the <a href="Save.html"><code>Save</code></a>.</p>
 </li></ul>
 
-<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To create a new <a href="Save.html"><code>Save</code></a> :</p>
 
 <pre class="ruby"><span class="ruby-identifier">save</span> = <span class="ruby-constant">Save</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">01</span><span class="ruby-value">-03</span><span class="ruby-value">-2019</span>,<span class="ruby-string">&quot;Things to Save (State of the grid)&quot;</span>)
 </pre>
@@ -142,7 +166,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/SaveDB.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/DB/SaveDB.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">content</span>)
   <span class="ruby-ivar">@id_save</span>,<span class="ruby-ivar">@player_id_save</span>,<span class="ruby-ivar">@date_save</span>, <span class="ruby-ivar">@content_save</span> = <span class="ruby-identifier">id</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">date</span>, <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">content</span>)
 <span class="ruby-keyword">end</span></pre>

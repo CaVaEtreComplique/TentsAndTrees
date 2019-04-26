@@ -5,8 +5,16 @@
 # @Last modified by:   <HuaulmeCorentin>
 # @Last modified time: 20-Mar-2019
 
+
+##
+# ===== Presentation
+# The SaveDB class is here to represent a Save in the database.
+#
+# ===== Variables
 # A Save is defined by its ID, its Player, its date and its content.
-# This Class is here to represent a Save in the database.
+#
+# ===== Methods
+# This class only needs to be initialized.
 class SaveDB
 
   @id_save # The ID of the Save
@@ -15,17 +23,19 @@ class SaveDB
   @content_save # The content of the Save
 
 
-  # Constructor of a Save.
+  ##
+  # ===== Presentation
+  # The class' constructor. It only gives the variables their value taken from
+  # the parameters.
   #
   # ===== Attributes
+  # * +id+ - The ID of the Save.
+  # * +player+ - The ID of the Player of the Save.
+  # * +date+ - The date of the Save.
+  # * +content+ - The content of the Save.
   #
-  # * +id+ - The ID of the Save
-  # * +player+ - The ID of the Player of the Save
-  # * +date+ - The date of the Save
-  # * +content+ - The content of the Save
-  #
-  # ===== Examples
-  #
+  # ===== How to Use
+  # To create a new Save :
   #    save = Save.new(1,1,01-03-2019,"Things to Save (State of the grid)")
   def initialize(id, player, date, content)
     @id_save,@player_id_save,@date_save, @content_save = id, player, date, YAML.load(content)
