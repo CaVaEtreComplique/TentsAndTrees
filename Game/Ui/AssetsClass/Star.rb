@@ -30,8 +30,8 @@ class Star
 	# *+nbEtoile+: contain the maximun number of star that you can have
 	#*+nbEtoileObtenu+: contain the number of star that you have for a level
 	#
-  def initialize(nbEtoile,nbEtoileObtenu)
-		@ic=IconAsset.new
+  def initialize(nbEtoile,nbEtoileObtenu,ic)
+		@ic=ic
 		@stars=Gtk::Box.new(:horizontal,25)
 		refresh(nbEtoile,nbEtoileObtenu)
    end
@@ -49,11 +49,11 @@ class Star
 		 (1.. nbEtoile).each { |e|
 				@star=Gtk::EventBox.new()
 				if(e <= nbEtoileObtenu)
-				 sH=@ic.iconAsset.fetch(:starH)
+				 sH=@ic.iconAsset(:starH)
 				 sH.resize(75,75)
 				 sH.applyOn(@star)
 			 else
-				 sS=@ic.iconAsset.fetch(:starS)
+				 sS=@ic.iconAsset(:starS)
 				 sS.resize(75,75)
 				 sS.applyOn(@star)
 			 end

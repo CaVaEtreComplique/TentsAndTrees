@@ -1,3 +1,10 @@
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: Player.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 20-Mar-2019
+
 require('active_record')
 
 # A Player is defined by his ID, his name and his password.
@@ -7,7 +14,7 @@ class Player
   @id_player # ID of the Player
   @name_player # Name of the Player
   @password_player # Password of the Player
- 
+
   # Constructor of a Player.
   #
   # ===== Attributes

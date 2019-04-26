@@ -65,7 +65,7 @@ class PauseScreen < Screen
         }
     }
 
-    diapo = Diapo.new(screen.width*0.45,screen.height*0.45,@textManager)
+    diapo = Diapo.new(screen.width*0.45,screen.height*0.45,@textManager,manager.ic)
     diapo.nextButton.signal_connect("button_press_event"){diapo.nextImage}
     diapo.previousButton.signal_connect("button_press_event"){diapo.previousImage}
     @bjr.add(diapo.box)

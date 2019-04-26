@@ -2,8 +2,8 @@
 # @Date:   09-Feb-2019
 # @Email:  corentin.petit.etu@univ-lemans.fr
 # @Filename: GridGenerator.rb
-# @Last modified by:   maxime
-# @Last modified time: 05-Apr-2019
+# @Last modified by:   zeigon
+# @Last modified time: 26-Apr-2019
 
 
 

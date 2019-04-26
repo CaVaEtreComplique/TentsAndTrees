@@ -1,3 +1,10 @@
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: SaveDB.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 20-Mar-2019
+
 # A Save is defined by its ID, its Player, its date and its content.
 # This Class is here to represent a Save in the database.
 class SaveDB

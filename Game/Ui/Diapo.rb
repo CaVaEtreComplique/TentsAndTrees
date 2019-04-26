@@ -13,14 +13,14 @@ require File.dirname(__FILE__) + "/AssetsLoaderClass/IconAsset"
 class Diapo
   attr_accessor :hBox, :nextButton, :previousButton, :rule, :box
 
-def initialize(width , height, textManager)
+def initialize(width , height, textManager,ic)
   @h=height*0.7
   @w=width*0.9
-  @ic=IconAsset.new
-  pic1 = @ic.iconAsset.fetch(:diapo1)
-  pic2 = @ic.iconAsset.fetch(:diapo2)
-  pic3 = @ic.iconAsset.fetch(:diapo3)
-  pic4 = @ic.iconAsset.fetch(:diapo4)
+  @ic=ic
+  pic1 = @ic.iconAsset(:diapo1)
+  pic2 = @ic.iconAsset(:diapo2)
+  pic3 = @ic.iconAsset(:diapo3)
+  pic4 = @ic.iconAsset(:diapo4)
   pic1.resize(@w,@h)
   pic2.resize(@w,@h)
   pic3.resize(@w,@h)

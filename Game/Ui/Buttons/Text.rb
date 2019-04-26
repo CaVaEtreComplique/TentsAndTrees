@@ -53,7 +53,6 @@ class Text
     underText.style="normal"
     underText.apply
 
-
     @gtkObject.each { |child|
       @gtkObject.remove(child)
     }

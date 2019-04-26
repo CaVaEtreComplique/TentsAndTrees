@@ -13,6 +13,7 @@ class TutorialVictoryScreen < Screen
   def initialize(manager,session)
     @manager=manager
     super(@manager.win)
+    @pad=Constants::BUTTON_PADDING
     screen = Gdk::Screen.default
     @gtkObject=Gtk::Table.new(3,3)
     vBox=Gtk::Box.new(:vertical)
@@ -24,11 +25,11 @@ class TutorialVictoryScreen < Screen
     @resultText = Text.new(@textManager.getScreenTexts("victory" , "win"))
     @resultText.title
 
-    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: 50)
-    vBox.pack_start(@responseText1.gtkObject, expand: false, fill: true, padding: 40)
-    vBox.pack_start(@responseText2.gtkObject, expand: false, fill: true, padding: 40)
-    vBox.pack_start(@responseText3.gtkObject, expand: false, fill: true, padding: 40)
-    vBox.pack_start(@responseText4.gtkObject, expand: false, fill: true, padding: 40)
+    vBox.pack_start(@resultText.gtkObject, expand: false, fill: true, padding: @pad)
+    vBox.pack_start(@responseText1.gtkObject, expand: false, fill: true, padding: @pad)
+    vBox.pack_start(@responseText2.gtkObject, expand: false, fill: true, padding: @pad)
+    vBox.pack_start(@responseText3.gtkObject, expand: false, fill: true, padding: @pad)
+    vBox.pack_start(@responseText4.gtkObject, expand: false, fill: true, padding: @pad)
 
     # @replay=Text.new(@textManager.getButtonLabel("victory" , "retry"))
     #

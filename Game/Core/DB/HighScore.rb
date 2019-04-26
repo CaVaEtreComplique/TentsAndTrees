@@ -1,3 +1,10 @@
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: HighScore.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 20-Avr-2019
+
 # A HighScore is defined by its difficulty, its Player, its score and its
 # gamemode. This Class is here to represent a High score in the database.
 class HighScore

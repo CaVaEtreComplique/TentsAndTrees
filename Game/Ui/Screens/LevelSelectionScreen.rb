@@ -37,14 +37,14 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 #=====Attributes
 # *+manager+ : managerUi who handle the Ui
 ##
-  def initialize(manager)
+  def initialize(manager,ic)
 		super(manager.win)
 		@manager = manager
 		#Chargement de la campagne
 		@adventure = manager.session
 		screen = Constants::SCREEN
 		@pad=Constants::BUTTON_PADDING
-		@ic=IconAsset.new
+		@ic=ic
 		@gtkObject = Gtk::Table.new(3,3)
 		@scrol=ScrollableArea.new(:vertical)
 		@boxV=Gtk::Box.new(:vertical)
@@ -56,7 +56,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@gtkObject.attach(a,0,1,1,2)
 
 		@boxV.pack_start(@etoileTotal ,expand: false, fill: true, padding:@pad)
-		@st=Star.new(1,1)
+		@st=Star.new(1,1,@ic)
 		@etoileTotal.pack_start(@st.stars,expand: false, fill: true, padding:@pad)
 		nbEtoile=Text.new(@overAllStars)
 
@@ -66,12 +66,12 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@boxV.pack_start(@scrol.gtkObject,expand: true, fill: true, padding: @pad)
 
 		@nbNiveau=@adventure.adventureInfo.levels.length
-		l=@ic.iconAsset.fetch(:loc)
+		l=@ic.iconAsset(:loc)
 
     @b=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@b)
 
-		@icones=LevelNumbers.new(manager,@adventure ,@adventure.overAllStarsHash)
+		@icones=LevelNumbers.new(manager,@adventure ,@adventure.overAllStarsHash,@ic)
 		@b.pack_start(@icones.im,expand: false, fill: true, padding: @pad)
     @menuR=Gtk::Box.new(:horizontal, 25)
 		@scrol.add(@menuR)
@@ -96,7 +96,7 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@etoileTotal.each { |child|
 			@etoileTotal.remove(child)
 		}
-		@st=Star.new(1,1)
+		@st=Star.new(1,1,@ic)
 		@etoileTotal.pack_start(@st.stars,expand: false, fill: true, padding:@pad)
 		nbEtoile=Text.new(@adventure.overAllStars.to_s)
 		nbEtoile.title

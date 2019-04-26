@@ -84,7 +84,7 @@ class GameScreen < Screen
     }
 
     # pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
-    pause=Text.new("||" , "pause")
+    pause=Text.new(@textManager.getButtonLabel("ingame" , "pause"))
     pause.weight="ultrabold"
     pause.size=40
     pause.apply

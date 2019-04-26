@@ -90,6 +90,7 @@ class TutorialGameScreen < Screen
     @rank =0
 
     @textUI = Text.new (@textManager.getTutorialTexts("level" , @rank))
+    @textUI.setBackground(1,1,1,0.5)
     @rank = @rank+1
     nextStep = Text.new(@textManager.getButtonLabel("ingame" , "next"))
       nextStep.onClick(){
@@ -124,7 +125,6 @@ class TutorialGameScreen < Screen
     globalBox.pack_start(aliPause, expand: true, fill: true, padding: 3)
 
     nextBox = Gtk::Box.new(:vertical).add(@textUI.gtkObject)
-    nextAli = Gtk::Alignment.new(0.5, 1, 0, 0).add(nextBox)
 
     globalBox.pack_start(aliURB, expand: true, fill: false, padding: 3)
     globalBox.pack_start(@resetGrid.gtkObject, expand: true, fill: false, padding: 3)
@@ -138,10 +138,10 @@ class TutorialGameScreen < Screen
     #helpCRAli  = Gtk::Alignment.new(0.5, 0, 0, 1).add(@helpResponseUi.gtkObject)
 
     @gtkObject.attach(globalAli,3,4,0,1)
-    #@gtkObject.attach(helpCRAli,2,4,1,2)
-    # @gtkObject.attach(@textUI.gtkObject,2,4,2,3)
-    @gtkObject.attach(nextAli,2,4,3,4)
+
+    @gtkObject.attach(nextBox,2,4,3,4)
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer2),0,4,0,4)
+
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
   # :startdoc:
   end

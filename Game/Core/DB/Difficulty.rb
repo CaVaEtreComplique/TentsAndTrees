@@ -1,3 +1,10 @@
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: Difficulty.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 15-Mar-2019
+
 # A Difficulty is defined by its ID and its name.
 # This Class is here to represent a difficulty in the database.
 class Difficulty

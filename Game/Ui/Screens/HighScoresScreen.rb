@@ -1,10 +1,10 @@
 
 # @Author: Corentin Huaulmé <CorentinHuaulme>
 # @Date:   25-Jan-2019
-# @Email:  camille.vaidie.etu@univ-lemans.fr
-# @Filename: FenetrePrinc.rb
-# @Last modified by:   <QuentinGoncalves>
-# @Last modified time: 08-Mar-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: HighScoresScreen.rb
+# @Last modified by:   <HuaulmeCorentin>
+# @Last modified time: 26-Avr-2019
 
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
@@ -63,8 +63,14 @@ class HighScoresScreen < Screen
       a.score_highScores <=> b.score_highScores
     }
 
-    ta = db.getHighScoresByGamemodeDiff("timeAttack","easy")
+
+    ta = db.getHighScoresByGamemodeDiff("timeAttack","random")
     adventure = db.getHighScoresByGamemodeDiff("adventure","easy")
+
+
+    ta.sort{ |a,b|
+        a.score_highScores <=> b.score_highScores
+    }
 
     titre=Text.new(@textManager.getButtonLabel("main" , "score"))
     titre.title

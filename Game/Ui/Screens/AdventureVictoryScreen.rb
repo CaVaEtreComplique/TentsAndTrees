@@ -63,7 +63,7 @@ class AdventureVictoryScreen < Screen
         }
         @vBox.pack_start(quit.gtkObject, expand: false, fill: true, padding:@pad)
     else
-      s=Star.new(@manager.session.levelInfo[3],@manager.session.calculateStars)
+      s=Star.new(@manager.session.levelInfo[3],@manager.session.calculateStars,@manager.ic)
       @bjr.add(s.stars)
       @vBox.pack_start(@bjr,expand: false, fill: true, padding: @pad)
 

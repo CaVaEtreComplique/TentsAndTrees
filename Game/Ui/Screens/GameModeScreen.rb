@@ -4,7 +4,7 @@
 # @Email:  camille.vaidie.etu@univ-lemans.fr
 # @Filename: ModeDeJeu.rb
 # @Last modified by:   zeigon
-# @Last modified time: 08-Apr-2019
+# @Last modified time: 26-Apr-2019
 
 
 
@@ -104,7 +104,7 @@ class GameModeScreen < Screen
 			 manager.diffchScreen.applyOn(@parent)
     }
 		clm.onClick{
-    	session=TimeAttackSession.new(:easy)
+    	session=TimeAttackSession.new(:random)
     	session.createSave
     	manager.runGameSession(session)
 		}

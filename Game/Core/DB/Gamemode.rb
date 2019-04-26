@@ -1,4 +1,11 @@
-# A Gamemode is defined by its ID and its name. 
+# @Author: Corentin Huaulmé <CorentinHuaulme>
+# @Date:   25-Jan-2019
+# @Email:  corentin.huaulme.etu@univ-lemans.fr
+# @Filename: Gamemode.rb
+# @Last modified by:   <HaulmeCorentin>
+# @Last modified time: 15-Mar-2019
+
+# A Gamemode is defined by its ID and its name.
 # This is here to represent a Gamemode in the database
 class Gamemode
 
