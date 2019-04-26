@@ -63,8 +63,14 @@ class HighScoresScreen < Screen
       a.score_highScores <=> b.score_highScores
     }
 
-    ta = db.getHighScoresByGamemodeDiff("timeAttack","easy")
+
+    ta = db.getHighScoresByGamemodeDiff("timeAttack","random")
     adventure = db.getHighScoresByGamemodeDiff("adventure","easy")
+
+
+    ta.sort{ |a,b|
+        a.score_highScores <=> b.score_highScores
+    }
 
     titre=Text.new(@textManager.getButtonLabel("main" , "score"))
     titre.title
