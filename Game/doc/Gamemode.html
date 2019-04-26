@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Gamemode-label-Presentation">Presentation</a>
+    <li><a href="#class-Gamemode-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +95,13 @@
 
   <section class="description">
     
-<p>A <a href="Gamemode.html"><code>Gamemode</code></a> is defined by its ID and its name.  This is here to represent a <a href="Gamemode.html"><code>Gamemode</code></a> in the database</p>
+<h5 id="class-Gamemode-label-Presentation">Presentation<span><a href="#class-Gamemode-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to represent a game mode in the database. A <a href="Gamemode.html"><code>Gamemode</code></a> is defined by its ID and its name.</p>
+
+<h5 id="class-Gamemode-label-Methods">Methods<span><a href="#class-Gamemode-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized and applied.</p>
 
   </section>
 
@@ -120,16 +135,20 @@
 
         <div class="method-description">
           
-          <p>Constructor of a <a href="Gamemode.html"><code>Gamemode</code></a></p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor. It only gives the id and name variables their value, taken from the parameters.</p>
 
 <h4 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>id</code> - The id of the <a href="Gamemode.html"><code>Gamemode</code></a></p>
+<p><code>id</code> - The id of the <a href="Gamemode.html"><code>Gamemode</code></a>.</p>
 </li><li>
-<p><code>name</code> - The name of the <a href="Gamemode.html"><code>Gamemode</code></a></p>
+<p><code>name</code> - The name of the <a href="Gamemode.html"><code>Gamemode</code></a>.</p>
 </li></ul>
 
-<h4 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h4 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>To create a new game mode :</p>
 
 <pre class="ruby"><span class="ruby-identifier">gm</span> = <span class="ruby-constant">Gamemode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Name&quot;</span>)
 </pre>
@@ -138,7 +157,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/Gamemode.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Core/DB/Gamemode.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>)
   <span class="ruby-ivar">@id_gamemode</span>,<span class="ruby-ivar">@name_gamemode</span> = <span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>

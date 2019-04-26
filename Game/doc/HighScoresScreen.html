@@ -174,8 +174,14 @@
     <span class="ruby-identifier">a</span>.<span class="ruby-identifier">score_highScores</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">score_highScores</span>
   }
 
-  <span class="ruby-identifier">ta</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;timeAttack&quot;</span>,<span class="ruby-string">&quot;easy&quot;</span>)
+
+  <span class="ruby-identifier">ta</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;timeAttack&quot;</span>,<span class="ruby-string">&quot;random&quot;</span>)
   <span class="ruby-identifier">adventure</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">getHighScoresByGamemodeDiff</span>(<span class="ruby-string">&quot;adventure&quot;</span>,<span class="ruby-string">&quot;easy&quot;</span>)
+
+
+  <span class="ruby-identifier">ta</span>.<span class="ruby-identifier">sort</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">a</span>.<span class="ruby-identifier">score_highScores</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">score_highScores</span>
+  }
 
   <span class="ruby-identifier">titre</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;main&quot;</span> , <span class="ruby-string">&quot;score&quot;</span>))
   <span class="ruby-identifier">titre</span>.<span class="ruby-identifier">title</span>

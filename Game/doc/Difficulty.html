@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Difficulty-label-Presentation">Presentation</a>
+    <li><a href="#class-Difficulty-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -86,7 +95,13 @@
 
   <section class="description">
     
-<p>A <a href="Difficulty.html"><code>Difficulty</code></a> is defined by its ID and its name. This Class is here to represent a difficulty in the database.</p>
+<h5 id="class-Difficulty-label-Presentation">Presentation<span><a href="#class-Difficulty-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="Difficulty.html"><code>Difficulty</code></a> class is here to represent a difficulty in the database. A <a href="Difficulty.html"><code>Difficulty</code></a> is represented by its ID and its name.</p>
+
+<h5 id="class-Difficulty-label-Methods">Methods<span><a href="#class-Difficulty-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized and applied.</p>
 
   </section>
 
@@ -120,16 +135,20 @@
 
         <div class="method-description">
           
-          <p>The class&#39; constructor.</p>
+          <h6 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h6>
 
-<h4 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<p>The class&#39; constructor. It only gives the variables the value taken in parameters.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>id</code> - The id of the <a href="Difficulty.html"><code>Difficulty</code></a></p>
 </li><li>
 <p><code>name</code> - The name of the <a href="Difficulty.html"><code>Difficulty</code></a></p>
 </li></ul>
 
-<h4 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To create a new difficulty :</p>
 
 <pre class="ruby"><span class="ruby-identifier">diff</span> = <span class="ruby-constant">Difficulty</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-string">&quot;Easy&quot;</span>)
 </pre>
@@ -138,7 +157,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/Difficulty.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Core/DB/Difficulty.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>)
   <span class="ruby-ivar">@id_difficulty</span>,<span class="ruby-ivar">@name_difficulty</span> = <span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>

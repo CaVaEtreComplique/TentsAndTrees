@@ -162,6 +162,19 @@
         </div>
       </div>
       
+      <div id="attribute-i-ic" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ic</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-levelNumberScreen" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">levelNumberScreen</span><span
@@ -313,6 +326,7 @@
   <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@player</span>=<span class="ruby-identifier">player</span>
   <span class="ruby-ivar">@win</span>=<span class="ruby-identifier">window</span>
+  <span class="ruby-ivar">@ic</span>=<span class="ruby-constant">IconAsset</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">update</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -352,7 +366,7 @@
 
           
           <div class="method-source-code" id="createNewSave-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 94</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createNewSave</span>
   <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">save</span>
 <span class="ruby-keyword">end</span></pre>
@@ -385,7 +399,7 @@
 
           
           <div class="method-source-code" id="getVictoryScreen-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 73</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getVictoryScreen</span>(<span class="ruby-identifier">session</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">partOfAdventure?</span>
     <span class="ruby-constant">AdventureVictoryScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-identifier">session</span>)
@@ -424,7 +438,7 @@
 
           
           <div class="method-source-code" id="run-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 36</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>
   <span class="ruby-ivar">@mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -457,10 +471,10 @@
 
           
           <div class="method-source-code" id="runAdventureSession-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 67</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runAdventureSession</span>(<span class="ruby-identifier">session</span>)
   <span class="ruby-ivar">@session</span>=<span class="ruby-identifier">session</span>
-  <span class="ruby-ivar">@levelNumberScreen</span>=<span class="ruby-constant">LevelSelectionScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@levelNumberScreen</span>=<span class="ruby-constant">LevelSelectionScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-ivar">@ic</span>)
   <span class="ruby-ivar">@levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -492,7 +506,7 @@
 
           
           <div class="method-source-code" id="runGameSession-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 40</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runGameSession</span>(<span class="ruby-identifier">session</span>,<span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
   <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
     <span class="ruby-ivar">@loadScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@win</span>)
@@ -548,7 +562,7 @@
 
           
           <div class="method-source-code" id="runGameSessionFromSave-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 83</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runGameSessionFromSave</span>(<span class="ruby-identifier">save</span>)
   <span class="ruby-ivar">@session</span> = <span class="ruby-identifier">save</span>.<span class="ruby-identifier">content_save</span>
   <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">setSave</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">id_save</span>)
@@ -588,7 +602,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 18</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@mainScreen</span>=<span class="ruby-constant">PrincipalScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
   <span class="ruby-ivar">@modeScreen</span>=<span class="ruby-constant">GameModeScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
@@ -597,7 +611,7 @@
   <span class="ruby-ivar">@diffchScreen</span>=<span class="ruby-constant">ChoixDiffScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
   <span class="ruby-ivar">@loadScreen</span>=<span class="ruby-constant">LoadingScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
   <span class="ruby-ivar">@listeSaveScreen</span>=<span class="ruby-constant">SaveScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-constant">Connexion</span>.<span class="ruby-identifier">getJoueur</span>)
-  <span class="ruby-ivar">@rulesScreen</span>=<span class="ruby-constant">RuleScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@rulesScreen</span>=<span class="ruby-constant">RuleScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-ivar">@ic</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -628,7 +642,7 @@
 
           
           <div class="method-source-code" id="updateHighScore-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 32</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 33</span>
  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateHighScore</span>
   <span class="ruby-ivar">@highScoresScreen</span>=<span class="ruby-constant">HighScoresScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -661,7 +675,7 @@
 
           
           <div class="method-source-code" id="updateSave-source">
-            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Ui/UiManager.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>
   <span class="ruby-ivar">@listeSaveScreen</span>=<span class="ruby-constant">SaveScreen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-constant">Connexion</span>.<span class="ruby-identifier">getJoueur</span>)
 <span class="ruby-keyword">end</span></pre>

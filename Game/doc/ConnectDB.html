@@ -214,7 +214,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 47</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
  <span class="ruby-comment">#Opens a SQLite 3 database file</span>
   <span class="ruby-ivar">@db</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;Core/DB/db.sqlite&#39;</span>
@@ -296,7 +296,7 @@
 
           
           <div class="method-source-code" id="addHighScore-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 650</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 655</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addHighScore</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>)
   <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
@@ -380,7 +380,7 @@
 
           
           <div class="method-source-code" id="createPlayer-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 211</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 218</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createPlayer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>)
 
             <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO Player(name_player, password_player) VALUES(&#39;#{name}&#39;,&#39;#{Digest::SHA1.hexdigest(password)}&#39;)&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -446,7 +446,7 @@
 
           
           <div class="method-source-code" id="deletePlayer-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 378</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 383</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayer</span>(<span class="ruby-identifier">id</span>)
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Player WHERE player_id = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
                       <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -503,7 +503,7 @@
 
           
           <div class="method-source-code" id="deletePlayerHg-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 355</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 360</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerHg</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM HighScores WHERE id_player_highScores = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>
@@ -560,7 +560,7 @@
 
           
           <div class="method-source-code" id="deletePlayerSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 402</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 407</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deletePlayerSave</span>(<span class="ruby-identifier">id</span>)
 
               <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE player_id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -618,7 +618,7 @@
 
           
           <div class="method-source-code" id="deleteSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 329</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 334</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM Save WHERE id_save = #{id}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -705,7 +705,7 @@
 
           
           <div class="method-source-code" id="getHighScoresByGamemodeDiff-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 527</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 532</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getHighScoresByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">difficulty</span>)
 
      <span class="ruby-identifier">hg</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -787,7 +787,7 @@
 
           
           <div class="method-source-code" id="getPlayer-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 75</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayer</span>(<span class="ruby-identifier">id</span>)
 
   <span class="ruby-identifier">player</span> = <span class="ruby-keyword">nil</span>
@@ -878,7 +878,7 @@
 
           
           <div class="method-source-code" id="getPlayerHighScoreByGamemodeDiff-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 592</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 597</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayerHighScoreByGamemodeDiff</span>(<span class="ruby-identifier">gamemode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>)
 
   <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
@@ -961,7 +961,7 @@
 
           
           <div class="method-source-code" id="getPlayersSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 434</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 439</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getPlayersSave</span>(<span class="ruby-identifier">player</span>)
 
         <span class="ruby-identifier">saves</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -1032,7 +1032,7 @@
 
           
           <div class="method-source-code" id="getSaveByID-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 470</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 475</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getSaveByID</span>(<span class="ruby-identifier">id</span>)
 
         <span class="ruby-identifier">save</span> = <span class="ruby-keyword">nil</span>
@@ -1105,7 +1105,7 @@
 
           
           <div class="method-source-code" id="isPlayerExist-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 251</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 258</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isPlayerExist</span>(<span class="ruby-identifier">name</span>)
 
   <span class="ruby-identifier">player</span> = <span class="ruby-keyword">nil</span>
@@ -1176,7 +1176,7 @@
 
           
           <div class="method-source-code" id="playerConnect-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 171</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 178</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">playerConnect</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">password</span>)
 
         <span class="ruby-identifier">pl</span> = <span class="ruby-keyword">nil</span>
@@ -1246,7 +1246,7 @@
 
           
           <div class="method-source-code" id="playerUpdate-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 112</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">playerUpdate</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">mdp</span>)
   <span class="ruby-identifier">player</span> = <span class="ruby-keyword">nil</span>
     <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;UPDATE Player SET password_player=&#39;#{Digest::SHA1.hexdigest(mdp)}&#39; WHERE name_player=&#39;#{login}&#39;&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
@@ -1327,7 +1327,7 @@
 
           
           <div class="method-source-code" id="updateHighScore-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 703</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 708</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateHighScore</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">player</span>, <span class="ruby-identifier">score</span>)
   <span class="ruby-identifier">hg</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-identifier">diff</span> = <span class="ruby-value">0</span>
@@ -1393,7 +1393,7 @@
 
           
           <div class="method-source-code" id="updateSave-source">
-            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 140</span>
+            <pre><span class="ruby-comment"># File Core/DB/ConnectDB.rb, line 147</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">id</span>)
   <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;UPDATE SAVE is_save = #{id}&quot;</span>
   <span class="ruby-identifier">stm</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">prepare</span> <span class="ruby-string">&quot;UPDATE Save SET content_save=? WHERE id_save=?&quot;</span>;

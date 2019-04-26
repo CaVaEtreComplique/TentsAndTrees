@@ -88,6 +88,10 @@
 
   <section class="description">
     
+<pre>===== Presentation</pre>
+
+<p><a href="Probleme.html"><code>Probleme</code></a> only needs to be initialized. It creates and implements a pop up to tell you the probleme about the identification.</p>
+
   </section>
 
   
@@ -120,13 +124,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is used to create the pop up to tell you the probleme about the identification. All the other variable are used for the layout.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
               <span class="ruby-ivar">@textManager</span>=<span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
@@ -138,14 +144,13 @@
   <span class="ruby-identifier">win</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">win</span>.<span class="ruby-identifier">set_default_size</span>(<span class="ruby-identifier">w</span><span class="ruby-operator">/</span><span class="ruby-value">4</span>,<span class="ruby-identifier">h</span><span class="ruby-operator">/</span><span class="ruby-value">10</span>)
   <span class="ruby-identifier">win</span>.<span class="ruby-identifier">set_resizable</span>(<span class="ruby-keyword">false</span>)
-              <span class="ruby-comment">#win.decorated=false</span>
   <span class="ruby-identifier">win</span>.<span class="ruby-identifier">window_position</span>= <span class="ruby-value">:center_always</span>
 
               <span class="ruby-ivar">@menu</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>, <span class="ruby-value">25</span>)
               <span class="ruby-ivar">@gtkObject</span>= <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
               <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@menu</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
 
-              <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../../Assets/Backgrounds/nature.png&quot;</span>)
+              <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../../Assets/Backgrounds/nature.jpg&quot;</span>)
               <span class="ruby-ivar">@buffer</span>=<span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">w</span><span class="ruby-operator">/</span><span class="ruby-value">4</span>,<span class="ruby-identifier">h</span><span class="ruby-operator">/</span><span class="ruby-value">10</span>)
 
   <span class="ruby-identifier">pb</span> = <span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Login unavailable&quot;</span>,<span class="ruby-ivar">@police</span>)
@@ -193,7 +198,7 @@
 
           
           <div class="method-source-code" id="onDestroy-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onDestroy</span>
    <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>
 <span class="ruby-keyword">end</span></pre>

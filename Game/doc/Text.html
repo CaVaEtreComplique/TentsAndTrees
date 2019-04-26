@@ -277,7 +277,7 @@
 
           
           <div class="method-source-code" id="apply-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 103</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>
   <span class="ruby-ivar">@textBox</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span style=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@style</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; weight=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@weight</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; foreground=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@color</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39; font_desc=&#39;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@font</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@size</span>.<span class="ruby-identifier">to_s</span><span class="ruby-string">+&quot;&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@label</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -310,7 +310,7 @@
 
           
           <div class="method-source-code" id="colorChange-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 107</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">colorChange</span>(<span class="ruby-identifier">couleur</span>)
   <span class="ruby-ivar">@color</span>=<span class="ruby-identifier">couleur</span>
   <span class="ruby-identifier">apply</span>
@@ -344,7 +344,7 @@
 
           
           <div class="method-source-code" id="onClick-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 74</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onClick</span>(<span class="ruby-identifier">block</span>=<span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">temp</span>=<span class="ruby-ivar">@color</span>
   <span class="ruby-identifier">setBackground</span>(<span class="ruby-value">0.2</span>,<span class="ruby-value">0.2</span>,<span class="ruby-value">0.2</span>,<span class="ruby-value">0.6</span>)
@@ -486,7 +486,6 @@
   <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">style</span>=<span class="ruby-string">&quot;normal&quot;</span>
   <span class="ruby-identifier">underText</span>.<span class="ruby-identifier">apply</span>
 
-
   <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)
   }
@@ -526,7 +525,7 @@
 
           
           <div class="method-source-code" id="updateLabel-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 68</span>
+            <pre><span class="ruby-comment"># File Ui/Buttons/Text.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateLabel</span>(<span class="ruby-identifier">newLabel</span>)
   <span class="ruby-ivar">@label</span>=<span class="ruby-identifier">newLabel</span>
   <span class="ruby-identifier">apply</span>

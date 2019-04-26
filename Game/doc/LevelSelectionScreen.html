@@ -164,7 +164,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(manager)</span>
+            class="method-args">(manager,ic)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -191,14 +191,14 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Ui/Screens/LevelSelectionScreen.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">ic</span>)
               <span class="ruby-keyword">super</span>(<span class="ruby-identifier">manager</span>.<span class="ruby-identifier">win</span>)
               <span class="ruby-ivar">@manager</span> = <span class="ruby-identifier">manager</span>
               <span class="ruby-comment">#Chargement de la campagne</span>
               <span class="ruby-ivar">@adventure</span> = <span class="ruby-identifier">manager</span>.<span class="ruby-identifier">session</span>
               <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREEN</span>
               <span class="ruby-ivar">@pad</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTON_PADDING</span>
-              <span class="ruby-ivar">@ic</span>=<span class="ruby-constant">IconAsset</span>.<span class="ruby-identifier">new</span>
+              <span class="ruby-ivar">@ic</span>=<span class="ruby-identifier">ic</span>
               <span class="ruby-ivar">@gtkObject</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
               <span class="ruby-ivar">@scrol</span>=<span class="ruby-constant">ScrollableArea</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
               <span class="ruby-ivar">@boxV</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
@@ -210,7 +210,7 @@
               <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">a</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
 
               <span class="ruby-ivar">@boxV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@etoileTotal</span> ,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
-              <span class="ruby-ivar">@st</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+              <span class="ruby-ivar">@st</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-ivar">@ic</span>)
               <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@st</span>.<span class="ruby-identifier">stars</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
               <span class="ruby-identifier">nbEtoile</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@overAllStars</span>)
 
@@ -220,12 +220,12 @@
               <span class="ruby-ivar">@boxV</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">gtkObject</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
 
               <span class="ruby-ivar">@nbNiveau</span>=<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">adventureInfo</span>.<span class="ruby-identifier">levels</span>.<span class="ruby-identifier">length</span>
-              <span class="ruby-identifier">l</span>=<span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:loc</span>)
+              <span class="ruby-identifier">l</span>=<span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>(<span class="ruby-value">:loc</span>)
 
   <span class="ruby-ivar">@b</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-value">25</span>)
               <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@b</span>)
 
-              <span class="ruby-ivar">@icones</span>=<span class="ruby-constant">LevelNumbers</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-ivar">@adventure</span> ,<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">overAllStarsHash</span>)
+              <span class="ruby-ivar">@icones</span>=<span class="ruby-constant">LevelNumbers</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-ivar">@adventure</span> ,<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">overAllStarsHash</span>,<span class="ruby-ivar">@ic</span>)
               <span class="ruby-ivar">@b</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@icones</span>.<span class="ruby-identifier">im</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
   <span class="ruby-ivar">@menuR</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>, <span class="ruby-value">25</span>)
               <span class="ruby-ivar">@scrol</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@menuR</span>)
@@ -337,7 +337,7 @@
         <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
                 <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)
         }
-        <span class="ruby-ivar">@st</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+        <span class="ruby-ivar">@st</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-ivar">@ic</span>)
         <span class="ruby-ivar">@etoileTotal</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@st</span>.<span class="ruby-identifier">stars</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
         <span class="ruby-identifier">nbEtoile</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@adventure</span>.<span class="ruby-identifier">overAllStars</span>.<span class="ruby-identifier">to_s</span>)
         <span class="ruby-identifier">nbEtoile</span>.<span class="ruby-identifier">title</span>

@@ -5,22 +5,27 @@
 # @Last modified by:   <HuaulmeCorentin>
 # @Last modified time: 15-Mar-2019
 
-# A Difficulty is defined by its ID and its name.
-# This Class is here to represent a difficulty in the database.
+##
+# ===== Presentation
+# The Difficulty class is here to represent a difficulty in the database. A
+# Difficulty is represented by its ID and its name.
+#
+# ===== Methods
+# This class only needs to be initialized and applied.
 class Difficulty
 
-  @id_difficulty # The ID of the Difficulty
-  @name_difficulty # The name of the Difficulty
+  @id_difficulty
+  @name_difficulty
 
-  # The class' constructor.
+  # ====== Presentation
+  # The class' constructor. It only gives the variables the value taken in parameters.
   #
-  # ==== Attributes
-  #
+  # ===== Attributes
   # * +id+ - The id of the Difficulty
   # * +name+ - The name of the Difficulty
   #
-  # ==== Examples
-  #
+  # ===== How to Use
+  # To create a new difficulty :
   #    diff = Difficulty.new(1,"Easy")
   def initialize(id, name)
     @id_difficulty,@name_difficulty = id, name

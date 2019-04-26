@@ -188,7 +188,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(width , height, textManager)</span>
+            class="method-args">(width , height, textManager,ic)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -204,14 +204,14 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File Ui/Diapo.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">width</span> , <span class="ruby-identifier">height</span>, <span class="ruby-identifier">textManager</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">width</span> , <span class="ruby-identifier">height</span>, <span class="ruby-identifier">textManager</span>,<span class="ruby-identifier">ic</span>)
   <span class="ruby-ivar">@h</span>=<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">0.7</span>
   <span class="ruby-ivar">@w</span>=<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.9</span>
-  <span class="ruby-ivar">@ic</span>=<span class="ruby-constant">IconAsset</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-identifier">pic1</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo1</span>)
-  <span class="ruby-identifier">pic2</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo2</span>)
-  <span class="ruby-identifier">pic3</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo3</span>)
-  <span class="ruby-identifier">pic4</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo4</span>)
+  <span class="ruby-ivar">@ic</span>=<span class="ruby-identifier">ic</span>
+  <span class="ruby-identifier">pic1</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>(<span class="ruby-value">:diapo1</span>)
+  <span class="ruby-identifier">pic2</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>(<span class="ruby-value">:diapo2</span>)
+  <span class="ruby-identifier">pic3</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>(<span class="ruby-value">:diapo3</span>)
+  <span class="ruby-identifier">pic4</span> = <span class="ruby-ivar">@ic</span>.<span class="ruby-identifier">iconAsset</span>(<span class="ruby-value">:diapo4</span>)
   <span class="ruby-identifier">pic1</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
   <span class="ruby-identifier">pic2</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)
   <span class="ruby-identifier">pic3</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-ivar">@w</span>,<span class="ruby-ivar">@h</span>)

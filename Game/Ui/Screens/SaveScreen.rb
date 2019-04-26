@@ -16,25 +16,24 @@ def require_all(_dir)
 		require file
 	}
 end
+
 ##
 # ===== Presentation
-#SaveScreen is an inherited class from the Screen class. This class only needs
-#to be initialized.
-#It creates and implements the high save screen from the game.
-##
-
+# SaveScreen is an inherited class from the Screen class. This class only needs
+# to be initialized.
+# It creates and implements the high save screen from the game.
 class SaveScreen < Screen
+
+	# ===== Presentation
+	# This method is used to create the save screen by calling the class SaveBlockUi.
+	# A scrollable area is also created by calling the class ScrollableArea, which contains
+	# buttons and boxes.
+	# On the page you can load and delete a save.
+	# All the other variables are used for the layout.
 	#
-	#=====Presentation
-	#This method is used to create the save screen  by calling the class SaveBlockUi.
-	#A scrolable area is also created by calling the class ScrolableArea, which contains
-	#buttons and boxes..
-	#On the page you can load and delete a save.
-	#All the other variable are used for the layout.
-	#=====Attributes
-	# *+manager+ : managerUi who handle the Ui
-	# *+joueur+ : represent the player connected
-	##
+	# ===== Attributes
+	# * +manager+ - managerUi who handles the Ui.
+	# * +joueur+ - represents the connected player.
 	def initialize(manager,joueur)
 		super(manager.win)
 		screen = Constants::SCREEN
