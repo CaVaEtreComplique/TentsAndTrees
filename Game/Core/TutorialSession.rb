@@ -42,13 +42,22 @@ class TutorialSession < Session
 		super(:tutorial, :tutorial, false)
 	end
 
+	##
+	# ===== Presentation
+	# This methode redefine the method continuable from Session in order ton make
+	# the game continuable.
+	#
 	def continuable?
 		true
 	end
 
-	# def calculateScore
-	# 	return 42
-	# end
+	##
+	# ===== Presentation
+	# This methode redefine the method calculateScore from Session .
+	#
+	def calculateScore
+		return 42
+	end
 
 	##
 	# ===== Presentation
@@ -63,8 +72,8 @@ class TutorialSession < Session
 
 	##
 	# ===== Presentation
-	# This methode set the timer at a random value in order to not make the
-	# tutorial bug.
+	# This methode redefine the method setTime from Session in order to set the
+	# timer at a random value in order to not make the tutorial bug.
 	#
 	def setTime
 		@time=42

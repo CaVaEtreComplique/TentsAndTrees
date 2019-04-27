@@ -10,7 +10,8 @@ require File.dirname(__FILE__) + "/Session"
 
 #
 # ==== Presentation
-# The TimeAttackSession class is inherited from the class Session.
+# The TimeAttackSession class is inherited from the class Session and represente
+# a time attack game.
 #
 # ==== Variables
 # * +game+ - This variables represent a Game class
