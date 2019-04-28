@@ -9,7 +9,11 @@
 
 require File.dirname(__FILE__) + "/Button"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class ClueUi < Button
+   # :nodoc:
 
   def initialize(orientation, label, index, game)
     super(orientation, label)

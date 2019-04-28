@@ -113,11 +113,11 @@
     
 <h5 id="class-Levels-label-Presentation">Presentation<span><a href="#class-Levels-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="Levels.html"><code>Levels</code></a> class is use to know all levels particularity. Also to do all the operation in relation with the levels.</p>
+<p>The <a href="Levels.html"><code>Levels</code></a> class is used to know all levels particularity. It is also used to do all of the operations in relation with the levels.</p>
 
 <h5 id="class-Levels-label-Methods">Methods<span><a href="#class-Levels-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class&#39; methods are all described below.</p>
+<p>This class knows its initialization method and the methods described below.</p>
 
   </section>
 
@@ -129,53 +129,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-levels" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">levels</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-maxScore" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">maxScore</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-overallStarsHash" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">overallStarsHash</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -200,13 +153,27 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class constructor initialize a hash table levels wich conatain all the information of all level. A level is defined by its game mode, its difficulty, its score multiplier, the number of stars that we can have, the number of grid to complete the level and its number. It also initialize another hash table wich contain the stars needed to unlock each level. A hash table thatwill contain the information about all the number of stars that the user has per level. And a hash table that will contain all session in connection with the levels hash table.</p>
+<p>This class&#39; constructor initializes the variables, 4 hash tables described below.</p>
+
+<h5 id="method-c-new-label-Variables">Variables<span><a href="#method-c-new-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>levels</code> - A hash table which contains all of the information about every level.</p>
+</li></ul>
+
+<p>A level is defined by its game mode, its difficulty, its score multiplier, the number of stars that we can have, the number of grids to complete the level and its number.</p>
+<ul><li>
+<p><code>neededStars</code> - A hash table which contains the number of stars needed to unlock each level.</p>
+</li><li>
+<p><code>overallStarsHash</code> - A hash table that will contain the number of stars that the user has per level.</p>
+</li><li>
+<p><code>levelsSession</code> - A hash table that will contain all session in connection with the levels hash table.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 44</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 41</span>
     <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
 <span class="ruby-ivar">@levels</span> = {
                     <span class="ruby-value">1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:quickplay</span>, <span class="ruby-value">:easy</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>],
@@ -258,11 +225,11 @@
           
           <h5 id="method-i-calculateOverallStars-label-Presentation">Presentation<span><a href="#method-i-calculateOverallStars-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the overallstars of an adventure session.</p>
+<p>This method is used when the player ends a game. This is used to calculate the overall stars of an adventure session.</p>
 
 <h5 id="method-i-calculateOverallStars-label-Attributes">Attributes<span><a href="#method-i-calculateOverallStars-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>overAllStarsHash</code> : The hash table that contains all the stars own per level.</p>
+<p><code>overAllStarsHash</code> : The hash table that contains all the stars owned per level.</p>
 </li></ul>
 
 <h5 id="method-i-calculateOverallStars-label-Returns">Returns<span><a href="#method-i-calculateOverallStars-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -271,19 +238,20 @@
 
 <h5 id="method-i-calculateOverallStars-label-Examples">Examples<span><a href="#method-i-calculateOverallStars-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method calculate the overall stars by additioning all the value of the hash table :</p>
+<p>This method calculates the overall stars by adding all the values of the hash table :</p>
 
 <pre class="ruby"><span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>;
                  <span class="ruby-identifier">overAllStarsHash</span>.<span class="ruby-identifier">each_value</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
                          <span class="ruby-identifier">res</span> <span class="ruby-operator">+=</span><span class="ruby-identifier">v</span>
                  }
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateOverallStars-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 320</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 317</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateOverallStars</span>(<span class="ruby-identifier">overAllStarsHash</span>)
         <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>;
         <span class="ruby-identifier">overAllStarsHash</span>.<span class="ruby-identifier">each_value</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
@@ -316,15 +284,15 @@
           
           <h5 id="method-i-calculateScore-label-Presentation">Presentation<span><a href="#method-i-calculateScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the score with the level condition.</p>
+<p>This method is used when the player ends a game. This is used to calculate the score with the level condition.</p>
 
 <h5 id="method-i-calculateScore-label-Attributes">Attributes<span><a href="#method-i-calculateScore-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>score</code> : The score of the session.</p>
+<p><code>score</code> : The session&#39;s score.</p>
 </li><li>
 <p><code>scoreMultiplier</code> : The score multiplier of the level.</p>
 </li><li>
-<p><code>numberOfGrid</code> : The number of grid needed to end the level.</p>
+<p><code>numberOfGrid</code> : The number of grids needed to end the level.</p>
 </li></ul>
 
 <h5 id="method-i-calculateScore-label-Returns">Returns<span><a href="#method-i-calculateScore-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -333,16 +301,17 @@
 
 <h5 id="method-i-calculateScore-label-Examples">Examples<span><a href="#method-i-calculateScore-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method implement the number of grid that are done and calculate the socre :</p>
+<p>This method implements the number of grids that are done and calculates the score :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@score</span> = (<span class="ruby-identifier">score</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">scoreMultiplier</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">numberOfGrid</span>
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 199</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 196</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>(<span class="ruby-identifier">scoreMultiplier</span>, <span class="ruby-identifier">numberOfGrid</span>,<span class="ruby-identifier">score</span>)
                 <span class="ruby-ivar">@finishedGrid</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
                 <span class="ruby-ivar">@score</span> = (<span class="ruby-identifier">score</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">scoreMultiplier</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">numberOfGrid</span>
@@ -372,7 +341,7 @@
           
           <h5 id="method-i-calculateStars-label-Presentation">Presentation<span><a href="#method-i-calculateStars-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used when the player end a game. This is use to calculate the number of stars depending on the score.</p>
+<p>This method is used when the player ends a game. This is used to calculate the number of stars depending on the score.</p>
 
 <h5 id="method-i-calculateStars-label-Attributes">Attributes<span><a href="#method-i-calculateStars-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -382,7 +351,7 @@
 </li><li>
 <p><code>levelNumber</code> : The number of the level.</p>
 </li><li>
-<p><code>overAllStars</code> : The hash table that contains all the stars own per level.</p>
+<p><code>overAllStars</code> : The hash table that contains all the stars owned per level.</p>
 </li></ul>
 
 <h5 id="method-i-calculateStars-label-Returns">Returns<span><a href="#method-i-calculateStars-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -391,7 +360,7 @@
 
 <h5 id="method-i-calculateStars-label-Examples">Examples<span><a href="#method-i-calculateStars-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method calculate the stars according to the maximum stars for a level :</p>
+<p>This method calculates the stars according to the maximum stars for a level :</p>
 
 <pre>if maxStars == 3
                 if score &gt;0.45*@maxScore
@@ -406,7 +375,7 @@
         end
 ...</pre>
 
-<p>Then it update the hash table if the number of stars from this session is better than the previous one or create a new key, value instance :</p>
+<p>Then it updates the hash table if the number of stars from this session is better than the previous one or creates a new key, value instance :</p>
 
 <pre class="ruby"><span class="ruby-ivar">@overallStarsHash</span> = <span class="ruby-identifier">overAllStarsHash</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@overallStarsHash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">levelNumber</span>)
@@ -418,13 +387,14 @@
         <span class="ruby-keyword">end</span>
 </pre>
 
-<p>Finaly it set the finished grid and the score variable to 0 and set the session to nil.</p>
+<p>Finaly it sets the finished grid and the score variable to 0 and sets the session to nil.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateStars-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 245</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 242</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateStars</span>(<span class="ruby-identifier">score</span>, <span class="ruby-identifier">maxStars</span>,<span class="ruby-identifier">overAllStarsHash</span>,<span class="ruby-identifier">levelNumber</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">maxStars</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
                 <span class="ruby-keyword">if</span> <span class="ruby-identifier">score</span> <span class="ruby-operator">&gt;</span><span class="ruby-value">0.45</span><span class="ruby-operator">*</span><span class="ruby-ivar">@maxScore</span>
@@ -505,15 +475,15 @@
           
           <h5 id="method-i-continuable-3F-label-Presentation">Presentation<span><a href="#method-i-continuable-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to know if a level is continuable.</p>
+<p>This method is used to know if a level can be continued.</p>
 
 <h5 id="method-i-continuable-3F-label-Returns">Returns<span><a href="#method-i-continuable-3F-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method return true or false.</p>
+<p>This method returns a boolean.</p>
 
 <h5 id="method-i-continuable-3F-label-Examples">Examples<span><a href="#method-i-continuable-3F-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method tell if a level is continuable or not by verifying if the number of grid of the level is equal to the number of grid finished :</p>
+<p>This method tells if a level can be continued or not by verifying if the number of grids in the level is equal to the number of grids finished :</p>
 
 <pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
                          <span class="ruby-keyword">false</span>
@@ -525,12 +495,13 @@
                          <span class="ruby-keyword">end</span>
                  <span class="ruby-keyword">end</span>
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 170</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 167</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>(<span class="ruby-identifier">numberOfGrid</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">numberOfGrid</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
                 <span class="ruby-keyword">false</span>
@@ -571,7 +542,7 @@
 
 <h5 id="method-i-getLevel-label-Attributes">Attributes<span><a href="#method-i-getLevel-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>level</code> : The Number of the level.</p>
+<p><code>level</code> : The level&#39;s number.</p>
 </li></ul>
 
 <h5 id="method-i-getLevel-label-Returns">Returns<span><a href="#method-i-getLevel-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -580,7 +551,7 @@
 
 <h5 id="method-i-getLevel-label-Examples">Examples<span><a href="#method-i-getLevel-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method creates a finishedGrid variable and calls the method initLevel if the levelsSession hash table has the level number as key  and the session of the level is nil :</p>
+<p>This method creates a finishedGrid variable and calls the method initLevel if the levelsSession hash table has the level&#39;s number as a key and the session of the level is nil :</p>
 
 <pre>if @levelsSession.has_key?(level)
         if @levelsSession[level] == nil
@@ -592,12 +563,13 @@
 <pre>            else
         self.initLevel(level)
 end</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="getLevel-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 86</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevel</span>(<span class="ruby-identifier">level</span>)
               <span class="ruby-ivar">@finishedGrid</span> = <span class="ruby-value">0</span>
               <span class="ruby-keyword">if</span> <span class="ruby-ivar">@levelsSession</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">level</span>)
@@ -638,7 +610,7 @@ end</pre>
 
 <h5 id="method-i-getLevelMaxStars-label-Attributes">Attributes<span><a href="#method-i-getLevelMaxStars-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>lvll</code> : The Number of the level.</p>
+<p><code>lvl</code> : The level&#39;s number.</p>
 </li></ul>
 
 <h5 id="method-i-getLevelMaxStars-label-Returns">Returns<span><a href="#method-i-getLevelMaxStars-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -647,17 +619,18 @@ end</pre>
 
 <h5 id="method-i-getLevelMaxStars-label-Examples">Examples<span><a href="#method-i-getLevelMaxStars-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>Initialize an array that contains all the information about a level and return the information about the maximal number of star :</p>
+<p>Initializes an array that contains all the information about a level and returns the information about the maximal number of stars :</p>
 
 <pre class="ruby">    <span class="ruby-identifier">evelInfo</span>= <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>)
 <span class="ruby-keyword">return</span> <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>]
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="getLevelMaxStars-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 145</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getLevelMaxStars</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-identifier">levelInfo</span>= <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>]
@@ -691,7 +664,7 @@ end</pre>
 
 <h5 id="method-i-initLevel-label-Attributes">Attributes<span><a href="#method-i-initLevel-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>level</code> : The Number of the level.</p>
+<p><code>level</code> : The level&#39;s number.</p>
 </li></ul>
 
 <h5 id="method-i-initLevel-label-Returns">Returns<span><a href="#method-i-initLevel-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
@@ -700,7 +673,7 @@ end</pre>
 
 <h5 id="method-i-initLevel-label-Examples">Examples<span><a href="#method-i-initLevel-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>Initialize an array that contains all the information about a level. According of the gameMode and its difficulty of this level we will create a new session :</p>
+<p>Initializes an array that contains all the information about a level. According to the game mode and its difficulty for this level we will create a new session :</p>
 
 <pre class="ruby"><span class="ruby-keyword">case</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>]
         <span class="ruby-keyword">when</span> <span class="ruby-value">:quickplay</span>
@@ -709,12 +682,13 @@ end</pre>
                 <span class="ruby-ivar">@levelsSession</span>[<span class="ruby-identifier">v</span>[<span class="ruby-value">5</span>]] = <span class="ruby-constant">TimeAttackSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>],<span class="ruby-keyword">true</span>)
         <span class="ruby-keyword">end</span>
 </pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="initLevel-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 119</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 116</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initLevel</span>(<span class="ruby-identifier">level</span>)
                 <span class="ruby-identifier">v</span> = <span class="ruby-ivar">@levels</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">level</span>)
                 <span class="ruby-keyword">case</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>]
@@ -753,18 +727,18 @@ end</pre>
 
 <h5 id="method-i-lvlAvailable-3F-label-Attributes">Attributes<span><a href="#method-i-lvlAvailable-3F-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>lvl</code> : The number of the level.</p>
+<p><code>lvl</code> : The level&#39;s number.</p>
 </li><li>
 <p><code>overAllStars</code> : The overall number of stars for an adventure.</p>
 </li></ul>
 
 <h5 id="method-i-lvlAvailable-3F-label-Returns">Returns<span><a href="#method-i-lvlAvailable-3F-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method return true or false.</p>
+<p>This method returns true or false.</p>
 
 <h5 id="method-i-lvlAvailable-3F-label-Examples">Examples<span><a href="#method-i-lvlAvailable-3F-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method tell if a level is avaible by fetching with the level number the stars needed to unlock this level and comparing it to the overall stars :</p>
+<p>This method tells if a level is available by fetching with the level number the stars needed to unlock this level and comparing it to the overall stars :</p>
 
 <pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-ivar">@neededStars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">overAllStars</span>
                          <span class="ruby-keyword">false</span>
@@ -777,7 +751,7 @@ end</pre>
 
           
           <div class="method-source-code" id="lvlAvailable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Levels.rb, line 348</span>
+            <pre><span class="ruby-comment"># File Core/Levels.rb, line 344</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lvlAvailable?</span>(<span class="ruby-identifier">lvl</span>, <span class="ruby-identifier">overAllStars</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@neededStars</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">lvl</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">overAllStars</span>
                 <span class="ruby-keyword">false</span>

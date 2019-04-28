@@ -31,10 +31,9 @@ class SaveBlockUi < Gtk::Box
 	# All save blocks contain a number of save, a save, a load button and a delete button.
 	# All the other variables are used for the layout.
 	# ===== Attributes
-	# *+manager+ : managerUi who handles the Ui.
+	# *+manager+ : A managerUi who handles the Ui.
 	# *+save+ : The corresponding save.
-	# *+parent+ :
-	#
+	# *+parent+ : The corresponding parent.
 	def initialize(manager,save, parent)
     super(:horizontal)
 		@pad=screen.height*0.03

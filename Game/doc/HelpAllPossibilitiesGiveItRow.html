@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<h5 id="class-HelpAllPossibilitiesGiveItRow-label-Presentation">Presentation<span><a href="#class-HelpAllPossibilitiesGiveItRow-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
 <p>The <a href="HelpAllPossibilitiesGiveItRow.html"><code>HelpAllPossibilitiesGiveItRow</code></a> class is inherited from the <a href="HelpCellsAndRows.html"><code>HelpCellsAndRows</code></a> class and helps when all the possibilities of the row can determine a cell&#39;s state. This class knows its initialization method and the getText method that sends text to the player when he/she needs help.</p>
 
   </section>
@@ -122,7 +124,9 @@
 
         <div class="method-description">
           
-          <p>The initialize method gives to the state variable a value from the method&#39;s parameters and initializes the cell and the row in parameters with the method from <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a>.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The initialize method gives to the state variable a value from the method&#39;s parameters and initializes the cell and the row in parameters with the method from <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a>.</p>
           
           
             <div class="method-calls-super">
@@ -133,7 +137,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">state</span>)
   <span class="ruby-ivar">@state</span> = <span class="ruby-identifier">state</span>
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>)
@@ -169,7 +173,9 @@
 
         <div class="method-description">
           
-          <p>The getText method sends the help text the player will see. It returns the helpText variable that changes depending on the helpLevel the player is at.</p>
+          <h5 id="method-i-getText-label-Presentation">Presentation<span><a href="#method-i-getText-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The getText method sends the help text the player will see. It returns the helpText variable that changes depending on the helpLevel the player is at.</p>
 
 <h5 id="method-i-getText-label-Examples">Examples<span><a href="#method-i-getText-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -188,7 +194,7 @@
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 43</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpsAllPossibilitiesGiveItRows/HelpAllPossibiliesGiveItRow.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#allpossibilitiesrow</span>
 
   <span class="ruby-keyword">case</span>(<span class="ruby-identifier">helpLevel</span>)

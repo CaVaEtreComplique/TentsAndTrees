@@ -28,7 +28,7 @@ class Asset
 
 	##
 	# ===== Presentation
-	# The class' initializer.
+	# The class' constructor.
 	#
 	# ===== Attributes
 	# * +file+ - A file that will give its value to the buffer variable.

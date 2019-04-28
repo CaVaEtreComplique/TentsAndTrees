@@ -7,14 +7,14 @@
 
 
 ##
-# ==== Presentation
+# ===== Presentation
 # The FindWhiteZone class is an extended method from the Game class.
 #
-# ==== Methods
+# ===== Methods
 # This class knows the find method as described below.
 class FindWhiteZone
 
-	# ==== Presentation
+	# ===== Presentation
 	# This class method is used in order to help the other help classes by finding
 	# white cells next to each other in a row or column.
 	#
@@ -23,7 +23,7 @@ class FindWhiteZone
 	# or row into one Array and return it.
 	#
 	# ===== Attributes
-	# * +game+ - The Game in witch we are going to extract our final array.
+	# * +game+ - The Game in which we are going to extract our final array.
 	# * +vertHor+ - The orientation, put 1 if we are looking for a row, otherwise it will be looking for a column.
 	# * +rank+ - The row or column number we want to do our research in.
 	#
@@ -31,8 +31,8 @@ class FindWhiteZone
 	# * +tabCell+ - The Array containing all the empty cells of the row or column.
 	# ===== Exemple
 	# W -> white cell; T -> not white cell
-	# | W | W | T | T | W | W | W | T | W | -> row number 3 of game
-	# arr = FindWhiteZone.find(game, 1, 3)
+	#   | W | W | T | T | W | W | W | T | W | -> row number 3 of game
+	#   arr = FindWhiteZone.find(game, 1, 3)
 	# arr will print something like : [[0,1],[4,5,6],[8]]
 	def FindWhiteZone.find(game, vertHor, rank)
 		tabCell = Array.new()

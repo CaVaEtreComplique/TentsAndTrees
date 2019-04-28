@@ -14,6 +14,7 @@ require File.dirname(__FILE__) + "/../HelpOnCells"
 # overrides of the parent class. Its two methods are the class' constructor
 # and the cellsList method and they just call the parent method with their
 # attributes.
+#
 # ===== Examples :
 # The class' constructor :
 #   def initialize(cell)

@@ -20,17 +20,13 @@ require File.dirname(__FILE__) + "/../../../Core/DB/ConnectDB"
 
 ##
 # ===== Presentation
-#MotdepasseOublie only needs to be initialized.
-#It creates and implements a pop up to redefine your password
-##
-
-
+# MotdepasseOublie only needs to be initialized.
+# It creates and implements a pop-up window to redefine your password.
 class MotdepasseOublie
-	#
-	#=====Presentation
-	#This method is used to create the pop up to redefine your password.
-	#All the other variable are used for the layout.
-	#
+
+	# ===== Presentation
+	# This method is used to create the pop-up to redefine your password.
+	# All the other variables are used for the layout.
   def initialize()
     screen=Gdk::Screen.default
 		@textManager=XmlReader.instance

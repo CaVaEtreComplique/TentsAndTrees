@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-LevelNumbers-label-Presentation">Presentation</a>
+    <li><a href="#class-LevelNumbers-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -88,9 +97,13 @@
 
   <section class="description">
     
-<pre>===== Presentation</pre>
+<h5 id="class-LevelNumbers-label-Presentation">Presentation<span><a href="#class-LevelNumbers-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="LevelNumbers.html"><code>LevelNumbers</code></a> only needs to be initialized and refresh. It creates and implements all the levels numbers icon.</p>
+<p>The <a href="LevelNumbers.html"><code>LevelNumbers</code></a> class creates and implements all the levels numbers icon.</p>
+
+<h5 id="class-LevelNumbers-label-Methods">Methods<span><a href="#class-LevelNumbers-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="LevelNumbers.html"><code>LevelNumbers</code></a> only needs to be initialized and refreshed.</p>
 
   </section>
 
@@ -102,27 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-im" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">im</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -147,17 +139,22 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create all the levels icons by calling the class levelNumber All the other variables are used for the layout.</p>
+<p>This method is used to create all the levels icons by calling the <a href="LevelNumber.html"><code>LevelNumber</code></a> class. All the other variables are used for the layout.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>*<code>manager</code> : managerUi who handles the Ui. *<code>adventure</code> : class adventure session *<code>adventureInfo</code> : hash table that contains all the stars own per level</p>
+<ul><li>
+<p><code>manager</code> : managerUi who handles the Ui.</p>
+</li><li>
+<p><code>adventure</code> : Represents the <a href="AdventureSession.html"><code>AdventureSession</code></a> class.</p>
+</li><li>
+<p><code>adventureInfo</code> : A hash table that contains all the stars owned per level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span> ,<span class="ruby-identifier">adventureInfo</span>,<span class="ruby-identifier">ic</span>)
               <span class="ruby-ivar">@pad</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTON_PADDING</span>
               <span class="ruby-ivar">@im</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>, <span class="ruby-value">25</span>)
@@ -201,17 +198,22 @@
           
           <h5 id="method-i-refresh-label-Presentation">Presentation<span><a href="#method-i-refresh-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to refresh all the levels icons by calling the class levelNumber</p>
+<p>This method is used to refresh all the levels icons by calling the class <a href="LevelNumber.html"><code>LevelNumber</code></a>.</p>
 
 <h5 id="method-i-refresh-label-Attributes">Attributes<span><a href="#method-i-refresh-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>*<code>manager</code> : managerUi who handles the Ui. *<code>adventure</code> : class adventure session *<code>adventureInfo</code> : hash table that contains all the stars own per level</p>
+<ul><li>
+<p><code>manager</code> : ManagerUi who handles the Ui.</p>
+</li><li>
+<p><code>adventure</code> : Represents the <a href="AdventureSession.html"><code>AdventureSession</code></a> class.</p>
+</li><li>
+<p><code>adventureInfo</code> : A hash table that contains all the stars owned per level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="refresh-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 52</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumbers.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refresh</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span> ,<span class="ruby-identifier">adventureInfo</span>)
               <span class="ruby-ivar">@im</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
                       <span class="ruby-ivar">@im</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)

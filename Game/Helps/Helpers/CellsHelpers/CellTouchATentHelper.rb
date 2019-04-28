@@ -13,7 +13,7 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 ##
 # ===== Presentation
 # The CellTouchATentHelper class is a helper class inherited from FictivHelper.
-# Its role is to find a cell whitch is touching a tent.
+# Its role is to find a cell which is touching a tent.
 #
 # ===== Methods
 # * +help+ - Inherited from FictivHelper, but defined there.
@@ -35,8 +35,7 @@ public_class_method :new
 #
 # ===== How to use
 # To get helped for a cell touched by a tent :
-#    CellTouchATentHelper_instace.help(theGameYouWantHelpFor)
-# -----------
+#    CellTouchATentHelper_instance.help(theGameYouWantHelpFor)
   def help(game)
 
     white = game.white()

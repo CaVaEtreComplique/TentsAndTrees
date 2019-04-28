@@ -16,24 +16,28 @@ def require_all(_dir)
 end
 ##
 # ===== Presentation
-#LevelNumber only needs to be initialized and refresh.
-#It creates and implements the level number icon.
-##
+# The LevelNumber class creates and implements the level number icon.
+#
+# ===== Methods
+# LevelNumber only needs to be initialized and refreshed.
 class LevelNumber
+	# :nodoc:
 		attr_reader :BoxV
-		##
-		# ===== Presentation
-		# This method is used to create the level icon.
-		# An icon contain a level number icon from the levels numbers menu by creating its
-		# number, box of star corresponding and the lock icon if needed.
-		# Icons are loaded thanks to iconAsset
-		# All the other variables are used for the layout.
-		# ===== Attributes
-		# *+manager+ : managerUi who handles the Ui.
-		# *+adventure+ : class adventure session
-		# *+adventureInfo+ : hash table that contains all the stars own per level
-		# *+i+ : number of the level associated
-		#
+	# :startdoc:
+
+	##
+	# ===== Presentation
+	# This method is used to create the level icon.
+	# An icon contains a level number icon from the levels numbers menu by creating its
+	# number, box of stars corresponding and the lock icon if needed.
+	# Icons are loaded with iconAsset.
+	# All the other variables are used for the layout.
+	#
+	# ===== Attributes
+	# * +manager+ - ManagerUi who handles the Ui.
+	# * +adventure+ - Represents the AdventureSession class.
+	# * +adventureInfo+ - A hash table that contains all the stars owned per level.
+	# * +i+ - The associated number of the level.
   def initialize(i,manager,adventure, adventureInfo,ic)
 		@police=25
 		@ic=ic
@@ -46,17 +50,18 @@ class LevelNumber
 		@s=Star.new(adventure.getLevelInformation(i)[3],0,ic)
 		refresh(i,manager,adventure,adventureInfo)
   end
+
 	##
 	# ===== Presentation
 	# This method is used to refresh the level icon.
-	# An icon contain a level number icon from the levels numbers menu by refreshing its
-	# number, box of star corresponding and the lock icon if needed.
-	# ===== Attributes
-	# *+manager+ : managerUi who handles the Ui.
-	# *+adventure+ : class adventure session
-	# *+adventureInfo+ : hash table that contains all the stars own per level
-	# *+i+ : number of the level associated
+	# An icon contains a level number icon from the levels numbers menu by refreshing its
+	# number, box of stars corresponding and the lock icon if needed.
 	#
+	# ===== Attributes
+	# * +manager+ - ManagerUi who handles the Ui.
+	# * +adventure+ - Represents the AdventureSession class.
+	# * +adventureInfo+ - Represents a hash table that contains all the stars owned per level.
+	# * +i+ - The associated number of the level.
   def refresh(i,manager,adventure,adventureInfo)
 		@adventureInfo=adventureInfo
 		@BoxH.each { |child|

@@ -12,35 +12,32 @@ require File.dirname(__FILE__) + "/Session"
 
 ##
 # ===== Presentation
-# The Levels class is use to know all levels particularity. Also to do all the
-# operation in relation with the levels.
+# The Levels class is used to know all levels particularity. It is also used to
+# do all of the operations in relation with the levels.
 #
 # ===== Methods
-# This class' methods are all described below.
-#
-##
+# This class knows its initialization method and the methods described below.
 class Levels
 
+	# :nodoc:
 	attr_reader :levels, :maxScore, :overallStarsHash
 	attr_writer :maxScore
+	# :startdoc:
 
  	## @levels is all the information about a level
-	# A level is define by : GameMode, Difficulty, score Multiplier, MaxStars, Number of grid to finish, LevelNumber
+	# A level is defined by : GameMode, Difficulty, score Multiplier, MaxStars, Number of grid to finish, LevelNumber
 
 	##
 	# ===== Presentation
-	# This class constructor initialize a hash table levels wich conatain all
-	# the information of all level. A level is defined by its game mode, its
-	# difficulty, its score multiplier, the number of stars that we can have, the
-	# number of grid to complete the level and its number.
-	# It also initialize another hash table wich contain the stars needed to unlock
-	# each level.
-	# A hash table thatwill contain the information about all the number of stars
-	# that the user has per level.
-	# And a hash table that will contain all session in connection with the levels
-	# hash table.
+	# This class' constructor initializes the variables, 4 hash tables described below.
 	#
-	##
+	# ===== Variables
+	# * +levels+ - A hash table which contains all of the information about every level.
+	# A level is defined by its game mode, its difficulty, its score multiplier,
+	# the number of stars that we can have, the number of grids to complete the level and its number.
+	# * +neededStars+ - A hash table which contains the number of stars needed to unlock each level.
+	# * +overallStarsHash+ - A hash table that will contain the number of stars that the user has per level.
+	# * +levelsSession+ - A hash table that will contain all session in connection with the levels hash table.
 	def initialize()
     @levels = {
 			1 => [:quickplay, :easy, 1, 3, 1,1],
@@ -65,14 +62,14 @@ class Levels
 	# This method is used when the player wants to play a level in the adventure.
 	#
 	# ===== Attributes
-	# * +level+ : The Number of the level.
+	# * +level+ : The level's number.
 	#
 	# ===== Returns
 	# This method returns the session of the level.
 	#
 	# ===== Examples
 	# This method creates a finishedGrid variable and calls the method initLevel
-	# if the levelsSession hash table has the level number as key  and the session
+	# if the levelsSession hash table has the level's number as a key and the session
 	# of the level is nil :
 	# 		if @levelsSession.has_key?(level)
 	# 			if @levelsSession[level] == nil
@@ -82,7 +79,7 @@ class Levels
 	# 				else
 	#		 		self.initLevel(level)
 	#		 	end
-	##
+	# -----
   def getLevel(level)
 		@finishedGrid = 0
 		if @levelsSession.has_key?(level)
@@ -100,14 +97,14 @@ class Levels
 	# This method is used when the player wants to play a level in the adventure.
 	#
 	# ===== Attributes
-	# * +level+ : The Number of the level.
+	# * +level+ : The level's number.
 	#
 	# ===== Returns
 	# This method returns a new session of the level.
 	#
 	# ===== Examples
-	# Initialize an array that contains all the information about a level.
-	# According of the gameMode and its difficulty of this level we will create
+	# Initializes an array that contains all the information about a level.
+	# According to the game mode and its difficulty for this level we will create
 	# a new session :
 	# 			case v[0]
 	#				when :quickplay
@@ -115,7 +112,7 @@ class Levels
 	#				when :timeAttack
 	#					@levelsSession[v[5]] = TimeAttackSession.new(v[1],true)
 	#				end
-	##
+	# -----
 	def initLevel(level)
 			v = @levels.fetch(level)
 			case v[0]
@@ -131,17 +128,17 @@ class Levels
 	# This method is used to know the maximal number of stars for a level.
 	#
 	# ===== Attributes
-	# * +lvll+ : The Number of the level.
+	# * +lvl+ : The level's number.
 	#
 	# ===== Returns
 	# This method returns the maximal number of stars for a level.
 	#
 	# ===== Examples
-	# Initialize an array that contains all the information about a level and return
-	# the information about the maximal number of star :
+	# Initializes an array that contains all the information about a level and returns
+	# the information about the maximal number of stars :
 	# 		evelInfo= @levels.fetch(lvl)
 	# 	 	return levelInfo[3]
-	##
+	# -----
 	def getLevelMaxStars(lvl)
 		levelInfo= @levels.fetch(lvl)
 		return levelInfo[3]
@@ -149,14 +146,14 @@ class Levels
 
 	##
 	# ===== Presentation
-	# This method is used to know if a level is continuable.
+	# This method is used to know if a level can be continued.
 	#
 	# ===== Returns
-	# This method return true or false.
+	# This method returns a boolean.
 	#
 	# ===== Examples
-	# This method tell if a level is continuable or not by verifying if the
-	# number of grid of the level is equal to the number of grid finished :
+	# This method tells if a level can be continued or not by verifying if the
+	# number of grids in the level is equal to the number of grids finished :
 	#     if numberOfGrid == 1
 	#				false
 	#			else
@@ -166,7 +163,7 @@ class Levels
 	#					false
 	#				end
 	#			end
-	##
+	# -----
 	def continuable?(numberOfGrid)
 		if numberOfGrid == 1
 			false
@@ -181,21 +178,21 @@ class Levels
 
 	##
 	# ===== Presentation
-	# This method is used when the player end a game.
-	# This is use to calculate the score with the level condition.
+	# This method is used when the player ends a game.
+	# This is used to calculate the score with the level condition.
 	#
 	# ===== Attributes
-	# * +score+ : The score of the session.
+	# * +score+ : The session's score.
 	# * +scoreMultiplier+ : The score multiplier of the level.
-	# * +numberOfGrid+ : The number of grid needed to end the level.
+	# * +numberOfGrid+ : The number of grids needed to end the level.
 	#
 	# ===== Returns
 	# This method returns the score of the session.
 	#
 	# ===== Examples
-	# This method implement the number of grid that are done and calculate the socre :
+	# This method implements the number of grids that are done and calculates the score :
 	#     	@score = (score * scoreMultiplier)/numberOfGrid
-	##
+	# -----
 	def calculateScore(scoreMultiplier, numberOfGrid,score)
 			@finishedGrid+=1
 			@score = (score * scoreMultiplier)/numberOfGrid
@@ -203,20 +200,20 @@ class Levels
 
 	##
 	# ===== Presentation
-	# This method is used when the player end a game.
-	# This is use to calculate the number of stars depending on the score.
+	# This method is used when the player ends a game.
+	# This is used to calculate the number of stars depending on the score.
 	#
 	# ===== Attributes
 	# * +score+ : The score of the session.
 	# * +maxStars+ : The maximum stars for the level.
 	# * +levelNumber+ : The number of the level.
-	# * +overAllStars+ : The hash table that contains all the stars own per level.
+	# * +overAllStars+ : The hash table that contains all the stars owned per level.
 	#
 	# ===== Returns
 	# This method returns the number of stars for a level.
 	#
 	# ===== Examples
-	# This method calculate the stars according to the maximum stars for a level :
+	# This method calculates the stars according to the maximum stars for a level :
 	# 		if maxStars == 3
 	#				if score >0.45*@maxScore
 	#					@actualStars = 3
@@ -229,8 +226,8 @@ class Levels
 	#				end
 	#			end
 	# 		...
-	# Then it update the hash table if the number of stars from this session is better
-	# than the previous one or create a new key, value instance :
+	# Then it updates the hash table if the number of stars from this session is better
+	# than the previous one or creates a new key, value instance :
 	# 		@overallStarsHash = overAllStarsHash
 	#			if @overallStarsHash.has_key?(levelNumber)
 	#				if @overallStarsHash.fetch(levelNumber)<@actualStars
@@ -239,9 +236,9 @@ class Levels
 	#			else
 	#				@overallStarsHash[levelNumber] = @actualStars
 	#			end
-	# Finaly it set the finished grid and the score variable to 0 and set the session
+	# Finaly it sets the finished grid and the score variable to 0 and sets the session
 	# to nil.
-	##
+	# -----
 	def calculateStars(score, maxStars,overAllStarsHash,levelNumber)
 		if maxStars == 3
 			if score >0.45*@maxScore
@@ -300,23 +297,23 @@ class Levels
 
 	##
 	# ===== Presentation
-	# This method is used when the player end a game.
-	# This is use to calculate the overallstars of an adventure session.
+	# This method is used when the player ends a game.
+	# This is used to calculate the overall stars of an adventure session.
 	#
 	# ===== Attributes
-	# * +overAllStarsHash+ : The hash table that contains all the stars own per level.
+	# * +overAllStarsHash+ : The hash table that contains all the stars owned per level.
 	#
 	# ===== Returns
 	# This method returns the overall stars.
 	#
 	# ===== Examples
-	# This method calculate the overall stars by additioning all the value of the
+	# This method calculates the overall stars by adding all the values of the
 	# hash table :
 	#     res = 0;
 	#			overAllStarsHash.each_value{ |v|
 	#				res +=v
 	#			}
-	##
+	# ------
 	def calculateOverallStars(overAllStarsHash)
 		res = 0;
 		overAllStarsHash.each_value{ |v|
@@ -330,21 +327,20 @@ class Levels
 	# This method is used to know if a player can access a level.
 	#
 	# ===== Attributes
-	# * +lvl+ : The number of the level.
+	# * +lvl+ : The level's number.
 	# * +overAllStars+ : The overall number of stars for an adventure.
 	#
 	# ===== Returns
-	# This method return true or false.
+	# This method returns true or false.
 	#
 	# ===== Examples
-	# This method tell if a level is avaible by fetching with the level number the
+	# This method tells if a level is available by fetching with the level number the
 	# stars needed to unlock this level and comparing it to the overall stars :
 	#     if @neededStars.fetch(lvl) > overAllStars
 	#				false
 	#			else
 	#				true
 	#			end
-	##
 	def lvlAvailable?(lvl, overAllStars)
 		if @neededStars.fetch(lvl) > overAllStars
 			false

@@ -7,46 +7,47 @@
 
 require File.dirname(__FILE__) + "/Session"
 
+##
+# ===== Presentation
+# The QuickPlaySession class is inherited from the class Session and represents
+# a game in quick play mode.
 #
-# ==== Presentation
-# The QuickPlaySession class is inherited from the class Session and represent
-# a quick game.
+# ===== Variables
+# * +game+ - This variable represents a Game class.
 #
-# ==== Variables
-# * +game+ - This variables represent a Game class
+# * +gridPick+ - This variable represents the GridGenerator class.
 #
-# * +gridPick+ - This variable represente the GridGenerator class.
+# * +time+ - A Timer class from Gtk3.
 #
-# * +time+ - A Timer Class from Gtk3.
+# * +score+ - An integer that represents the score.
 #
-# * +score+ - An integer that represent the score.
+# * +gameMode+ - The session's game mode.
 #
-# * +gameMode+ - The gameMode of Session.
+# * +difficulty+ - The difficulty involved.
 #
-# * +difficulty+ - The difficulty involve.
+# * +session+ - The type of session.
 #
-# * +session+ - The type of session
-#
-# * +save+ - The Save link to the session
+# * +save+ - The Save link to the session.
 #
 # ==== Methods
-# This class knows an initialization method described below.
+# This class knows an initialization method and the methods described below.
 class QuickPlaySession < Session
 
+	# :nodoc:
 	attr_reader :game, :gridPick, :time, :score, :difficulty, :maxScore
 	# attr_writer :score
+	# :startdoc:
 
 	##
 	# ===== Presentation
 	# This class' constructor initializes the variable using the parental
-	# constructor of Session and so create a QuickPlaySession.
+	# constructor of Session and creates a QuickPlaySession.
 	#
 	# ===== Attributes
-	# * +difficulty+ : the difficulty of the game .
-	# * +partOfAdventure+ : Boolean representing of this session is part of the
-	# adventure.
+	# * +difficulty+ : The game's difficulty.
+	# * +partOfAdventure+ : Boolean telling if this session is part of the adventure.
 	#
-	# ===== Exemple
+	# ===== How to Use
 	#    session = QuickPlaySession.new(:hard, false)
 	def initialize(difficulty, partOfAdventure=false)
 		super(:quickplay,difficulty, partOfAdventure)
@@ -54,9 +55,9 @@ class QuickPlaySession < Session
 
 	##
 	# ===== Presentation
-	# This methode redefine the calculateScore method from Session in order to
-	# calculate the score of session by using @game.
-	#
+	# This method redefines the calculateScore method from Session in order to
+	# calculate the session's score by using +game+.
+	# -----
 	def calculateScore
 		if @game
       @score += [@gridPick.associatedTimer-@game.time,0].max
@@ -67,20 +68,20 @@ class QuickPlaySession < Session
 
 	##
 	# ===== Presentation
-	# This methode redefine the isTutorial? method of Session class in order to
-	# define this session as a tutorial
+	# This method redefines the isTutorial? method from the Session class in order to
+	# define this session as a tutorial.
 	#
-	# ===== Exemple
+	# ===== How to Use
 	#    session.isTutorial?()  #return true
+	# -----
 	def isTutorial?
 		return false
 	end
 
 	##
 	# ===== Presentation
-	# This methode redefine the method setTime from Session in order to set the
+	# This method redefines the setTime method from Session in order to set the
 	# timer at 0.
-	#
 	def setTime
 			@time=0
 	end

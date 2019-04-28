@@ -65,19 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
-    <li class="calls-super" ><a href="#method-i-applyOn">#applyOn</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -88,6 +76,10 @@
 
   <section class="description">
     
+<h5 id="class-AdventureVictoryScreen-label-404">404<span><a href="#class-AdventureVictoryScreen-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class was not commented in the first place, so it can not be documented.</p>
+
   </section>
 
   
@@ -101,164 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(manager,session)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="Screen.html#method-c-new"><code>Screen::new</code></a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/AdventureVictoryScreen.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">session</span>)
-  <span class="ruby-ivar">@manager</span>=<span class="ruby-identifier">manager</span>
-  <span class="ruby-keyword">super</span>(<span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">win</span>)
-  <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREEN</span>
-              <span class="ruby-ivar">@pad</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTON_PADDING</span>
-  <span class="ruby-ivar">@gtkObject</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">3</span>)
-  <span class="ruby-ivar">@vBox</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
-  <span class="ruby-ivar">@session</span>=<span class="ruby-identifier">session</span>
-
-  <span class="ruby-ivar">@bjr</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Alignment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
-  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@vBox</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">1</span>)
-  <span class="ruby-ivar">@gtkObject</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">pixbuf:</span> <span class="ruby-ivar">@buffer</span>),<span class="ruby-value">0</span>,<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value">3</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-applyOn" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">applyOn</span><span
-            class="method-args">(widget,sScore,isWon, associatedTimer)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="Screen.html#method-i-applyOn"><code>Screen#applyOn</code></a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="applyOn-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/AdventureVictoryScreen.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">applyOn</span>(<span class="ruby-identifier">widget</span>,<span class="ruby-identifier">sScore</span>,<span class="ruby-identifier">isWon</span>, <span class="ruby-identifier">associatedTimer</span>)
-  <span class="ruby-ivar">@score</span>=<span class="ruby-identifier">sScore</span>
-  <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">adventureInfo</span>.<span class="ruby-identifier">maxScore</span> = (<span class="ruby-identifier">associatedTimer</span><span class="ruby-operator">*</span><span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">2</span>])
-  <span class="ruby-ivar">@score</span> = <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">calculateScore</span>(<span class="ruby-ivar">@score</span>).<span class="ruby-identifier">truncate</span>;
-
-  <span class="ruby-ivar">@resultText</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;win&quot;</span>))
-  <span class="ruby-identifier">newlab</span> = <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;score&quot;</span>)<span class="ruby-operator">+</span><span class="ruby-ivar">@score</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-ivar">@scoreText</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">newlab</span>)
-
-  <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@resultText</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-  <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@scoreText</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">isWon</span>
-    <span class="ruby-ivar">@resultText</span>.<span class="ruby-identifier">updateLabel</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getScreenTexts</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;lose&quot;</span>))
-    <span class="ruby-ivar">@resultText</span>.<span class="ruby-identifier">title</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">isWon</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">continuable?</span>
-
-      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">continuable?</span>
-        <span class="ruby-ivar">@replay</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;continue&quot;</span>))
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-ivar">@replay</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;retry&quot;</span>))
-      <span class="ruby-keyword">end</span>
-
-      <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
-        <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">replay</span>(<span class="ruby-keyword">true</span>)
-        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">runGameSession</span>(<span class="ruby-ivar">@session</span>,<span class="ruby-keyword">true</span>)
-      }
-
-      <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-
-      <span class="ruby-identifier">quit</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;quit&quot;</span>))
-      <span class="ruby-identifier">quit</span>.<span class="ruby-identifier">onClick</span>{
-        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">updateHighScore</span>
-        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">updateSave</span>
-        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
-      }
-      <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">quit</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">s</span>=<span class="ruby-constant">Star</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">levelInfo</span>[<span class="ruby-value">3</span>],<span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">calculateStars</span>,<span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">ic</span>)
-    <span class="ruby-ivar">@bjr</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">stars</span>)
-    <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@bjr</span>,<span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span> <span class="ruby-ivar">@pad</span>)
-
-    <span class="ruby-ivar">@replay</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;levelselection&quot;</span>))
-    <span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">onClick</span>{
-      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">updateSave</span>
-      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">levelNumberScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
-    }
-    <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@replay</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
-
-    <span class="ruby-identifier">quit</span>=<span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getButtonLabel</span>(<span class="ruby-string">&quot;victory&quot;</span> , <span class="ruby-string">&quot;quit&quot;</span>))
-    <span class="ruby-identifier">quit</span>.<span class="ruby-identifier">onClick</span>{
-                      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">updateSave</span>
-                      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">updateSave</span>
-      <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">mainScreen</span>.<span class="ruby-identifier">applyOn</span>(<span class="ruby-ivar">@parent</span>)
-    }
-    <span class="ruby-ivar">@vBox</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">quit</span>.<span class="ruby-identifier">gtkObject</span>, <span class="ruby-value">expand:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">fill:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">padding:</span><span class="ruby-ivar">@pad</span>)
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">widget</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

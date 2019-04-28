@@ -12,7 +12,11 @@ require "observer"
 require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../../Core/ProcessStatus"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class LoadingScreen < Screen
+   # :nodoc:
 
   attr_reader :progressCount
 

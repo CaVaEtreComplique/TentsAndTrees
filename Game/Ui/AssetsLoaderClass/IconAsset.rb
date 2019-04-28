@@ -8,15 +8,19 @@
 
 ##
 # ===== Presentation
-# Star only needs to be initialized.
-# It load all the icon.
-##
+# The IconAsset class loads all the icons.
+#
+# ===== Methods
+# This class only needs to be initialized.
 class IconAsset
+   # :nodoc:
   attr_reader :iconAsset
   @iconAssets
+  # :startdoc:
+
   ##
   # ===== Presentation
-  # This method is used to load all the icon by putting them in a hash table @iconAsset
+  # This method is used to load all the icons by putting them in a hash table +iconAsset+.
   def initialize
     pathToIcon=File.dirname(__FILE__) + "/../../../Assets/Icons/"
     @iconAssets= {
@@ -29,6 +33,18 @@ class IconAsset
       diapo4: Asset.new(File.dirname(__FILE__) + "/../../../Assets/regle/regle4.png")
     }
   end
+
+  ##
+  # ===== Presentation
+  # The iconAsset method fetches the different icons assets.
+  #
+  # ===== Arguments
+  # * +state+ - The state needed for the icon.
+  #
+  # ===== Examples
+  # This method fetches every icon asset like this :
+  #    when :starS
+  #      @iconAssets.fetch(:starS)
   def iconAsset(state)
     case state
       when :loc

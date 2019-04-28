@@ -15,12 +15,12 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 
 
 ##
-# =====Presentation
+# ===== Presentation
 # RuleScreen is an inherited class from the Screen class. This class only needs
 # to be initialized and applied, so the only method is the initializer. It
 # creates and implements the main menu from the game by creating its buttons.
 #
-# =====Variables
+# ===== Variables
 # The RuleScreen class creates the title size, text size and the padding variables with :
 #   @pad=30
 #   @widthTitre=screen.width*0.10

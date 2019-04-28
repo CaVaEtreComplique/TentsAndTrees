@@ -16,7 +16,7 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 # Its role is to find a cell whitch does not touch a tree.
 #
 # ===== Methods
-# * +help+ - This method is inherited from FictivHelper, but definded there.
+# * +help+ - This method is inherited from FictivHelper, but defined there.
 class CellDontTouchTreeHelper < FictivHelper
 
   public_class_method :new
@@ -30,12 +30,11 @@ class CellDontTouchTreeHelper < FictivHelper
    #
    # ===== Returns
    # If it finds a cell that is not touched by a tree, returns a
-   # HelpCellTooFarOfTrees instance If not, it returns a HelpNotFound instance.
+   # HelpCellTooFarOfTrees instance. If not, it returns a HelpNotFound instance.
    #
    # ===== How to use
    # To get help for a cell that is not touched by a tree :
-   #    cellDontTouchTreeHelper_instace.help(theGameYouWantHelpFor)
-   # -----------
+   #    cellDontTouchTreeHelper_instance.help(theGameYouWantHelpFor)
   def help(game)
 
     white = game.white()

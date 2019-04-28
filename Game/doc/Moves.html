@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Moves-label-Presentation">Presentation</a>
+    <li><a href="#class-Moves-label-Methods">Methods</a>
+    <li><a href="#class-Moves-label-Variables">Variables</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -96,7 +106,20 @@
 
   <section class="description">
     
-<p>This class manages all the moves within the game, epecially the undo/redo function. Its methods are undo, redo, replay, add and clear and are applied to the moves, using a redo stack.</p>
+<h5 id="class-Moves-label-Presentation">Presentation<span><a href="#class-Moves-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class manages all the moves within the game, epecially the undo/redo function.</p>
+
+<h5 id="class-Moves-label-Methods">Methods<span><a href="#class-Moves-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; methods are undo, redo, replay, add and clear and are applied to the moves, using a redo stack.</p>
+
+<h5 id="class-Moves-label-Variables">Variables<span><a href="#class-Moves-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>moves</code> - All the moves.</p>
+</li><li>
+<p><code>redo</code> - Redo stack.</p>
+</li></ul>
 
   </section>
 
@@ -130,19 +153,20 @@
 
         <div class="method-description">
           
-          <p>Creates a new <a href="Moves.html"><code>Moves</code></a> object.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The class&#39; constructor. It creates a new <a href="Moves.html"><code>Moves</code></a> object.</p>
+
+<h5 id="method-c-new-label-Arguments">Arguments<span><a href="#method-c-new-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><strong>Arguments</strong> :</p>
-<ul><li>
-<p><code>moves</code> -&gt; all the <a href="Moves.html"><code>Moves</code></a> (empty by default).</p>
-</li></ul>
+<p><code>moves</code> -&gt; All the <a href="Moves.html"><code>Moves</code></a> (empty by default).</p>
 </li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">moves</span> = [])
         <span class="ruby-ivar">@moves</span> = <span class="ruby-identifier">moves</span>
         <span class="ruby-ivar">@redo</span> = []
@@ -178,19 +202,21 @@
 
         <div class="method-description">
           
-          <p>Adds a move to the “moves” stack and clears redo stack.</p>
-<ul><li>
-<p><strong>Arguments</strong> :</p>
+          <h5 id="method-i-add-label-Presentation">Presentation<span><a href="#method-i-add-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>Adds a move to the “moves” stack and clears the redo stack.</p>
+
+<h5 id="method-i-add-label-Arguments">Arguments<span><a href="#method-i-add-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>move</code> -&gt; the move to add.</p>
 </li></ul>
-</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 44</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">move</span>)
         <span class="ruby-ivar">@moves</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">move</span>)
         <span class="ruby-identifier">clearRedo</span>
@@ -218,13 +244,16 @@
 
         <div class="method-description">
           
-          <p>Clears the redo stack.</p>
+          <h5 id="method-i-clearRedo-label-Presentation">Presentation<span><a href="#method-i-clearRedo-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method clears the redo stack.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="clearRedo-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 81</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clearRedo</span>
         <span class="ruby-ivar">@redo</span>.<span class="ruby-identifier">clear</span>
 <span class="ruby-keyword">end</span></pre>
@@ -251,24 +280,25 @@
 
         <div class="method-description">
           
-          <p>Redoes the last undo move (i.e replay it on the given game) and pushes it on the undo stack.</p>
-<ul><li>
-<p><strong>Arguments</strong> :</p>
+          <h5 id="method-i-redo-label-Presentation">Presentation<span><a href="#method-i-redo-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method redoes the last undo move (i.e replay it on the given game) and pushes it on the undo stack.</p>
+
+<h5 id="method-i-redo-label-Arguments">Arguments<span><a href="#method-i-redo-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>game</code> -&gt; the game to redo on.</p>
 </li></ul>
-</li><li>
-<p><strong>Returns</strong> :</p>
-<ul><li>
-<p>The redo move to proc.</p>
-</li></ul>
-</li></ul>
+
+<h5 id="method-i-redo-label-Returns">Returns<span><a href="#method-i-redo-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The redo move to process.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="redo-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 71</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">redo</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@redo</span>.<span class="ruby-identifier ruby-title">last</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
                 <span class="ruby-ivar">@moves</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@redo</span>.<span class="ruby-identifier">pop</span>)
@@ -299,19 +329,21 @@
 
         <div class="method-description">
           
-          <p>Replays each move on the given <a href="Game.html"><code>Game</code></a>.</p>
-<ul><li>
-<p><strong>Arguments</strong> :</p>
+          <h5 id="method-i-replay-label-Presentation">Presentation<span><a href="#method-i-replay-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The replay method replays each move on the given <a href="Game.html"><code>Game</code></a>.</p>
+
+<h5 id="method-i-replay-label-Arguments">Arguments<span><a href="#method-i-replay-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>game</code> -&gt; the <a href="Game.html"><code>Game</code></a> to replay on.</p>
 </li></ul>
-</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="replay-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">game</span>)
         <span class="ruby-ivar">@moves</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">move</span><span class="ruby-operator">|</span>
                 <span class="ruby-identifier">move</span>.<span class="ruby-identifier">replay</span>(<span class="ruby-identifier">game</span>)
@@ -340,24 +372,24 @@
 
         <div class="method-description">
           
-          <p>Undoes the last move (i.e replay it on the given game) and pushes it on the redo stack.</p>
-<ul><li>
-<p><strong>Arguments</strong> :</p>
+          <h5 id="method-i-undo-label-Presentation">Presentation<span><a href="#method-i-undo-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method undoes the last move (i.e replay it on the given game) and pushes it on the redo stack.</p>
+
+<h5 id="method-i-undo-label-Arguments">Arguments<span><a href="#method-i-undo-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>game</code> -&gt; the <a href="Game.html"><code>Game</code></a> to undo on.</p>
 </li></ul>
-</li><li>
-<p><strong>Returns</strong> :</p>
-<ul><li>
-<p>The undo move to proc.</p>
-</li></ul>
-</li></ul>
+
+<h5 id="method-i-undo-label-Returns">Returns<span><a href="#method-i-undo-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The undo move to process.</p>
           
           
 
           
           <div class="method-source-code" id="undo-source">
-            <pre><span class="ruby-comment"># File Core/Moves.rb, line 56</span>
+            <pre><span class="ruby-comment"># File Core/Moves.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">undo</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@moves</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
                 <span class="ruby-ivar">@redo</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@moves</span>.<span class="ruby-identifier">pop</span>)

@@ -6,8 +6,11 @@
 # @Last modified time: 26-Apr-2019
 
 
-
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class GridGenerator
+   # :nodoc:
   @grid
   @rows
   @cols

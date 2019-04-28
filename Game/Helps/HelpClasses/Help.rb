@@ -7,6 +7,7 @@
 
 require_all(__FILE__)
 ##
+# ===== Presentation
 # The help class is an abstract class. It is the general parent of all the other
 # help classes in the game. To see the help classes tree, see below :
 #
@@ -21,8 +22,10 @@ class Help
   # :nodoc:
   private_class_method :new  #abstract class
 
-
   # :startdoc:
+
+  ##
+  # ===== Presentation
   # The class' constructor.
   # This method takes no parameters and initializes two variables :
   # * +price+ : An integer giving the cost of each help. Here, it is initialized at 5.
@@ -38,7 +41,10 @@ class Help
   attr_reader :helpText
   # :startdoc:
 
+  ##
+  # ===== Presentation
   # This tries to find the necessary help.
+  #
   # ===== Returns
   # Returns true if help has been found, else it returns false.
   # --------------
@@ -46,8 +52,11 @@ class Help
     return true
   end
 
+  ##
+  # ===== Presentation
   # This method fetches the help text for a given help level. It is used to
-  # initialize the @helpText variable in the class' constructor.
+  # initialize the +helpText+ variable in the class' constructor.
+  #
   # ===== Returns
   # Returns the help text.
   # ---------
@@ -55,14 +64,19 @@ class Help
       return @textManager.getHelpsTexts("help", 0, 0)
   end
 
+  ##
+  # ===== Presentation
   # This method a redefinition of the to_s method, used to print the help text.
+  #
   # ===== Returns
-  # Returns the @helpText variable's value and a line break.
+  # Returns the +helpText+ variable's value and a line break.
   # -----------
   def to_s
     return @helpText + "\n"
   end
 
+  ##
+  # ===== Presentation
   # This method returns the UI printable form of the help.
   # -----------
   def getRes(helpLevel)
@@ -71,23 +85,31 @@ class Help
     res.push(cellsList(helpLevel))
   end
 
+  ##
+  # ===== Presentation
   # This method returns an array with all the important cells for the help.
   # -----------
   def cellsList(helpLevel)
     return Array.new
   end
 
+  ##
+  # ===== Presentation
   # This method checks the price of a given help level.
+  #
   # ===== Returns
   #  @price * helpLevel
-  # The @price variable (initialized at 5) times the help level, so the prices
+  # The +price+ variable (initialized at 5) times the help level, so the prices
   # go higher as the help gets higher and the game gets easier.
   # ----------
   def price(helpLevel)
     return @price * helpLevel
   end
 
+  ##
+  # ===== Presentation
   # This method is a redefinition of the == method.
+  #
   # ===== Returns
   #   return (self.class == otherHelp.class)
   # A boolean telling if the two classes are equal.

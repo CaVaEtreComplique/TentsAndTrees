@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Session-label-Presentation">Presentation</a>
+    <li><a href="#class-Session-label-Variables">Variables</a>
+    <li><a href="#class-Session-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -106,7 +116,32 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;zeigon&gt; @Date:   01-Mar-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: Session.rb @Last modified by:   zeigon @Last modified time: 08-Apr-2019</p>
+<h5 id="class-Session-label-Presentation">Presentation<span><a href="#class-Session-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="Session.html"><code>Session</code></a> class implements everything about a game session in the game.</p>
+
+<h5 id="class-Session-label-Variables">Variables<span><a href="#class-Session-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - This variable represents a <a href="Game.html"><code>Game</code></a> class.</p>
+</li><li>
+<p><code>gridPick</code> - This variable represents the <a href="GridGenerator.html"><code>GridGenerator</code></a> class.</p>
+</li><li>
+<p><code>time</code> - A Timer Class from Gtk3.</p>
+</li><li>
+<p><code>score</code> - An integer that represents the score.</p>
+</li><li>
+<p><code>gameMode</code> - The game mode of <a href="Session.html"><code>Session</code></a>.</p>
+</li><li>
+<p><code>difficulty</code> - The difficulty involved.</p>
+</li><li>
+<p><code>session</code> - The type of session.</p>
+</li><li>
+<p><code>save</code> - The <a href="Save.html"><code>Save</code></a> link to the session.</p>
+</li></ul>
+
+<h5 id="class-Session-label-Methods">Methods<span><a href="#class-Session-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class knows an initialization method and the methods described below.</p>
 
   </section>
 
@@ -118,118 +153,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-difficulty" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">difficulty</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-game" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">game</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gameMode" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gameMode</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gridPick" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gridPick</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-save" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">save</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-score" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">score</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-session" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">session</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-time" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">time</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -252,13 +175,30 @@
 
         <div class="method-description">
           
-          <p>attr_writer :score</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the variables <code>gameMode</code>, <code>difficulty</code> and <code>score</code> .</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>gameMode</code> : The session&#39;s game mode (:tutorial, :quickplay or :timeAttack).</p>
+</li><li>
+<p><code>difficulty</code> : The difficulty of the game.</p>
+</li><li>
+<p><code>partOfAdventure</code> : Boolean representing if this session is part of the adventure, if not partOfAdventure is set to false.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">session</span> = <span class="ruby-constant">Session</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:tutorial</span>, <span class="ruby-value">:hard</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-identifier">session</span> = <span class="ruby-constant">Session</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:timeAttack</span>, <span class="ruby-value">:hard</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 14</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">gameMode</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
         <span class="ruby-ivar">@gameMode</span>=<span class="ruby-identifier">gameMode</span>
         <span class="ruby-ivar">@difficulty</span>=<span class="ruby-identifier">difficulty</span>
@@ -297,13 +237,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-calculateScore-label-Presentation">Presentation<span><a href="#method-i-calculateScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method calculates the score.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 54</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 134</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -330,13 +273,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-continuable-3F-label-Presentation">Presentation<span><a href="#method-i-continuable-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method tells if a session can be continued.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 50</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 126</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
         <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
@@ -363,13 +309,23 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-createSave-label-Presentation">Presentation<span><a href="#method-i-createSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method creates a <a href="Save.html"><code>Save</code></a> linked to the <a href="Session.html"><code>Session</code></a> and adds it to the database.</p>
+
+<h5 id="method-i-createSave-label-Examples">Examples<span><a href="#method-i-createSave-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The following request will call the method save from the class <a href="ConnectDB.html"><code>ConnectDB</code></a> to create the save :</p>
+
+<pre class="ruby"><span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">save</span>(<span class="ruby-constant">Connexion</span>.<span class="ruby-identifier">getJoueur</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_yaml</span>()).<span class="ruby-identifier">id_save</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="createSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">createSave</span>
         <span class="ruby-ivar">@save</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">save</span>(<span class="ruby-constant">Connexion</span>.<span class="ruby-identifier">getJoueur</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_yaml</span>()).<span class="ruby-identifier">id_save</span>
 <span class="ruby-keyword">end</span></pre>
@@ -396,13 +352,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-deleteSave-label-Presentation">Presentation<span><a href="#method-i-deleteSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method deletes the linked save from the database, calling the method from <a href="ConnectDB.html"><code>ConnectDB</code></a>.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="deleteSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 38</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteSave</span>
                 <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">deleteSave</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -429,13 +388,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-isTutorial-3F-label-Presentation">Presentation<span><a href="#method-i-isTutorial-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns true if the session is a tutorial level, false otherwise.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="isTutorial-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isTutorial?</span>
         <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
@@ -462,13 +424,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-partOfAdventure-3F-label-Presentation">Presentation<span><a href="#method-i-partOfAdventure-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the variable <code>partOfAdventure</code>, in order to know if the session is an adventure.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="partOfAdventure-3F-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 26</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">partOfAdventure?</span>
         <span class="ruby-ivar">@partOfAdventure</span>
 <span class="ruby-keyword">end</span></pre>
@@ -495,13 +460,43 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-replay-label-Presentation">Presentation<span><a href="#method-i-replay-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method replays a game with the same parameters.</p>
+
+<h5 id="method-i-replay-label-Attributes">Attributes<span><a href="#method-i-replay-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>continue</code> : Boolean allowing to continue an already launched game.</p>
+</li></ul>
+
+<h5 id="method-i-replay-label-Examples">Examples<span><a href="#method-i-replay-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>First the grid is generated :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@gridPick</span> = <span class="ruby-constant">GridGenerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@difficulty</span>)
+</pre>
+
+<p>Then we change the value of time whether we continue or not :</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">continue</span>
+   <span class="ruby-ivar">@time</span>=<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">time</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span>
+<span class="ruby-keyword">else</span>
+   <span class="ruby-identifier">setTime</span>
+   <span class="ruby-ivar">@score</span>=<span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>And finally we create a new game :</p>
+
+<pre class="ruby"><span class="ruby-ivar">@game</span>=<span class="ruby-constant">Game</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="replay-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 62</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 166</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replay</span>(<span class="ruby-identifier">continue</span>)
         <span class="ruby-comment"># Generation de la grille</span>
         <span class="ruby-ivar">@gridPick</span> = <span class="ruby-constant">GridGenerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@difficulty</span>)
@@ -539,13 +534,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-setSave-label-Presentation">Presentation<span><a href="#method-i-setSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method links a <a href="Save.html"><code>Save</code></a> to the <a href="Session.html"><code>Session</code></a>.</p>
+
+<h5 id="method-i-setSave-label-Attributes">Attributes<span><a href="#method-i-setSave-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>save</code> : The <a href="Save.html"><code>Save</code></a> that is going to be linked.</p>
+</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="setSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setSave</span>(<span class="ruby-identifier">save</span>)
                 <span class="ruby-ivar">@save</span> = <span class="ruby-identifier">save</span>
 <span class="ruby-keyword">end</span></pre>
@@ -572,13 +575,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-setTime-label-Presentation">Presentation<span><a href="#method-i-setTime-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method sets the base time for the timer.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 58</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -605,13 +611,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-updateSave-label-Presentation">Presentation<span><a href="#method-i-updateSave-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method updates the linked save from the database.</p>
           
           
 
           
           <div class="method-source-code" id="updateSave-source">
-            <pre><span class="ruby-comment"># File Core/Session.rb, line 42</span>
+            <pre><span class="ruby-comment"># File Core/Session.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updateSave</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@gameMode</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:adventure</span>
                 <span class="ruby-keyword">self</span>.<span class="ruby-identifier">game</span>.<span class="ruby-identifier">delete_observers</span>

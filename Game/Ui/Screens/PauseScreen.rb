@@ -11,7 +11,11 @@ require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
 require File.dirname(__FILE__) + "/../Diapo"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class PauseScreen < Screen
+   # :nodoc:
 
   def initialize(gameScreen,manager,game)
     super(manager.win)

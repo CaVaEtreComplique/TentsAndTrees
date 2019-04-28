@@ -17,26 +17,26 @@ end
 
 ##
 # ===== Presentation
-#LevelSelectionScreen is an inherited class from the Screen class. This class only needs
-#to be initialized and refresh.
-#It creates and implements the level selection menu from the game by creating its
-#levels numbers.
-##
-
+# LevelSelectionScreen is an inherited class from the Screen class. This class only needs
+# to be initialized and refreshed.
+# It creates and implements the level selection menu from the game by creating its
+# levels numbers.
 class LevelSelectionScreen < Screen
 
+# :nodoc:
 attr_reader :adventure, :adventureInfo, :overAllStars
+# :startdoc:
+
+# ===== Presentation
+# This method is used to create the level selection by calling the class LevelNumbers.
+# All images will be charged thanks to the class IconAsset.
+# A scrollable area is also created by calling the class ScrollableArea, which contains
+# buttons and boxes. These buttons are made by the class levelNumbers and represents the level numbers, the loc and the stars.
+# On the page we can find the number of stars that we own contained in the box etoileTotal.
+# All the other variables are used for the layout.
 #
-#=====Presentation
-#This method is used to create the level selection by calling the class LevelNumbers.
-#ALl images will be charged thanks to the class IconAsset.
-#A scrolable area is also created by calling the class ScrolableArea, which contains
-#buttons and boxes. These buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars.
-#On the page we can find the number of stars that we own contain in the box etoileTotal.
-#All the other variable are used for the layout.
-#=====Attributes
-# *+manager+ : managerUi who handle the Ui
-##
+# ===== Attributes
+# * +manager+ : ManagerUi who handles the Ui.
   def initialize(manager,ic)
 		super(manager.win)
 		@manager = manager
@@ -86,12 +86,12 @@ attr_reader :adventure, :adventureInfo, :overAllStars
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
 	end
 
-	#
-	#=====Presentation
-	#This method is used to refresh star's icons
-	#=====Return
-	# this method return the box etoileTotal which contain all the stars
 	##
+	# ===== Presentation
+	# This method is used to refresh star's icons.
+	#
+	# ===== Return
+	# This method returns the box etoileTotal which contains all the stars.
 	def refreshOverAllStar
 		@etoileTotal.each { |child|
 			@etoileTotal.remove(child)
@@ -103,14 +103,14 @@ attr_reader :adventure, :adventureInfo, :overAllStars
 		@etoileTotal.pack_start(nbEtoile.gtkObject,expand: false, fill: true, padding:@pad)
 	end
 
-	#
-	#=====Presentation
-	#This method is used to refresh the page by calling the method refresh of the class LevelNumbers
-	#=====Attributes
-	# *+widget+ : the widget associated
-	#=====Return
-	# this method return the widget refreshed
 	##
+	# ===== Presentation
+	# This method is used to refresh the page by calling the method refresh of the class LevelNumbers.
+	# ===== Attributes
+	# * +widget+ - The associated widget.
+	# ===== Returns
+	# This method returns the refreshed widget.
+	# -----
 	def applyOn(widget)
 		refreshOverAllStar
 		@icones.refresh(@manager,@adventure,@adventure.overAllStarsHash)

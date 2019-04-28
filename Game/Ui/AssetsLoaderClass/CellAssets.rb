@@ -9,7 +9,11 @@
 
 require File.dirname(__FILE__) + "/../AssetsClass/CellAsset"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class CellAssets
+	# :nodoc:
 	@cellAssets
 	@cellAssetsSelected
 	@cellAssetsFrozen

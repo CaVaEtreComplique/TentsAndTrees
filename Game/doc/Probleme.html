@@ -88,9 +88,9 @@
 
   <section class="description">
     
-<pre>===== Presentation</pre>
+<h5 id="class-Probleme-label-Presentation">Presentation<span><a href="#class-Probleme-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="Probleme.html"><code>Probleme</code></a> only needs to be initialized. It creates and implements a pop up to tell you the probleme about the identification.</p>
+<p><a href="Probleme.html"><code>Probleme</code></a> only needs to be initialized. It creates and implements a pop-up to tell you the problem about the identification.</p>
 
   </section>
 
@@ -126,13 +126,13 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create the pop up to tell you the probleme about the identification. All the other variable are used for the layout.</p>
+<p>This method is used to create the pop-up to tell you the problem about the identification. All the other variables are used for the layout.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 33</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-identifier">screen</span>=<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
               <span class="ruby-ivar">@textManager</span>=<span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
@@ -192,13 +192,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-onDestroy-label-Presentation">Presentation<span><a href="#method-i-onDestroy-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The onDestroy method makes the main window quit when it is closed.</p>
           
           
 
           
           <div class="method-source-code" id="onDestroy-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Ui/Screens/PopUp/Probleme.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">onDestroy</span>
    <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>
 <span class="ruby-keyword">end</span></pre>

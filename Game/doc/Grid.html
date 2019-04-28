@@ -110,7 +110,7 @@
 
 <h4 id="class-Grid-label-Variables">Variables<span><a href="#class-Grid-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>Each <a href="Grid.html"><code>Grid</code></a> will know two variables : @rows and @cols : two array lists, respectively the grid&#39;s rows and the grid&#39;s columns, one being the transposed of the other.</p>
+<p>Each <a href="Grid.html"><code>Grid</code></a> will know two variables : <code>rows</code> and <code>cols</code> : two array lists, respectively the grid&#39;s rows and the grid&#39;s columns, one being the transposed of the other.</p>
 
 <h4 id="class-Grid-label-Methods">Methods<span><a href="#class-Grid-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
@@ -148,28 +148,35 @@
 
         <div class="method-description">
           
-          <h4 id="method-c-new-label-Parameters">Parameters<span><a href="#method-c-new-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h4>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is the class&#39; constructor. It initializes the grid.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>nRow</code> - The number of rows</p>
+<p><code>nRow</code> - The number of rows.</p>
 </li><li>
-<p><code>nCol</code> - The number of columns</p>
+<p><code>nCol</code> - The number of columns.</p>
 </li><li>
-<p><code>gridAnswers</code> - The grid we take the data from</p>
+<p><code>gridAnswers</code> - The grid we take the data from.</p>
 </li><li>
 <p><code>withAnswers</code> - A boolean set by default to false.</p>
 </li></ul>
 
 <p>If the gridAnswers contains the actual answers, the boolean is set to true. The gridAnswers is taken from a text file.</p>
 
-<h4 id="method-c-new-label-Variables+initialization">Variables initialization<span><a href="#method-c-new-label-Variables+initialization">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h5 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>In this method, the @rows list takes its values from the grid in parameters by reading the text file. When the @rows variable is initialized, the @cols variable can be initialized by just transposing the @rows variable.</p>
+<p>In this method, the <code>rows</code> list takes its values from the grid in parameters by reading the text file. When the <code>rows</code> variable is initialized, the <code>cols</code> variable can be initialized by just transposing the <code>rows</code> variable via</p>
+
+<pre class="ruby"><span class="ruby-ivar">@cols</span> = <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">transpose</span>
+</pre>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Grid.rb, line 42</span>
+            <pre><span class="ruby-comment"># File Core/Grid.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">nRow</span>, <span class="ruby-identifier">nCol</span>, <span class="ruby-identifier">gridAnswers</span>, <span class="ruby-identifier">withAnswers</span>=<span class="ruby-keyword">false</span>)
         <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier">send</span>(<span class="ruby-string">&quot;Initialisation de la grille de jeu&quot;</span>)
         <span class="ruby-ivar">@gridAnswers</span>=<span class="ruby-identifier">gridAnswers</span>
@@ -219,9 +226,11 @@
 
         <div class="method-description">
           
-          <p>The == boolean method compares two grids and returns true if the grids are equal.</p>
+          <h5 id="method-i-3D-3D-label-Presentation">Presentation<span><a href="#method-i-3D-3D-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h4 id="method-i-3D-3D-label-Parameters">Parameters<span><a href="#method-i-3D-3D-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<p>The == boolean method compares two grids and returns true if the grids are equal.</p>
+
+<h5 id="method-i-3D-3D-label-Parameters">Parameters<span><a href="#method-i-3D-3D-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>otherGrid</code> - The grid we want to compare the current grid with.</p>
 </li></ul>
@@ -231,7 +240,7 @@
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Core/Grid.rb, line 102</span>
+            <pre><span class="ruby-comment"># File Core/Grid.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherGrid</span>)
         <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">each_with_index</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">cols</span>,<span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
                 <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>,<span class="ruby-identifier">y</span><span class="ruby-operator">|</span>
@@ -263,7 +272,11 @@
 
         <div class="method-description">
           
-          <p>The cellAt method returns the cell with the coordinates taken in parameters.</p>
+          <h5 id="method-i-cellAt-label-Presentation">Presentation<span><a href="#method-i-cellAt-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The cellAt method returns the cell with the coordinates taken in parameters.</p>
+
+<h5 id="method-i-cellAt-label-Attributes">Attributes<span><a href="#method-i-cellAt-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>row</code> - The row in which the cell we are looking for is.</p>
 </li><li>
@@ -275,7 +288,7 @@
 
           
           <div class="method-source-code" id="cellAt-source">
-            <pre><span class="ruby-comment"># File Core/Grid.rb, line 91</span>
+            <pre><span class="ruby-comment"># File Core/Grid.rb, line 104</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellAt</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">row</span>][<span class="ruby-identifier">col</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -302,9 +315,11 @@
 
         <div class="method-description">
           
-          <p>The copyFrozen method creates a new grid that will have all the non-white cells frozen in order to save the unfrozen grid if the hypothesis is rejected.</p>
+          <h5 id="method-i-copyFrozen-label-Presentation">Presentation<span><a href="#method-i-copyFrozen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h4 id="method-i-copyFrozen-label-Returns">Returns<span><a href="#method-i-copyFrozen-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<p>The copyFrozen method creates a new grid that will have all the non-empty cells frozen in order to save the unfrozen grid if the hypothesis is rejected.</p>
+
+<h5 id="method-i-copyFrozen-label-Returns">Returns<span><a href="#method-i-copyFrozen-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
 <p><code>newG</code> - The grid that has been generated.</p>
 </li></ul>
@@ -314,7 +329,7 @@
 
           
           <div class="method-source-code" id="copyFrozen-source">
-            <pre><span class="ruby-comment"># File Core/Grid.rb, line 70</span>
+            <pre><span class="ruby-comment"># File Core/Grid.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">copyFrozen</span>
         <span class="ruby-identifier">newG</span> = <span class="ruby-constant">Grid</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">size</span>, <span class="ruby-ivar">@cols</span>.<span class="ruby-identifier">size</span>,<span class="ruby-ivar">@gridAnswers</span>)
         <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">newG</span>.<span class="ruby-identifier">rows</span>).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">oldRow</span>, <span class="ruby-identifier">newRow</span><span class="ruby-operator">|</span>
@@ -347,13 +362,15 @@
 
         <div class="method-description">
           
-          <p>The each method goes through the grid&#39;s rows.</p>
+          <h5 id="method-i-each-label-Presentation">Presentation<span><a href="#method-i-each-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The each method goes through the grid&#39;s rows.</p>
           
           
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File Core/Grid.rb, line 81</span>
+            <pre><span class="ruby-comment"># File Core/Grid.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>
         <span class="ruby-keyword">yield</span> <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">each</span>
 <span class="ruby-keyword">end</span></pre>

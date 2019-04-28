@@ -13,7 +13,12 @@ require File.dirname(__FILE__) + "/Grid"
 require File.dirname(__FILE__) + "/GridGenerator"
 require File.dirname(__FILE__) + "/../Helps/Helpers/Helper"
 
+
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class Game
+   # :nodoc:
   include Observable
 	@currentGuess
 	@correction

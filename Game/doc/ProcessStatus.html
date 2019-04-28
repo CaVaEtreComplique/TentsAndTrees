@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-ProcessStatus-label-Presentation">Presentation</a>
+    <li><a href="#class-ProcessStatus-label-Variables">Variables</a>
+    <li><a href="#class-ProcessStatus-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -92,7 +102,20 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   09-Feb-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: ProcessStatus.rb @Last modified by:   zeigon @Last modified time: 12-Feb-2019</p>
+<h5 id="class-ProcessStatus-label-Presentation">Presentation<span><a href="#class-ProcessStatus-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="ProcessStatus.html"><code>ProcessStatus</code></a> class is the representation of the design pattern observator. It gives the possibility to send messages to multiple other classes.</p>
+
+<h5 id="class-ProcessStatus-label-Variables">Variables<span><a href="#class-ProcessStatus-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>status</code> - This class variable is a String that represents the message received.</p>
+</li><li>
+<p><code>observers</code> - This class variable represents the <a href="GridGenerator.html"><code>GridGenerator</code></a> class.</p>
+</li></ul>
+
+<h5 id="class-ProcessStatus-label-Methods">Methods<span><a href="#class-ProcessStatus-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class knows an initialization method and the methods add and send described below.</p>
 
   </section>
 
@@ -126,13 +149,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-add-label-Presentation">Presentation<span><a href="#method-c-add-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class method adds a new object to notify.</p>
+
+<h5 id="method-c-add-label-Variables">Variables<span><a href="#method-c-add-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>o</code> - The object to notify.</p>
+</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">o</span>)
   <span class="ruby-identifier">@@observers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>
 <span class="ruby-keyword">end</span></pre>
@@ -159,13 +190,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the class variables.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 14</span>
+            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">@@observers</span>).<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">@@observers</span>=<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">@@status</span>=<span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
@@ -193,13 +227,20 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-send-label-Presentation">Presentation<span><a href="#method-c-send-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class method sends a message to all the objects inside observers.</p>
+
+<h5 id="method-c-send-label-Attributes">Attributes<span><a href="#method-c-send-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>message</code> : The message to send.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="send-source">
-            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">ProcessStatus</span>.<span class="ruby-identifier ruby-title">send</span>(<span class="ruby-identifier">message</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@status</span><span class="ruby-operator">!=</span><span class="ruby-identifier">message</span>
     <span class="ruby-identifier">@@status</span>=<span class="ruby-identifier">message</span>
@@ -241,13 +282,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-recive-label-Presentation">Presentation<span><a href="#method-i-recive-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the actual status</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="recive-source">
-            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Core/ProcessStatus.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recive</span>
   <span class="ruby-identifier">@@status</span>
 <span class="ruby-keyword">end</span></pre>

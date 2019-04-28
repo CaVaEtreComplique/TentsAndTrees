@@ -10,7 +10,11 @@ require 'gtk3'
 require File.dirname(__FILE__) + "/AssetsClass/Asset"
 require File.dirname(__FILE__) + "/AssetsLoaderClass/IconAsset"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class Diapo
+   # :nodoc:
   attr_accessor :hBox, :nextButton, :previousButton, :rule, :box
 
 def initialize(width , height, textManager,ic)

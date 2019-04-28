@@ -99,11 +99,11 @@
     
 <h4 id="class-Count-label-Presentation">Presentation<span><a href="#class-Count-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>The <a href="Count.html"><code>Count</code></a> class give some extended methode to <a href="Game.html"><code>Game</code></a> class</p>
+<p>The <a href="Count.html"><code>Count</code></a> class gives some extended methods to the <a href="Game.html"><code>Game</code></a> class.</p>
 
 <h4 id="class-Count-label-Methods">Methods<span><a href="#class-Count-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>This class know the count and findFirst methode describe below</p>
+<p>This class knows the count and findFirst method described below.</p>
 
   </section>
 
@@ -139,7 +139,7 @@
           
           <h4 id="method-c-count-label-Presentation">Presentation<span><a href="#method-c-count-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p>This class methode count the number of cell who are in a certain state inside a row or column.</p>
+<p>This class method counts the number of cells who are in a certain state inside a row or column.</p>
 
 <h5 id="method-c-count-label-Attributes">Attributes<span><a href="#method-c-count-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -147,26 +147,30 @@
 </li><li>
 <p><code>state</code> - The state of the cell we are looking for.</p>
 </li><li>
-<p><code>vertHor</code> - The orientation, put 0 if we are looking for a row otherwise</p>
-
-<pre>it will look for a column.</pre>
+<p><code>vertHor</code> - The orientation, put 0 if we are looking for a row, otherwise it will look for a column.</p>
 </li><li>
 <p><code>rank</code> - The row or column number we want to do our research in.</p>
 </li></ul>
 
 <h5 id="method-c-count-label-Returns">Returns<span><a href="#method-c-count-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the number of cell who are in the specified state inside a specified row or column</p>
+<p>This method returns the number of cells who are in the specified state inside a specified row or column.</p>
 
-<h5 id="method-c-count-label-Exemple">Exemple<span><a href="#method-c-count-label-Exemple">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<h5 id="method-c-count-label-Examples">Examples<span><a href="#method-c-count-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>W -&gt; white cell; T -&gt; not white cell | W | W | T | T | W | W | W | T | W | -&gt; row number 3 of game nb = <a href="Count.html#method-c-count"><code>Count.count</code></a>(game, white, 1, 3) nb will print : 6</p>
+<p>W -&gt; white cell; T -&gt; not white cell</p>
+
+<pre>| W | W | T | T | W | W | W | T | W | -&gt; row number 3 of game
+nb = Count.count(game, white, 1, 3)</pre>
+
+<p>nb will print : 6</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="count-source">
-            <pre><span class="ruby-comment"># File Helps/Count.rb, line 36</span>
+            <pre><span class="ruby-comment"># File Helps/Count.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier ruby-title">count</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">vertHor</span>, <span class="ruby-identifier">rank</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">vertHor</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>)
@@ -204,9 +208,9 @@
 
         <div class="method-description">
           
-          <h4 id="method-c-findFirst-label-Presentation">Presentation<span><a href="#method-c-findFirst-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h4>
+          <h5 id="method-c-findFirst-label-Presentation">Presentation<span><a href="#method-c-findFirst-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This class methode find the first cell who is in a certain state inside a row or column.</p>
+<p>This class method finds the first cell who is in a certain state inside a row or column.</p>
 
 <h5 id="method-c-findFirst-label-Attributes">Attributes<span><a href="#method-c-findFirst-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -214,26 +218,29 @@
 </li><li>
 <p><code>state</code> - The state of the cell we are looking for.</p>
 </li><li>
-<p><code>vertHor</code> - The orientation, put 0 if we are looking for a row otherwise</p>
-
-<pre>it will look for a column.</pre>
+<p><code>vertHor</code> - The orientation, put 0 if we are looking for a row, otherwise it will look for a column.</p>
 </li><li>
 <p><code>rank</code> - The row or column number we want to do our research in.</p>
 </li></ul>
 
 <h5 id="method-c-findFirst-label-Returns">Returns<span><a href="#method-c-findFirst-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method returns the first cell who are in the specified state inside a specified row or column</p>
+<p>This method returns the first cell who are in the specified state inside a specified row or column.</p>
 
 <h5 id="method-c-findFirst-label-Exemple">Exemple<span><a href="#method-c-findFirst-label-Exemple">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>W -&gt; white cell; T -&gt; not white cell | T | T | T | T | W | W | W | T | W | -&gt; row number 3 of game nb = <a href="Count.html#method-c-count"><code>Count.count</code></a>(game, white, 1, 3) nb will print something like : &lt;Cell:0x42 @row=3, @column=4&gt;</p>
+<p>W -&gt; white cell; T -&gt; not white cell</p>
+
+<pre>| T | T | T | T | W | W | W | T | W | -&gt; row number 3 of game
+nb = Count.count(game, white, 1, 3)</pre>
+
+<p>nb will print something like : &lt;Cell:0x42 @row=3, @column=4&gt;</p>
           
           
 
           
           <div class="method-source-code" id="findFirst-source">
-            <pre><span class="ruby-comment"># File Helps/Count.rb, line 72</span>
+            <pre><span class="ruby-comment"># File Helps/Count.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Count</span>.<span class="ruby-identifier ruby-title">findFirst</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">vertHor</span>, <span class="ruby-identifier">rank</span>)
   <span class="ruby-comment">#return the first cell of the game with the state state</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">vertHor</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)

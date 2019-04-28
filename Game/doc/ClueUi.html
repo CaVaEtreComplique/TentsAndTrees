@@ -65,23 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
-    <li ><a href="#method-i-activateHelp">#activateHelp</a>
-    
-    <li ><a href="#method-i-count">#count</a>
-    
-    <li ><a href="#method-i-update">#update</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -92,6 +76,10 @@
 
   <section class="description">
     
+<h5 id="class-ClueUi-label-404">404<span><a href="#class-ClueUi-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class was not commented in the first place, so it can not be documented.</p>
+
   </section>
 
   
@@ -105,187 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(orientation, label, index, game)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="Button.html#method-c-new"><code>Button::new</code></a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ClueUi.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">orientation</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">game</span>)
-  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">orientation</span>, <span class="ruby-identifier">label</span>)
-  <span class="ruby-ivar">@orientation</span> = <span class="ruby-identifier">orientation</span>
-      <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">use_markup</span> = <span class="ruby-keyword">true</span>
-  <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span weight=&#39;ultrabold&#39; foreground=&#39;black&#39; size=&#39;x-large&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
-  <span class="ruby-ivar">@index</span> = <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@game</span> = <span class="ruby-identifier">game</span>
-  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">add_observer</span>(<span class="ruby-keyword">self</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-activateHelp" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">activateHelp</span><span
-            class="method-args">(bool)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="activateHelp-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ClueUi.rb, line 48</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activateHelp</span>(<span class="ruby-identifier">bool</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bool</span>
-    <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">add_observer</span>(<span class="ruby-keyword">self</span>)
-    <span class="ruby-identifier">update</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span foreground=&#39;black&#39; weight=&#39;ultrabold&#39; size=&#39;x-large&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
-    <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">delete_observer</span>(<span class="ruby-keyword">self</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-count" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">count</span><span
-            class="method-args">(state)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="count-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ClueUi.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">count</span>(<span class="ruby-identifier">state</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@orientation</span><span class="ruby-operator">==</span><span class="ruby-value">:horizontal</span>
-    <span class="ruby-keyword">return</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@game</span>.<span class="ruby-identifier">nCol</span>).<span class="ruby-identifier">count</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span>
-      <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-ivar">@index</span>,<span class="ruby-identifier">y</span>).<span class="ruby-identifier">state</span><span class="ruby-operator">==</span><span class="ruby-identifier">state</span>
-    }
-  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@orientation</span><span class="ruby-operator">==</span><span class="ruby-value">:vertical</span>
-    <span class="ruby-keyword">return</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@game</span>.<span class="ruby-identifier">nRow</span>).<span class="ruby-identifier">count</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
-      <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">cellAt</span>(<span class="ruby-identifier">x</span>,<span class="ruby-ivar">@index</span>).<span class="ruby-identifier">state</span><span class="ruby-operator">==</span><span class="ruby-identifier">state</span>
-    }
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-update" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">update</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Ui/Buttons/ClueUi.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
-  <span class="ruby-identifier">i</span> = <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
-  <span class="ruby-identifier">c</span>=<span class="ruby-identifier">count</span>(<span class="ruby-value">:tent</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">c</span>
-    <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span foreground=&#39;blue&#39; weight=&#39;ultrabold&#39; size=&#39;x-large&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
-  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">c</span>
-    <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span foreground=&#39;red&#39; weight=&#39;ultrabold&#39; size=&#39;x-large&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">set_markup</span>(<span class="ruby-string">&quot;&lt;span foreground=&#39;black&#39; weight=&#39;ultrabold&#39; size=&#39;x-large&#39;&gt;&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@gtkLabels</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;&lt;/span&gt;&quot;</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

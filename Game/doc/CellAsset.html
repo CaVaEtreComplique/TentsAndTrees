@@ -65,19 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li class="calls-super" ><a href="#method-c-new">::new</a>
-    
-    <li class="calls-super" ><a href="#method-i-resize">#resize</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -88,6 +76,10 @@
 
   <section class="description">
     
+<h5 id="class-CellAsset-label-404">404<span><a href="#class-CellAsset-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class was not commented in the first place, so it can not be documented.</p>
+
   </section>
 
   
@@ -101,105 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(file,nRows, nCols)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="Asset.html#method-c-new"><code>Asset::new</code></a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/CellAsset.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">nRows</span>, <span class="ruby-identifier">nCols</span>)
-        <span class="ruby-ivar">@nRows</span>=<span class="ruby-identifier">nRows</span>
-        <span class="ruby-ivar">@nCols</span>=<span class="ruby-identifier">nCols</span>
-        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">file</span>)
-        <span class="ruby-identifier">resize</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-resize" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">resize</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              <a href="Asset.html#method-i-resize"><code>Asset#resize</code></a>
-            </div>
-          
-
-          
-          <div class="method-source-code" id="resize-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/CellAsset.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resize</span>
-                <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Screen</span>.<span class="ruby-identifier">default</span>
-                <span class="ruby-identifier">m1</span>=((<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span><span class="ruby-operator">*</span><span class="ruby-value">0.7</span> ) <span class="ruby-operator">/</span> (<span class="ruby-ivar">@nCols</span><span class="ruby-value">+1</span>)) <span class="ruby-operator">-</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SPACING</span>
-                <span class="ruby-identifier">m2</span>=((<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span><span class="ruby-operator">*</span><span class="ruby-value">1.0</span>) <span class="ruby-operator">/</span> (<span class="ruby-ivar">@nRows</span><span class="ruby-value">+1</span>)) <span class="ruby-operator">-</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SPACING</span>
-                <span class="ruby-identifier">mf</span>= <span class="ruby-identifier">m1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">m2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">m1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">m2</span>
-                <span class="ruby-keyword">super</span>(<span class="ruby-identifier">mf</span>,<span class="ruby-identifier">mf</span>)
-        <span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

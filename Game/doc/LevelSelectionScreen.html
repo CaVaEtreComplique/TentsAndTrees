@@ -90,9 +90,9 @@
 
   <section class="description">
     
-<pre>===== Presentation</pre>
+<h5 id="class-LevelSelectionScreen-label-Presentation">Presentation<span><a href="#class-LevelSelectionScreen-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="LevelSelectionScreen.html"><code>LevelSelectionScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and refresh. It creates and implements the level selection menu from the game by creating its levels numbers.</p>
+<p><a href="LevelSelectionScreen.html"><code>LevelSelectionScreen</code></a> is an inherited class from the <a href="Screen.html"><code>Screen</code></a> class. This class only needs to be initialized and refreshed. It creates and implements the level selection menu from the game by creating its levels numbers.</p>
 
   </section>
 
@@ -104,53 +104,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-adventure" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">adventure</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-adventureInfo" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">adventureInfo</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-overAllStars" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">overAllStars</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -175,16 +128,17 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create the level selection by calling the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a>. ALl images will be charged thanks to the class <a href="IconAsset.html"><code>IconAsset</code></a>. A scrolable area is also created by calling the class ScrolableArea, which contains buttons and boxes. These buttons are made by the class levelNumbers who represente the level numbers, the loc and the stars. On the page we can find the number of stars that we own contain in the box etoileTotal. All the other variable are used for the layout.</p>
+<p>This method is used to create the level selection by calling the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a>. All images will be charged thanks to the class <a href="IconAsset.html"><code>IconAsset</code></a>. A scrollable area is also created by calling the class <a href="ScrollableArea.html"><code>ScrollableArea</code></a>, which contains buttons and boxes. These buttons are made by the class levelNumbers and represents the level numbers, the loc and the stars. On the page we can find the number of stars that we own contained in the box etoileTotal. All the other variables are used for the layout.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<pre>*+manager+ : managerUi who handle the Ui</pre>
+<ul><li>
+<p><code>manager</code> : ManagerUi who handles the Ui.</p>
+</li></ul>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Screen.html#method-c-new"><code>Screen::new</code></a>
+              
             </div>
           
 
@@ -272,20 +226,22 @@
           
           <h5 id="method-i-applyOn-label-Presentation">Presentation<span><a href="#method-i-applyOn-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to refresh the page by calling the method refresh of the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a></p>
+<p>This method is used to refresh the page by calling the method refresh of the class <a href="LevelNumbers.html"><code>LevelNumbers</code></a>.</p>
 
 <h5 id="method-i-applyOn-label-Attributes">Attributes<span><a href="#method-i-applyOn-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>widget</code> - The associated widget.</p>
+</li></ul>
 
-<pre>*+widget+ : the widget associated</pre>
+<h5 id="method-i-applyOn-label-Returns">Returns<span><a href="#method-i-applyOn-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h5 id="method-i-applyOn-label-Return">Return<span><a href="#method-i-applyOn-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<pre>this method return the widget refreshed</pre>
+<p>This method returns the refreshed widget.</p>
+<hr>
           
           
             <div class="method-calls-super">
               Calls superclass method
-              <a href="Screen.html#method-i-applyOn"><code>Screen#applyOn</code></a>
+              
             </div>
           
 
@@ -322,11 +278,11 @@
           
           <h5 id="method-i-refreshOverAllStar-label-Presentation">Presentation<span><a href="#method-i-refreshOverAllStar-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to refresh star&#39;s icons</p>
+<p>This method is used to refresh star&#39;s icons.</p>
 
 <h5 id="method-i-refreshOverAllStar-label-Return">Return<span><a href="#method-i-refreshOverAllStar-label-Return">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<pre>this method return the box etoileTotal which contain all the stars</pre>
+<p>This method returns the box etoileTotal which contains all the stars.</p>
           
           
 

@@ -7,7 +7,7 @@
 
 
 
-module Click
+module Click # :nodoc:
 	LEFT = 1
 	MIDDLE = 2
 	RIGHT = 3

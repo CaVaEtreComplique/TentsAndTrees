@@ -7,8 +7,11 @@
 
 require File.dirname(__FILE__) + "/../Constants"
 
-
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class Text
+   # :nodoc:
 
   attr_reader :size, :gtkObject
   attr_writer :weight, :style, :size, :color, :font

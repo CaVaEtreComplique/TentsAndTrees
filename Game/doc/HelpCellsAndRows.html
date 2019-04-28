@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<h5 id="class-HelpCellsAndRows-label-Presentation">Presentation<span><a href="#class-HelpCellsAndRows-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
 <p>The <a href="HelpCellsAndRows.html"><code>HelpCellsAndRows</code></a> class is an abstract class inherited from the abstract class <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a>. This abstract class will establish a model for every help class that needs to know a cell and a row. This class has a constructor and overrides the cellsList method.</p>
 
 <p>This class&#39; direct child is the <a href="HelpAllPossibilitiesGiveItRow.html"><code>HelpAllPossibilitiesGiveItRow</code></a> class.</p>
@@ -124,7 +126,9 @@
 
         <div class="method-description">
           
-          <p>This method only does what the initialize method in <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> does, but with a row instead of a row XOR a column.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method only does what the initialize method in <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> does, but with a row instead of a row XOR a column.</p>
           
           
             <div class="method-calls-super">
@@ -135,7 +139,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">row</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -170,7 +174,9 @@
 
         <div class="method-description">
           
-          <p>This method overrides the cellsList method from the <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> class.</p>
+          <h5 id="method-i-cellsList-label-Presentation">Presentation<span><a href="#method-i-cellsList-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method overrides the cellsList method from the <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> class.</p>
 
 <h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -190,7 +196,7 @@
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 34</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpsCellsAndRows/HelpCellsAndRows.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-comment">#in the 3 cases, we need the row</span>
   <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>)

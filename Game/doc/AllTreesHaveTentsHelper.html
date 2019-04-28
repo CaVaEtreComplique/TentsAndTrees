@@ -103,7 +103,7 @@
 
 <h5 id="class-AllTreesHaveTentsHelper-label-Methods">Methods<span><a href="#class-AllTreesHaveTentsHelper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>help</code> - This method is inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+<p><code>help</code> - This method is inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but defined there.</p>
 </li></ul>
 
   </section>
@@ -140,7 +140,7 @@
           
           <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method tries to create network of tent an tree in order to find the emplacement of an tent or a grass.</p>
+<p>This method tries to create network of tents and trees in order to find the emplacement of an tent or a grass.</p>
 
 <h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -149,13 +149,14 @@
 
 <h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>If it finds a tree, try to create a network with tree and tents return : <a href="HelpsOnACellIsTentBecauseOfTree.html"><code>HelpsOnACellIsTentBecauseOfTree</code></a> if the answered cell is one possible tent. <a href="HelpsOn2CellTentUniqueSolution.html"><code>HelpsOn2CellTentUniqueSolution</code></a> if a tree only have one possible position for a tent. <a href="HelpsOn2CellsGrassLinkedTree.html"><code>HelpsOn2CellsGrassLinkedTree</code></a> if the network is complete but still got white cell at the extremity. <a href="HelpNotFound.html"><code>HelpNotFound</code></a> if nothing if found.</p>
+<p>If it finds a tree, it tries to create a network with trees and tents and returns : <a href="HelpsOnACellIsTentBecauseOfTree.html"><code>HelpsOnACellIsTentBecauseOfTree</code></a> if the answered cell is one possible tent. <a href="HelpsOn2CellTentUniqueSolution.html"><code>HelpsOn2CellTentUniqueSolution</code></a> if a tree only has one possible position for a tent. <a href="HelpsOn2CellsGrassLinkedTree.html"><code>HelpsOn2CellsGrassLinkedTree</code></a> if the network is complete but still got white cells at its extremities. <a href="HelpNotFound.html"><code>HelpNotFound</code></a> if nothing can be found.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/RecursivHelpers/AllTreesHaveTentsHelper.rb, line 50</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/RecursivHelpers/AllTreesHaveTentsHelper.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
 
   <span class="ruby-comment">#initialize variable</span>
@@ -268,13 +269,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-research-label-Presentation">Presentation<span><a href="#method-i-research-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The research method covers the trees path when two trees are neighbours or have a tent in the neighbourhood to find one that doesn&#39;t have a tent.</p>
           
           
 
           
           <div class="method-source-code" id="research-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/RecursivHelpers/AllTreesHaveTentsHelper.rb, line 140</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/RecursivHelpers/AllTreesHaveTentsHelper.rb, line 148</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">research</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">prevCell</span>)
 
   <span class="ruby-identifier">nextCell</span> = <span class="ruby-keyword">nil</span>

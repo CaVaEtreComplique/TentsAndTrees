@@ -15,44 +15,42 @@ require File.dirname(__FILE__) + "/../Buttons/Button"
 
 ##
 # ===== Presentation
-# The Helper class is a helper class inherited from FictivHelper
-# it's role is to help you to find where you can fill a row or column whith tents.
+# The tutorialGameScreen class is inherited from Screen.
+# Its role is to show the tutorial screen.
 #
 # ===== Variables
-# * +states+ : class variable, all the steps of the tutorial.
-# * +tutoEnd+ : instence variable, true when the tutorial is finished.
-# * +step+ : instence variable, one of @@states, permises to know where we are in the tutorial's steps.
-# * +victoryScreen+ : instence variable, the screen you see when you finished the tutorial
-# * +rank+ : instence variable, the number of the step we are (for multilanguage)
+# * +states+ - A class variable, all the steps of the tutorial.
+# * +tutoEnd+ - An instance variable, true when the tutorial is finished.
+# * +step+ - An instance variable, one of +states+, used to know where we are in the tutorial's steps.
+# * +victoryScreen+ - An instance variable, the screen you see when you've finished the tutorial.
+# * +rank+ - An instance variable, the number of the step we are on (for multilanguage).
 #
 # ===== Methods
-# * +update+ - update the screens.
-# * +gridAltered+ - Called when the grid is altered.
-# * +goToNextStep+ - Permises to unlock the next step of the tutorial.
+# This class knows its initializer and the methods described below.
 class TutorialGameScreen < Screen
+   # :nodoc:
   @@states = [:intro, :unlockPause, :unlockGrid, :unlockUndo, :unlockRedo, :unlockFreezers, :unlockReset, :unlockHelps]
 
   attr_reader :gridUi
 
   attr_writer :helpDisplayed
+  # :startdoc:
 
 
   ##
   # ===== Presentation
-  # This method initialize the TutorialGameScreen.
+  # This method initializes the TutorialGameScreen.
   #
   # ===== Attributes
-  # * +manager+ : help level at the start of the helps.
-  # * +game+ : minimal help level of the helper.
-  # * +cellAssets+ : maximal help level of the helper.
-  # * +victoryScreen+ :
+  # * +manager+ - The help level at the start of the helps.
+  # * +game+ - The minimal help level of the helper.
+  # * +cellAssets+ - The maximal help level of the helper.
+  # * +victoryScreen+ - The screen shown after the tutorial's completion.
   #
   # ===== How to use
   # To create a TutorialGameScreen:
   #    TutorialGameScreen.new(manager,game,cellAssets,victoryScreen)
-  # -----------
   def initialize(manager,game,cellAssets,victoryScreen)
-# :nodoc:
     @tutoEnd = false;
     @step = :intro
     super(manager.win)
@@ -143,7 +141,6 @@ class TutorialGameScreen < Screen
     @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer2),0,4,0,4)
 
     @gtkObject.attach(@gridUi.gtkObject, 0, 1, 0, 4)
-  # :startdoc:
   end
 
   ##
@@ -155,7 +152,6 @@ class TutorialGameScreen < Screen
   #    tutorialGameScreen_instance.gridAltered()
   # -----------
   def gridAltered
-  # :nodoc:
     if helpDisplayed?
       @textUI.updateLabel ""
       @helpCR[1]
@@ -166,7 +162,6 @@ class TutorialGameScreen < Screen
         }
       helpDisplayed=false
     end
-  # :startdoc:
   end
 
 
@@ -175,28 +170,25 @@ class TutorialGameScreen < Screen
   # This method returns true if help has been displayed.
   #
   # ===== Return
-  # * +@helpDisplayed+ - return the instace variable whitch is a boolean.
+  # * +helpDisplayed+ - Returns the instance variable whitch is a boolean.
   #
   # ===== How to use
   # To use this:
   #    tutorialGameScreen_instance.helpDisplayed?()
   # -----------
   def helpDisplayed?
-  # :nodoc:
     @helpDisplayed
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method permises to go to the next Tutorial step.
+  # This method lets us go to the next tutorial step.
   #
   # ===== How to use
   # To use this:
   #    tutorialGameScreen_instance.goToNextStep()
   # -----------
   def goToNextStep
-    # :nodoc:
     case @step
       when :unlockReset
         @step = :unlockHelps
@@ -226,38 +218,34 @@ class TutorialGameScreen < Screen
         @step = :unlockPause
         setPauseOnClick
     end
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method sets the Reset on click function.
+  # This method sets the reset on click function.
   #
   # ===== How to use
   # To set the reset on click:
   #    tutorialGameScreen_instance.setResetOnClick()
   # -----------
   def setResetOnClick
-  # :nodoc:
     @resetGrid.onClick(){
       @game.resetGrid
       @gridUi.refresh
     }
-  # :startdoc:
   end
 
 
 
   ##
   # ===== Presentation
-  # This method sets the Hypothesis on click function.
+  # This method sets the hypothesis on click function.
   #
   # ===== How to use
   # To set the freezers on click:
   #    tutorialGameScreen_instance.setFreezersOnClick()
   # -----------
   def setFreezersOnClick
-  # :nodoc:
     @newGuess.onClick(){
       @game.beginGuess
       @gridUi.refresh
@@ -267,93 +255,82 @@ class TutorialGameScreen < Screen
       @game.removeGuess
       @gridUi.refresh
     }
-  # :startdoc:
   end
 
 
   ##
   # ===== Presentation
-  # This methods sets the Redo on click function.
+  # This method sets the redo on click function.
   #
   # ===== How to use
-  # To set the Redo on click:
+  # To set the redo on click:
   #    tutorialGameScreen_instance.setRedoOnClick()
   # -----------
   def setRedoOnClick
-  # :nodoc:
     @redoButton.onClick(){
       @gridUi.redo
     }
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method sets the Undo on click function.
+  # This method sets the undo on click function.
   #
   # ===== How to use
   # To set the undo on click:
   #    tutorialGameScreen_instance.setUndoOnClick()
   # -----------
   def setUndoOnClick
-  # :nodoc:
     @undoButton.onClick(){
       @gridUi.undo
     }
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method sets the Grid's cells on click function.
+  # This method sets the grid's cells on click function.
   #
   # ===== How to use
-  # To set the Grid's cells on click:
+  # To set the grid's cells on click:
   #    tutorialGameScreen_instance.setGridOnClick()
   # -----------
   def setGridOnClick
-  # :nodoc:
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method sets the Pause on click function.
+  # This method sets the pause on click function.
   #
   # ===== How to use
   # To set the pause on click:
   #    tutorialGameScreen_instance.setPauseOnClick()
   # -----------
   def setPauseOnClick
-  # :nodoc:
     @pause.onClick(){
       @pauseScreen.applyOn(@parent)
     }
-  # :startdoc:
   end
 
   ##
   # ===== Presentation
-  # This method sets the Help on click function.
+  # This method sets the help on click function.
   #
   # ===== How to use
   # To set the help on click:
   #    tutorialGameScreen_instance.setHelpOnClick()
   # -----------
   def setHelpOnClick
-  # :nodoc:
     @help.onClick(){
       # Display the help message
       @helpCR=@game.help
       @textUI.updateLabel(@helpCR[0])
       self.helpDisplayed=true
-      #  Make the concerned cells golw
+      #  Make the concerned cells glow
       @helpCR[1].each{ |cell|
         cellUi= @gridUi.cells[cell.row][cell.column]
         cellUi.glowing
       }
     }
-  # :startdoc:
   end
 
   ##
@@ -365,7 +342,6 @@ class TutorialGameScreen < Screen
   #    tutorialGameScreen_instance.update()
   # -----------
   def update
-  # :nodoc:
     if !@parent.active?
       @pauseScreen.applyOn(@parent)
     end
@@ -373,7 +349,6 @@ class TutorialGameScreen < Screen
       @victoryScreen.applyOn(@parent,0,true)
       @game.delete_observers
     end
-  # :startdoc:
   end
 
 end

@@ -204,17 +204,19 @@ class Cell
 	# ===== Returns
 	# The visual rank of the column, so the column + 1 because of the first column
 	# showing the numbers needed for each row in the game.
+	# -----
 	def getVisualRankColumn()
 		return @column + 1
 	end
 
 	##
 	# ===== Presentation
-	# This method is used to fetch the visual rank for a column.
+	# This method is used to fetch the visual rank for a row.
 	#
 	# ===== Returns
-	# The visual rank of the column, so the column + 1 because of the first column
-	# showing the numbers needed for each row in the game.
+	# The visual rank of the row, so the row + 1 because of the first row
+	# showing the numbers needed for each column in the game.
+	# -----
 	def getVisualRankRow()
 		return @row + 1
 	end

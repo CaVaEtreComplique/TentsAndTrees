@@ -8,6 +8,7 @@
 require File.dirname(__FILE__) + "/../HelpCellsAndRows"
 
 ##
+# ===== Presentation
 # The HelpAllPossibilitiesGiveItRow class is inherited from the
 # HelpCellsAndRows class and helps when all the possibilities of the row
 # can determine a cell's state. This class knows its initialization method and
@@ -19,6 +20,7 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   #:startdoc:
 
  ##
+ # ===== Presentation
  # The initialize method gives to the state variable a value from the method's
  # parameters and initializes the cell and the row in parameters with the
  # method from HelpCellsAndColumns.
@@ -28,9 +30,11 @@ class HelpAllPossibilitiesGiveItRow < HelpCellsAndRows
   end
 
   ##
+  # ===== Presentation
   # The getText method sends the help text the player will see.
   # It returns the helpText variable that changes depending on the helpLevel the
   # player is at.
+  #
   # ===== Examples
   # On level 1, the help says that a row leaves only one possible state for
   # a cell (only the row is given).

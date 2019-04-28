@@ -5,8 +5,12 @@
 # @Last modified by:   zeigon
 # @Last modified time: 29-Mar-2019
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class HelpUi
 
+	# :nodoc:
 	@gtkObject
 	@surface
 	@size

@@ -38,7 +38,7 @@ class HelpsOn2CellTentUniqueSolution < HelpOn2Cells
   # ===== Presentation
   # This method fetches the text from the XML file to show the help text.
   #
-  # ===== Parameters
+  # ===== Attributes
   # * +helpLevel+ : The help's importance. The higher the level, the better the advice.
   #
   # ===== Returns

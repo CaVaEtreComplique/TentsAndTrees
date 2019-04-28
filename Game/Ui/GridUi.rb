@@ -14,7 +14,11 @@ require File.dirname(__FILE__) + "/Buttons/ClueUi"
 require File.dirname(__FILE__) + "/Constants"
 require File.dirname(__FILE__) + "/Click"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class GridUi
+	# :nodoc:
 
 	@gtkObject        # the associated gtk object
 	@cells            # a matrix of all the cells

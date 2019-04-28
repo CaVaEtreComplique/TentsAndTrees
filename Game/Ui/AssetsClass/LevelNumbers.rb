@@ -17,20 +17,24 @@ def require_all(_dir)
 end
 ##
 # ===== Presentation
-#LevelNumbers only needs to be initialized and refresh.
-#It creates and implements all the levels numbers icon.
-##
+# The LevelNumbers class creates and implements all the levels numbers icon.
+#
+# ===== Methods
+# LevelNumbers only needs to be initialized and refreshed.
 class LevelNumbers
+	# :nodoc:
   attr_reader :im
+  # :startdoc:
+
 	##
 	# ===== Presentation
-	# This method is used to create all the levels icons by calling the class levelNumber
+	# This method is used to create all the levels icons by calling the LevelNumber class.
 	# All the other variables are used for the layout.
-	# ===== Attributes
-	# *+manager+ : managerUi who handles the Ui.
-	# *+adventure+ : class adventure session
-	# *+adventureInfo+ : hash table that contains all the stars own per level
 	#
+	# ===== Attributes
+	# * +manager+ : managerUi who handles the Ui.
+	# * +adventure+ : Represents the AdventureSession class.
+	# * +adventureInfo+ : A hash table that contains all the stars owned per level.
   def initialize(manager,adventure ,adventureInfo,ic)
 		@pad=Constants::BUTTON_PADDING
 		@im=Gtk::Box.new(:vertical, 25)
@@ -41,14 +45,15 @@ class LevelNumbers
     }
     @im.show_all
   end
+
 	##
 	# ===== Presentation
-	# This method is used to refresh all the levels icons by calling the class levelNumber
-	# ===== Attributes
-	# *+manager+ : managerUi who handles the Ui.
-	# *+adventure+ : class adventure session
-	# *+adventureInfo+ : hash table that contains all the stars own per level
+	# This method is used to refresh all the levels icons by calling the class LevelNumber.
 	#
+	# ===== Attributes
+	# * +manager+ : ManagerUi who handles the Ui.
+	# * +adventure+ : Represents the AdventureSession class.
+	# * +adventureInfo+ : A hash table that contains all the stars owned per level.
   def refresh(manager,adventure ,adventureInfo)
 		@im.each { |child|
 			@im.remove(child)

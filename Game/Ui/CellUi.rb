@@ -9,7 +9,11 @@
 
 require File.dirname(__FILE__) + "/Click"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class CellUi
+	# :nodoc:
 	attr_reader :gtkObject, :row, :col, :variation
 
 	def initialize(parent, row, col, assets)

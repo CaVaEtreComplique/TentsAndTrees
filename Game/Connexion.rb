@@ -23,35 +23,33 @@ require File.dirname(__FILE__) + "/Core/DB/ConnectDB"
 # The Connexion class is the main class of the project.
 #
 # ===== Instance variables
-# * +pad+ : ---
-# * +police+ : Size of the police.
-# * +h+ : Screen's height rate.
-# * +w+ : Screen's width rate.
-# * +menu+ : Represents the menu UI.
-# * +gtkObject+ : ---
-# * +buffer+ : ---
-# * +image+ : ---
+# * +pad+ - The padding's value.
+# * +police+ - Size of the police.
+# * +h+ - Screen's height rate.
+# * +w+ - Screen's width rate.
+# * +menu+ - Represents the menu UI.
+# * +buffer+ - The buffer's value.
+# * +image+ - The background image.
 #
 # ===== Class variables
-# * +win+ : The game's window.
-# * +joueur+ : The player.
+# * +win+ - The game's window.
+# * +joueur+ - The player.
 #
 # ===== Methods
-# * +connexion+ - Connect the player.
-# * +getJoueur+ - Give the player.
-# * +show+ - show all the elements of the window.
+# * +connexion+ - Connects the player.
+# * +getJoueur+ - Gives the player.
+# * +show+ - Shows all the elements of the window.
 class Connexion
 
 	##
   # ===== Presentation
-  # This method initialize the connetion's screen.
+  # This method initializes the connection's screen.
   #
   # ===== How to use
-  # To connect a player:
+  # To connect a player :
   #    Connexion.new()
-  # -----------
+  # -----
   def initialize()
-	# :nodoc:
     screen=Constants::SCREEN
 		#Variable pour resize le texte
 		@pad=screen.height*0.002
@@ -152,7 +150,6 @@ class Connexion
 			end
 
 		}
-	# :startdoc:
   end
 
 	##
@@ -160,18 +157,16 @@ class Connexion
   # This method connects the player to the game.
   #
   # ===== Attributes
-  # * +player+ : The player you want to connect.
+  # * +player+ - The player you want to connect.
   #
   # ===== How to use
-  # To connect a player:
+  # To connect a player :
   #    Connexion.connexion(player)
-  # -----------
+  # -----
 	def Connexion.connexion(player)
-	# :nodoc:
 		@@joueur=player
 		@@win.hide
 		TestGame.new
-	# :startdoc:
 	end
 
 	##
@@ -179,16 +174,14 @@ class Connexion
   # This method gives the connected player.
 	#
 	# ===== Returns
-	# * +joueur+ : the player connected.
+	# * +joueur+ - The connected player.
   #
   # ===== How to use
-  # To connect a player:
+  # To fetch the current player :
   #    Connexion.getJoueur()
   # -----------
 	def Connexion.getJoueur
-	# :nodoc:
 			return @@joueur
-	# :startdoc:
 	end
 
 	##
@@ -196,17 +189,13 @@ class Connexion
   # This method shows the connection's window.
 	#
   # ===== How to use
-  # To connect a player:
-  #    Connexion.getJoueur()
-  # -----------
+  # To show the window :
+  #    Connexion.show()
 	def Connexion.show
-	# :nodoc:
 			@@win.show_all
-	# :startdoc:
 	end
 end
 
 # :nodoc:
 Connexion.new
 Gtk.main
-# :startdoc:

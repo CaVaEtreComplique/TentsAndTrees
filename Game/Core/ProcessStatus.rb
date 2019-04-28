@@ -6,26 +6,26 @@
 # @Last modified time: 12-Feb-2019
 
 
+##
+# ===== Presentation
+# The ProcessStatus class is the representation of the design pattern observator.
+# It gives the possibility to send messages to multiple other classes.
 #
-# ==== Presentation
-# The ProcessStatus class is the representation of the design pattern observator
-# it give possibility go send message to multiple other class.
+# ===== Variables
+# * +status+ - This class variable is a String that represents the message received.
 #
-# ==== Variables
-# * +status+ - This class variables is a String that represent the message
-# recived
+# * +observers+ - This class variable represents the GridGenerator class.
 #
-# * +observers+ - This class variable represente the GridGenerator class.
-#
-# ==== Methods
-# This class knows an initialization method , add and send described below.
+# ===== Methods
+# This class knows an initialization method and the methods add and send described below.
 class ProcessStatus
   @@status
   @@observers
 
   ##
   # ===== Presentation
-  # This class' constructor initializes the class variable.
+  # This class' constructor initializes the class variables.
+  # -----
   def initialize
     if defined?(@@observers).nil? then @@observers=Array.new end
     @@status=String.new
@@ -33,18 +33,21 @@ class ProcessStatus
 
   ##
   # ===== Presentation
-  # This class method add a new object to notify.
+  # This class method adds a new object to notify.
+  #
+  # ===== Variables
+  # * +o+ - The object to notify.
+  # -----
   def ProcessStatus.add(o)
     @@observers << o
   end
 
   ##
   # ===== Presentation
-  # This class method send a message to all object inside observers
+  # This class method sends a message to all the objects inside observers.
   #
   # ===== Attributes
-  # * +message+ : The message to sent.
-  #
+  # * +message+ : The message to send.
   def ProcessStatus.send(message)
     if @@status!=message
       @@status=message
@@ -58,7 +61,8 @@ class ProcessStatus
 
   ##
   # ===== Presentation
-  # This method return the actual status 
+  # This method returns the actual status
+  # -----
   def recive
     @@status
   end

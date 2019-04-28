@@ -7,7 +7,7 @@
 
 
 
-module Constants
+module Constants # :nodoc:
 	SPACING = 1
 	SCREEN=Gdk::Screen.default
 	BUTTON_PADDING=SCREEN.height*0.03

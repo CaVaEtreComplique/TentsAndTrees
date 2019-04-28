@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-LevelNumber-label-Presentation">Presentation</a>
+    <li><a href="#class-LevelNumber-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -88,9 +97,13 @@
 
   <section class="description">
     
-<pre>===== Presentation</pre>
+<h5 id="class-LevelNumber-label-Presentation">Presentation<span><a href="#class-LevelNumber-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="LevelNumber.html"><code>LevelNumber</code></a> only needs to be initialized and refresh. It creates and implements the level number icon.</p>
+<p>The <a href="LevelNumber.html"><code>LevelNumber</code></a> class creates and implements the level number icon.</p>
+
+<h5 id="class-LevelNumber-label-Methods">Methods<span><a href="#class-LevelNumber-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="LevelNumber.html"><code>LevelNumber</code></a> only needs to be initialized and refreshed.</p>
 
   </section>
 
@@ -102,27 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-BoxV" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">BoxV</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -147,17 +139,24 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to create the level icon. An icon contain a level number icon from the levels numbers menu by creating its number, box of star corresponding and the lock icon if needed. Icons are loaded thanks to iconAsset All the other variables are used for the layout.</p>
+<p>This method is used to create the level icon. An icon contains a level number icon from the levels numbers menu by creating its number, box of stars corresponding and the lock icon if needed. Icons are loaded with iconAsset. All the other variables are used for the layout.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>*<code>manager</code> : managerUi who handles the Ui. *<code>adventure</code> : class adventure session *<code>adventureInfo</code> : hash table that contains all the stars own per level *<code>i</code> : number of the level associated</p>
+<ul><li>
+<p><code>manager</code> - ManagerUi who handles the Ui.</p>
+</li><li>
+<p><code>adventure</code> - Represents the <a href="AdventureSession.html"><code>AdventureSession</code></a> class.</p>
+</li><li>
+<p><code>adventureInfo</code> - A hash table that contains all the stars owned per level.</p>
+</li><li>
+<p><code>i</code> - The associated number of the level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumber.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumber.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">i</span>,<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span>, <span class="ruby-identifier">adventureInfo</span>,<span class="ruby-identifier">ic</span>)
               <span class="ruby-ivar">@police</span>=<span class="ruby-value">25</span>
               <span class="ruby-ivar">@ic</span>=<span class="ruby-identifier">ic</span>
@@ -203,17 +202,24 @@
           
           <h5 id="method-i-refresh-label-Presentation">Presentation<span><a href="#method-i-refresh-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to refresh the level icon. An icon contain a level number icon from the levels numbers menu by refreshing its number, box of star corresponding and the lock icon if needed.</p>
+<p>This method is used to refresh the level icon. An icon contains a level number icon from the levels numbers menu by refreshing its number, box of stars corresponding and the lock icon if needed.</p>
 
 <h5 id="method-i-refresh-label-Attributes">Attributes<span><a href="#method-i-refresh-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
-
-<p>*<code>manager</code> : managerUi who handles the Ui. *<code>adventure</code> : class adventure session *<code>adventureInfo</code> : hash table that contains all the stars own per level *<code>i</code> : number of the level associated</p>
+<ul><li>
+<p><code>manager</code> - ManagerUi who handles the Ui.</p>
+</li><li>
+<p><code>adventure</code> - Represents the <a href="AdventureSession.html"><code>AdventureSession</code></a> class.</p>
+</li><li>
+<p><code>adventureInfo</code> - Represents a hash table that contains all the stars owned per level.</p>
+</li><li>
+<p><code>i</code> - The associated number of the level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="refresh-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumber.rb, line 60</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/LevelNumber.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refresh</span>(<span class="ruby-identifier">i</span>,<span class="ruby-identifier">manager</span>,<span class="ruby-identifier">adventure</span>,<span class="ruby-identifier">adventureInfo</span>)
               <span class="ruby-ivar">@adventureInfo</span>=<span class="ruby-identifier">adventureInfo</span>
               <span class="ruby-ivar">@BoxH</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>

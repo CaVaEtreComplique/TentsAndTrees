@@ -90,6 +90,8 @@
 
   <section class="description">
     
+<h5 id="class-HelpCellsAndRowsOrColumns-label-Presentation">Presentation<span><a href="#class-HelpCellsAndRowsOrColumns-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
 <p>The <a href="HelpCellsAndRowsOrColumns.html"><code>HelpCellsAndRowsOrColumns</code></a> is an abstract class inherited from the <a href="Help.html"><code>Help</code></a> class and it will lead all the next specific help classes to help the player when a move can be done on a cell and a row or on a cell and a column. It contains a constructor, a redefinition of the &#39;==&#39;method and a redefinition of the cellsList method from <a href="Help.html"><code>Help</code></a>.</p>
 
 <p>This abstract class&#39; direct children are the abstract classes <a href="HelpCellsAndRows.html"><code>HelpCellsAndRows</code></a> and <a href="HelpCellsAndColumns.html"><code>HelpCellsAndColumns</code></a>.</p>
@@ -126,7 +128,9 @@
 
         <div class="method-description">
           
-          <p>This class&#39; constructor needs 2 attributes and instanciates 3 variables.</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor needs 2 attributes and instanciates 3 variables.</p>
 
 <h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -155,7 +159,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 39</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-identifier">rowOrColumn</span>)
   <span class="ruby-ivar">@column</span> = <span class="ruby-identifier">rowOrColumn</span>
   <span class="ruby-ivar">@cell</span> = <span class="ruby-identifier">cell</span>
@@ -193,7 +197,9 @@
 
         <div class="method-description">
           
-          <p>This method is a redefinition of this method in the <a href="Help.html"><code>Help</code></a> class.</p>
+          <h5 id="method-i-3D-3D-label-Presentation">Presentation<span><a href="#method-i-3D-3D-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is a redefinition of this method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-3D-3D-label-Attributes">Attributes<span><a href="#method-i-3D-3D-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -216,7 +222,7 @@
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 73</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">otherHelp</span>)
   <span class="ruby-keyword">return</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">otherHelp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cell</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">cell</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">otherHelp</span>.<span class="ruby-identifier">row</span>)
       <span class="ruby-keyword">end</span></pre>
@@ -243,7 +249,9 @@
 
         <div class="method-description">
           
-          <p>The cellsList method is a redefinition from cellsList method in the <a href="Help.html"><code>Help</code></a> class.</p>
+          <h5 id="method-i-cellsList-label-Presentation">Presentation<span><a href="#method-i-cellsList-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The cellsList method is a redefinition from cellsList method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-cellsList-label-Attributes">Attributes<span><a href="#method-i-cellsList-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
@@ -268,7 +276,7 @@
 
           
           <div class="method-source-code" id="cellsList-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 56</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpsCellsAndRowsOrColumns/HelpCellsAndRowsOrColumns.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cellsList</span>(<span class="ruby-identifier">helpLevel</span>)
   <span class="ruby-identifier">list</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">helpLevel</span>);
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">helpLevel</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)

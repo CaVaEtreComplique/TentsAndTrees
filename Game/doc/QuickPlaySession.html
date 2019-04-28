@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-QuickPlaySession-label-Presentation">Presentation</a>
+    <li><a href="#class-QuickPlaySession-label-Variables">Variables</a>
+    <li><a href="#class-QuickPlaySession-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -92,6 +102,33 @@
 
   <section class="description">
     
+<h5 id="class-QuickPlaySession-label-Presentation">Presentation<span><a href="#class-QuickPlaySession-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="QuickPlaySession.html"><code>QuickPlaySession</code></a> class is inherited from the class <a href="Session.html"><code>Session</code></a> and represents a game in quick play mode.</p>
+
+<h5 id="class-QuickPlaySession-label-Variables">Variables<span><a href="#class-QuickPlaySession-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - This variable represents a <a href="Game.html"><code>Game</code></a> class.</p>
+</li><li>
+<p><code>gridPick</code> - This variable represents the <a href="GridGenerator.html"><code>GridGenerator</code></a> class.</p>
+</li><li>
+<p><code>time</code> - A Timer class from Gtk3.</p>
+</li><li>
+<p><code>score</code> - An integer that represents the score.</p>
+</li><li>
+<p><code>gameMode</code> - The session&#39;s game mode.</p>
+</li><li>
+<p><code>difficulty</code> - The difficulty involved.</p>
+</li><li>
+<p><code>session</code> - The type of session.</p>
+</li><li>
+<p><code>save</code> - The <a href="Save.html"><code>Save</code></a> link to the session.</p>
+</li></ul>
+
+<h4 id="class-QuickPlaySession-label-Methods">Methods<span><a href="#class-QuickPlaySession-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class knows an initialization method and the methods described below.</p>
+
   </section>
 
   
@@ -102,92 +139,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-difficulty" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">difficulty</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-game" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">game</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gridPick" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gridPick</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-maxScore" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">maxScore</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-score" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">score</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-time" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">time</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -210,7 +161,21 @@
 
         <div class="method-description">
           
-          <p>attr_writer :score</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the variable using the parental constructor of <a href="Session.html"><code>Session</code></a> and creates a <a href="QuickPlaySession.html"><code>QuickPlaySession</code></a>.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>difficulty</code> : The game&#39;s difficulty.</p>
+</li><li>
+<p><code>partOfAdventure</code> : Boolean telling if this session is part of the adventure.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">session</span> = <span class="ruby-constant">QuickPlaySession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:hard</span>, <span class="ruby-keyword">false</span>)
+</pre>
           
           
             <div class="method-calls-super">
@@ -221,7 +186,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 15</span>
+            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
         <span class="ruby-keyword">super</span>(<span class="ruby-value">:quickplay</span>,<span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -256,13 +221,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-calculateScore-label-Presentation">Presentation<span><a href="#method-i-calculateScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method redefines the calculateScore method from <a href="Session.html"><code>Session</code></a> in order to calculate the session&#39;s score by using <code>game</code>.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 61</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
           <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span>
 <span class="ruby-ivar">@score</span> <span class="ruby-operator">+=</span> [<span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span><span class="ruby-operator">-</span><span class="ruby-ivar">@game</span>.<span class="ruby-identifier">time</span>,<span class="ruby-value">0</span>].<span class="ruby-identifier">max</span>
@@ -293,13 +261,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-isTutorial-3F-label-Presentation">Presentation<span><a href="#method-i-isTutorial-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method redefines the isTutorial? method from the <a href="Session.html"><code>Session</code></a> class in order to define this session as a tutorial.</p>
+
+<h5 id="method-i-isTutorial-3F-label-How+to+Use">How to Use<span><a href="#method-i-isTutorial-3F-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">session</span>.<span class="ruby-identifier">isTutorial?</span>()  <span class="ruby-comment">#return true</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="isTutorial-3F-source">
-            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 27</span>
+            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isTutorial?</span>
         <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
@@ -326,13 +302,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-setTime-label-Presentation">Presentation<span><a href="#method-i-setTime-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method redefines the setTime method from <a href="Session.html"><code>Session</code></a> in order to set the timer at 0.</p>
           
           
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 31</span>
+            <pre><span class="ruby-comment"># File Core/QuickPlaySession.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
                 <span class="ruby-ivar">@time</span>=<span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>

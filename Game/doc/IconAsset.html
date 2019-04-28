@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-IconAsset-label-Presentation">Presentation</a>
+    <li><a href="#class-IconAsset-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -73,6 +82,8 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li ><a href="#method-i-iconAsset">#iconAsset</a>
+    
   </ul>
 </div>
 
@@ -88,7 +99,11 @@
     
 <h5 id="class-IconAsset-label-Presentation">Presentation<span><a href="#class-IconAsset-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="Star.html"><code>Star</code></a> only needs to be initialized. It load all the icon.</p>
+<p>The <a href="IconAsset.html"><code>IconAsset</code></a> class loads all the icons.</p>
+
+<h5 id="class-IconAsset-label-Methods">Methods<span><a href="#class-IconAsset-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class only needs to be initialized.</p>
 
   </section>
 
@@ -100,27 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-iconAsset" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">iconAsset</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -145,13 +139,13 @@
           
           <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method is used to load all the icon by putting them in a hash table @iconAsset</p>
+<p>This method is used to load all the icons by putting them in a hash table <code>iconAsset</code>.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-identifier">pathToIcon</span>=<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Icons/&quot;</span>
   <span class="ruby-ivar">@iconAssets</span>= {
@@ -163,6 +157,76 @@
     <span class="ruby-value">diapo3:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle3.png&quot;</span>),
     <span class="ruby-value">diapo4:</span> <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/regle/regle4.png&quot;</span>)
   }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-iconAsset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iconAsset</span><span
+            class="method-args">(state)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-iconAsset-label-Presentation">Presentation<span><a href="#method-i-iconAsset-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The iconAsset method fetches the different icons assets.</p>
+
+<h5 id="method-i-iconAsset-label-Arguments">Arguments<span><a href="#method-i-iconAsset-label-Arguments">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>state</code> - The state needed for the icon.</p>
+</li></ul>
+
+<h5 id="method-i-iconAsset-label-Examples">Examples<span><a href="#method-i-iconAsset-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method fetches every icon asset like this :</p>
+
+<pre>when :starS
+  @iconAssets.fetch(:starS)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="iconAsset-source">
+            <pre><span class="ruby-comment"># File Ui/AssetsLoaderClass/IconAsset.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">iconAsset</span>(<span class="ruby-identifier">state</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">state</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:loc</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:loc</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:starS</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:starS</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:starH</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:starH</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:diapo1</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo1</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:diapo2</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo2</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:diapo3</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo3</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:diapo4</span>
+      <span class="ruby-ivar">@iconAssets</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:diapo4</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -97,11 +97,11 @@
     
 <h5 id="class-FictivHelper-label-Presentation">Presentation<span><a href="#class-FictivHelper-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="FictivHelper.html"><code>FictivHelper</code></a> class is a fictiv helper class, it&#39;s role is to say that all helper classes need to have help method</p>
+<p>The <a href="FictivHelper.html"><code>FictivHelper</code></a> class is a fictive helper class. Its role is to say that all the helper classes need to have a help method.</p>
 
 <h5 id="class-FictivHelper-label-Methods">Methods<span><a href="#class-FictivHelper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>help</code> - don&#39;t use this class&#39; one.</p>
+<p><code>help</code> - Don&#39;t use this class&#39; one.</p>
 </li></ul>
 
   </section>
@@ -138,30 +138,29 @@
           
           <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>This method help the player but need to be definded in the helper class.</p>
+<p>This method helps the player but needs to be defined in the helper class.</p>
 
 <h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>game</code> - The game you want a help for.</p>
+<p><code>game</code> - The game you need help for.</p>
 </li></ul>
 
 <h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>By default, return <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance</p>
+<p>By default, returns a <a href="HelpNotFound.html"><code>HelpNotFound</code></a> instance.</p>
 
 <h5 id="method-i-help-label-How+to+use">How to use<span><a href="#method-i-help-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>To get a help:</p>
+<p>To get help :</p>
 
 <pre class="ruby"><span class="ruby-identifier">aHelper_instace</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">theGameYouWantHelpFor</span>)
 </pre>
-<hr>
           
           
 
           
           <div class="method-source-code" id="help-source">
-            <pre><span class="ruby-comment"># File Helps/Helpers/FictivHelper.rb, line 31</span>
+            <pre><span class="ruby-comment"># File Helps/Helpers/FictivHelper.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>()
 <span class="ruby-keyword">end</span></pre>

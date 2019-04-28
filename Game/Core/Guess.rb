@@ -9,7 +9,11 @@
 
 require File.dirname(__FILE__) + "/Moves"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class Guess
+	#:nodoc:
 	@prev
 	@grid
 

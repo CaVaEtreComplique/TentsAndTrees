@@ -6,10 +6,17 @@
 # @Last modified time: 15-Mar-2019
 
 ##
-# :startdoc:
+# ===== Presentation
 # This class manages all the moves within the game, epecially the undo/redo
-# function. Its methods are undo, redo, replay, add and clear and are applied
+# function.
+#
+# ===== Methods
+# This class' methods are undo, redo, replay, add and clear and are applied
 # to the moves, using a redo stack.
+#
+# ===== Variables
+# * +moves+ - All the moves.
+# * +redo+ - Redo stack.
 class Moves
 	@moves #All the Moves
 	@redo #Redo stack
@@ -19,18 +26,23 @@ class Moves
 	# :startdoc:
 
 	##
-	# Creates a new Moves object.
-	# * *Arguments* :
-	#   - +moves+ -> all the Moves (empty by default).
+	# ===== Presentation
+	# The class' constructor. It creates a new Moves object.
+	#
+	# ===== Arguments
+	# * +moves+ -> All the Moves (empty by default).
 	def initialize(moves = [])
 		@moves = moves
 		@redo = []
 	end
 
 	##
-	# Replays each move on the given Game.
-	# * *Arguments* :
-	#   - +game+ -> the Game to replay on.
+	# ===== Presentation
+	# The replay method replays each move on the given Game.
+	#
+	# ===== Arguments
+	# * +game+ -> the Game to replay on.
+	# -----
 	def replay(game)
 		@moves.each { |move|
 			move.replay(game)
@@ -38,21 +50,26 @@ class Moves
 	end
 
 	##
-	# Adds a move to the "moves" stack and clears redo stack.
-	# * *Arguments* :
-	#   - +move+ -> the move to add.
+	# ===== Presentation
+	# Adds a move to the "moves" stack and clears the redo stack.
+	# ===== Arguments
+	# * +move+ -> the move to add.
+	# -----
 	def add(move)
 		@moves.push(move)
 		clearRedo
 	end
 
 	##
-	# Undoes the last move (i.e replay it on the given game) and pushes it on
+	# ===== Presentation
+	# This method undoes the last move (i.e replay it on the given game) and pushes it on
 	# the redo stack.
-	# * *Arguments* :
-	#   - +game+ -> the Game to undo on.
-	# * *Returns* :
-	#   - The undo move to proc.
+	#
+	# ===== Arguments
+	# * +game+ -> the Game to undo on.
+	#
+	# ===== Returns
+	# The undo move to process.
 	def undo
 		if @moves.last != nil
 			@redo.push(@moves.pop)
@@ -62,12 +79,14 @@ class Moves
 	end
 
 	##
-	# Redoes the last undo move (i.e replay it on the given game) and pushes it
+	# ===== Presentation
+	# This method redoes the last undo move (i.e replay it on the given game) and pushes it
 	# on the undo stack.
-	# * *Arguments* :
-	#   - +game+ -> the game to redo on.
-	# * *Returns* :
-	#   - The redo move to proc.
+	# ===== Arguments
+	# * +game+ -> the game to redo on.
+	# ===== Returns
+	# The redo move to process.
+	# -----
 	def redo
 		if @redo.last != nil
 			@moves.push(@redo.pop)
@@ -77,7 +96,9 @@ class Moves
 	end
 
 	##
-	# Clears the redo stack.
+	# ===== Presentation
+	# This method clears the redo stack.
+	# -----
 	def clearRedo
 		@redo.clear
 	end

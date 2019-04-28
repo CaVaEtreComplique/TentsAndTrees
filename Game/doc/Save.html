@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Save-label-Presentation">Presentation</a>
+    <li><a href="#class-Save-label-Variables">Variables</a>
+    <li><a href="#class-Save-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -94,6 +104,21 @@
 
   <section class="description">
     
+<h5 id="class-Save-label-Presentation">Presentation<span><a href="#class-Save-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class represents a <a href="Save.html"><code>Save</code></a> within the game.</p>
+
+<h5 id="class-Save-label-Variables">Variables<span><a href="#class-Save-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>session</code> - This variable represents the Session&#39;s link to the save.</p>
+</li><li>
+<p><code>idSave</code> - This variable is the idName of a save.</p>
+</li></ul>
+
+<h5 id="class-Save-label-Methods">Methods<span><a href="#class-Save-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class knows an initialization method, but also load, update and destroy described below.</p>
+
   </section>
 
   
@@ -126,13 +151,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-load-label-Presentation">Presentation<span><a href="#method-c-load-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class method allows the loading of a <a href="Session.html"><code>Session</code></a>, without having to create a <a href="Save.html"><code>Save</code></a>.</p>
+
+<h5 id="method-c-load-label-Attributes">Attributes<span><a href="#method-c-load-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>id</code> : The idSave we are looking for.</p>
+</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="load-source">
-            <pre><span class="ruby-comment"># File Core/Save.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Core/Save.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Save</span>.<span class="ruby-identifier ruby-title">load</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-identifier">save</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>().<span class="ruby-identifier">getSaveByID</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">save</span>
@@ -160,13 +193,21 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the variable @session.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>session</code> : The <a href="Session.html"><code>Session</code></a> who represents the overall save.</p>
+</li></ul>
+<hr>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/Save.rb, line 15</span>
+            <pre><span class="ruby-comment"># File Core/Save.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">session</span>)
   <span class="ruby-ivar">@session</span> = <span class="ruby-identifier">session</span>
 <span class="ruby-keyword">end</span></pre>
@@ -193,13 +234,20 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-c-update-label-Presentation">Presentation<span><a href="#method-c-update-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class method updates an already existing <a href="Save.html"><code>Save</code></a> with a <a href="Session.html"><code>Session</code></a>.</p>
+
+<h5 id="method-c-update-label-Attributes">Attributes<span><a href="#method-c-update-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>session</code> : The <a href="Session.html"><code>Session</code></a> we update a save onto.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Core/Save.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Core/Save.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Save</span>.<span class="ruby-identifier ruby-title">update</span>(<span class="ruby-identifier">session</span>)
   <span class="ruby-identifier">db</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>()
   <span class="ruby-identifier">diff</span> = <span class="ruby-keyword">nil</span>
@@ -247,13 +295,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-destroy-label-Presentation">Presentation<span><a href="#method-i-destroy-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class destroys a <a href="Save.html"><code>Save</code></a> from the database.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File Core/Save.rb, line 47</span>
+            <pre><span class="ruby-comment"># File Core/Save.rb, line 88</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -280,13 +331,20 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-load-label-Presentation">Presentation<span><a href="#method-i-load-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class allows the loading of the <a href="Session.html"><code>Session</code></a>, from within a <a href="Save.html"><code>Save</code></a> object.</p>
+
+<h5 id="method-i-load-label-Attributes">Attributes<span><a href="#method-i-load-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>id</code> : The idSave we are looking for.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="load-source">
-            <pre><span class="ruby-comment"># File Core/Save.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Core/Save.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load</span>()
   <span class="ruby-identifier">save</span> = <span class="ruby-constant">ConnectDB</span>.<span class="ruby-identifier">new</span>().<span class="ruby-identifier">getSaveByID</span>(<span class="ruby-ivar">@idSave</span>)
   <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">save</span>.<span class="ruby-identifier">content_save</span>)

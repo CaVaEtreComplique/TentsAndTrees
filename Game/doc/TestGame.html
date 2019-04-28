@@ -52,15 +52,6 @@
   </div>
 
   
-<div class="nav-section">
-  <h3>Table of Contents</h3>
-
-  <ul class="link-list" role="directory">
-    <li><a href="#class-TestGame-label-3E+Main">&gt; Main</a>
-    <li><a href="#class-TestGame-label-3E+Generation+de+la+fenetre+de+jeu">&gt; Generation de la fenetre de jeu</a>
-  </ul>
-</div>
-
 
   <div id="class-metadata">
     
@@ -74,19 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-hide">::hide</a>
-    
-    <li ><a href="#method-c-new">::new</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -96,14 +75,10 @@
   </h1>
 
   <section class="description">
-    <hr>
+    
+<h5 id="class-TestGame-label-404">404<span><a href="#class-TestGame-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<h1 id="class-TestGame-label-3E+Main">&gt; Main<span><a href="#class-TestGame-label-3E+Main">&para;</a> <a href="#top">&uarr;</a></span></h1>
-<hr>
-<hr>
-
-<h1 id="class-TestGame-label-3E+Generation+de+la+fenetre+de+jeu">&gt; Generation de la fenetre de jeu<span><a href="#class-TestGame-label-3E+Generation+de+la+fenetre+de+jeu">&para;</a> <a href="#top">&uarr;</a></span></h1>
-<hr>
+<p>This class was not commented in the first place, so it can not be documented.</p>
 
   </section>
 
@@ -118,96 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-hide" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">hide</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="hide-source">
-            <pre><span class="ruby-comment"># File TestGame.rb, line 48</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">TestGame</span>.<span class="ruby-identifier ruby-title">hide</span>
-                <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">hide</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File TestGame.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-        <span class="ruby-ivar">@win</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">fullscreen</span>
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">title</span> = <span class="ruby-string">&quot;Tent &amp; Trees&quot;</span>
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&#39;delete_event&#39;</span>) {
-                <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>
-                <span class="ruby-keyword">false</span>
-        }
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">icon</span>=<span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../Assets/Icons/tent.jpeg&quot;</span>)
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
-
-        <span class="ruby-identifier">ui</span> = <span class="ruby-constant">UiManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@win</span>,<span class="ruby-keyword">nil</span>)
-        <span class="ruby-identifier">ui</span>.<span class="ruby-identifier">run</span>
-
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">override_background_color</span>(<span class="ruby-value">:normal</span>,<span class="ruby-constant">Gdk</span><span class="ruby-operator">::</span><span class="ruby-constant">RGBA</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0.1</span>, <span class="ruby-value">0.6</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
-        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
-
-
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

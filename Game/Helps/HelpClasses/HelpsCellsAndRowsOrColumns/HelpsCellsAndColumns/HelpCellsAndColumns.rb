@@ -10,6 +10,7 @@
 require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 
 ##
+# ===== Presentation
 # The HelpCellsAndColumns class is an abstract class inherited from the abstract
 # class HelpCellsAndRowsOrColumns. This abstract class will determine a model
 # for every help class that needs to know a cell and a column.
@@ -18,6 +19,7 @@ require File.dirname(__FILE__) + "/../HelpCellsAndRowsOrColumns"
 class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
 
 ##
+# ===== Presentation
 # This method only does what the initialize method in HelpCellsAndRowsOrColumns
 # does, but with a column instead of a row XOR a column.
   def initialize(cell, column)
@@ -25,9 +27,12 @@ class HelpCellsAndColumns < HelpCellsAndRowsOrColumns
   end
 
   ##
+  # ===== Presentation
   # The cellsList method is a redefinition from the Help class.
+  #
   # ===== Attributes
-  # * +helpLevel+ : The help's importance
+  # * +helpLevel+ : The help's importance.
+  #
   # ===== Returns
   # This method returns the result of this method in the parent class so an array
   # with the column, like this :

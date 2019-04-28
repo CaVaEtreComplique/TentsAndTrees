@@ -7,7 +7,7 @@
 
 
 
-#Connect tree whith tent in order to find a tent
+#Connect tree with tent in order to find a tent
 require File.dirname(__FILE__) + "/../FictivHelper"
 require File.dirname(__FILE__) + "/../../CompresseGrid"
 require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/HelpsOnACellIsTentBecauseOfTree/HelpsOnACellIsTentBecauseOfTree"
@@ -20,8 +20,9 @@ require File.dirname(__FILE__) + "/../../HelpClasses/HelpsOnCells/HelpsOn2Cells/
 # Its role is to find the type of cell who is next to a tree.
 #
 # ===== Methods
-# * +help+ - This method is inherited from FictivHelper, but definded there.
+# * +help+ - This method is inherited from FictivHelper, but defined there.
 class AllTreesHaveTentsHelper < FictivHelper
+   # :nodoc:
   public_class_method :new
 
   @game
@@ -29,24 +30,26 @@ class AllTreesHaveTentsHelper < FictivHelper
   @answer
   @nbTent
   @nbTree
+  # :startdoc:
 
   ##
   # ===== Presentation
-  # This method tries to create network of tent an tree in order to find the
+  # This method tries to create network of tents and trees in order to find the
   # emplacement of an tent or a grass.
   #
   # ===== Attributes
   # * +game+ - The game you want help for.
   #
   # ===== Returns
-  # If it finds a tree, try to create a network with tree and tents return :
+  # If it finds a tree, it tries to create a network with trees and tents and returns :
   # HelpsOnACellIsTentBecauseOfTree if the answered cell is one
   # possible tent.
-  # HelpsOn2CellTentUniqueSolution if a tree only have one possible position
+  # HelpsOn2CellTentUniqueSolution if a tree only has one possible position
   # for a tent.
   # HelpsOn2CellsGrassLinkedTree if the network is complete but still got white
-  # cell at the extremity.
-  # HelpNotFound if nothing if found.
+  # cells at its extremities.
+  # HelpNotFound if nothing can be found.
+  # -------
   def help(game)
 
     #initialize variable
@@ -137,6 +140,11 @@ class AllTreesHaveTentsHelper < FictivHelper
     return HelpNotFound.new
   end
 
+
+  ##
+  # ===== Presentation
+  # The research method covers the trees path when two trees are neighbours or
+  # have a tent in the neighbourhood to find one that doesn't have a tent.
   def research(cell, prevCell)
 
     nextCell = nil

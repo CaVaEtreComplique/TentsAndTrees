@@ -18,13 +18,11 @@ require_all("Core")
 require_all("Ui")
 require_all("Helps")
 
-# ----------------------------------
-# => Main
-# ----------------------------------
-# ----------------------------------
-# => Generation de la fenetre de jeu
-# ----------------------------------
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class TestGame
+	# :nodoc:
 	def initialize
 		@win = Gtk::Window.new.fullscreen
 		@win.title = "Tent & Trees"

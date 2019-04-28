@@ -65,25 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
-    
-    <li ><a href="#method-i-select">#select</a>
-    
-    <li ><a href="#method-i-show">#show</a>
-    
-    <li ><a href="#method-i-unselect">#unselect</a>
-    
-    <li ><a href="#method-i-update">#update</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -94,7 +76,9 @@
 
   <section class="description">
     
-<p>@Author: Corentin Petit &lt;CorentinPetit&gt; @Date:   08-Feb-2019 @Email:  corentin.petit.etu@univ-lemans.fr @Filename: SelectionUi.rb @Last modified by:   CorentinPetit @Last modified time: 09-Feb-2019</p>
+<h5 id="class-SelectionUi-label-404">404<span><a href="#class-SelectionUi-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class was not commented in the first place, so it can not be documented.</p>
 
   </section>
 
@@ -109,207 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/SelectionUi.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-        <span class="ruby-ivar">@selected</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-        <span class="ruby-ivar">@modified</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-select" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">select</span><span
-            class="method-args">(arr)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="select-source">
-            <pre><span class="ruby-comment"># File Ui/SelectionUi.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">select</span>(<span class="ruby-identifier">arr</span>)
-        <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
-                <span class="ruby-ivar">@modified</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cell</span>
-                <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">select</span>
-        }
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-show" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">show</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File Ui/SelectionUi.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-        <span class="ruby-ivar">@modified</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:show</span>)
-        <span class="ruby-ivar">@modified</span> = []
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-unselect" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">unselect</span><span
-            class="method-args">(arr)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="unselect-source">
-            <pre><span class="ruby-comment"># File Ui/SelectionUi.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unselect</span>(<span class="ruby-identifier">arr</span>)
-        <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
-                <span class="ruby-ivar">@modified</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cell</span>
-                <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">unselect</span>
-        }
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-update" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">update</span><span
-            class="method-args">(newSelection)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File Ui/SelectionUi.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>(<span class="ruby-identifier">newSelection</span>)
-
-        <span class="ruby-identifier">unselected</span> = <span class="ruby-ivar">@selected</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
-                <span class="ruby-identifier">newSelection</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">cell</span>)
-        }
-        <span class="ruby-identifier">unselect</span>(<span class="ruby-identifier">unselected</span>)
-
-        <span class="ruby-identifier">newlySelected</span> = <span class="ruby-identifier">newSelection</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span>
-                <span class="ruby-ivar">@selected</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">cell</span>)
-        }
-        <span class="ruby-identifier">select</span>(<span class="ruby-identifier">newlySelected</span>)
-
-        <span class="ruby-ivar">@selected</span> = <span class="ruby-identifier">newSelection</span>
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

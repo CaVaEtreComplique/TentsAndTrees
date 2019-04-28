@@ -15,33 +15,33 @@ require File.dirname(__FILE__) + "/../FictivHelper"
 ##
 # ===== Presentation
 # The CellWhiteOverlap class is a helper class inherited from FictivHelper.
-# Its role is to find grass if a tree only have two possible position for a
-# tent and thoses positions give a nearby cell to be grass.
+# Its role is to find grass if a tree only has two possible positions for a
+# tent and those positions give a nearby cell to be grass.
 #
 # ===== Methods
-# * +help+ - This method is inherited from FictivHelper, but definded there.
+# * +help+ - This method is inherited from FictivHelper, but defined there.
 class CellWhiteOverlap < FictivHelper
 
 public_class_method :new
 
   ##
   # ===== Presentation
-  # This method find tree and check if they have only two positions for it's
-  # tent and if thoses two position are neighbour a cell nearby is a grass .
+  # This method finds trees and checks if they have only two positions for its
+  # tent and if those two position are neighbour, then a cell nearby is grass.
   #
   # ===== Attributes
-  # * +game+ - The game you want help for.
+  # * +game+ - The game you need help for.
   #
   # ===== Returns
-  # If it finds a tree with two position who are neighbour, return a
-  # HelpsOnACellOverlap instance, otherwise return an HelpNotFound instance.
+  # If it finds a tree with two neighbour positions, returns a
+  # HelpsOnACellOverlap instance, otherwise it returns an HelpNotFound instance.
   #
   # ===== Exemple
   # W -> white cell; T -> Tree;
   #       0   1
   #     | W | W |   0
   #     | T | W |   1
-  # Here the white cell in column 1 and row 0 is therefore a grass cell
+  # Here the white cell in column 1 and row 0 is therefore a grass cell.
   def help(game)
 
     tree = game.tree()

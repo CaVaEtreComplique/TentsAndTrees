@@ -65,19 +65,7 @@
 
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
-    
-    <li ><a href="#method-i-applyOn">#applyOn</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -88,6 +76,10 @@
 
   <section class="description">
     
+<h5 id="class-Screen-label-404">404<span><a href="#class-Screen-label-404">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class was not commented in the first place, so it can not be documented.</p>
+
   </section>
 
   
@@ -101,98 +93,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(parent)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/Screen.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">parent</span>)
-  <span class="ruby-identifier">screen</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">SCREEN</span>
-  <span class="ruby-ivar">@parent</span>=<span class="ruby-identifier">parent</span>
-      <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Backgrounds/landscape2.jpg&quot;</span>)
-  <span class="ruby-ivar">@buffer</span>=<span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span>,<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span>)
-      <span class="ruby-ivar">@buffer2</span> = <span class="ruby-constant">GdkPixbuf</span><span class="ruby-operator">::</span><span class="ruby-constant">Pixbuf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">file:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/../../../Assets/Backgrounds/landscape.jpg&quot;</span>)
-  <span class="ruby-ivar">@buffer2</span>=<span class="ruby-ivar">@buffer2</span>.<span class="ruby-identifier">scale</span>(<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">width</span>,<span class="ruby-identifier">screen</span>.<span class="ruby-identifier">height</span>)
-  <span class="ruby-ivar">@textManager</span>=<span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-applyOn" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">applyOn</span><span
-            class="method-args">(widget)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="applyOn-source">
-            <pre><span class="ruby-comment"># File Ui/Screens/Screen.rb, line 29</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">applyOn</span>(<span class="ruby-identifier">widget</span>)
-  <span class="ruby-identifier">widget</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">widget</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)
-  }
-  <span class="ruby-identifier">widget</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@gtkObject</span>)
-  <span class="ruby-identifier">widget</span>.<span class="ruby-identifier">show_all</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 </main>
 

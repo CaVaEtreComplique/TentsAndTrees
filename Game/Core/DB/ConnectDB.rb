@@ -36,7 +36,7 @@ require 'yaml'
 # is here in order to declare a SQL request before doing it, which will then be
 # applied with the execute command.
 #
-# The bind_param command found in codelike for example
+# The bind_param command found in code like for example
 #    stm.bind_param 1, content;
 # is here to apply different parameters to the SQL request that has been prepared.
 class ConnectDB
@@ -116,6 +116,7 @@ class ConnectDB
   #   @db.execute "SELECT * FROM Player WHERE name_player = '#{login}' AND password_player='#{Digest::SHA1.hexdigest(mdp)}'" do |row|
   #      player = Player.new(row[0],row[1],row[2])
   #   end
+  # -----
   def playerUpdate(login, mdp)
     player = nil
       @db.execute "UPDATE Player SET password_player='#{Digest::SHA1.hexdigest(mdp)}' WHERE name_player='#{login}'" do |row|
@@ -157,11 +158,11 @@ class ConnectDB
   # password provided. The game must be connected to the database.
   #
   # ===== Attributes
-  # * +name+ - The name of the player we're looking for
-  # * +password+ - The password of the player we're looking for
+  # * +name+ - The name of the player we're looking for.
+  # * +password+ - The password of the player we're looking for.
   #
   # ===== Returns
-  # The player we're looking for or nil if no one can be found in the database
+  # The player we're looking for or nil if no one can be found in the database.
   #
   # ===== How to Use
   #    db = ConnectDB.new()
@@ -193,8 +194,8 @@ class ConnectDB
    # provided. The game must be connected to the database.
 	#
 	# ===== Attributes
-	# * +name+ - The name of the player we want to add
-	# * +password+ - The password of the player we want to add
+	# * +name+ - The name of the player we want to add.
+	# * +password+ - The password of the player we want to add.
 	#
    # ===== Returns
    # This method returns the informations about the Player that has been added
@@ -237,7 +238,7 @@ class ConnectDB
   # The game must be connected to the database.
   #
   # ===== Attributes
-  # * +name+ - The name of the Player we want to check
+  # * +name+ - The name of the Player we want to check.
   #
   # ===== Returns
   # This method returns the player if it exists or nil if the request failed or
@@ -346,7 +347,7 @@ class ConnectDB
    # The game must be connected to the database.
    #
    # ===== Attributes
-   # * +id+ - The ID of the player we want to delete the high score from
+   # * +id+ - The ID of the player we want to delete the high score from.
    #
    # ===== How to Use
    #   db = ConnectDB.new()
@@ -454,10 +455,10 @@ class ConnectDB
    # connected to the database.
 	#
 	# ===== Attributes
-	# * +id+ - The ID of the Save
+	# * +id+ - The ID of the Save.
    #
    # ===== Returns
-   # The save that matches the ID provided
+   # The save that matches the provided ID.
    #
 	# ===== How to Use
 	#
@@ -490,8 +491,8 @@ class ConnectDB
    # must be connected to the database.
 	#
 	# ===== Attributes
-	# * +gamemode+ - The gamemode
-	# * +diff+ - The difficulty
+	# * +gamemode+ - The gamemode.
+	# * +diff+ - The difficulty.
    #
    # ===== Returns
    # The highscores that match the game mode and the difficulty in an Array with
@@ -627,10 +628,10 @@ class ConnectDB
   # this method. In order to work, the game must be connected to the database.
   #
   # ===== Attributes
-  # * +gameMode+ : The game mode in which the player made a new score.
-  # * +difficulty+ : The difficulty in whitch the player made a new score.
-  # * +player+ : The player that did his first score in this difficulty and game mode.
-  # * +score+ : The score the player did for the first time.
+  # * +gameMode+ - The game mode in which the player made a new score.
+  # * +difficulty+ - The difficulty in whitch the player made a new score.
+  # * +player+ - The player that did his first score in this difficulty and game mode.
+  # * +score+ - The score the player did for the first time.
   #
   # ===== Examples
   # Three variables are created : high score, difficulty and game mode :
@@ -673,17 +674,17 @@ class ConnectDB
   ##
   # ===== Presentation
   # When the player has already done a high score in the given game mode and
-  # difficulty this method will update the previous one for him. This method does
+  # difficulty, this method will update the previous one for him. This method does
   # not know if the player already made a high score in this game mode and
   # difficulty, so the test to know if it already exists in the database has to
   # be done outside of this method. In order to work, the game must be connected
   # to the database.
   #
   # ===== Attributes
-  # * +gameMode+ : The game mode in which the player improved his previous score.
-  # * +difficulty+ : The difficulty in whitch the player improved his previous score.
-  # * +player+ : The player that did his new high score in this difficulty and game mode.
-  # * +score+ : The score the player did.
+  # * +gameMode+ - The game mode in which the player improved his previous score.
+  # * +difficulty+ - The difficulty in whitch the player improved his previous score.
+  # * +player+ - The player that did his new high score in this difficulty and game mode.
+  # * +score+ - The score the player did.
   #
   # ===== Examples
   # Three variables are created : high score, difficulty and game mode :

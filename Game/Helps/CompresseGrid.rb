@@ -5,27 +5,27 @@
 # @Last modified by:   Sckylle
 # @Last modified time: 15-Mar-2019
 
-# Decompresse the grid into 4 arrays whitch contain tent, tree, grass and white
+# Decompresses the grid into 4 arrays whitch contain tent, tree, grass and white
 
 ##
-# ==== Presentation
-# The Count class give an extended methode for Game class
+# ===== Presentation
+# The CompresseGrid class gives an extended method for the Game class.
 #
-# ==== Methods
-# This class know the compresse methode describe below
+# ===== Methods
+# This class only knows the compresse method described below.
 class CompresseGrid
 
-  # ==== Presentation
-  # This class methode count the number of cell who are in a certain state
+  # ===== Presentation
+  # This class method counts the number of cells who are in a certain state
   # inside a row or column.
   #
   # ===== Attributes
-  # * +game+ - The Game we are going to extractact the grid from.
+  # * +game+ - The Game we are going to extract the grid from.
   #
   # ===== Returns
-  # This method returns an array that contain four smaller array corresponding
-  #   to a specific regroupement of cell ether full of white, tree, tent, or
-  #   grass cell form the grid of Game
+  # This method returns an array that contains four smaller arrays corresponding
+  # to a specific regroupement of cells either full of white, tree, tent, or
+  # grass cells from the grid of Game.
   def CompresseGrid.compresse(game)
 
     tree = Array.new

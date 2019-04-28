@@ -18,19 +18,19 @@ require File.dirname(__FILE__) + "/../GameDivised"
 
 ##
 # ===== Presentation
-# The Helper class is a helper class inherited from FictivHelper
-# it's role is to help you to find where you can fill a row or column whith tents.
+# The Helper class is a helper class inherited from FictivHelper.
+# Its role is to help you finding where you can fill a row or column with tents.
 #
 # ===== Variables
-# * +MAXLEVELHELP+ : class variable, the maximum level of helps returned
-# * +MINLEVELHELP+ : class variable, the minimal level of helps returned
-# * +helps+ : instence variable, all the helpers known by this helper
-# * +helpLevel+ : instence variable, used to know the actual help level
-# * +lastHelp+ : instence variable, represent the last help we send (for the price of this, and the help level management)
+# * +MAXLEVELHELP+ - Class variable, the maximum level of helps returned.
+# * +MINLEVELHELP+ - Class variable, the minimal level of helps returned.
+# * +helps+ - Instance variable, all the helpers known to this helper.
+# * +helpLevel+ - Instance variable, used to know the actual help level.
+# * +lastHelp+ - Instance variable, represents the last help we send (for the price of this, and the help level management).
 #
 # ===== Methods
-# * +help+ - inherited from FictivHelper, but definded there.
-# * +price+ - give the price of the last help.
+# * +help+ - Inherited from FictivHelper, but defined there.
+# * +price+ - Gives the price of the last help.
 class Helper < FictivHelper
   # :nodoc:
   #needed to be initialized at the start
@@ -50,20 +50,20 @@ class Helper < FictivHelper
   @lastHelp
 
   public_class_method :new
-  
+
   # :startdoc:
 
   ##
   # ===== Presentation
-  # This method initialize the helper with all the helpers he needs to know, and the helps' levels.
+  # This method initializes the helper with all the helpers he needs to know, and the helps' levels.
   #
   # ===== Attributes
-  # helplvl: help level at the start of the helps.
-  # lvlmin : minimal help level of the helper.
-  # lvlmax : maximal help level of the helper.
+  # helplvl - Help level at the start of the helps.
+  # lvlmin - Minimal help level of the helper.
+  # lvlmax - Maximal help level of the helper.
   #
   # ===== How to use
-  # To get a help:
+  # To get a help :
   #    Helper.new(helplvl, lvlmin, lvlmax)
   # -----------
   def initialize(lvlmin = 1, lvlmax = 3)
@@ -93,12 +93,12 @@ class Helper < FictivHelper
   # This method sets the min and max levels of the helps gave by the helper.
   #
   # ===== Attributes
-  # helpLevelMin : minimal help level of the helper
-  # helpLevelMax : maximal help level of the helper
+  # helpLevelMin - Minimal help level of the helper
+  # helpLevelMax - Maximal help level of the helper
   #
   # ===== How to use
-  # To get a help:
-  #    helper_instace.helpLevelSetMinMax(helpLevelMin, helpLevelMax)
+  # To get a help :
+  #    n.helpLevelSetMinMax(helpLevelMin, helpLevelMax)
   # -----------
   def helpLevelSetMinMax(helpLevelMin, helpLevelMax)
   # :nodoc:
@@ -138,11 +138,11 @@ class Helper < FictivHelper
   # This method changes the level of the help text.
   #
   # ===== Attributes
-  # aHelp : last help called
+  # * +aHelp+ : The last called help.
   #
   # ===== How to use
-  # To get a help:
-  #    helper_instace.helpLevelManagement(aHelp)
+  # To get a help :
+  #    helper_instance.helpLevelManagement(aHelp)
   # -----------
   def helpLevelManagement(aHelp)
   # :nodoc:
@@ -160,20 +160,17 @@ class Helper < FictivHelper
 
   ##
   # ===== Presentation
-  # This method returns the cost of last help.
+  # This method returns the cost of the last help.
   #
   # ===== Returns
-  # The cost in second of the las help called
+  # The cost in second of the last called help.
   #
   # ===== How to use
-  # To get a help:
-  #    helper_instace.price()
-  # -----------
+  # To get a help :
+  #    helper_instance.price()
   def price()
-  # :nodoc:
     return @lastHelp.price(@helpLevel)
   end
-  # :startdoc:
 
   ##
   # ===== Presentation
@@ -186,11 +183,10 @@ class Helper < FictivHelper
   # The interpretable result of a help.
   #
   # ===== How to use
-  # To get a help:
+  # To get a help :
   #    helper_instace.help(theGameYouWantHelpFor)
   # -----------
   def help(game)
-  # :nodoc:
     #called to help the player
 
     game = GameDivised.new(game)
@@ -213,5 +209,4 @@ class Helper < FictivHelper
       helpLevelManagement(help)
       return help.getRes(@helpLevel)
   end
-  # :startdoc:
 end

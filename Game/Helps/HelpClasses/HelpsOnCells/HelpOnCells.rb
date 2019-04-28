@@ -22,6 +22,7 @@ class HelpOnCells < Help
   # :startdoc:
 
   ##
+  # ===== Presentation
   # This class' constructor assigns a value to the @cell variable and calls
   # constructor from the Help class.
   def initialize(cell)
@@ -30,7 +31,9 @@ class HelpOnCells < Help
   end
 
   ##
+  # ===== Presentation
   # This method adds to the help list the value of the cell.
+  #
   # ===== Parameters
   # * +helpLevel+ : The help's importance needed. Here, the cell is pushed only in case of lvl 3 help
   #
@@ -46,7 +49,9 @@ class HelpOnCells < Help
   end
 
   ##
+  # ===== Presentation
   # This method compares this help with another one.
+  #
   # ===== Parameters
   # * +otherHelp+ : The help we want to compare the current object to.
   #

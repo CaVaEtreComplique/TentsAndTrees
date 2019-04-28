@@ -52,6 +52,15 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Star-label-Presentation">Presentation</a>
+    <li><a href="#class-Star-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -90,7 +99,11 @@
     
 <h5 id="class-Star-label-Presentation">Presentation<span><a href="#class-Star-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p><a href="Star.html"><code>Star</code></a> only needs to be initialized and refresh. It creates and implements all the star&#39;s icon of the game.</p>
+<p>The <a href="Star.html"><code>Star</code></a> class creates and implements all the stars&#39; icons of the game.</p>
+
+<h5 id="class-Star-label-Methods">Methods<span><a href="#class-Star-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><a href="Star.html"><code>Star</code></a> only needs to be initialized and refreshed.</p>
 
   </section>
 
@@ -102,27 +115,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-stars" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">stars</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -145,20 +137,22 @@
 
         <div class="method-description">
           
-          <pre>===== Presentation
-This method is used to create all the star&#39;s icons.
-Icons are loaded thanks to iconAsset
-All the other variables are used for the layout.
-===== Attributes
-*+nbEtoile+: contain the maximun number of star that you can have</pre>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>*<code>nbEtoileObtenu</code>: contain the number of star that you have for a level</p>
+<p>This method is used to create all the stars&#39; icons. Icons are loaded thanks to iconAsset. All the other variables are used for the layout.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>nbEtoile</code> - Contains the maximun number of stars that you can have.</p>
+</li><li>
+<p><code>nbEtoileObtenu</code> - Contains the number of stars that you have for a level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 33</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">nbEtoile</span>,<span class="ruby-identifier">nbEtoileObtenu</span>,<span class="ruby-identifier">ic</span>)
               <span class="ruby-ivar">@ic</span>=<span class="ruby-identifier">ic</span>
               <span class="ruby-ivar">@stars</span>=<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>,<span class="ruby-value">25</span>)
@@ -195,18 +189,22 @@ All the other variables are used for the layout.
 
         <div class="method-description">
           
-          <pre>===== Presentation
-This method is used to refresh all the star&#39;s icons.
-===== Attributes
-*+nbEtoile+: contain the maximun number of star that you can have</pre>
+          <h5 id="method-i-refresh-label-Presentation">Presentation<span><a href="#method-i-refresh-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>*<code>nbEtoileObtenu</code>: contain the number of star that you have for a level</p>
+<p>This method is used to refresh all the star&#39;s icons.</p>
+
+<h5 id="method-i-refresh-label-Attributes">Attributes<span><a href="#method-i-refresh-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>nbEtoile</code> - Contains the maximun number of stars that you can have.</p>
+</li><li>
+<p><code>nbEtoileObtenu</code> - Contains the number of stars that you have for a level.</p>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="refresh-source">
-            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Ui/AssetsClass/Star.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">refresh</span>(<span class="ruby-identifier">nbEtoile</span>,<span class="ruby-identifier">nbEtoileObtenu</span>)
         <span class="ruby-ivar">@stars</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
                 <span class="ruby-ivar">@stars</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">child</span>)

@@ -21,8 +21,8 @@ class Difficulty
   # The class' constructor. It only gives the variables the value taken in parameters.
   #
   # ===== Attributes
-  # * +id+ - The id of the Difficulty
-  # * +name+ - The name of the Difficulty
+  # * +id+ - The id of the Difficulty.
+  # * +name+ - The name of the Difficulty.
   #
   # ===== How to Use
   # To create a new difficulty :

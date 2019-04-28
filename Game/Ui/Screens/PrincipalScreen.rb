@@ -53,8 +53,6 @@ require File.dirname(__FILE__) + "/../Buttons/Text"
 #
 # *Finally*, when all of the buttons are done we add a background picture with :
 #   @gtkObject.attach(Gtk::Image.new(pixbuf: @buffer),0,3,0,3)
-#
-
 class PrincipalScreen < Screen
   def initialize(manager) # :nodoc:
     super(manager.win)

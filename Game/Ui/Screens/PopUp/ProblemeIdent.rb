@@ -17,18 +17,20 @@ require_all("Ui")
 
 ##
 # ===== Presentation
-#ProblemeIdent only needs to be initialized.
-#It creates and implements a pop up to tell you the probleme about the identification.
-##
+# ProblemeIdent only needs to be initialized.
+# It creates and implements a pop up to tell you the problem about the identification.
 class ProblemeIdent
+
+	##
+	# ===== Presentation
+	# The onDestroy method makes the main window quit when it is closed.
   def onDestroy
      Gtk.main_quit
   end
-	#
-	#=====Presentation
-	#This method is used to create the pop up to tell you the probleme about the identification.
-	#All the other variable are used for the layout.
-	#
+
+	# ===== Presentation
+	# This method is used to create the pop-up to tell you the problem about the identification.
+	# All the other variables are used for the layout.
   def initialize()
     screen=Gdk::Screen.default
 		#Variable pour resize le texte

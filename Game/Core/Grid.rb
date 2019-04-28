@@ -13,7 +13,7 @@ require File.dirname(__FILE__) + "/Cell"
 # The Grid class is the core of all the grids in the game.
 #
 # ====Variables
-# Each Grid will know two variables : @rows and @cols : two array lists,
+# Each Grid will know two variables : +rows+ and +cols+ : two array lists,
 # respectively the grid's rows and the grid's columns, one being the transposed
 # of the other.
 #
@@ -27,18 +27,24 @@ class Grid
 	attr_reader :rows, :cols
 	#:startdoc:
 
-	# ====Parameters
-	# * +nRow+ - The number of rows
-	# * +nCol+ - The number of columns
-	# * +gridAnswers+ - The grid we take the data from
+	##
+	# ===== Presentation
+	# This method is the class' constructor. It initializes the grid.
+	#
+	# ===== Attributes
+	# * +nRow+ - The number of rows.
+	# * +nCol+ - The number of columns.
+	# * +gridAnswers+ - The grid we take the data from.
 	# * +withAnswers+ - A boolean set by default to false.
 	# If the gridAnswers contains the actual answers, the boolean is set to true.
 	# The gridAnswers is taken from a text file.
 	#
-	# ====Variables initialization
-	# In this method, the @rows list takes its values from the grid in parameters
-	# by reading the text file. When the @rows variable is initialized, the @cols
-	# variable can be initialized by just transposing the @rows variable.
+	# ===== Examples
+	# In this method, the +rows+ list takes its values from the grid in parameters
+	# by reading the text file.
+	# When the +rows+ variable is initialized, the +cols+
+	# variable can be initialized by just transposing the +rows+ variable via
+	#    @cols = @rows.transpose
 	def initialize(nRow, nCol, gridAnswers, withAnswers=false)
 		ProcessStatus.send("Initialisation de la grille de jeu")
 		@gridAnswers=gridAnswers
@@ -59,11 +65,12 @@ class Grid
 	end
 
 	##
-	# The copyFrozen method creates a new grid that will have all the non-white
+	# ===== Presentation
+	# The copyFrozen method creates a new grid that will have all the non-empty
 	# cells frozen in order to save the unfrozen grid if the hypothesis is
 	# rejected.
 	#
-	# ====Returns
+	# ===== Returns
 	# * +newG+ - The grid that has been generated.
 	#
 	# -----
@@ -77,13 +84,19 @@ class Grid
 		return newG
 	end
 
+	##
+	# ===== Presentation
 	# The each method goes through the grid's rows.
 	def each
 		yield @rows.each
 	end
 
+	##
+	# ===== Presentation
 	# The cellAt method returns the cell with the coordinates taken in
 	# parameters.
+	#
+	# ===== Attributes
 	# * +row+ - The row in which the cell we are looking for is.
 	# * +col+ - The column in which the cell we are looking for is.
 	#
@@ -92,10 +105,12 @@ class Grid
 		return @rows[row][col]
 	end
 
+	##
+	# ===== Presentation
 	# The == boolean method compares two grids and returns true if the grids are
 	# equal.
 	#
-	# ====Parameters
+	# ===== Parameters
 	# * +otherGrid+ - The grid we want to compare the current grid with.
 	#
 	# -----

@@ -52,6 +52,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-TimeAttackSession-label-Presentation">Presentation</a>
+    <li><a href="#class-TimeAttackSession-label-Variables">Variables</a>
+    <li><a href="#class-TimeAttackSession-label-Methods">Methods</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -77,8 +87,6 @@
     
     <li ><a href="#method-i-continuable-3F">#continuable?</a>
     
-    <li ><a href="#method-i-isTutorial-3F">#isTutorial?</a>
-    
     <li ><a href="#method-i-setTime">#setTime</a>
     
   </ul>
@@ -94,6 +102,29 @@
 
   <section class="description">
     
+<h5 id="class-TimeAttackSession-label-Presentation">Presentation<span><a href="#class-TimeAttackSession-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The <a href="TimeAttackSession.html"><code>TimeAttackSession</code></a> class is inherited from the class <a href="Session.html"><code>Session</code></a> and represents a time attack game.</p>
+
+<h5 id="class-TimeAttackSession-label-Variables">Variables<span><a href="#class-TimeAttackSession-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - This variable represents a <a href="Game.html"><code>Game</code></a> class.</p>
+</li><li>
+<p><code>gridPick</code> - This variable represents the <a href="GridGenerator.html"><code>GridGenerator</code></a> class.</p>
+</li><li>
+<p><code>time</code> - A Timer Class from Gtk3.</p>
+</li><li>
+<p><code>score</code> - An integer that represents the score.</p>
+</li><li>
+<p><code>gameMode</code> - The Session&#39;s game mode.</p>
+</li><li>
+<p><code>difficulty</code> - The difficulty involved.</p>
+</li></ul>
+
+<h4 id="class-TimeAttackSession-label-Methods">Methods<span><a href="#class-TimeAttackSession-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>This class knows an initialization method and the methods described below.</p>
+
   </section>
 
   
@@ -104,92 +135,6 @@
 
     
 
-    
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-difficulty" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">difficulty</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-game" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">game</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gameMode" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gameMode</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-gridPick" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">gridPick</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-score" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">score</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-time" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">time</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
     
 
     
@@ -212,7 +157,21 @@
 
         <div class="method-description">
           
-          <p>attr_writer :score</p>
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This class&#39; constructor initializes the variable using the parental constructor of <a href="Session.html"><code>Session</code></a> and so creates a <a href="TimeAttackSession.html"><code>TimeAttackSession</code></a>.</p>
+
+<h5 id="method-c-new-label-Attributes">Attributes<span><a href="#method-c-new-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>difficulty</code> : The difficulty of the game.</p>
+</li><li>
+<p><code>partOfAdventure</code> : Boolean representing if this session is part of the adventure.</p>
+</li></ul>
+
+<h5 id="method-c-new-label-How+to+Use">How to Use<span><a href="#method-c-new-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">session</span> = <span class="ruby-constant">TimeAttackSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:hard</span>, <span class="ruby-keyword">false</span>)
+</pre>
           
           
             <div class="method-calls-super">
@@ -223,7 +182,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 15</span>
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>=<span class="ruby-keyword">false</span>)
         <span class="ruby-keyword">super</span>(<span class="ruby-value">:timeAttack</span>, <span class="ruby-identifier">difficulty</span>, <span class="ruby-identifier">partOfAdventure</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -258,13 +217,16 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-calculateScore-label-Presentation">Presentation<span><a href="#method-i-calculateScore-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method calculates the score of the session by using @game.</p>
+<hr>
           
           
 
           
           <div class="method-source-code" id="calculateScore-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculateScore</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@game</span>
                 <span class="ruby-ivar">@score</span><span class="ruby-operator">+=</span><span class="ruby-identifier">game</span>.<span class="ruby-identifier">time</span>
@@ -293,48 +255,23 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-continuable-3F-label-Presentation">Presentation<span><a href="#method-i-continuable-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method redefines the continuable? method from the <a href="Session.html"><code>Session</code></a> class in order to tell if this session can be continued and thus be saved.</p>
+
+<h5 id="method-i-continuable-3F-label-How+to+Use">How to Use<span><a href="#method-i-continuable-3F-label-How+to+Use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<pre class="ruby"><span class="ruby-identifier">session</span>.<span class="ruby-identifier">continuable?</span>()  <span class="ruby-comment">#return true</span>
+</pre>
+<hr>
           
           
 
           
           <div class="method-source-code" id="continuable-3F-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continuable?</span>
         <span class="ruby-keyword">true</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-isTutorial-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">isTutorial?</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="isTutorial-3F-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 29</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">isTutorial?</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -359,13 +296,15 @@
 
         <div class="method-description">
           
-          
+          <h5 id="method-i-setTime-label-Presentation">Presentation<span><a href="#method-i-setTime-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method sets the time of the timer by using the time affected to each grid.</p>
           
           
 
           
           <div class="method-source-code" id="setTime-source">
-            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 33</span>
+            <pre><span class="ruby-comment"># File Core/TimeAttackSession.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setTime</span>
         <span class="ruby-ivar">@time</span>=<span class="ruby-ivar">@gridPick</span>.<span class="ruby-identifier">associatedTimer</span>
 <span class="ruby-keyword">end</span></pre>

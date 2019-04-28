@@ -71,8 +71,6 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
-    
     <li class="calls-super" ><a href="#method-c-new">::new</a>
     
     <li ><a href="#method-i-getText">#getText</a>
@@ -92,6 +90,8 @@
 
   <section class="description">
     
+<h5 id="class-HelpNotFound-label-Presentation">Presentation<span><a href="#class-HelpNotFound-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
 <p>The <a href="HelpNotFound.html"><code>HelpNotFound</code></a> class is inherited from the <a href="Help.html"><code>Help</code></a> class. This class is instanciated when no help can be found.</p>
 
   </section>
@@ -126,48 +126,9 @@
 
         <div class="method-description">
           
-          <p>The class&#39; constructor. This method takes no parameters and initializes two variables :</p>
-<ul><li>
-<p><code>price</code> : An integer giving the cost of each help. Here, it is initialized at 5.</p>
-</li><li>
-<p><code>helpText</code> : The text that will be shown every time the player needs help.</p>
-</li></ul>
-          
-          
+          <h5 id="method-c-new-label-Presentation">Presentation<span><a href="#method-c-new-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/Help.rb, line 30</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
-  <span class="ruby-ivar">@price</span> = <span class="ruby-value">5</span>
-  <span class="ruby-ivar">@textManager</span> = <span class="ruby-constant">XmlReader</span>.<span class="ruby-identifier">instance</span>
-  <span class="ruby-comment">#Initializes the help text as what it needs to be.</span>
-  <span class="ruby-ivar">@helpText</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getText</span>(<span class="ruby-ivar">@helpLevel</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
+<p>The class&#39; constructor calls the constructor from the parent class.</p>
           
           
             <div class="method-calls-super">
@@ -178,7 +139,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
   <span class="ruby-keyword">super</span>()
 <span class="ruby-keyword">end</span></pre>
@@ -213,7 +174,9 @@
 
         <div class="method-description">
           
-          <p>This method is a redefinition of the getText method in the <a href="Help.html"><code>Help</code></a> class.</p>
+          <h5 id="method-i-getText-label-Presentation">Presentation<span><a href="#method-i-getText-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is a redefinition of the getText method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-getText-label-Returns">Returns<span><a href="#method-i-getText-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -223,7 +186,7 @@
 
           
           <div class="method-source-code" id="getText-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getText</span>(<span class="ruby-identifier">helpLevel</span>) <span class="ruby-comment">#notfound</span>
 
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@textManager</span>.<span class="ruby-identifier">getHelpsTexts</span>(<span class="ruby-string">&quot;notfound&quot;</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
@@ -251,7 +214,9 @@
 
         <div class="method-description">
           
-          <p>This method is a redefinition of the helpFound? method in the <a href="Help.html"><code>Help</code></a> class.</p>
+          <h5 id="method-i-helpFound-3F-label-Presentation">Presentation<span><a href="#method-i-helpFound-3F-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method is a redefinition of the helpFound? method in the <a href="Help.html"><code>Help</code></a> class.</p>
 
 <h5 id="method-i-helpFound-3F-label-Returns">Returns<span><a href="#method-i-helpFound-3F-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
@@ -261,7 +226,7 @@
 
           
           <div class="method-source-code" id="helpFound-3F-source">
-            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Helps/HelpClasses/HelpNotFound/HelpNotFound.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helpFound?</span>()
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>

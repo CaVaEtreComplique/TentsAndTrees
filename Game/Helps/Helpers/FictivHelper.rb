@@ -7,27 +7,30 @@
 
 ##
 # ===== Presentation
-# The FictivHelper class is a fictiv helper class,
-# it's role is to say that all helper classes need to have help method
+# The FictivHelper class is a fictive helper class.
+# Its role is to say that all the helper classes need to have a help method.
 #
 # ===== Methods
-# * +help+ - don't use this class' one.
+# * +help+ - Don't use this class' one.
 class FictivHelper
+
+   # :nodoc:
   private_class_method :new
+  # :startdoc:
+
   ##
   # ===== Presentation
-  # This method help the player but need to be definded in the helper class.
+  # This method helps the player but needs to be defined in the helper class.
   #
   # ===== Attributes
-  # * +game+ - The game you want a help for.
+  # * +game+ - The game you need help for.
   #
   # ===== Returns
-  # By default, return HelpNotFound instance
+  # By default, returns a HelpNotFound instance.
   #
   # ===== How to use
-  # To get a help:
+  # To get help :
   #     aHelper_instace.help(theGameYouWantHelpFor)
-  # -----------
   def help(game)
     return HelpNotFound.new()
   end

@@ -75,7 +75,19 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-help">#help</a>
+    
+    <li ><a href="#method-i-price">#price</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -88,26 +100,26 @@
     
 <h5 id="class-Helper-label-Presentation">Presentation<span><a href="#class-Helper-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
 
-<p>The <a href="Helper.html"><code>Helper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a> it&#39;s role is to help you to find where you can fill a row or column whith tents.</p>
+<p>The <a href="Helper.html"><code>Helper</code></a> class is a helper class inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>. Its role is to help you finding where you can fill a row or column with tents.</p>
 
 <h5 id="class-Helper-label-Variables">Variables<span><a href="#class-Helper-label-Variables">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>MAXLEVELHELP</code> : class variable, the maximum level of helps returned</p>
+<p><code>MAXLEVELHELP</code> - Class variable, the maximum level of helps returned.</p>
 </li><li>
-<p><code>MINLEVELHELP</code> : class variable, the minimal level of helps returned</p>
+<p><code>MINLEVELHELP</code> - Class variable, the minimal level of helps returned.</p>
 </li><li>
-<p><code>helps</code> : instence variable, all the helpers known by this helper</p>
+<p><code>helps</code> - Instance variable, all the helpers known to this helper.</p>
 </li><li>
-<p><code>helpLevel</code> : instence variable, used to know the actual help level</p>
+<p><code>helpLevel</code> - Instance variable, used to know the actual help level.</p>
 </li><li>
-<p><code>lastHelp</code> : instence variable, represent the last help we send (for the price of this, and the help level management)</p>
+<p><code>lastHelp</code> - Instance variable, represents the last help we send (for the price of this, and the help level management).</p>
 </li></ul>
 
 <h5 id="class-Helper-label-Methods">Methods<span><a href="#class-Helper-label-Methods">&para;</a> <a href="#top">&uarr;</a></span></h5>
 <ul><li>
-<p><code>help</code> - inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but definded there.</p>
+<p><code>help</code> - Inherited from <a href="FictivHelper.html"><code>FictivHelper</code></a>, but defined there.</p>
 </li><li>
-<p><code>price</code> - give the price of the last help.</p>
+<p><code>price</code> - Gives the price of the last help.</p>
 </li></ul>
 
   </section>
@@ -123,6 +135,132 @@
     
 
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-help" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help</span><span
+            class="method-args">(game)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-help-label-Presentation">Presentation<span><a href="#method-i-help-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the help found to help the player.</p>
+
+<h5 id="method-i-help-label-Attributes">Attributes<span><a href="#method-i-help-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>game</code> - The game you want a help for.</p>
+</li></ul>
+
+<h5 id="method-i-help-label-Returns">Returns<span><a href="#method-i-help-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The interpretable result of a help.</p>
+
+<h5 id="method-i-help-label-How+to+use">How to use<span><a href="#method-i-help-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To get a help :</p>
+
+<pre class="ruby"><span class="ruby-identifier">helper_instace</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">theGameYouWantHelpFor</span>)
+</pre>
+<hr>
+          
+          
+
+          
+          <div class="method-source-code" id="help-source">
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">help</span>(<span class="ruby-identifier">game</span>)
+  <span class="ruby-comment">#called to help the player</span>
+
+  <span class="ruby-identifier">game</span> = <span class="ruby-constant">GameDivised</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">game</span>)
+
+  <span class="ruby-ivar">@helps</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">aHelper</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span>(((<span class="ruby-identifier">helpRes</span> = <span class="ruby-identifier">aHelper</span>.<span class="ruby-identifier">help</span>(<span class="ruby-identifier">game</span>)).<span class="ruby-identifier">helpFound?</span>))
+      <span class="ruby-identifier">helpLevelManagement</span>(<span class="ruby-identifier">helpRes</span>)
+      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@mod</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">@@DEBUG_MOD</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nDebug : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getText</span>(<span class="ruby-ivar">@helpLevel</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpLevel</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
+      <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">helpRes</span>.<span class="ruby-identifier">getRes</span>(<span class="ruby-ivar">@helpLevel</span>)
+    <span class="ruby-keyword">end</span>
+  }
+
+  <span class="ruby-identifier">help</span> = <span class="ruby-constant">HelpNotFound</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@mod</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">@@DEBUG_MOD</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nDebug : &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">help</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@helpLevel</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">helpLevelManagement</span>(<span class="ruby-identifier">help</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">help</span>.<span class="ruby-identifier">getRes</span>(<span class="ruby-ivar">@helpLevel</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-price" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">price</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h5 id="method-i-price-label-Presentation">Presentation<span><a href="#method-i-price-label-Presentation">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>This method returns the cost of the last help.</p>
+
+<h5 id="method-i-price-label-Returns">Returns<span><a href="#method-i-price-label-Returns">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>The cost in second of the last called help.</p>
+
+<h5 id="method-i-price-label-How+to+use">How to use<span><a href="#method-i-price-label-How+to+use">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To get a help :</p>
+
+<pre class="ruby"><span class="ruby-identifier">helper_instance</span>.<span class="ruby-identifier">price</span>()
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="price-source">
+            <pre><span class="ruby-comment"># File Helps/Helpers/Helper.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">price</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lastHelp</span>.<span class="ruby-identifier">price</span>(<span class="ruby-ivar">@helpLevel</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

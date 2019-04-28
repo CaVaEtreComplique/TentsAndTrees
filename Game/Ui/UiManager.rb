@@ -5,7 +5,11 @@
 # @Last modified by:   Sckylle
 # @Last modified time: 24-Apr-2019
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class UiManager
+   # :nodoc:
     attr_reader :win,:loadScreen,:mainScreen,:levelNumberScreen,:modeScreen,:listeSaveScreen,:paramScreen,:diffchScreen, :gameScreen, :session, :highScoresScreen,:rulesScreen, :ic
 
   def initialize(window,player)

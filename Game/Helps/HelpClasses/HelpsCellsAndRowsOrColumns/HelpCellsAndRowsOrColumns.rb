@@ -10,6 +10,7 @@
 require File.dirname(__FILE__) + "/../Help"
 
 ##
+# ===== Presentation
 # The HelpCellsAndRowsOrColumns is an abstract class inherited from the Help
 # class and it will lead all the next specific help classes to help
 # the player when a move can be done on a cell and a row or on a cell and a
@@ -24,10 +25,13 @@ class HelpCellsAndRowsOrColumns < Help
    # :startdoc:
 
   ##
+  # ===== Presentation
   # This class' constructor needs 2 attributes and instanciates 3 variables.
+  #
   # ===== Attributes
   # * +cell+ - A cell we would need to get helped on.
   # * +rowOrColumn+ - A row or a column we would need to get helped on.
+  #
   # ===== Variables
   # * +cell+ - Takes the value of the cell in attributes.
   # * +row+ - This variable takes the value of the rowOrColumn in attributes.
@@ -44,9 +48,12 @@ class HelpCellsAndRowsOrColumns < Help
   end
 
   ##
+  # ===== Presentation
   # The cellsList method is a redefinition from cellsList method in the Help class.
+  #
   # ===== Attributes
   # * +helpLevel+ : The help's importance, in order to tell the price.
+  #
   # ===== Returns
   # This method returns an array with all the important cells needed for the help.
   # Here specifically, it returns the level 3 helps, as you can see here :
@@ -62,9 +69,12 @@ class HelpCellsAndRowsOrColumns < Help
   end
 
   ##
+  # ===== Presentation
   # This method is a redefinition of this method in the Help class.
+  #
   # ===== Attributes
   # * +otherHelp+ : The object we want to compare values with.
+  #
   # ===== Returns
   # This method returns a boolean that is set to true if the '==' method in the
   # Help class returns true AND the column, the cell and the row of the other help

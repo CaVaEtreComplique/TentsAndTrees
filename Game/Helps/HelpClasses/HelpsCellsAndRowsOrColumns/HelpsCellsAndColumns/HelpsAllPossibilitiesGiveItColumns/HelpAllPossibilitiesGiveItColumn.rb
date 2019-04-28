@@ -9,6 +9,7 @@
 require File.dirname(__FILE__) + "/../HelpCellsAndColumns"
 
 ##
+# ===== Presentation
 # The HelpAllPossibilitiesGiveItColumn class is inherited from the
 # HelpCellsAndColumns class and helps when all the possibilities of the column
 # can determine a cell's state. This class knows its initialization method and
@@ -19,9 +20,11 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   #:startdoc:
 
   ##
+  # ===== Presentation
   # The initialize method gives to the state variable a value from the method's
   # parameters and initializes the cell and the column in parameters with the
   # method from HelpCellsAndColumns.
+  #
   # ===== Attributes
   # * +cell+ : The cell the player needs help with.
   # * +column+ : The column the player needs help with.
@@ -32,9 +35,12 @@ class HelpAllPossibilitiesGiveItColumn < HelpCellsAndColumns
   end
 
   ##
+  # ===== Presentation
   # The getText method sends the help text the player will see.
+  #
   # ===== Attributes
   # * +helpLevel+ : Depending on this attribute, the help will be more or less precise.
+  #
   # ===== Examples
   # If the help's level is 1, this method will tell the player that the given
   # row leaves only one state possible for one of the cells (without giving the

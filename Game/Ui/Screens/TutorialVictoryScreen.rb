@@ -8,7 +8,11 @@
 require 'gtk3'
 require File.dirname(__FILE__) + "/Screen"
 
+##
+# ===== 404
+# This class was not commented in the first place, so it can not be documented.
 class TutorialVictoryScreen < Screen
+   # :nodoc:
 
   def initialize(manager,session)
     @manager=manager
